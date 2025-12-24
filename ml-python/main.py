@@ -120,7 +120,7 @@ if __name__ == "__main__":
 #    pip install fastapi uvicorn joblib scikit-learn imbalanced-learn numpy
 #
 # 2. ARRANCAR LA API:
-#    Desde la terminal, ubicado en la carpeta 'datascience', ejecuta:
+#    Desde la terminal, ubicado en la carpeta 'ml-python', ejecuta:
 #    uvicorn main:app --reload --port 8080
 #
 # 3. CÓMO VER LA INFORMACIÓN:
