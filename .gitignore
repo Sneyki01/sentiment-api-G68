@@ -2,11 +2,12 @@
 
 # 1.1 Modelos y Transformadores (archivos binarios grandes)
 # Ignora todos los archivos serializados (.pkl) generados por joblib o pickle
-*.pkl
+# *.pkl
 
 # 1.2 Datos Generados (Archivos que se pueden regenerar con el código)
 # Ignora el dataset limpio que se guarda después del curado
 /data/processed/
+/data/processing/
 
 # 1.3 Objetos de Procesamiento/Modelos (Las carpetas donde guardamos los .pkl)
 # Ignora los archivos dentro de la carpeta donde guardaste el vectorizador y la matriz
