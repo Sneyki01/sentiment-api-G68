@@ -1,0 +1,19 @@
+-r requirements.txt
+pandas==2.3.3
+scipy==1.16.3
+numpy==2.3.5
+sympy==1.14.0
+matplotlib==3.10.8
+seaborn==0.13.2
+nltk==3.9.2
+transformers==4.57.3
+tokenizers==0.22.1
+regex==2025.11.3
+jupyter==1.1.1
+notebook==7.5.1
+ipykernel==7.1.0
+ipywidgets==8.1.8
+tqdm==4.67.1
+openpyxl
+requests==2.32.5
+beautifulsoup4==4.14.3

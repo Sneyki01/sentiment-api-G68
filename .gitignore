@@ -1,3 +1,45 @@
+#****Data****
+# 1. ARTEFACTOS DE PROCESAMIENTO Y MODELADO
+
+# 1.1 Modelos y Transformadores (archivos binarios grandes)
+# Ignora todos los archivos serializados (.pkl) generados por joblib o pickle
+*.pkl
+
+# 1.2 Datos Generados (Archivos que se pueden regenerar con el código)
+# Ignora el dataset limpio que se guarda después del curado
+/data/processed/
+
+# 1.3 Objetos de Procesamiento/Modelos (Las carpetas donde guardamos los .pkl)
+# Ignora los archivos dentro de la carpeta donde guardaste el vectorizador y la matriz
+#/models/
+#/models/processing/
+#/models/champion/
+
+# 2. CACHÉS DE PYTHON/ENTORNO
+
+# Carpetas de caché de Python (Archivos generados por el intérprete)
+__pycache__/
+
+# Entornos Virtuales
+venv/
+env/
+.env
+sentiment-venv/
+
+# 3. JUPYTER / VS CODE
+
+# Checkpoints de Jupyter Notebook (carpetas de historial)
+.ipynb_checkpoints/
+
+# Archivos de caché de VS Code (a menudo se crean archivos .vscode)
+.vscode/
+
+# Ignorar archivos temporales o de swap
+*.tmp
+*~
+
+#*****Backend****
+
 # IntelliJ
 .idea/
 *.iml
