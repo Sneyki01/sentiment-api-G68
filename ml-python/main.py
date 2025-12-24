@@ -39,16 +39,29 @@ async def load_artifacts():
 # --- ESQUEMAS DE VALIDACIÓN (Pydantic) ---
 class TextIn(BaseModel):
     """Estructura de entrada esperada por el endpoint."""
-    text: str = Field(..., example="La ubicación es perfecta, pero el ruido era excesivo.")
+    # min_length=1 asegura que no sea un string vacío a nivel de esquema
+    text: str = Field(..., min_length=1, example="La ubicación es perfecta, pero el ruido era excesivo.")
 
     @field_validator('text')
     @classmethod
-    def prevent_empty_spaces(cls, v: str) -> str:
-        # .strip() elimina espacios al inicio y final. 
-        # Si después de eso no queda nada, lanzamos el error.
-        if not v.strip():
+    def validate_content(cls, v: str) -> str:
+        # 1. Verificación de tipo estricta (opcional, Pydantic suele manejarlo)
+        if not isinstance(v, str):
+            raise ValueError('El valor debe ser una cadena de texto (string).')
+
+        # 2. .strip() elimina espacios al inicio y final
+        cleaned_text = v.strip()
+        
+        # 3. Validar que no esté vacío después de limpiar
+        if not cleaned_text:
             raise ValueError('El texto no puede estar vacío o contener solo espacios.')
-        return v.strip()
+        
+        # 4. Validar que no sea solo un número
+        # Esto evita que envíen "12345" y el modelo intente predecirlo
+        if cleaned_text.isdigit():
+            raise ValueError('El texto no puede ser únicamente numérico; debe ser una reseña real.')
+
+        return cleaned_text
 
 class PredictionOut(BaseModel):
     """Contrato de salida JSON para el cliente/frontend."""
@@ -107,7 +120,7 @@ if __name__ == "__main__":
 #    pip install fastapi uvicorn joblib scikit-learn imbalanced-learn numpy
 #
 # 2. ARRANCAR LA API:
-#    Desde la terminal, ubicado en la carpeta 'datascience', ejecuta:
+#    Desde la terminal, ubicado en la carpeta 'ml-python', ejecuta:
 #    uvicorn main:app --reload --port 8080
 #
 # 3. CÓMO VER LA INFORMACIÓN:
