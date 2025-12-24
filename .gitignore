@@ -1,3 +1,4 @@
+#****Data****
 # 1. ARTEFACTOS DE PROCESAMIENTO Y MODELADO
 
 # 1.1 Modelos y Transformadores (archivos binarios grandes)
@@ -36,3 +37,18 @@ sentiment-venv/
 # Ignorar archivos temporales o de swap
 *.tmp
 *~
+
+#*****Backend****
+
+# IntelliJ
+.idea/
+*.iml
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
