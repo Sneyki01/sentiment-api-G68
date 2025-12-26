@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
 
     @Bean
+    //HTTP client
     public RestTemplate restTemplate(
             @Value("${ml.timeout-ms}") int timeoutMs) {
 
