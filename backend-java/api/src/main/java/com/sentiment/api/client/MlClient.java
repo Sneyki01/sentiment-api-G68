@@ -1,10 +1,12 @@
 package com.sentiment.api.client;
 
 import com.sentiment.api.dto.SentimentResponse;
+import com.sentiment.api.errors.GlobalExceptionHandler.MlServiceException;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
+
 
 import java.util.Map;
 

@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
 
     // TODO [Backend-Health]: Agregar manejo de excepción para ML no disponible (503)
 
-    static class MlServiceException extends RuntimeException {
+    public static class MlServiceException extends RuntimeException {
         public MlServiceException(String message){
             super(message);
         }

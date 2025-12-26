@@ -1,10 +1,17 @@
 package com.sentiment.api.service;
 
+import com.sentiment.api.client.MlClient;
 import com.sentiment.api.dto.SentimentResponse;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SentimentService {
+
+    private final MlClient mlClient;
+
+    public SentimentService(MlClient mlClient) {
+        this.mlClient = mlClient;
+    }
 
     /**
      Analiza el sentimiento del texto recibido
@@ -14,7 +21,6 @@ public class SentimentService {
     */
 
     public SentimentResponse analyze(String text) {
-        //MOCK: mientras data entrega el servicio ML
-        return new SentimentResponse("Neutro", 0.50);
+        return mlClient.predict(text);
     }
 }
