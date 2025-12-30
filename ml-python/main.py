@@ -5,8 +5,8 @@ import re
 
 # 1. Cargar el "cerebro" (tus archivos descargados)
 # Asegúrate de que los nombres de los archivos coincidan exactamente
-modelo = joblib.load("data/models/sentiment_model.pkl")
-vectorizador = joblib.load("data/models/tfidf_vectorizer.pkl")
+modelo = joblib.load("ml-python/data/models/sentiment_model.pkl")
+vectorizador = joblib.load("ml-python/data/models/tfidf_vectorizer.pkl")
 
 # 2. Configurar la aplicación FastAPI
 app = FastAPI(title="Servicio de Análisis de Sentimientos")
@@ -49,3 +49,5 @@ async def predecir_sentimiento(data: PeticionSentiment):
         raise HTTPException(status_code=500, detail=f"Error en el servidor: {str(e)}")
 
 # Para ejecutar: uvicorn main:app --reload
+
+
