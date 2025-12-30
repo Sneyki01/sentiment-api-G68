@@ -6,3 +6,13 @@ env/
 sentiment-venv/
 **/venv/
 **/.venv/
+# Python cache
+__pycache__/
+ml-python/__pycache__/
+
+# Scripts de prueba locales
+update_models.py
+ml-python/test_model.py
+
+# Entorno virtual
+.venv/
