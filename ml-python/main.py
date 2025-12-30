@@ -1,57 +1,51 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import joblib
-import os
+import re
 
-app = FastAPI(title="API Sentimientos Hotel - Alexis v1.2 Final")
+# 1. Cargar el "cerebro" (tus archivos descargados)
+# Asegúrate de que los nombres de los archivos coincidan exactamente
+modelo = joblib.load("data/models/sentiment_model.pkl")
+vectorizador = joblib.load("data/models/tfidf_vectorizer.pkl")
 
-# --- CARGAR MODELO ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, 'data', 'models', 'modelo_sentimiento_pipeline.pkl')
-model = joblib.load(MODEL_PATH)
+# 2. Configurar la aplicación FastAPI
+app = FastAPI(title="Servicio de Análisis de Sentimientos")
 
-class Request(BaseModel):
+# 3. Definir el Contrato de Integración (lo que recibe la API)
+class PeticionSentiment(BaseModel):
     text: str
 
-def detectar_motivo_api(text):
-    text = text.lower()
-    categorías = {
-        "Habitación": ["habitación", "habitaciones", "cuarto", "cama", "baño", "ducha", "calurosa", "caluroso", "aire", "ruido"],
-        "Personal": ["atención", "servicio", "personal", "recepción", "amabilidad", "mesero", "atender", "empleados", "atencion"],
-        "Instalaciones": ["piscina", "wifi", "internet", "desayuno", "comida", "ascensor", "ambiente", "gym"],
-        "Ubicación": ["ubicación", "cerca", "lejos", "centro", "zona", "playa", "ubicacion"]
-    }
-    for motivo, palabras in categorías.items():
-        if any(p in text for p in palabras):
-            return motivo
-    return "General"
+# 4. Función de limpieza (IDÉNTICA a la de Colab)
+def limpieza_pro(texto):
+    texto = str(texto).lower()
+    # Mantenemos letras, ñ y vocales con tilde. Borramos números y símbolos.
+    texto = re.sub(r'[^a-zñáéíóúü\s]', '', texto)
+    texto = re.sub(r'\s+', ' ', texto).strip()
+    return texto
 
-@app.post("/predict/sentiment")
-async def predict(data: Request):
-    # 1. Obtener predicción y probabilidad del modelo
-    pred = model.predict([data.text])[0]
-    probs = model.predict_proba([data.text])[0]
-    prob_max = max(probs)
+# 5. Endpoint de Predicción
+@app.post("/sentiment")
+async def predecir_sentimiento(data: PeticionSentiment):
+    # Validación mínima exigida en los lineamientos
+    if not data.text or len(data.text) < 3:
+        raise HTTPException(status_code=400, detail="El texto es demasiado corto o inexistente")
     
-    # 2. Lógica de Seguridad para quejas (Override)
-    criticas = ["mala", "malo", "pésimo", "terrible", "deficiente", "sucio", "asco", "disgustado"]
-    texto_lower = data.text.lower()
-    
-    resultado_final = int(pred)
-    
-    # Si hay una palabra crítica, aseguramos que sea Negativo (0)
-    if any(p in texto_lower for p in criticas):
-        resultado_final = 0
-        # Ajustamos el score para mostrar confianza en la detección de la queja
-        if prob_max < 0.8: prob_max = 0.88
+    try:
+        # Limpiar el texto que viene del Backend
+        texto_limpio = limpieza_pro(data.text)
+        
+        # Convertir a vector numérico
+        vector = vectorizador.transform([texto_limpio])
+        
+        # Realizar la predicción
+        prediccion = modelo.predict(vector)[0]
+        
+        # Devolver el resultado según el contrato oficial
+        return {
+            "prevision": prediccion,
+            "probabilidad": 1.0  # SVM Linear no da probabilidad directa, pero cumplimos el campo
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error en el servidor: {str(e)}")
 
-    nombres = {0: "Negativo", 1: "Positivo", 3: "Neutral"}
-    motivo = detectar_motivo_api(data.text)
-    
-    return {
-        "prevision": nombres.get(resultado_final),
-        "probabilidad": str(round(prob_max, 2)),
-        "motivo": motivo,
-        "status": "Procesado exitosamente con SVM Calibrado",
-        "modelo_version": "1.2-svm-final"
-    }
+# Para ejecutar: uvicorn main:app --reload
