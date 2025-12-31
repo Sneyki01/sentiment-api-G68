@@ -143,45 +143,76 @@ Requisitos:
 
 ```bash 
 
-cd backend-java
+cd backend-java/api
 mvn spring-boot:run
 ```
 
-La API estara disponible en:
+La API estará disponible en:
 ```yaml
 http://localhost:8000
 ```
 ---
 
-**Data science**
+**Data Science (Python)**
 
 Requisitos:
-*Por definir
+- Python 3.9+
+- Un entorno virtual (recomendado)
 
-Ejemplos de arranque:
-*Por definir
+1.  **Navega a la carpeta de Machine Learning:**
+    ```bash
+    cd ml-python
+    ```
+
+2.  **Crea y activa un entorno virtual:**
+    ```bash
+    # En Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+    
+    # En macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+3.  **Instala las dependencias:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Ejecuta el servicio de ML:**
+    ```bash
+    # Desde la carpeta raíz del proyecto
+    uvicorn ml-python.main:app --host 0.0.0.0 --port 8080
+    ```
+    El servicio de ML estará disponible en `http://localhost:8080`.
 
 ---
 
-## Stack tecnologico
+## Stack tecnológico
 
 **Backend**
-- java 17
-- Spring boot
-- Bean validation
+- Java 17
+- Spring Boot 3
+- Maven
+- Bean Validation
 - REST API
 
 **Data Science**
-
-*Por definir
+- Python 3.9
+- FastAPI: Para construir la API de inferencia.
+- Uvicorn: Como servidor ASGI para FastAPI.
+- Scikit-learn: Para el modelo (LinearSVC) y vectorización (TfidfVectorizer).
+- Joblib: Para cargar los modelos pre-entrenados.
+- NLTK y RegEx: Para la limpieza de texto y el motor de reglas semánticas.
 
 ---
 
 ## Estado del proyecto
-Backend: ![Static Badge](https://img.shields.io/badge/In%20Progress-yellow)
+Backend: ![Static Badge](https://img.shields.io/badge/Completed-green)
 
 
-Data Science ![Static Badge](https://img.shields.io/badge/In%20Progress-yellow)
+Data Science ![Static Badge](https://img.shields.io/badge/Completed-green)
 
 ---
 
