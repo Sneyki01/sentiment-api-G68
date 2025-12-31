@@ -10,7 +10,6 @@ env/
 
 # Data (Datasets pesados)
 ml-python/data/raw/
-ml-python/data/processed/*.csv
 !ml-python/data/processed/.gitkeep
 
 # Results & Graphs
