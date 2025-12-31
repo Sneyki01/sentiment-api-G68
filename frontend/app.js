@@ -1,40 +1,58 @@
 function analyze() {
-  const text = document.getElementById("textInput").value;
+  const text = document.getElementById("textInput").value.trim();
   const result = document.getElementById("result");
 
-  if (!text || text.length < 1) {
-    alert("El texto debe tener al menos 1 caracter");
+  // Validación de longitud: 3 a 2000 caracteres
+  if (text.length < 3) {
+    alert("El texto debe tener al menos 3 caracteres.");
+    return;
+  }
+  if (text.length > 2000) {
+    alert("El texto no puede superar los 2000 caracteres.");
     return;
   }
 
-  // MOCK dinámico: cambiar resultado según contenido
-  let response = { prevision: "Neutro", probabilidad: 0.5 };
 
-  const lowerText = text.toLowerCase();
-  if (lowerText.includes("amor") || lowerText.includes("cariño") || lowerText.includes("excelente")) {
-    response = { prevision: "Positivo", probabilidad: 0.87 };
-  } else if (lowerText.includes("odio") || lowerText.includes("terrible") || lowerText.includes("mal")) {
-    response = { prevision: "Negativo", probabilidad: 0.92 };
-  }
-
-  // Mostrar resultado
+  // Mostrar mensaje mientras espera la respuesta
   result.className = "";
   result.classList.remove("hidden");
-
-  // Limpiar clases previas
   result.classList.remove("positive", "negative", "neutral");
+  result.innerHTML = "Analizando sentimiento...";
 
-  // Asignar clase según sentimiento
-  if (response.prevision === "Positivo") {
-    result.classList.add("positive");
-  } else if (response.prevision === "Negativo") {
-    result.classList.add("negative");
-  } else {
-    result.classList.add("neutral");
-  }
+  fetch("http://localhost:8000/sentiment", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ text: text })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error en la API de backend");
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Limpiar clases previas
+      result.classList.remove("positive", "negative", "neutral");
 
-  result.innerHTML = `
-    <strong>Sentimiento:</strong> ${response.prevision}<br>
-    <strong>Probabilidad:</strong> ${response.probabilidad}
-  `;
-}
+      if (data.prevision === "Positivo") {
+        result.classList.add("positive");
+      } else if (data.prevision === "Negativo") {
+        result.classList.add("negative");
+      } else {
+        result.classList.add("neutral");
+      }
+
+      result.innerHTML = `
+        <strong>Sentimiento:</strong> ${data.prevision}<br>
+        <strong>Probabilidad:</strong> ${data.probabilidad.toFixed(2)}
+      `;
+    })
+    .catch(error => {
+      console.error(error);
+      result.classList.remove("positive", "negative", "neutral");
+      result.classList.add("neutral");
+      result.innerHTML = "Ocurrió un error al comunicarse con el backend.";
+    });
+} //function analyze
