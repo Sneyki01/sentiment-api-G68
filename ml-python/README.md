@@ -23,12 +23,11 @@ prevision: String ("Positivo", "Neutro", "Negativo").
 probabilidad: Float (0.0 a 1.0).
 
 🔍 Casos de Prueba Recomendados
-Entrada de Usuario	Resultado Esperado (prevision)	Lógica Aplicada
-"¡Excelente! Me encantó encontrar cucarachas."	Negativo	Sarcasmo detectado.
-"El hotel tiene 4 pisos y está en el centro."	Neutro	Umbral de incertidumbre (Contrato).
-"Todo muy limpio, volveremos."	Positivo	Inferencia de ML pura.
+Entrada de Usuario |	Resultado Esperado (prevision)  |	Lógica Aplicada
+"¡Excelente! Me encantó encontrar cucarachas." |	Negativo | Sarcasmo detectado.
+"El hotel tiene 4 pisos y está en el centro." |	Neutro | Umbral de incertidumbre (Contrato).
+"Todo muy limpio, volveremos."| Positivo | Inferencia de ML pura.
 
-Exportar a Hojas de cálculo
 
 🛠️ Guía de Uso Rápido
 Instalación: pip install -r requirements.txt
@@ -37,16 +36,3 @@ Ejecución: uvicorn ml-python.main:app --reload --port 8080
 
 Swagger: http://127.0.0.1:8080/docs
 
-¿Cómo actualizarlo en tu PC?
-Abre tu archivo README.md en VS Code.
-
-Borra todo y pega este nuevo contenido.
-
-Guarda y sube a GitHub:
-
-PowerShell
-
-git add README.md
-git commit -m "docs: actualización final del README según contrato técnico"
-git push origin feature/Alexis-DS-pipeline
-¿Deseas que te ayude con algo más antes de que cierres esta versión del proyecto?
