@@ -1,0 +1,57 @@
+# 🏨 Andalusian Hotels Sentiment Analysis - AI Component (G68)
+
+Este componente de Inteligencia Artificial proporciona una solución avanzada para el análisis de sentimientos en reseñas de hoteles, utilizando arquitecturas de **Deep Learning** para garantizar la máxima precisión semántica.
+
+## 🚀 Diferenciación Técnica (Por qué LSTM?)
+A diferencia de los modelos lineales básicos (como SVM o Naive Bayes), esta implementación utiliza una **Red Neuronal Recurrente Bi-LSTM (Bidirectional Long Short-Term Memory)**:
+- **Análisis de Contexto:** Entiende el flujo de las frases en ambas direcciones (pasado y futuro), permitiendo detectar sarcasmo o negaciones complejas (ej: "no es nada malo").
+- **Probabilidades Calibradas:** La capa de salida Softmax proporciona una confianza estadística real (0-1) para cada predicción.
+- **Preprocesamiento Robusto:** Limpieza optimizada que conserva la riqueza del idioma español (tildes y 'ñ') esencial para el análisis de sentimientos.
+
+
+
+## 🛠️ Requisitos del Sistema
+- **Python:** 3.12+
+- **Librerías principales:** TensorFlow 2.17+, FastAPI, Uvicorn, NLTK.
+- **Soporte de Rutas Largas:** Se recomienda habilitar `LongPathsEnabled` en Windows para la instalación de TensorFlow.
+
+## 📦 Estructura del Proyecto
+```text
+ml-python/
+├── data/models/          # Artefactos del modelo (.keras, .json)
+├── src/app/
+│   ├── main.py           # Servidor FastAPI y lógica de inferencia
+│   └── utils.py          # Motor de limpieza de texto centralizado
+├── Dockerfile            # Configuración para despliegue en contenedores
+└── requirements.txt      # Dependencias con versiones controladas
+
+⚡ Ejecución Local (Pruebas)
+Instalar dependencias:
+
+Bash
+
+pip install -r requirements.txt
+Lanzar la API:
+
+Bash
+
+uvicorn src.app.main:app --reload --port 8080
+Acceder a la Documentación Interactiva: Visita http://127.0.0.1:8080/docs para realizar pruebas mediante Swagger UI.
+
+🧪 Ejemplo de Respuesta (JSON)
+JSON
+
+{
+  "text_original": "Excelente atención y ubicación.",
+  "prevision": "positivo",
+  "probabilidad": 0.6465,
+  "metodo": "Deep Learning (Bi-LSTM)"
+}
+🐳 Despliegue con Docker
+Para asegurar la portabilidad total en los servidores de No Country:
+
+Bash
+
+docker build -t sentiment-api-g68 .
+docker run -p 8080:8080 sentiment-api-g68
+Autor: Fernando Falla- Equipo G68 (Hackathon 2025)
