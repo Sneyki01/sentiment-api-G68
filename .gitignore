@@ -1,55 +1,25 @@
-#****Data****
-# 1. ARTEFACTOS DE PROCESAMIENTO Y MODELADO
-
-# 1.1 Modelos y Transformadores (archivos binarios grandes)
-# Ignora todos los archivos serializados (.pkl) generados por joblib o pickle
-# *.pkl
-
-# 1.2 Datos Generados (Archivos que se pueden regenerar con el código)
-# Ignora el dataset limpio que se guarda después del curado
-/data/processed/
-/data/processing/
-
-# 1.3 Objetos de Procesamiento/Modelos (Las carpetas donde guardamos los .pkl)
-# Ignora los archivos dentro de la carpeta donde guardaste el vectorizador y la matriz
-#/models/
-#/models/processing/
-#/models/champion/
-
-# 2. CACHÉS DE PYTHON/ENTORNO
-
-# Carpetas de caché de Python (Archivos generados por el intérprete)
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
 
-# Entornos Virtuales
+# Virtual Environments
 venv/
+.venv/
 env/
-.env
-sentiment-venv/
 
-# 3. JUPYTER / VS CODE
+# Data (Datasets pesados)
+ml-python/data/raw/
+!ml-python/data/processed/.gitkeep
 
-# Checkpoints de Jupyter Notebook (carpetas de historial)
-.ipynb_checkpoints/
+# Results & Graphs
+ml-python/data/results/graph/*.png
+ml-python/data/results/reports/*.txt
 
-# Archivos de caché de VS Code (a menudo se crean archivos .vscode)
+# IDEs (VSCode / PyCharm)
 .vscode/
-
-# Ignorar archivos temporales o de swap
-*.tmp
-*~
-
-#*****Backend****
-
-# IntelliJ
 .idea/
-*.iml
 
-# Maven
-target/
-
-# Logs
-*.log
-
-# OS
+# OS files
 .DS_Store
+Thumbs.db
