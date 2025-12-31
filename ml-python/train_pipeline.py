@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.utils import resample
 
 # 1. CARGA DE DATOS
 # Usamos el nombre exacto de tu archivo
@@ -37,10 +38,30 @@ def categorizar_sentimiento(r):
 
 df['sentiment'] = df['rating'].apply(categorizar_sentimiento)
 
+# Balance the dataset
+df_majority = df[df.sentiment=='Positivo']
+df_minority_neg = df[df.sentiment=='Negativo']
+df_minority_neu = df[df.sentiment=='Neutro']
+ 
+# Upsample minority class
+df_minority_neg_upsampled = resample(df_minority_neg, 
+                                 replace=True,     # sample with replacement
+                                 n_samples=len(df_majority),    # to match majority class
+                                 random_state=42) # reproducible results
+ 
+df_minority_neu_upsampled = resample(df_minority_neu, 
+                                 replace=True,     # sample with replacement
+                                 n_samples=len(df_majority),    # to match majority class
+                                 random_state=42) # reproducible results
+ 
+# Combine majority class with upsampled minority class
+df_upsampled = pd.concat([df_majority, df_minority_neg_upsampled, df_minority_neu_upsampled])
+
+
 # 3. DIVISIÓN DE DATOS
 X_train, X_test, y_train, y_test = train_test_split(
-    df['text_cleaned'], df['sentiment'], 
-    test_size=0.2, random_state=42, stratify=df['sentiment']
+    df_upsampled['text_cleaned'], df_upsampled['sentiment'], 
+    test_size=0.2, random_state=42
 )
 
 # 4. VECTORIZACIÓN (TF-IDF con Bigramas)
