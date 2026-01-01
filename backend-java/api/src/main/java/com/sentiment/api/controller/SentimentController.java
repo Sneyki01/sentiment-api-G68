@@ -5,11 +5,15 @@ import com.sentiment.api.service.SentimentService;
 import com.sentiment.api.dto.SentimentRequest;
 import com.sentiment.api.dto.SentimentResponse;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class SentimentController    {
 
     private final SentimentService sentimentService;
