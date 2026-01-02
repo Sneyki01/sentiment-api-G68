@@ -12,7 +12,6 @@ function analyze() {
     return;
   }
 
-
   // Mostrar mensaje mientras espera la respuesta
   result.className = "";
   result.classList.remove("hidden");
@@ -32,6 +31,7 @@ function analyze() {
       }
       return response.json();
     })
+
     .then(data => {
       // Limpiar clases previas
       result.classList.remove("positive", "negative", "neutral");
