@@ -1,7 +1,19 @@
 version: "3.8"
 
 services:
-  frontend:
-    build: ./frontend
+  # ===== FRONTEND (FE) =====
+  fe:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sentiment_fe
     ports:
-      - "3000:80"
+      - "3000:80"        # 3000 host → 80 (nginx) dentro del contenedor
+
+# Nota:
+# El backend Java (BE) se ejecuta en local con Maven:
+#   cd backend-java/api
+#   mvn spring-boot:run
+#
+# Más adelante, cuando tengas un Dockerfile en backend-java,
+# podemos agregar aquí el servicio "be" con su imagen.

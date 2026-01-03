@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>SentimentAPI – Demo</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>SentimentAPI</h1>
-    <p>Análisis de sentimiento de comentarios</p>
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="app-title">SentimentAPI</h1>
+      <p class="app-subtitle">
+        Análisis de sentimiento en tiempo real para comentarios y feedbacks de clientes.
+      </p>
+    </div>
+  </header>
 
-    <textarea id="textInput" placeholder="Escribe un comentario..."></textarea>
-    <button onclick="analyze()">Analizar</button>
+  <main class="main">
+    <section class="card">
+      <h2 class="card-title">Analizar comentario</h2>
+      <p class="card-description">
+        Escribe un comentario entre 3 y 2000 caracteres. La API clasificará el sentimiento y mostrará la probabilidad asociada.
+      </p>
 
-    <div id="result" class="hidden"></div>
-  </div>
+      <label for="textInput" class="field-label">Comentario</label>
+      <textarea
+        id="textInput"
+        class="textarea"
+        placeholder="Ejemplo: El servicio fue excelente, estoy muy satisfecho."
+      ></textarea>
+
+      <div class="actions">
+        <button class="btn-primary" onclick="analyze()">Analizar sentimiento</button>
+      </div>
+
+      <div id="result" class="result hidden">
+        <!-- Aquí se mostrará el resultado -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">
+      Proyecto SentimentAPI – Hackathon Oracle Next Education · Equipo G68
+    </p>
+  </footer>
 
   <script src="app.js"></script>
 </body>
