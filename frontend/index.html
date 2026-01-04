@@ -2,49 +2,96 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>SentimentAPI – Demo</title>
+  <title>Sentimental IA – Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <h1 class="app-title">SentimentAPI</h1>
-      <p class="app-subtitle">
-        Análisis de sentimiento en tiempo real para comentarios y feedbacks de clientes.
-      </p>
-    </div>
-  </header>
+  <div class="page-root">
+    <!-- Barra superior con menú centrado y toggle de tema -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          Sentimental IA · Equipo 68
+        </div>
 
-  <main class="main">
-    <section class="card">
-      <h2 class="card-title">Analizar comentario</h2>
-      <p class="card-description">
-        Escribe un comentario entre 3 y 2000 caracteres. La API clasificará el sentimiento y mostrará la probabilidad asociada.
-      </p>
+        <nav class="topbar-center">
+          <a href="#inicio" class="nav-link">Inicio</a>
+          <a href="#dashboard" class="nav-link">Dashboard</a>
+          <a href="#estadisticas" class="nav-link">Estadísticas</a>
+          <a href="#docs" class="nav-link">Docs</a>
+          <a href="#recursos" class="nav-link">Recursos</a>
+        </nav>
 
-      <label for="textInput" class="field-label">Comentario</label>
-      <textarea
-        id="textInput"
-        class="textarea"
-        placeholder="Ejemplo: El servicio fue excelente, estoy muy satisfecho."
-      ></textarea>
-
-      <div class="actions">
-        <button class="btn-primary" onclick="analyze()">Analizar sentimiento</button>
+        <div class="topbar-right">
+          <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+            🌙
+          </button>
+        </div>
       </div>
+    </header>
 
-      <div id="result" class="result hidden">
-        <!-- Aquí se mostrará el resultado -->
-      </div>
-    </section>
-  </main>
+    <!-- Contenido principal -->
+    <main class="main" id="inicio">
+      <!-- Título y subtítulo centrados -->
+      <section class="hero">
+        <h1 class="branding-title">Sentimental IA</h1>
+        <p class="branding-subtitle">Análisis Inteligente</p>
+      </section>
 
-  <footer class="footer">
-    <p class="footer-text">
-      Proyecto SentimentAPI – Hackathon Oracle Next Education · Equipo G68
-    </p>
-  </footer>
+      <!-- SOLO el textInput “envolverlo” visualmente -->
+      <section class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="textInput"
+            class="search-input"
+            rows="3"
+            placeholder="Haz tu comentario..."
+          ></textarea>
+
+          <!-- Icono + (adjuntar) en esquina inferior izquierda -->
+          <button
+            type="button"
+            id="attachButton"
+            class="input-action input-attach"
+            aria-label="Adjuntar archivo"
+          >
+            +
+          </button>
+
+          <!-- Icono X (borrar) sobre la flecha, aparece con 1+ caracteres -->
+          <button
+            type="button"
+            id="clearButton"
+            class="input-action input-clear hidden"
+            aria-label="Borrar comentario"
+          >
+            ✕
+          </button>
+
+          <!-- Icono ↑ (enviar/analizar), aparece con 1+ caracteres -->
+          <button
+            type="button"
+            id="sendButton"
+            class="input-action input-send hidden"
+            aria-label="Analizar sentimiento"
+            onclick="analyze()"
+          >
+            ↑
+          </button>
+        </div>
+
+        <!-- Resultado, centrado debajo del input -->
+        <div id="result" class="result hidden"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-text">
+        Sentimental IA · Hackathon Oracle Next Education · Equipo 68
+      </p>
+    </footer>
+  </div>
 
   <script src="app.js"></script>
 </body>
