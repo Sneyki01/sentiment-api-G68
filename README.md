@@ -175,7 +175,12 @@ Ejemplo de arranque (Terminal):
 
 cd ml-python
 python -m venv venv
+
+- Si es Windows:
+venv\Scripts\activate
+- Si es Mac/Linux:
 source venv/bin/activate
+
 pip install -r ../requirements.txt
 uvicorn main:app --host 0.0.0.0 --port 8080
 ```
@@ -192,15 +197,21 @@ uvicorn main:app --host 0.0.0.0 --port 8080
 
 **Data Science**
 
-*Por definir
+- Python 3.12.3
+- FastAPI (Asíncrono)
+- Pydantic v2
+- Uvicorn
+- Scikit-learn, Pandas, NumPy
+- Joblib (Para carga de modelos .pkl)
+
 
 ---
 
 ## Estado del proyecto
-Backend: ![Static Badge](https://img.shields.io/badge/In%20Progress-yellow)
+Backend: ![Static Badge](https://img.shields.io/badge/MVP-yellow)
 
 
-Data Science ![Static Badge](https://img.shields.io/badge/In%20Progress-yellow)
+Data Science ![Static Badge](https://img.shields.io/badge/MVP-yellow)
 
 ---
 
@@ -224,7 +235,7 @@ con **AluraLatam**, con enfoque en integración real entre disciplinas y buenas 
         <strong>Florentino Lopez</strong>
       </a>
       <br/>
-      <sub>Backend Developer</sub>
+      <sub>Backend Developer · Frontend Designer</sub>
     </td>
     <!-- Backend 2 -->
     <td align="center" width="200">
@@ -234,7 +245,7 @@ con **AluraLatam**, con enfoque en integración real entre disciplinas y buenas 
         <strong>Lorena Raygoza</strong>
       </a>
       <br />
-      <sub>Backend Developer</sub>
+      <sub>Backend Developer · ML Integration </sub>
     </td>
     <!-- Backend 3 -->
     <td align="center" width="200">
@@ -280,16 +291,6 @@ con **AluraLatam**, con enfoque en integración real entre disciplinas y buenas 
         <img src="https://avatars.githubusercontent.com/u/203438966?v=4" width="120" style="border-radius:50%;" />
         <br />
         <strong>Fernando Falla</strong>
-      </a>
-      <br />
-      <sub>Data Scientist</sub>
-    </td>
-    <!-- Data 3 -->
-    <td align="center" width="200">
-      <a href="https://github.com/ADRIAN-GP84">
-        <img src="https://avatars.githubusercontent.com/u/198021746?v=4" width="120" style="border-radius:50%;" />
-        <br />
-        <strong>Adrian Galán</strong>
       </a>
       <br />
       <sub>Data Scientist</sub>
