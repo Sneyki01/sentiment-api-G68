@@ -30,6 +30,17 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(new ErrorResponse("JSON invalido"));
     }
 
-    // TODO [Backend-Health]: Agregar manejo de excepción para ML no disponible (503)
-
+    public static class MlServiceException extends RuntimeException {
+        public MlServiceException(String message){
+            super(message);
+        }
+    }
+    @ExceptionHandler(MlServiceException.class)
+    public ResponseEntity<ErrorResponse> handleMlUnavailable(
+            MlServiceException ex,
+            HttpServletRequest request) {
+        return ResponseEntity
+                .status(503)
+                .body(new ErrorResponse(ex.getMessage()));
+    }
 }

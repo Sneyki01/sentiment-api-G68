@@ -1,20 +1,24 @@
 package com.sentiment.api.service;
 
+import com.sentiment.api.integration.client.MlClient;
 import com.sentiment.api.dto.SentimentResponse;
+import com.sentiment.api.integration.client.dto.MlSentimentResponse;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SentimentService {
 
-    /**
-     Analiza el sentimiento del texto recibido
-    Actualmente retorna una respuesta MOCK.
-    TODO: Integrar llamada al servicio ML (Python) via HTTP.
-    el servicio ML debe devolver {prevision, probabilidad}.
-    */
+    private final MlClient mlClient;
+
+    public SentimentService(MlClient mlClient) {
+        this.mlClient = mlClient;
+    }
 
     public SentimentResponse analyze(String text) {
-        //MOCK: mientras data entrega el servicio ML
-        return new SentimentResponse("Neutro", 0.50);
+        MlSentimentResponse mlResponse = mlClient.predict(text);
+        return new SentimentResponse(
+                mlResponse.prevision(),
+                mlResponse.probabilidad()
+        );
     }
 }
