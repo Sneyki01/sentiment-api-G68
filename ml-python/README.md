@@ -85,7 +85,6 @@ curl -X 'POST' \
   -d '{
   "text": "La comida estuvo excelente y el servicio fue muy rápido."
 }'
-
 ```
 
 

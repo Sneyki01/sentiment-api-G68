@@ -1,0 +1,3 @@
+Positivo|El producto es excelente, llegó muy rápido y bien empacado.
+Negativo|No me gustó para nada, es de mala calidad y llegó roto.
+Neutral|El servicio al cliente fue aceptable, pero pueden mejorar.

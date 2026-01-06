@@ -12,10 +12,6 @@ env/
 ml-python/data/raw/
 !ml-python/data/processed/.gitkeep
 
-# Results & Graphs
-ml-python/data/results/graph/*.png
-ml-python/data/results/reports/*.txt
-
 # IDEs (VSCode / PyCharm)
 .vscode/
 .idea/
