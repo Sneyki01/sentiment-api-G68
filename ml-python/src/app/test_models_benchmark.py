@@ -1,260 +1,222 @@
-import joblib      # Librería para cargar modelos de Scikit-Learn (.pkl)
-import os          # Permite navegar por las carpetas de tu computadora
-import time        # Para medir cuánto tarda el modelo en responder
-import gc          # "Garbage Collector": Limpia la memoria RAM para que no explote
-import json        # Para leer archivos de texto tipo diccionario (como el tokenizer)
-import sys         # Proporciona acceso a variables del sistema
-import numpy as np # Para manejo de números y matrices (necesario para Deep Learning)
-from datetime import datetime # Para ponerle fecha y hora al reporte final
-
+import joblib
 import os
-# Silencia avisos de TensorFlow (0=todo, 1=no info, 2=no warnings, 3=no errors)
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+import time
+import gc
+import json
+import sys
+import numpy as np
+import psutil
+from datetime import datetime
 
+# Silenciamos avisos de TensorFlow
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 import logging
-# Silencia avisos de Python
 logging.getLogger('tensorflow').setLevel(logging.ERROR)
 
-# Intentamos activar el "Modo Inteligente" para Redes Neuronales
 try:
     import tensorflow as tf
     from tensorflow.keras.preprocessing.text import tokenizer_from_json
     from tensorflow.keras.preprocessing.sequence import pad_sequences
-    TF_AVAILABLE = True # Si tenemos TensorFlow instalado
+    TF_AVAILABLE = True
 except ImportError:
-    TF_AVAILABLE = False # Si no está instalado, el script seguirá pero saltará esos modelos
+    TF_AVAILABLE = False
+
+# --- FUNCIONES DE UTILIDAD ---
+def get_memory_usage():
+    process = psutil.Process(os.getpid())
+    return process.memory_info().rss / (1024 * 1024)
+
+def load_keras_assets(folder_path):
+    tokenizer_obj = None
+    mapping_obj = None
+    tok_path = os.path.join(folder_path, "tokenizer.json")
+    map_path = os.path.join(folder_path, "label_mapping.json")
+    
+    if os.path.exists(tok_path):
+        with open(tok_path, 'r', encoding='utf-8') as f:
+            raw_data = json.load(f)
+            tokenizer_obj = tokenizer_from_json(raw_data if isinstance(raw_data, str) else json.dumps(raw_data))
+
+    if os.path.exists(map_path):
+        with open(map_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            mapping_obj = json.loads(data) if isinstance(data, str) else data
+            
+    return tokenizer_obj, mapping_obj
 
 # =============================================================================
-# 1. CONFIGURACIÓN DE RUTAS Y SISTEMA DE AUDITORÍA
+# 1. CONFIGURACIÓN DE RUTAS
 # =============================================================================
-# Buscamos la carpeta donde está este script parado
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# Ruta a los modelos y datos
 MODELS_DIR = os.path.join(BASE_DIR, "..", "..", "data", "models", "candidates")
 GOLD_DATA = os.path.join(BASE_DIR, "..", "..", "data", "raw", "gold_standard.txt")
-
-# --- NUEVA LÓGICA DE REPORTES ---
-# Definimos la carpeta base de resultados
 BASE_REPORTS_DIR = os.path.join(BASE_DIR, "..", "..", "data", "results", "reports")
-
-# Subcarpeta específica para evaluaciones de modelos
 AUDIT_SUBDIR = os.path.join(BASE_REPORTS_DIR, "models_audit_evaluation")
 
-# Si la carpeta de reportes o la subcarpeta no existen, las creamos
 os.makedirs(AUDIT_SUBDIR, exist_ok=True)
-
-# Generamos un nombre único para este archivo basado en el momento exacto de la ejecución
-# Formato: auditoria_20260106_014530.log (Año-Mes-Dia_Hora-Min-Seg)
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 ARCHIVO_LOG_ACTUAL = os.path.join(AUDIT_SUBDIR, f"auditoria_{timestamp}.log")
 
 def log(msg):
-    """Escribe en consola y en el archivo de auditoría único de esta sesión."""
     print(msg)
-    # Usamos ARCHIVO_LOG_ACTUAL para que todas las líneas del benchmark 
-    # se guarden en el mismo archivo con fecha y hora
     with open(ARCHIVO_LOG_ACTUAL, "a", encoding="utf-8") as f:
         f.write(msg + "\n")
 
-# También mantenemos una copia en "ultima_auditoria.log" por comodidad
-# pero el archivo principal será el que tiene la fecha.
-def actualizar_puntero_ultimo_log(msg):
-    ruta_ultimo = os.path.join(BASE_REPORTS_DIR, "ultima_auditoria.log")
-    with open(ruta_ultimo, "w", encoding="utf-8") as f:
-        f.write(f"Ultima auditoria generada en: {ARCHIVO_LOG_ACTUAL}\n")
-
-
-def load_keras_assets(folder_path):
-    """
-    Las Redes Neuronales (LSTM) necesitan un 'traductor' (tokenizer) 
-    y un 'mapa' (label_mapping) para entender las palabras. 
-    Esta función los busca dentro de la carpeta del candidato.
-    """
-    tokenizer = None
-    mapping = None
-    
-    tok_path = os.path.join(folder_path, "tokenizer.json")
-    map_path = os.path.join(folder_path, "label_mapping.json")
-    
-    # 1. CARGA DEL TOKENIZER
-    if os.path.exists(tok_path):
-        with open(tok_path, 'r', encoding='utf-8') as f:
-            raw_data = json.load(f)
-            # Si el archivo viene con doble comilla (como el tuyo), raw_data es un string
-            if isinstance(raw_data, str):
-                tokenizer_obj = tokenizer_from_json(raw_data)
-            else:
-                # Si viene como JSON directo, necesitamos convertir el dict a string para Keras
-                tokenizer_obj = tokenizer_from_json(json.dumps(raw_data))
-
-    # 2. CARGA DEL MAPPING (Aquí es donde rompe Fernando)
-    if os.path.exists(map_path):
-        with open(map_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            # TRUCO: Si data es un string, lo volvemos a cargar como JSON
-            if isinstance(data, str):
-                mapping_obj = json.loads(data)
-            else:
-                mapping_obj = data
-            
-    return tokenizer_obj, mapping_obj
-
+# =============================================================================
+# 2. PROCESO PRINCIPAL
+# =============================================================================
 def run_benchmark():
-    # Verificamos que el examen (Gold Standard) exista
+    # Cargar frases de prueba (Examen)
     if not os.path.exists(GOLD_DATA):
-        log(f"[-] ERROR CRÍTICO: No se encontró el archivo de examen en {GOLD_DATA}")
+        print(f"[!] No existe: {GOLD_DATA}")
         return
 
-    # -------------------------------------------------------------------------
-    # 2. PREPARACIÓN DEL EXAMEN (Cargar frases del Gold Standard)
-    # -------------------------------------------------------------------------
     test_cases = []
-    with open(GOLD_DATA, "r", encoding="utf-8") as f:
+    with open(GOLD_DATA, 'r', encoding='utf-8') as f:
         for line in f:
-            if "|" in line:
-                parts = line.strip().split("|")
-                # Formato esperado: ID | Etiqueta | Texto | Autor
-                if len(parts) == 4:
-                    test_cases.append({
-                        "id": parts[0], 
-                        "label": parts[1], 
-                        "text": parts[2], 
-                        "author": parts[3]
-                    })
+            parts = line.strip().split('|')
+            if len(parts) == 4:
+                test_cases.append({"id": parts[0], "label": parts[1], "text": parts[2], "author": parts[3]})
 
-    results = []
-    log(f"\n=== INICIANDO BENCHMARK: {datetime.now().strftime('%d/%m/%Y %H:%M')} ===")
+    log(f"=== INICIANDO BENCHMARK: {datetime.now().strftime('%d/%m/%Y %H:%M')} ===")
     log(f"Total de frases a evaluar: {len(test_cases)}")
+    log("="*60)
 
-    # -------------------------------------------------------------------------
-    # 3. RECORRIDO DE CANDIDATOS (Entrar a cada subcarpeta)
-    # -------------------------------------------------------------------------
-    # Listamos todas las carpetas dentro de 'candidates/'
+    # --- PASO A: PRE-CARGAR TODOS LOS MODELOS ---
+    # Esto es necesario para poder comparar frase por frase en una sola tabla
+    modelos_vivos = []
     for candidate_name in os.listdir(MODELS_DIR):
         folder_path = os.path.join(MODELS_DIR, candidate_name)
-        
-        # Solo entramos si es una carpeta (no archivos sueltos)
         if not os.path.isdir(folder_path): continue
 
-        # Buscamos el archivo principal del modelo (.pkl o .keras) dentro de esa carpeta
-        model_file = None
-        for f in os.listdir(folder_path):
-            if f.endswith(('.pkl', '.h5', '.keras')):
-                model_file = f
-                break
-        
-        if not model_file:
-            log(f"[!] Aviso: No se encontró archivo de modelo en la carpeta {candidate_name}")
-            continue
-
-        full_model_path = os.path.join(folder_path, model_file)
-        log(f"\n[+] Evaluando Candidato: {candidate_name}")
-
         try:
-            # LIMPIEZA DE RAM: Antes de cargar un modelo, vaciamos la memoria
-            gc.collect()
-            success_count = 0
-            mapa_aciertos = []
+            model_file = next((f for f in os.listdir(folder_path) if f.endswith(('.pkl', '.keras', '.h5'))), None)
+            if not model_file: continue
 
-            # CASO A: MODELO DE SCIKIT-LEARN (.pkl)
+            full_path = os.path.join(folder_path, model_file)
+            ram_antes = get_memory_usage()
+            
+            # Carga según tecnología
+            obj_modelo = None
+            tokenizer = None
+            mapping = None
+            tech = ""
+
             if model_file.endswith('.pkl'):
-                model = joblib.load(full_model_path)
-                tech = "Scikit-Learn (Pipeline)"
-                
-                # Pasamos frase por frase
-                for case in test_cases:
-                    # Estos modelos suelen aceptar el texto crudo directamente
-                    pred = model.predict([case["text"]])[0]
-                    
-                    if str(pred).lower() == case["label"].lower():
-                        success_count += 1
-                        mapa_aciertos.append(f"#{case['id']}({case['author']})")
-                    else:
-                        mapa_aciertos.append(f"#{case['id']}(X)")
-
-            # CASO B: RED NEURONAL (.h5 o .keras)
-            elif model_file.endswith(('.h5', '.keras')):
-                if not TF_AVAILABLE:
-                    log("    [!] Error: TensorFlow no está instalado en este entorno.")
-                    continue
-                
-                # NOTA TÉCNICA: Al cargar modelos .keras, pueden aparecer avisos (Warnings) en rojo.
-                # 1. 'cuInit: UNKNOWN ERROR (303)': Es solo TensorFlow indicando que usará el CPU 
-                #    en lugar de la tarjeta de video (GPU). No afecta la precisión del modelo.
-                # 2. 'UserWarning: Skipping variable loading for optimizer': Indica que no se carga 
-                #    el modo de entrenamiento. Como solo estamos evaluando (inferencia), esto es correcto
-                #    y no altera las predicciones finales.    
-
-                model = tf.keras.models.load_model(full_model_path)
-
-                # Cargamos assets con doble validación para asegurar la integridad de los datos
+                obj_modelo = joblib.load(full_path)
+                tech = "PKL"
+            else:
+                obj_modelo = tf.keras.models.load_model(full_path)
                 tokenizer, mapping = load_keras_assets(folder_path)
-                tech = "Deep Learning (Keras)"
-                
-                for case in test_cases:
-                    if tokenizer:
-                        # Preprocesamiento de texto (Tokenización y Padding)
-                        seq = tokenizer.texts_to_sequences([case["text"]])
-                        
-                        # Ajustamos el tamaño para que la Red Neuronal lo acepte
-                        padded = pad_sequences(seq, maxlen=model.input_shape[1])
-                        
-                        # Ejecución de la inferencia (Predicción pura)
-                        # verbose=0 evita que el log se llene de barras de progreso innecesarias
-                        pred_raw = model.predict(padded, verbose=0)
-                        
-                        # --- INICIO DEL CAMBIO ---
-                        # Mapeo de resultados: Convertimos la salida numérica a etiqueta textual
-                        pred_idx_num = np.argmax(pred_raw, axis=1)[0]
+                tech = "Keras"
 
-                        if mapping and isinstance(mapping, dict):
-                            # Buscamos en el diccionario. 'Desconocido' es un fallback de seguridad
-                            # para evitar que el script se detenga si el modelo predice una clase no listada.
-                            pred = mapping.get(str(pred_idx_num), "Desconocido")
-                        else:
-                            pred = str(pred_idx_num)
-                        # --- FIN DEL CAMBIO ---
-                        
-                    else:
-                        pred = "ERROR_SIN_TOKENIZER"
-
-                    # Comparamos el resultado con la etiqueta real del Gold Standard
-                    if str(pred).lower() == case["label"].lower():
-                        success_count += 1
-                        mapa_aciertos.append(f"#{case['id']}({case['author']})")
-                    else:
-                        mapa_aciertos.append(f"#{case['id']}(X)")
-
-            # CALCULAMOS EL PUNTAJE FINAL
-            accuracy = (success_count / len(test_cases)) * 100
-            results.append({
-                "Modelo": candidate_name,
-                "Exito": f"{accuracy:.1f}%",
-                "Mapa": " ".join(mapa_aciertos),
-                "Tech": tech,
-                "Score": accuracy
+            ram_despues = get_memory_usage()
+            
+            modelos_vivos.append({
+                "nombre": candidate_name,
+                "modelo": obj_modelo,
+                "tokenizer": tokenizer,
+                "mapping": mapping,
+                "tech": tech,
+                "ram_uso": max(0, ram_despues - ram_antes),
+                "preds_list": [], # Aquí guardaremos cada respuesta
+                "aciertos": 0,
+                "neg_identificados": 0,
+                "neg_totales": 0,
+                "tiempos": []
             })
-
+            log(f"[+] Modelo '{candidate_name}' cargado exitosamente.")
         except Exception as e:
-            log(f"    [!] Error al procesar {candidate_name}: {e}")
+            log(f"[!] Error cargando {candidate_name}: {e}")
 
-    # -------------------------------------------------------------------------
-    # 4. GENERACIÓN DEL REPORTE FINAL (Cuadro comparativo)
-    # -------------------------------------------------------------------------
-    # Ordenamos de mayor a menor puntaje
-    results.sort(key=lambda x: x['Score'], reverse=True)
-    
-    report_header = "\n" + "="*120 + "\n"
-    report_header += f"{'CANDIDATO (Carpeta)':<25} | {'ÉXITO':<7} | {'TECNOLOGÍA':<20} | {'MAPA DE ACIERTOS'}\n"
-    report_header += "-" * 120
-    log(report_header)
+    # --- PASO B: EVALUACIÓN CRUZADA (Frase por Frase) ---
+    for case in test_cases:
+        real_label = case["label"].lower()
+        es_negativo = (real_label == "negativo")
 
-    for r in results:
-        log(f"{r['Modelo']:<25} | {r['Exito']:<7} | {r['Tech']:<20} | {r['Mapa']}")
+        for m in modelos_vivos:
+            if es_negativo: m["neg_totales"] += 1
+            
+            start_p = time.time()
+            # PREDICCIÓN
+            try:
+                if m["tech"] == "PKL":
+                    p = m["modelo"].predict([case["text"]])[0]
+                else:
+                    seq = m["tokenizer"].texts_to_sequences([case["text"]])
+                    padded = pad_sequences(seq, maxlen=m["modelo"].input_shape[1])
+                    res = m["modelo"].predict(padded, verbose=0)
+                    idx = np.argmax(res, axis=1)[0]
+                    print(f"DEBUG Fernando: Probabilidades brutas: {res} -> Indice elegido: {idx}")
+                    p = m["mapping"].get(str(idx), str(idx)) if m["mapping"] else str(idx)
+                
+                prediction = str(p).lower()
+            except:
+                prediction = "error"
+
+            m["tiempos"].append(time.time() - start_p)
+            m["preds_list"].append(prediction)
+
+            # Validar acierto
+            if prediction == real_label:
+                m["aciertos"] += 1
+                if es_negativo: m["neg_identificados"] += 1
+
+    # =============================================================================
+    # 3. REPORTES FINALES
+    # =============================================================================
     
-    log("="*120)
-    log("\nLEYENDA: #ID(Autor) = Acierto | #ID(X) = Fallo. Los reportes se guardan en data/results/reports/")
+    # --- TABLA 1: RESUMEN GENERAL (Métricas de Hardware y Éxito) ---
+    log("\n" + "="*125)
+    header = f"{'CANDIDATO':<20} | {'ÉXITO':<7} | {'NEGATIVOS':<10} | {'LATENCIA':<12} | {'RAM':<10} | {'TECH'}"
+    log(header)
+    log("-" * 125)
+    for m in modelos_vivos:
+        exito = (m["aciertos"] / len(test_cases)) * 100
+        latencia = (sum(m["tiempos"]) / len(test_cases)) * 1000
+        log(f"{m['nombre']:<20} | {exito:>5.1f}% | {m['neg_identificados']}/{m['neg_totales']:<8} | {latencia:>7.2f} ms | {m['ram_uso']:>6.1f} MB | {m['tech']}")
+    log("-" * 125)
+    log(f"LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: {AUDIT_SUBDIR}\n")
+
+    # --- TABLA 2: DETALLE COMPARATIVO CON ALERTAS Y TOTALES ---
+    log("DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):")
+    
+    # Configuración de anchos para consistencia
+    w_cand = 12
+    w_pred = 12
+    w_res = 10
+    
+    # Encabezado dinámico
+    head_det = f"{'NRO':<4}| {'REAL':<10} | {'COMENTARIO':<15} | {'SUGIRIÓ':<10} |"
+    for m in modelos_vivos:
+        head_det += f" {'CANDIDATO':<{w_cand}} | {'PREDICHO':<{w_pred}} | {'RESULTADO':<{w_res}} |"
+    
+    separador = "-" * len(head_det)
+    log(separador)
+    log(head_det)
+    log(separador)
+
+    # Filas de datos (Frase por Frase)
+    for i, case in enumerate(test_cases):
+        fila = f"{case['id']:<4}| {case['label'][:10].upper():<10} | {case['text'][:12]+'...':<15} | {case['author'][:10].upper():<10} |"
+        
+        for m in modelos_vivos:
+            p = m["preds_list"][i]
+            # Sistema de alertas visuales
+            res_txt = "[ OK ]" if p == case["label"].lower() else "[!!!!]"
+            fila += f" {m['nombre'][:w_cand]:<{w_cand}} | {p.upper()[:w_pred]:<{w_pred}} | {res_txt:<{w_res}} |"
+        log(fila)
+
+    # --- NUEVA FILA: TOTAL DE ACIERTOS DEBAJO DE LAS COLUMNAS ---
+    log(separador)
+    fila_totales = f"{'TOTAL':<4}| {'':<10} | {'':<15} | {'':<10} |"
+    for m in modelos_vivos:
+        # Sumamos el total de aciertos acumulado durante la evaluación
+        total_aciertos = f"{m['aciertos']}/{len(test_cases)}"
+        fila_totales += f" {'SUMA FINAL':<{w_cand}} | {'ACIERTOS:':<{w_pred}} | {total_aciertos:<{w_res}} |"
+    
+    log(fila_totales)
+    log(separador)
 
 if __name__ == "__main__":
     run_benchmark()
