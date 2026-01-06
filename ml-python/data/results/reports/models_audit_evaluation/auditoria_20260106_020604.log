@@ -1,0 +1,18 @@
+
+=== INICIANDO BENCHMARK: 06/01/2026 02:06 ===
+Total de frases a evaluar: 20
+
+[+] Evaluando Candidato: candidate-diego
+[!] Aviso: No se encontró archivo de modelo en la carpeta candidate-alexis
+
+[+] Evaluando Candidato: candidate-fernando
+[!] Aviso: No se encontró archivo de modelo en la carpeta candidate-otro
+
+========================================================================================================================
+CANDIDATO (Carpeta)       | ÉXITO   | TECNOLOGÍA           | MAPA DE ACIERTOS
+------------------------------------------------------------------------------------------------------------------------
+candidate-diego           | 65.0%   | Scikit-Learn (Pipeline) | #1(Diego) #2(Diego) #3(X) #4(Diego) #5(X) #6(X) #7(Diego) #8(Diego) #9(X) #10(Diego) #11(Fernando) #12(X) #13(Fernando) #14(Fernando) #15(X) #16(X) #17(Fernando) #18(Fernando) #19(Fernando) #20(Fernando)
+candidate-fernando        | 35.0%   | Deep Learning (Keras) | #1(Diego) #2(X) #3(X) #4(Diego) #5(X) #6(X) #7(Diego) #8(X) #9(X) #10(Diego) #11(X) #12(X) #13(Fernando) #14(X) #15(X) #16(Fernando) #17(X) #18(X) #19(Fernando) #20(X)
+========================================================================================================================
+
+LEYENDA: #ID(Autor) = Acierto | #ID(X) = Fallo. Los reportes se guardan en data/results/reports/

@@ -1,3 +1,20 @@
-Positivo|El producto es excelente, llegó muy rápido y bien empacado.
-Negativo|No me gustó para nada, es de mala calidad y llegó roto.
-Neutral|El servicio al cliente fue aceptable, pero pueden mejorar.
+1|Negativo|el colchon era una tabla de planchar... me levante con un dolor de espalda q no veas|Diego
+2|Positivo|todo de dies! la atencion de los chicos super amable y la comida riquisima y barata|Diego
+3|Neutro|la parada del bus esta justo en la esquina y pasan cada 15 minutos maso menos|Diego
+4|Negativo|un desastre el wi fi no conectaba nunca y en recepcion me decian q era mi celu|Diego
+5|Positivo|re lindo el lugar la vdd q supero lo q esperaba x el precio q pagamos|Diego
+6|Neutro|el desayuno lo sirven de 8 a 10:30 en el salon del primer piso|Diego
+7|Negativo|carisimo para lo q ofrecen... la abitacion super chika y el baño perdia agua|Diego
+8|Positivo|nos encanto!! fuimos x nuestro aniversario y nos regalaron una copa de champaña|Diego
+9|Neutro|ay una cochera a la vuelta pero cobran por hora no esta incluido en el precio|Diego
+10|Negativo|poca higiene las sabanas tenian manchas y el piso estaba pegajoso un asco vdd|Diego
+11|Positivo|la ubicasion es lo mejor de todo esta serca de los bares y el centro historico|Fernando
+12|Neutro|el check out es a las 11 am si te pasas te cobran media estadia mas|Fernando
+13|Negativo|el ruido de la calle es insoportable no pude pegar ojo en toda la nocheee|Fernando
+14|Positivo|buenisimo el trato del personal siempre con una sonrisa y dispuestos a ayudar|Fernando
+15|Neutro|tienen canales de cable y aire acondisionado en todas las habitaciones|Fernando
+16|Negativo|mucha facha por fuera pero x dentro se cae a pedazos... una verguensa|Fernando
+17|Positivo|riquicimo el cafe y las medialunas del desayuno todo freskito del dia|Fernando
+18|Neutro|el hotel tiene 5 pisos y hay ascensor pero es medio lenton|Fernando
+19|Negativo|la pileta estaba re sucia y llena de cloro me ardieron los ojos todo el dia|Fernando
+20|Positivo|recomiendo 100% muy seguro el barrio y el depto impecable x donde mires|Fernando
