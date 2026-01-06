@@ -9,8 +9,9 @@ venv/
 env/
 
 # Data (Datasets pesados)
-ml-python/data/raw/
-!ml-python/data/processed/.gitkeep
+# ml-python/data/raw/
+# !ml-python/data/raw/gold_standard.txt
+# !ml-python/data/processed/.gitkeep
 
 # IDEs (VSCode / PyCharm)
 .vscode/
