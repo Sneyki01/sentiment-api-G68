@@ -9,6 +9,7 @@ import sys
 # Asegurar que encuentre la carpeta src
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 from engine.sentiment_engine import analizar_sentimiento_hibrido
+from utils.database import guardar_prediccion, obtener_datos_dashboard
 
 # 1. Definimos la estructura de la petición (ESTO DEBE IR PRIMERO)
 class SentimentRequest(BaseModel):
@@ -77,12 +78,20 @@ async def predict_sentiment(request: SentimentRequest):
             resultado = "Negativo"
             meta["explicabilidad"] += " | Detección de Sarcasmo"
 
+    # D. Persistencia en Base de Datos
+    guardar_prediccion(request.text, resultado, prob, meta.get("explicabilidad", ""))
+
     # RETORNO ESTRICTO SEGÚN CONTRATO CONGELADO (3 CAMPOS)
     return {
         "prevision": resultado,
         "probabilidad": prob,
         "explicabilidad": meta.get("explicabilidad", "Análisis basado en patrones")
     }
+
+@app.get("/dashboard/stats")
+def get_stats():
+    """Endpoint para alimentar dashboards externos o internos."""
+    return obtener_datos_dashboard()
 
 if __name__ == "__main__":
     import uvicorn
