@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import joblib
 import re
@@ -13,11 +14,18 @@ from sklearn.utils import resample
 
 # Busca la línea 11 aproximadamente y cámbiala por esta:
 try:
-    # Ruta relativa desde la raíz del proyecto
-    df = pd.read_csv("ml-python/data/raw/Big_AHR.csv") 
-    print(f"✅ Datos cargados: {df.shape[0]} registros encontrados.")
+    # Ruta absoluta basada en la ubicación del script
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    input_file = os.path.join(base_dir, "data", "raw", "Big_AHR.csv")
+    df = pd.read_csv(input_file) 
+    print(f"✅ Datos crudos: {df.shape[0]} registros.")
+
+    # LIMPIEZA BÁSICA (Nulos y Duplicados)
+    df.dropna(subset=['review_text', 'rating'], inplace=True)
+    df.drop_duplicates(subset=['review_text'], inplace=True)
+    print(f"📉 Datos tras limpiar nulos/duplicados: {df.shape[0]} registros únicos.")
 except FileNotFoundError:
-    print(f"❌ Error: No se encontró el archivo en ml-python/data/raw/Big_AHR.csv")
+    print(f"❌ Error: No se encontró el archivo en {input_file}")
     exit()
 
 # 2. LIMPIEZA Y PREPARACIÓN (Manejando ñ y acentos)
@@ -82,8 +90,8 @@ print(classification_report(y_test, y_pred))
 
 # 7. GUARDAR ARCHIVOS PARA LA API
 import os
-os.makedirs("ml-python/data/models", exist_ok=True)
-joblib.dump(model_final, "ml-python/data/models/sentiment_model.pkl")
-joblib.dump(vectorizer, "ml-python/data/models/tfidf_vectorizer.pkl")
+os.makedirs(os.path.join(base_dir, "data", "models"), exist_ok=True)
+joblib.dump(model_final, os.path.join(base_dir, "data", "models", "sentiment_model.pkl"))
+joblib.dump(vectorizer, os.path.join(base_dir, "data", "models", "tfidf_vectorizer.pkl"))
 
 print("\n🚀 ¡Archivos .pkl actualizados! Ahora tu API devolverá probabilidades reales.")

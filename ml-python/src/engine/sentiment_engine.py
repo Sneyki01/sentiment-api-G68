@@ -1,68 +1,80 @@
-import json
-import pandas as pd
-import os
+import numpy as np
 
-class SentimentEngine:
-    def __init__(self, lexicon_path):
-        with open(lexicon_path, 'r', encoding='utf-8') as f:
-            self.lexicon = json.load(f)
-        # Reglas del Informe Ejecutivo Final
-        self.negations = {'no', 'sin', 'nunca', 'jamas', 'tampoco', 'ni', 'nada'}
-        self.intensifiers = {'muy', 'sumamente', 'totalmente', 'extremadamente', 'super', 'bastante'}
-
-    def analyze(self, text):
-        if not isinstance(text, str): return 0.0, ""
-        tokens = text.split()
-        score = 0
-        details = []
-        
-        for i, word in enumerate(tokens):
-            if word in self.lexicon:
-                # El lexicon tiene: [score, categoria, importancia, subcategoria, area]
-                base_score = self.lexicon[word][0]
-                area = self.lexicon[word][4]
-                modifier = 1.0
-                
-                # REGLA: Bigrama de Negación
-                if i > 0 and tokens[i-1] in self.negations:
-                    modifier = -0.8
-                # REGLA: Bigrama de Intensidad
-                elif i > 0 and tokens[i-1] in self.intensifiers:
-                    modifier = 1.5
-                
-                word_score = base_score * modifier
-                
-                # DETECCIÓN DE NEGATIVAS FUERTES (Tu requerimiento)
-                if word_score < 0:
-                    word_score *= 2.0  # Amplificamos la queja
-                elif word_score > 0:
-                    word_score *= 0.5  # Minimizamos el elogio
-                
-                score += word_score
-                details.append(f"{word}({area})")
-        
-        return round(score, 2), ", ".join(details)
-
-def run_engine():
-    input_file = "data/processed/Big_AHR_cleaned.csv"
-    lexicon_file = "data/lexicon/lexicon_final_optimizado.json"
-    output_file = "data/processed/Big_AHR_with_scores.csv"
-
-    if not os.path.exists(input_file) or not os.path.exists(lexicon_file):
-        print("❌ Error: Verifica que los archivos existan en data/processed y data/lexicon")
-        return
-
-    print("🚀 Ejecutando Motor de Sentimiento...")
-    engine = SentimentEngine(lexicon_file)
-    df = pd.read_csv(input_file)
+def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
+    """
+    Motor Híbrido G68: ML + Reglas de Negación + Intensificadores + Lexicón Decimal
+    Calibración Final: Pesos (Pos 0.7 / Neg 1.5) - Umbrales (0.45 / 0.60)
+    """
+    # 1. LIMPIEZA BÁSICA Y TOKENIZACIÓN
+    texto_limpio = texto.lower().strip()
+    tokens = texto_limpio.split()
     
-    # Aplicamos el análisis a toda la columna limpia
-    results = df['review_text_clean'].apply(lambda x: engine.analyze(x))
-    df['sentiment_score'] = [r[0] for r in results]
-    df['areas_detectadas'] = [r[1] for r in results]
-    
-    df.to_csv(output_file, index=False)
-    print(f"✅ Proceso terminado. Archivo generado: {output_file}")
+    # 2. REGLA DE LONGITUD (CONTRATO)
+    if len(tokens) < 3:
+        return "Neutro", 0.5, {"nota": "Texto insuficiente para análisis"}
 
-if __name__ == "__main__":
-    run_engine()
+    # 3. CONFIGURACIÓN DE REGLAS SEMÁNTICAS
+    negaciones = {'no', 'sin', 'nunca', 'jamas', 'tampoco', 'ni', 'nada'}
+    intensificadores = {'muy', 'sumamente', 'totalmente', 'extremadamente', 'super', 'bastante'}
+    
+    # LEXICÓN CON PESOS DECIMALES
+    lexicon_pesos = {
+        "excelente": 0.60, "increible": 0.55, "perfecto": 0.65, "bien": 0.25,
+        "limpio": 0.30, "limpia": 0.30, "comodo": 0.30, "amplio": 0.20,
+        "normal": -0.45, "regular": -0.40, "aceptable": -0.25,
+        "asco": -0.90, "sucio": -0.80, "suciedad": -0.80, "pesimo": -0.85, 
+        "malo": -0.60, "mediocre": -0.50, "terrible": -0.90, "ruido": -0.40
+    }
+
+    # 4. PREDICCIÓN BASE DEL MODELO MACHINE LEARNING
+    vector = vectorizador.transform([texto_limpio])
+    probabilidades = modelo.predict_proba(vector)[0]
+    conf_pos_ml = probabilidades[1]  # Probabilidad de la clase positiva
+
+    # 5. PROCESAMIENTO DE LA CAPA SEMÁNTICA (AJUSTE)
+    ajuste_semantico = 0.0
+    for i, word in enumerate(tokens):
+        if word in lexicon_pesos:
+            base_score = lexicon_pesos[word]
+            modifier = 1.0
+            
+            # Aplicar Lógica de Contexto (Negación e Intensidad)
+            if i > 0 and tokens[i-1] in negaciones:
+                modifier = -0.8  # Invierte el sentido del sentimiento
+            elif i > 0 and tokens[i-1] in intensificadores:
+                modifier = 1.5   # Aumenta la intensidad
+            
+            word_score = base_score * modifier
+            
+            # --- REGLA DE PESOS CALIBRADA POR ALEXIS ---
+            if word_score < 0:
+                word_score *= 1.5  # Castigo firme a lo negativo
+            elif word_score > 0:
+                word_score *= 0.7  # Filtro de calidad a lo positivo
+            
+            ajuste_semantico += word_score
+
+    # 6. CÁLCULO DE PROBABILIDAD HÍBRIDA FINAL (p_final)
+    p_final = max(0.0, min(1.0, conf_pos_ml + ajuste_semantico))
+
+    # 7. CLASIFICACIÓN POR UMBRALES (CENTRO DESPLAZADO A 0.55)
+    # Calibrado para compensar el sesgo positivo del entrenamiento
+    umbral_negativo = 0.45  
+    umbral_positivo = 0.60  
+
+    if p_final < umbral_negativo:
+        prevision = "Negativo"
+        nota = "G68: Prioridad de queja detectada"
+    elif p_final > umbral_positivo:
+        prevision = "Positivo"
+        nota = "G68: Satisfaccion validada por encima del sesgo"
+    else:
+        prevision = "Neutro"
+        nota = "G68: Experiencia mixta o ambigua"
+
+    # 8. RESPUESTA PARA LA API / LOTE
+    return prevision, round(p_final, 4), {
+        "ml_original": round(conf_pos_ml, 4),
+        "ajuste_semantico": round(ajuste_semantico, 4),
+        "nota_tecnica": nota
+    }

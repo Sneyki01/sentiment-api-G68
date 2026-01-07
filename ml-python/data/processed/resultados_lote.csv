@@ -1,0 +1,101 @@
+﻿id,review_text_clean,prevision,probabilidad,nota
+1,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+2,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero el bano era un asco, experiencia terrible.",Negativo,0.2385,Castigo aplicado: se detectaron fallos criticos
+3,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.0845,Castigo aplicado: se detectaron fallos criticos
+4,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+5,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Negativo,0.1759,Castigo aplicado: se detectaron fallos criticos
+6,"Llegamos con expectativas. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.022,Castigo aplicado: se detectaron fallos criticos
+7,"Mi estancia fue mixta. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0398,Castigo aplicado: se detectaron fallos criticos
+8,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, el precio es normal.",Neutro,0.4548,Experiencia mixta situada en zona de calibracion
+9,"Llegamos con expectativas. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+10,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, experiencia terrible.",Negativo,0.0212,Castigo aplicado: se detectaron fallos criticos
+11,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0997,Castigo aplicado: se detectaron fallos criticos
+12,"Mi estancia fue mixta. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Negativo,0.3802,Castigo aplicado: se detectaron fallos criticos
+13,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero hay mucha suciedad, experiencia terrible.",Negativo,0.3266,Castigo aplicado: se detectaron fallos criticos
+14,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero el bano era un asco, el precio es normal.",Neutro,0.5454,Experiencia mixta situada en zona de calibracion
+15,"Llegamos con expectativas. el personal fue sumamente profesional, pero el bano era un asco, el precio es normal.",Negativo,0.1064,Castigo aplicado: se detectaron fallos criticos
+16,"Mi estancia fue mixta. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+17,"Mi estancia fue mixta. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Negativo,0.3802,Castigo aplicado: se detectaron fallos criticos
+18,"No se como calificarlo. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, el precio es normal.",Positivo,0.7742,Satisfaccion confirmada por encima del sesgo
+19,"Llegamos con expectativas. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+20,"No se como calificarlo. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+21,"No se como calificarlo. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Neutro,0.5571,Experiencia mixta situada en zona de calibracion
+22,"No se como calificarlo. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.3275,Castigo aplicado: se detectaron fallos criticos
+23,"No se como calificarlo. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+24,"No se como calificarlo. la vista era increible y el diseno excelente, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0876,Castigo aplicado: se detectaron fallos criticos
+25,"Llegamos con expectativas. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+26,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.0845,Castigo aplicado: se detectaron fallos criticos
+27,"Mi estancia fue mixta. el personal fue sumamente profesional, pero el bano era un asco, el precio es normal.",Negativo,0.285,Castigo aplicado: se detectaron fallos criticos
+28,"No se como calificarlo. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+29,"No se como calificarlo. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0234,Castigo aplicado: se detectaron fallos criticos
+30,"No se como calificarlo. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Neutro,0.5571,Experiencia mixta situada en zona de calibracion
+31,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+32,"No se como calificarlo. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.3275,Castigo aplicado: se detectaron fallos criticos
+33,"Mi estancia fue mixta. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0398,Castigo aplicado: se detectaron fallos criticos
+34,"No se como calificarlo. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.1054,Castigo aplicado: se detectaron fallos criticos
+35,"No se como calificarlo. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+36,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero hay mucha suciedad, experiencia terrible.",Negativo,0.3266,Castigo aplicado: se detectaron fallos criticos
+37,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.0845,Castigo aplicado: se detectaron fallos criticos
+38,"Mi estancia fue mixta. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.2703,Castigo aplicado: se detectaron fallos criticos
+39,"No se como calificarlo. la vista era increible y el diseno excelente, pero el bano era un asco, el precio es normal.",Neutro,0.5682,Experiencia mixta situada en zona de calibracion
+40,"Llegamos con expectativas. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+41,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+42,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero el bano era un asco, experiencia terrible.",Negativo,0.2385,Castigo aplicado: se detectaron fallos criticos
+43,"Llegamos con expectativas. el personal fue sumamente profesional, pero el bano era un asco, el precio es normal.",Negativo,0.1064,Castigo aplicado: se detectaron fallos criticos
+44,"Mi estancia fue mixta. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, el precio es normal.",Positivo,0.6893,Satisfaccion confirmada por encima del sesgo
+45,"No se como calificarlo. el personal fue sumamente profesional, pero hay mucha suciedad, experiencia terrible.",Negativo,0.069,Castigo aplicado: se detectaron fallos criticos
+46,"No se como calificarlo. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, el precio es normal.",Positivo,0.7742,Satisfaccion confirmada por encima del sesgo
+47,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero hay mucha suciedad, el precio es normal.",Negativo,0.4354,Castigo aplicado: se detectaron fallos criticos
+48,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero el bano era un asco, experiencia terrible.",Negativo,0.2852,Castigo aplicado: se detectaron fallos criticos
+49,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Negativo,0.1759,Castigo aplicado: se detectaron fallos criticos
+50,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero el bano era un asco, el precio es normal.",Negativo,0.3755,Castigo aplicado: se detectaron fallos criticos
+51,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0584,Castigo aplicado: se detectaron fallos criticos
+52,"No se como calificarlo. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Neutro,0.5571,Experiencia mixta situada en zona de calibracion
+53,"No se como calificarlo. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.0812,Castigo aplicado: se detectaron fallos criticos
+54,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Negativo,0.1759,Castigo aplicado: se detectaron fallos criticos
+55,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero el bano era un asco, experiencia terrible.",Negativo,0.2852,Castigo aplicado: se detectaron fallos criticos
+56,"No se como calificarlo. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+57,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+58,"Llegamos con expectativas. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+59,"Llegamos con expectativas. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+60,"Mi estancia fue mixta. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+61,"No se como calificarlo. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, el precio es normal.",Neutro,0.5112,Experiencia mixta situada en zona de calibracion
+62,"Llegamos con expectativas. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0083,Castigo aplicado: se detectaron fallos criticos
+63,"Mi estancia fue mixta. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.2703,Castigo aplicado: se detectaron fallos criticos
+64,"No se como calificarlo. el personal fue sumamente profesional, pero el bano era un asco, el precio es normal.",Negativo,0.2894,Castigo aplicado: se detectaron fallos criticos
+65,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.1848,Castigo aplicado: se detectaron fallos criticos
+66,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+67,"No se como calificarlo. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.1054,Castigo aplicado: se detectaron fallos criticos
+68,"Mi estancia fue mixta. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Negativo,0.3802,Castigo aplicado: se detectaron fallos criticos
+69,"Llegamos con expectativas. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.022,Castigo aplicado: se detectaron fallos criticos
+70,"Llegamos con expectativas. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+71,"No se como calificarlo. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+72,"No se como calificarlo. el personal fue sumamente profesional, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+73,"Llegamos con expectativas. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0649,Castigo aplicado: se detectaron fallos criticos
+74,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero el bano era un asco, experiencia terrible.",Negativo,0.2852,Castigo aplicado: se detectaron fallos criticos
+75,"Llegamos con expectativas. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, el precio es normal.",Neutro,0.4741,Experiencia mixta situada en zona de calibracion
+76,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+77,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero el bano era un asco, experiencia terrible.",Negativo,0.2385,Castigo aplicado: se detectaron fallos criticos
+78,"No se como calificarlo. la vista era increible y el diseno excelente, pero el bano era un asco, experiencia terrible.",Negativo,0.2687,Castigo aplicado: se detectaron fallos criticos
+79,"No se como calificarlo. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0234,Castigo aplicado: se detectaron fallos criticos
+80,"Mi estancia fue mixta. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+81,"No se como calificarlo. el personal fue sumamente profesional, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.1054,Castigo aplicado: se detectaron fallos criticos
+82,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, el precio es normal.",Neutro,0.4548,Experiencia mixta situada en zona de calibracion
+83,"Llegamos con expectativas. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0083,Castigo aplicado: se detectaron fallos criticos
+84,"No se como calificarlo. la vista era increible y el diseno excelente, pero hay mucha suciedad, el precio es normal.",Positivo,0.7767,Satisfaccion confirmada por encima del sesgo
+85,"Mi estancia fue mixta. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.2703,Castigo aplicado: se detectaron fallos criticos
+86,"Mi estancia fue mixta. el personal fue sumamente profesional, pero hay mucha suciedad, experiencia terrible.",Negativo,0.0766,Castigo aplicado: se detectaron fallos criticos
+87,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero el bano era un asco, el precio es normal.",Neutro,0.5454,Experiencia mixta situada en zona de calibracion
+88,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, el precio es normal.",Neutro,0.4548,Experiencia mixta situada en zona de calibracion
+89,"Llegamos con expectativas. la vista era increible y el diseno excelente, pero hay mucha suciedad, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+90,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero hay mucha suciedad, experiencia terrible.",Negativo,0.3266,Castigo aplicado: se detectaron fallos criticos
+91,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, experiencia terrible.",Negativo,0.0212,Castigo aplicado: se detectaron fallos criticos
+92,"No se como calificarlo. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.0812,Castigo aplicado: se detectaron fallos criticos
+93,"No se como calificarlo. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, es aceptable para una noche.",Negativo,0.0,Castigo aplicado: se detectaron fallos criticos
+94,"Mi estancia fue mixta. el personal fue sumamente profesional, aunque el mantenimiento es mediocre, el precio es normal.",Neutro,0.4548,Experiencia mixta situada en zona de calibracion
+95,"No se como calificarlo. la vista era increible y el diseno excelente, pero el bano era un asco, el precio es normal.",Neutro,0.5682,Experiencia mixta situada en zona de calibracion
+96,"Mi estancia fue mixta. la vista era increible y el diseno excelente, pero el bano era un asco, es aceptable para una noche.",Negativo,0.0997,Castigo aplicado: se detectaron fallos criticos
+97,"Mi estancia fue mixta. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0398,Castigo aplicado: se detectaron fallos criticos
+98,"Mi estancia fue mixta. el personal fue sumamente profesional, pero el bano era un asco, experiencia terrible.",Negativo,0.0398,Castigo aplicado: se detectaron fallos criticos
+99,"Mi estancia fue mixta. la vista era increible y el diseno excelente, aunque el mantenimiento es mediocre, experiencia terrible.",Negativo,0.3305,Castigo aplicado: se detectaron fallos criticos
+100,"Llegamos con expectativas. el personal fue sumamente profesional, pero hay mucha suciedad, el precio es normal.",Negativo,0.1759,Castigo aplicado: se detectaron fallos criticos
