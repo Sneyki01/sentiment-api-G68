@@ -43,7 +43,8 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         "ruido": -0.70, "bulla": -0.65, "calor": -0.50, "frio": -0.50,
         "roto": -0.75, "viejo": -0.60, "antiguo": -0.40, "mal": -0.60,
         "demora": -0.70, "espera": -0.55, "tardan": -0.65, "grosero": -0.85,
-        "caro": -0.45, "estafa": -0.95, "robo": -0.95, "lejos": -0.45, "lejano": -0.45
+        "caro": -0.45, "estafa": -0.95, "robo": -0.95, "lejos": -0.45, "lejano": -0.45,
+        "cucarachas": -0.95, "bichos": -0.80, "chinches": -0.95
     }
 
     # 4. PREDICCION BASE DEL MODELO MACHINE LEARNING

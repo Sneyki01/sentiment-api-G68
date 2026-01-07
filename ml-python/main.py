@@ -63,8 +63,8 @@ async def predict_sentiment(request: SentimentRequest):
     if len(request.text.strip()) < 3:
         return {
             "prevision": "Neutro",
-            "probabilidad_ml": 0.0,
-            "meta": {"nota": "Rechazado: Mínimo 3 caracteres requerido."}
+            "probabilidad": 0.5,
+            "explicabilidad": "Texto muy corto para análisis"
         }
 
     # B. Uso del Motor Híbrido Centralizado
