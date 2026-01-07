@@ -1,16 +1,96 @@
-// URL base de la API (entorno local)
+// URL de la API en entorno local
 const API_BASE_URL = "http://localhost:8000/sentiment";
 
+let hasFirstMessageSent = false;
+
 /**
- * Lógica principal: llamar al backend para analizar el sentimiento
+ * Ajusta dinámicamente la altura del textarea según el contenido
+ */
+function autoResize(textarea) {
+  if (!textarea) return;
+  textarea.style.height = "auto";
+  textarea.style.height = Math.min(textarea.scrollHeight, 260) + "px";
+}
+
+/**
+ * Actualiza visibilidad de iconos (X y ↑) según el contenido del textarea
+ */
+function updateInputIcons() {
+  const textarea = document.getElementById("textInput");
+  const clearBtn = document.getElementById("clearButton");
+  const sendBtn = document.getElementById("sendButton");
+
+  if (!textarea) return;
+
+  const hasText = textarea.value.trim().length > 0;
+  const isValidLength = textarea.value.trim().length >= 3;
+
+  if (clearBtn) {
+    clearBtn.classList.toggle("hidden", !hasText);
+  }
+
+  if (sendBtn) {
+    sendBtn.classList.toggle("hidden", !hasText);
+    sendBtn.disabled = !isValidLength;
+  }
+}
+
+/**
+ * Tema según el sistema operativo (prefers-color-scheme)
+ */
+function applyTheme(prefersDark) {
+  const body = document.body;
+  body.classList.remove("theme-light", "theme-dark");
+
+  if (prefersDark) {
+    body.classList.add("theme-dark");
+    console.log("[SentimentalIA] Tema aplicado: oscuro (OS)");
+  } else {
+    body.classList.add("theme-light");
+    console.log("[SentimentalIA] Tema aplicado: claro (OS)");
+  }
+}
+
+function setupThemeFromOS() {
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Aplicar tema inicial según el sistema
+  applyTheme(mq.matches);
+
+  // Escuchar cambios de tema del sistema en tiempo real
+  mq.addEventListener("change", (event) => {
+    applyTheme(event.matches);
+  });
+}
+
+/**
+ * Activa el “modo chat” solo la primera vez:
+ * - oculta hero
+ * - ancla el input abajo con body.chat-mode
+ */
+function enterChatModeOnce() {
+  if (hasFirstMessageSent) return;
+
+  hasFirstMessageSent = true;
+
+  const hero = document.querySelector(".hero");
+  if (hero && !hero.classList.contains("hidden")) {
+    hero.classList.add("hidden");
+  }
+
+  document.body.classList.add("chat-mode");
+}
+
+/**
+ * Función principal: analiza el sentimiento llamando al backend y construye historial
  */
 function analyze() {
   const textarea = document.getElementById("textInput");
   const text = textarea.value.trim();
-  const result = document.getElementById("result");
   const btnSend = document.getElementById("sendButton");
+  const history = document.getElementById("history");
 
-  // Validación de longitud: 3 a 2000 caracteres (aunque el botón aparece desde 1)
+  // Validación de longitud
   if (text.length < 3) {
     alert("El texto debe tener al menos 3 caracteres.");
     return;
@@ -20,73 +100,170 @@ function analyze() {
     return;
   }
 
-  // Estado de carga: skeleton
-  result.className = "result loading";
-  result.classList.remove("positive", "negative", "neutral", "fade-in");
-  result.classList.remove("hidden");
+  // Entrar en modo chat (input fijo abajo) después del primer envío válido
+  enterChatModeOnce();
 
-  result.innerHTML = `
-    <div class="skeleton-line skeleton-title"></div>
+  // === 1) Crear item de historial (comentario + placeholder de respuesta) ===
+  const item = document.createElement("div");
+  item.className = "history-item";
+
+  // Comentario del usuario (derecha)
+  const userBlock = document.createElement("div");
+  userBlock.className = "history-user";
+
+  const userBubble = document.createElement("div");
+  userBubble.className = "history-user-bubble";
+  userBubble.textContent = text; // se respeta tal cual, incluyendo saltos
+
+  userBlock.appendChild(userBubble);
+
+  // Contenedor de respuesta (izquierda)
+  const responseWrapper = document.createElement("div");
+  responseWrapper.className = "history-response";
+
+  const resultDiv = document.createElement("div");
+  resultDiv.className = "result loading";
+  resultDiv.innerHTML = `
     <div class="skeleton-line"></div>
-    <div class="skeleton-line short"></div>
+    <div class="skeleton-line"></div>
   `;
+
+  // Contenedor de acciones (… , compartir, like, dislike)
+  const actionsDiv = document.createElement("div");
+  actionsDiv.className = "result-actions";
+
+  // Botón "más detalles..." (solo icono •••)
+  const moreBtn = document.createElement("button");
+  moreBtn.type = "button";
+  moreBtn.className = "action-btn more-details";
+  moreBtn.innerHTML = `
+    <span class="action-icon-circle"><span>•••</span></span>
+  `;
+  moreBtn.addEventListener("click", () => {
+    alert("Más detalles del modelo (en desarrollo).");
+  });
+
+  // Botón compartir (flecha)
+  const shareBtn = document.createElement("button");
+  shareBtn.type = "button";
+  shareBtn.className = "action-btn";
+  shareBtn.innerHTML = `
+    <span class="action-icon-circle"><span>⤴</span></span>
+  `;
+  shareBtn.addEventListener("click", () => {
+    alert("Funcionalidad de compartir (en desarrollo).");
+  });
+
+  // Botón me gusta (corazón ♥)
+  const likeBtn = document.createElement("button");
+  likeBtn.type = "button";
+  likeBtn.className = "action-btn";
+  likeBtn.innerHTML = `
+    <span class="action-icon-circle">
+      <span class="icon-heart-like">♥</span>
+    </span>
+  `;
+  likeBtn.addEventListener("click", () => {
+    alert("Feedback positivo registrado (en desarrollo).");
+  });
+
+  // Botón no me gusta (corazón ♥ rayado con CSS)
+  const dislikeBtn = document.createElement("button");
+  dislikeBtn.type = "button";
+  dislikeBtn.className = "action-btn";
+  dislikeBtn.innerHTML = `
+    <span class="action-icon-circle">
+      <span class="icon-heart-dislike">♥</span>
+    </span>
+  `;
+  dislikeBtn.addEventListener("click", () => {
+    alert("Feedback negativo registrado (en desarrollo).");
+  });
+
+  actionsDiv.appendChild(moreBtn);
+  actionsDiv.appendChild(shareBtn);
+  actionsDiv.appendChild(likeBtn);
+  actionsDiv.appendChild(dislikeBtn);
+
+  responseWrapper.appendChild(resultDiv);
+  responseWrapper.appendChild(actionsDiv);
+
+  item.appendChild(userBlock);
+  item.appendChild(responseWrapper);
+
+  // === 2) Insertar línea divisoria y nuevo item en historial ===
+  if (history) {
+    // Si ya existía al menos un mensaje, añadimos una línea divisoria antes del nuevo
+    if (history.children.length > 0) {
+      const divider = document.createElement("div");
+      divider.className = "history-divider";
+      history.appendChild(divider);
+    }
+
+    history.appendChild(item);
+
+    // Scroll interno del contenedor (por si en el futuro se vuelve scrollable)
+    history.scrollTop = history.scrollHeight;
+
+    // Scroll de la página para que el último mensaje quede visible
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth"
+    });
+  }
+
+  // Limpiar textarea, ajustar altura e iconos
+  textarea.value = "";
+  autoResize(textarea);
+  updateInputIcons();
 
   if (btnSend) {
     btnSend.disabled = true;
     btnSend.classList.add("loading");
   }
 
+  // === 3) Llamar a la API del backend ===
   fetch(API_BASE_URL, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text: text })
   })
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
         throw new Error("Error en la API de backend");
       }
       return response.json();
     })
-    .then(data => {
-      result.classList.remove("loading", "positive", "negative", "neutral");
+    .then((data) => {
+      resultDiv.classList.remove("loading", "positive", "negative", "neutral");
 
       const prevision = data.prevision || "Neutro";
-      const prob = typeof data.probabilidad === "number"
-        ? data.probabilidad
-        : 0.5;
+      const prob =
+        typeof data.probabilidad === "number" ? data.probabilidad : 0.5;
 
-      let badgeClass = "badge-neutral";
       if (prevision === "Positivo") {
-        result.classList.add("positive");
-        badgeClass = "badge-positive";
+        resultDiv.classList.add("positive");
       } else if (prevision === "Negativo") {
-        result.classList.add("negative");
-        badgeClass = "badge-negative";
+        resultDiv.classList.add("negative");
       } else {
-        result.classList.add("neutral");
+        resultDiv.classList.add("neutral");
       }
 
-      result.classList.add("fade-in");
-
-      result.innerHTML = `
-        <div style="margin-bottom: 0.35rem;">
-          <strong>Sentimiento:</strong>
-          <span class="badge ${badgeClass}">
-            ${prevision.toUpperCase()}
-          </span>
-        </div>
+      resultDiv.innerHTML = `
         <div>
-          <strong>Probabilidad:</strong> ${prob.toFixed(2)}
+          <span class="sentiment-label">sentimiento:</span>
+          <span class="sentiment-value">${prevision.toLowerCase()}</span>
+        </div>
+        <div class="probability">
+          probabilidad: ${prob.toFixed(2)}
         </div>
       `;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
-      result.classList.remove("loading", "positive", "negative", "neutral");
-      result.classList.add("neutral", "fade-in");
-      result.innerHTML = "Ocurrió un error al comunicarse con el backend.";
+      resultDiv.className = "result neutral";
+      resultDiv.textContent =
+        "ocurrió un error al comunicarse con el backend.";
     })
     .finally(() => {
       if (btnSend) {
@@ -96,88 +273,71 @@ function analyze() {
     });
 }
 
-/* =========================
-   Tema claro / oscuro
-   ========================= */
-
-function applyTheme(theme) {
-  const root = document.documentElement;
-  const btnToggle = document.getElementById("themeToggle");
-
-  root.setAttribute("data-theme", theme);
-  localStorage.setItem("sentimental-theme", theme);
-
-  if (btnToggle) {
-    btnToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-  }
-}
-
-function setupThemeToggle() {
-  const btnToggle = document.getElementById("themeToggle");
-  if (!btnToggle) return;
-
-  const stored = localStorage.getItem("sentimental-theme");
-  const initialTheme = stored === "dark" ? "dark" : "light";
-  applyTheme(initialTheme);
-
-  btnToggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") || "light";
-    const next = current === "light" ? "dark" : "light";
-    applyTheme(next);
-  });
-}
-
-/* =========================
-   Interacciones del input:
-   - mostrar/ocultar X y ↑
-   - limpiar
-   ========================= */
-
+/**
+ * Configura interacciones del input: auto-resize, enter/shift+enter, iconos, etc.
+ */
 function setupInputInteractions() {
   const textarea = document.getElementById("textInput");
   const clearBtn = document.getElementById("clearButton");
   const sendBtn = document.getElementById("sendButton");
-  const attachBtn = document.getElementById("attachButton");
+  const langSelect = document.getElementById("langSelect");
 
   if (!textarea) return;
 
-  const updateIcons = () => {
-    const hasText = textarea.value.trim().length > 0;
-    if (clearBtn && sendBtn) {
-      if (hasText) {
-        clearBtn.classList.remove("hidden");
-        sendBtn.classList.remove("hidden");
+  // Auto-resize + iconos
+  textarea.addEventListener("input", () => {
+    autoResize(textarea);
+    updateInputIcons();
+  });
+
+  // Estado inicial
+  autoResize(textarea);
+  updateInputIcons();
+
+  // Enter para enviar, Shift+Enter para nueva línea
+  textarea.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      if (event.shiftKey) {
+        // permite nueva línea
+        return;
       } else {
-        clearBtn.classList.add("hidden");
-        sendBtn.classList.add("hidden");
+        event.preventDefault();
+        analyze();
       }
     }
-  };
+  });
 
-  textarea.addEventListener("input", updateIcons);
-  updateIcons();
-
+  // Botón limpiar
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
       textarea.value = "";
+      autoResize(textarea);
       textarea.focus();
-      updateIcons();
+      updateInputIcons();
     });
   }
 
-  // Botón + (adjuntar) por ahora solo informativo
-  if (attachBtn) {
-    attachBtn.addEventListener("click", () => {
-      alert("Función de adjuntar archivos/imágenes (provisional para futuras versiones).");
+  // Botón enviar (flecha)
+  if (sendBtn) {
+    sendBtn.addEventListener("click", () => {
+      analyze();
     });
+  }
+
+  // Tooltip simple para idioma seleccionado
+  if (langSelect) {
+    const updateLangTitle = () => {
+      const val = langSelect.value;
+      const fullName = val === "pt" ? "Português" : "Español";
+      langSelect.title = fullName;
+    };
+    langSelect.addEventListener("change", updateLangTitle);
+    updateLangTitle();
   }
 }
 
-/* =========================
-   Init
-   ========================= */
-
+// Inicializar cuando el DOM está listo
 document.addEventListener("DOMContentLoaded", () => {
-  setupThemeToggle();
+  setupThemeFromOS(); // seguimos el tema del sistema
   setupInputInteractions();
 });

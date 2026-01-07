@@ -3,53 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <title>Sentimental IA – Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-root">
-    <!-- Barra superior con menú centrado y toggle de tema -->
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="topbar-left">
-          Sentimental IA · Equipo 68
-        </div>
+  <header class="topbar">
+    <div class="topbar-left">
+      H12-25-L-Equipo 68
+    </div>
 
-        <nav class="topbar-center">
-          <a href="#inicio" class="nav-link">Inicio</a>
-          <a href="#dashboard" class="nav-link">Dashboard</a>
-          <a href="#estadisticas" class="nav-link">Estadísticas</a>
-          <a href="#docs" class="nav-link">Docs</a>
-          <a href="#recursos" class="nav-link">Recursos</a>
-        </nav>
+    <nav class="topbar-center">
+      <ul class="nav-links">
+        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+        <li><a href="#estadisticas" class="nav-link">Estadísticas</a></li>
+        <li><a href="#docs" class="nav-link">Docs</a></li>
+        <li><a href="#recursos" class="nav-link">Recursos</a></li>
+      </ul>
+    </nav>
 
-        <div class="topbar-right">
-          <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
-            🌙
-          </button>
-        </div>
-      </div>
-    </header>
+    <div class="topbar-right">
+      <button type="button" class="btn-login">Iniciar sesión</button>
+    </div>
+  </header>
 
-    <!-- Contenido principal -->
-    <main class="main" id="inicio">
-      <!-- Título y subtítulo centrados -->
-      <section class="hero">
-        <h1 class="branding-title">Sentimental IA</h1>
-        <p class="branding-subtitle">Análisis Inteligente</p>
-      </section>
+  <main class="page">
+    <!-- Hero inicial (se oculta después del primer envío) -->
+    <section class="hero">
+      <h1 class="branding-title">Sentimental IA</h1>
+      <h2 class="branding-subtitle">Análisis Inteligente</h2>
+    </section>
 
-      <!-- SOLO el textInput “envolverlo” visualmente -->
+    <section class="conversation" id="inicio">
+      <!-- Historial de mensajes (usuario + respuesta) -->
+      <div id="history" class="history"></div>
+
+      <!-- Área de entrada -->
       <section class="input-area">
         <div class="input-wrapper">
           <textarea
             id="textInput"
             class="search-input"
-            rows="3"
             placeholder="Haz tu comentario..."
+            rows="3"
           ></textarea>
 
-          <!-- Icono + (adjuntar) en esquina inferior izquierda -->
+          <!-- Icono (+) adjuntar -->
           <button
             type="button"
             id="attachButton"
@@ -59,39 +58,45 @@
             +
           </button>
 
-          <!-- Icono X (borrar) sobre la flecha, aparece con 1+ caracteres -->
+          <!-- Selector de idioma ES/PT -->
+          <select
+            id="langSelect"
+            class="input-action input-lang"
+            aria-label="Seleccionar idioma"
+          >
+            <option value="es">ES</option>
+            <option value="pt">PT</option>
+          </select>
+
+          <!-- Botón limpiar (X) -->
           <button
             type="button"
             id="clearButton"
             class="input-action input-clear hidden"
-            aria-label="Borrar comentario"
+            aria-label="Limpiar texto"
           >
-            ✕
+            ×
           </button>
 
-          <!-- Icono ↑ (enviar/analizar), aparece con 1+ caracteres -->
+          <!-- Botón enviar (flecha ↑) -->
           <button
             type="button"
             id="sendButton"
             class="input-action input-send hidden"
             aria-label="Analizar sentimiento"
-            onclick="analyze()"
           >
             ↑
           </button>
         </div>
-
-        <!-- Resultado, centrado debajo del input -->
-        <div id="result" class="result hidden"></div>
       </section>
-    </main>
+    </section>
 
-    <footer class="footer">
-      <p class="footer-text">
-        Sentimental IA · Hackathon Oracle Next Education · Equipo 68
-      </p>
-    </footer>
-  </div>
+    <!-- Anclas vacías solo para que el menú no pierda links -->
+    <section id="dashboard"></section>
+    <section id="estadisticas"></section>
+    <section id="docs"></section>
+    <section id="recursos"></section>
+  </main>
 
   <script src="app.js"></script>
 </body>
