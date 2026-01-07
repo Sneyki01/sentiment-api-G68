@@ -4,7 +4,8 @@ import os
 from datetime import datetime
 
 # Configuración de la base de datos
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Buscamos la carpeta data en la raíz del proyecto ml-python
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DB_PATH = os.path.join(BASE_DIR, "data", "sentiment_history.db")
 
 def inicializar_db():
@@ -98,5 +99,5 @@ def importar_historico_csv(csv_path):
 # Inicializar al importar
 inicializar_db()
 # Intentar cargar histórico si existe
-CSV_HISTORICO = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'data', 'raw', 'Big_AHR.csv')
+CSV_HISTORICO = os.path.join(BASE_DIR, 'data', 'raw', 'Big_AHR.csv')
 importar_historico_csv(CSV_HISTORICO)
