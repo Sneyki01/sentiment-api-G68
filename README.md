@@ -26,21 +26,20 @@ redes sociales) pueden usar esta API para:
 
 ---
 
-## Arquitectura general
+## Arquitectura G68 (Híbrida)
 ```mermaid
  flowchart TD
-    A[texto de cliente] --> B[Back-End API]
-    B -->C[Servicio ML] 
-    C -->D[Modelo de sentimiento]
-    D --> E[Respuesta]
+    A[Texto de Cliente] --> B[Back-End Java]
+    B --> C[Microservicio Python]
+    C --> D[Motor Semántico G68]
+    D --> E[Modelo Machine Learning]
+    E --> F[Respuesta con Explicabilidad]
 ```
-- **Backend (Java)**: expone la API publica, valida request, maneja errores
-y consume el servicio de ML
-- **Data Science (Python)**: entrena el modelo y expone un microservicio
-para realizar predicciones
+- **Backend (Java)**: Expone la API pública, maneja la persistencia (en desarrollo) y consume el servicio de ML.
+- **Data Science (Python)**: Implementa un **Motor Híbrido** que combina un clasificador `LinearSVC` calibrado con un motor de reglas semánticas que detecta intensificadores, atenuadores y casos específicos del sector hotelero.
 
 ---
-## Contrato de la API (Publico)
+## Contrato de la API (Público)
 **Endpoint**
 ```yaml
 POST: /sentiment
@@ -49,7 +48,7 @@ POST: /sentiment
 **Request**
 ```json
 {
-  "text" : "El servicio fue excelente"
+  "text" : "Las habitaciones tenían algo de moho pero el wifi es muy bueno."
 }
 ```
 
@@ -60,11 +59,11 @@ POST: /sentiment
 - Longitud maxima: 2000 Caracteres
 
 **Response (200 OK)**
-
 ```json
 {
-  "prevision": "positivo",
-  "probabilidad" : "0.87"
+  "prevision": "Negativo",
+  "probabilidad" : "0.42",
+  "explicabilidad": "moho (atenuado por 'algo') | wifi (intensificado por 'muy')"
 }
 ```
 **Posibles valores de Prevision**
@@ -325,20 +324,18 @@ Este proyecto existe porque personas reales dedican tiempo real.
 ---
 
 ## Proximas mejoras (roadmap)
-
 -[x] API REST basica
 -[x] Validaciones y manejo de errores
--[ ] Integracion de ML
-- [ ] Persistencia
-- [ ] Docker
-
-Por definir*
+-[x] Motor Híbrido G68 (ML + Semántica)
+-[x] Exportación y despliegue de modelos
+-[ ] Persistencia en Base de Datos
+-[ ] Dockerización y Orquestación
 
 ---
-
 ## Aprendizajes
-
-*Por definir
+- **Integración Multidisciplinaria:** Logramos conectar la precisión estadística de Python con la robustez de Java.
+- **Ingeniería Semántica:** Aprendimos que en sectores críticos como el hotelero, el Machine Learning puro no es suficiente; las reglas de negocio (lexicones especializados) son el factor diferencial.
+- **Explicabilidad (XAI):** La importancia de que una IA sea transparente ("caja abierta") para que el usuario final confíe en los resultados.
 
 ---
 

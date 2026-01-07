@@ -30,3 +30,10 @@ def test_predict_sentiment_empty_text():
 def test_invalid_payload():
     response = client.post("/predict/sentiment", json={"text_field": "some text"})
     assert response.status_code == 422
+
+def test_predict_sentiment_short_text():
+    response = client.post("/predict/sentiment", json={"text": "No"})
+    assert response.status_code == 200
+    data = response.json()
+    assert data["prevision"] == "Neutro"
+    assert data["meta"]["nota"] == "Rechazado: Mínimo 3 caracteres requerido."

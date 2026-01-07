@@ -4,7 +4,7 @@ import sys
 
 # Aseguramos que Python encuentre tus clases
 sys.path.append(os.path.abspath("src"))
-from engine.test_review import SentimentLabG68
+from engine.sentiment_rule_engine import SentimentLabG68
 
 def exportar():
     lexicon_path = "data/lexicon/lexicon_final_optimizado.json"

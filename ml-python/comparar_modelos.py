@@ -12,9 +12,10 @@ from src.engine.sentiment_engine import analizar_sentimiento_hibrido
 
 # --- Configuración ---
 print("--- Script de Comparación de Métricas ---")
-DATA_PATH = "data/raw/Big_AHR.csv" # Ruta relativa desde la carpeta ml-python
-MODEL_PATH = "data/models/sentiment_model.pkl"
-VECTOR_PATH = "data/models/tfidf_vectorizer.pkl"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "data", "raw", "Big_AHR.csv")
+MODEL_PATH = os.path.join(BASE_DIR, "data", "models", "sentiment_model.pkl")
+VECTOR_PATH = os.path.join(BASE_DIR, "data", "models", "tfidf_vectorizer.pkl")
 
 # --- Funciones de Preparación de Datos ---
 def limpieza_pro(texto):

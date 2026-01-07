@@ -4,6 +4,11 @@ import joblib
 import numpy as np
 import re
 import os
+import sys
+
+# Asegurar que encuentre la carpeta src
+sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
+from engine.sentiment_engine import analizar_sentimiento_hibrido
 
 # 1. Definimos la estructura de la petición (ESTO DEBE IR PRIMERO)
 class SentimentRequest(BaseModel):
@@ -53,7 +58,7 @@ async def predict_sentiment(request: SentimentRequest):
     if model is None or vectorizer is None:
         raise HTTPException(status_code=500, detail="Modelo no disponible")
 
-    # A. Filtro de 3 caracteres (Regla de negocio)
+    # A. Filtro de longitud (Regla de negocio unificada)
     if len(request.text.strip()) < 3:
         return {
             "prevision": "Neutro",
@@ -61,40 +66,22 @@ async def predict_sentiment(request: SentimentRequest):
             "meta": {"nota": "Rechazado: Mínimo 3 caracteres requerido."}
         }
 
-    texto_limpio = limpieza_texto(request.text)
+    # B. Uso del Motor Híbrido Centralizado
+    resultado, prob, meta = analizar_sentimiento_hibrido(request.text, model, vectorizer)
 
-    # B. Inferencia ML
-    vectorizado = vectorizer.transform([texto_limpio])
-    probs = model.predict_proba(vectorizado)[0]
-    conf_neg, conf_pos = probs[0], probs[1]
-
-    # C. Lógica de Neutros (Umbral 0.22)
-    diferencia = abs(conf_pos - conf_neg)
-    if diferencia < 0.22:
-        return {
-            "prevision": "Neutro",
-            "probabilidad_ml": round(float(np.max(probs)), 4),
-            "meta": {"nota": "Opinión informativa o ambigua."}
-        }
-
-    # D. Motor de Sarcasmo
-    resultado = "Positivo" if conf_pos > conf_neg else "Negativo"
-    es_sarcasmo = False
-
+    # C. Lógica de Sarcasmo (Mantenida como capa superior)
+    texto_limpio = request.text.lower()
     if resultado == "Positivo":
         if any(pos in texto_limpio for pos in cebos_positivos) and \
            any(neg in texto_limpio for neg in disparadores_negativos):
-            resultado = "Negativo (Sarcasmo)"
-            es_sarcasmo = True
+            resultado = "Negativo"
+            meta["explicabilidad"] += " | Detección de Sarcasmo"
 
+    # RETORNO ESTRICTO SEGÚN CONTRATO CONGELADO (3 CAMPOS)
     return {
         "prevision": resultado,
-        "probabilidad_ml": round(float(np.max(probs)), 4),
-        "meta": {
-            "deteccion_sarcasmo": es_sarcasmo,
-            "confianza_positiva": round(float(conf_pos), 4),
-            "confianza_negativa": round(float(conf_neg), 4)
-        }
+        "probabilidad": prob,
+        "explicabilidad": meta.get("explicabilidad", "Análisis basado en patrones")
     }
 
 if __name__ == "__main__":
