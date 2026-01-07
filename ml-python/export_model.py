@@ -1,28 +1,23 @@
-import pickle
 import os
 import sys
+import joblib
 
-# Aseguramos que Python encuentre tus clases
-sys.path.append(os.path.abspath("src"))
-from engine.sentiment_rule_engine import SentimentLabG68
+# Asegurar que encuentre la carpeta src
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(BASE_DIR, "src"))
 
-def exportar():
-    lexicon_path = "data/lexicon/lexicon_final_optimizado.json"
-    
-    if not os.path.exists(lexicon_path):
-        print("❌ Error: No se encuentra el lexicon para exportar.")
-        return
+from engine.sentiment_engine import analizar_sentimiento_hibrido
 
-    # Instanciamos el modelo con tu configuración de contrato
-    modelo_ganador = SentimentLabG68(lexicon_path, alpha=0.15)
+def exportar_estado_modelo():
+    MODEL_PATH = os.path.join(BASE_DIR, "data", "models", "sentiment_model.pkl")
+    VECTOR_PATH = os.path.join(BASE_DIR, "data", "models", "tfidf_vectorizer.pkl")
     
-    # Guardamos el objeto completo
-    nombre_archivo = "modelo_sentiment_G68.pkl"
-    with open(nombre_archivo, "wb") as f:
-        pickle.dump(modelo_ganador, f)
-    
-    print(f"✅ ¡Éxito! '{nombre_archivo}' generado.")
-    print("👉 Este es el archivo que debes entregar hoy 06/01.")
+    if os.path.exists(MODEL_PATH) and os.path.exists(VECTOR_PATH):
+        print("✅ Modelos encontrados y listos para produccion.")
+        return True
+    else:
+        print("❌ Modelos no encontrados en data/models/")
+        return False
 
 if __name__ == "__main__":
-    exportar()
+    exportar_estado_modelo()
