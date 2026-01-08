@@ -18,7 +18,6 @@ ml-python/
 ├── src/
 │   ├── app/           # Punto de entrada de la API (main.py)
 │   └── engine/        # Motor híbrido de sentimientos
-├── Dockerfile         # Configuración de despliegue
 └── requirements.txt   # Dependencias del proyecto
 ```
 
