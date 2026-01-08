@@ -1,9 +1,21 @@
 import numpy as np
 import re
+import json
+import os
+
+# Cargar léxico completo al inicio (solo una vez)
+LEXICON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", "data", "lexicon_final_optimizado.json")
+try:
+    with open(LEXICON_PATH, 'r', encoding='utf-8') as f:
+        LEXICON_COMPLETO = json.load(f)
+    print(f"✅ Léxico cargado: {len(LEXICON_COMPLETO)} palabras")
+except Exception as e:
+    print(f"⚠️ No se pudo cargar el léxico completo: {e}")
+    LEXICON_COMPLETO = {}
 
 def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     """
-    Motor Híbrido G68: ML + Reglas de Negación + Intensificadores + Atenuadores
+    Motor Híbrido G68: ML + Léxico Completo (1365 palabras) + Reglas de Negación
     Calibración Final: Pesos (Pos 0.7 / Neg 1.5) - Umbrales (0.45 / 0.60)
     Soporte: Hotelero Especializado | XAI (Explicabilidad)
     """
@@ -26,26 +38,15 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     intensificadores = {'muy', 'sumamente', 'totalmente', 'extremadamente', 'super', 'bastante'}
     atenuadores = {'algo', 'poco', 'ligeramente'}
     
-    lexicon_pesos = {
-        # POSITIVOS (Elogios Hoteleros)
-        "excelente": 0.65, "perfecto": 0.65, "increible": 0.60, "maravilloso": 0.60,
-        "impecable": 0.65, "pulcro": 0.60, "reluciente": 0.55,
-        "amable": 0.50, "atento": 0.50, "hospitalidad": 0.50, "gentil": 0.45,
-        "comodo": 0.40, "confortable": 0.40, "acogedor": 0.45, "wifi": 0.30,
-        "limpio": 0.35, "limpia": 0.35, "amplio": 0.25, "bien": 0.25,
-        
-        # NEUTROS/AMBIGUOS (Tendencia Negativa en Servicio)
-        "normal": -0.45, "regular": -0.40, "aceptable": -0.25, "pasable": -0.30,
-        
-        # NEGATIVOS (Alertas y Quejas)
-        "asco": -0.95, "sucio": -0.85, "suciedad": -0.85, "pesimo": -0.90, "terrible": -0.90,
-        "moho": -0.85, "mancha": -0.80, "olor": -0.75, "humedad": -0.80, "humedo": -0.70,
-        "ruido": -0.70, "bulla": -0.65, "calor": -0.50, "frio": -0.50,
-        "roto": -0.75, "viejo": -0.60, "antiguo": -0.40, "mal": -0.60,
-        "demora": -0.70, "espera": -0.55, "tardan": -0.65, "grosero": -0.85,
-        "caro": -0.45, "estafa": -0.95, "robo": -0.95, "lejos": -0.45, "lejano": -0.45,
-        "cucarachas": -0.95, "bichos": -0.80, "chinches": -0.95
-    }
+    # 4. CONVERTIR LEXICON JSON A DICCIONARIO DE PESOS
+    # Formato JSON: {"palabra": [peso, categoria, ...]}
+    lexicon_pesos = {}
+    for palabra, datos in LEXICON_COMPLETO.items():
+        if isinstance(datos, list) and len(datos) > 0:
+            try:
+                lexicon_pesos[palabra] = float(datos[0])  # El peso está en la primera posición
+            except (ValueError, TypeError):
+                continue
 
     # 4. PREDICCION BASE DEL MODELO MACHINE LEARNING
     texto_vector = re.sub(r'[^a-zñáéíóúü\s]', '', texto.lower())
