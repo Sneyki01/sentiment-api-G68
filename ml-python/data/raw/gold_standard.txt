@@ -1,20 +1,50 @@
-1|Negativo|el lugar es muy "minimalista", tanto que se olvidaron de poner sillas y mesas|Diego
-2|Positivo|no daba un peso x el producto pero la vdd q me cerro la boca, es exelente|Diego
-3|Neutro|el dispositivo opera en la banda de 5ghz y requiere una cuenta activa vdd|Diego
-4|Negativo|mucha promesa de inteligencia artificial pero al final es un bot q no entiende nada|Diego
-5|Positivo|recomiendo 100% el soporte tecnico me dio una mano al toque con la instalasion|Diego
-6|Neutro|la caja trae el manual de usuario, un cable usb tipo c y la garantia ai|Diego
-7|Negativo|una desepcion total tras otra, el material se siente re plastico y de mala calidad|Diego
-8|Positivo|lo mejor q compre en el año, la bateria dura una eternidad y carga rapidisimo|Diego
-9|Neutro|el peso del equipo es de 1.5kg y tiene un acabado en aluminio mate vdd|Diego
-10|Negativo|carisimo para lo q es, ensima me cobraron el envio q decia q era gratis ai|Diego
-11|Positivo|la hubicacion es un 10, tenes todo serca y el barrio es re tranquilo y seguro|Fernando
-12|Neutro|el horario de atencion telefonica es de lunes a viernes de 9 a 18 horas vdd|Fernando
-13|Negativo|el aire acondisionado hacia un ruido como si fuera a explotar, imposible dormir|Fernando
-14|Positivo|la atencion del personal es lo q mas vale la pena, gente re buena onda y servicial|Fernando
-15|Neutro|tienen opciones de pago en cuotas con interes y tambien debito automatico ai|Fernando
-16|Negativo|pense q era otra cosa x las fotos, la abitacion era minuscula y el baño un asco|Fernando
-17|Positivo|de dies todo!! el desayuno super variado y las facturitas estaban recien hechas|Fernando
-18|Neutro|el hotel tiene tres pisos por escalera y no cuenta con elevador de carga vdd|Fernando
-19|Negativo|pesimo servicio, me trataron re mal xq llegue tarde a la reserva de la cena|Fernando
-20|Positivo|me encanto el detalle de la bienvenida, son esas cosas q marcan la diferensia|Fernando
+1129|Negativo|el soporte es una maravilla, tardaron solo 4 dias en decirme q no saben q pasa|Alexis
+1130|Neutro|la version 3.0 incluye el parche d seguridad d diciembre. instalar|Alexis
+1131|Positivo|la hamburguesa es un viaje d ida, la mejor q comi en mi vidaaa|Alexis
+1132|Negativo|el wifi es un adorno de pared, xq internet no da ni d casualidad|Alexis
+1133|Positivo|la atencion d la piba es un 10, re atenta y buena onda total|Alexis
+1134|Neutro|el deposito d rrhh esta en el subsuelo. no hay ascensor|Alexis
+1135|Positivo|el sonido me volo el bocho, bajos q te hacen vibrar el pecho|Alexis
+1136|Negativo|el equipo es una joyita... d museo, xq no sirve p/ nada moderno|Alexis
+1137|Positivo|el unboxing fue un flash, todo re cuidado y c/ stickers d regalo|Alexis
+1138|Neutro|el archivo pesa 500mb. bajar dsd la red d la oficina|Alexis
+1139|Positivo|la bat dura un elissir, me olvide d donde deje el cargador|Alexis
+1140|Negativo|la señal es un chiste, tengo q salir al balcon p/ mandar un ws|Alexis
+1141|Positivo|el diseño es una manteca, super fino y livianito el celu|Alexis
+1142|Neutro|el manual viene en ingles y aleman. pedir traduccion|Alexis
+1143|Positivo|la comida llego al toke y re caliente, un golazo total|Alexis
+1144|Negativo|me re caminaron c/ la oferta, dps te cobran el doble de envio|Alexis
+1145|Positivo|el profe es un bocho, explica d una forma q entendes todo|Alexis
+1146|Neutro|el local abre solo de tarde d 14 a 20hs. avisar dsp|Alexis
+1147|Positivo|me tiraron un centro c/ el cambio d talle, unos genios|Alexis
+1148|Negativo|el tactil esta d la nuca, tenes q pegarle p/ q reaccione|Alexis
+1149|Positivo|la interfaz es una seda, te moves x los menus kmo piña|Alexis
+1150|Neutro|el limite d la tarjeta es d 300k. ver d ampliarlo|Alexis
+1151|Positivo|el mouse vuela, ni te das cuenta q es inalambrico, zero lag|Alexis
+1152|Negativo|la caja llego kmo si la hubiera pisado un camion, un desastre|Alexis
+1153|Positivo|la onda dl lugar es otra cosa, te sentis re chill d una|Alexis
+1154|Neutro|el link d la factura llega x mail a las 48hs d la compra|Alexis
+1155|Positivo|el curso es una bomba atomica, aprendi mas q en la facultad|Alexis
+1156|Negativo|la app es un parto, dsd q abris hasta q carga pasa una vida|Alexis
+1157|Positivo|la web vuela bajito, clickeas y ya cargo todo, re pro|Alexis
+1158|Neutro|la temp ideal d laburo es 20 grados. no tapar ventilacion|Alexis
+1159|Positivo|el teclado es una delicia, las teclas son super silenciosas|Diego
+1160|Positivo|la atencion es nivel pro, te sentis el dueño dl boliche|Diego
+1161|Neutro|el acceso al parking es c/ el ticket d la compra|Diego
+1162|Positivo|la mística q tiene este bar es lo mas, re copado todo|Diego
+1163|Negativo|el teclado es una batata, se traban las teclas dsd el dia 1|Diego
+1164|Positivo|el acabado es una joyita, ese color mate le queda flama|Diego
+1165|Neutro|la luz azul indica q esta cargando. no desenchufar|Diego
+1166|Positivo|la rapidez d la entrega fue un flash, llego antes d tiempo|Diego
+1167|Negativo|el soporte postventa es un fantasma, no existen directamente|Diego
+1168|Positivo|el mousepad es una seda, el raton desliza kmo loco|Diego
+1169|Neutro|el tanque carga 50 litros d premium. no usar super|Diego
+1170|Positivo|el instructor la tiene re clara, un bocho el chabon|Diego
+1171|Positivo|la interfaz es god, hasta mi sobrinito la usa sin ayuda|Diego
+1172|Neutro|el horario d verano es d 8 a 13hs. solo x la mañana|Diego
+1173|Positivo|el sonido d los bajos es zarpado, te vuela la peluca|Diego
+1174|Negativo|la bat es un chiste d mal gusto, no dura ni el desayuno|Diego
+1175|Positivo|el despacho fue un 10, vino todo selladito al vacio|Diego
+1176|Neutro|el manual esta disponible en la web oficial d la marca|Diego
+1177|Positivo|la limpieza es impecable, podes andar en patas tranki|Diego
+1178|Negativo|la atencion es d terror, te tratan kmo si fueras un perro|Diego

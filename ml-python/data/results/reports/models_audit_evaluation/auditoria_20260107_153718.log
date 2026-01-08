@@ -1,0 +1,53 @@
+=== INICIANDO BENCHMARK: 07/01/2026 15:37 ===
+Total de frases a evaluar: 30
+============================================================
+[+] Modelo 'fernando' cargado exitosamente.
+[+] Modelo 'diego' cargado exitosamente.
+[+] Modelo 'alexis' cargado exitosamente.
+
+=============================================================================================================================
+CANDIDATO            | ÉXITO   | NEGATIVOS  | LATENCIA     | RAM        | TECH
+-----------------------------------------------------------------------------------------------------------------------------
+fernando             |  10.0% | 3/3        |  113.16 ms |   26.1 MB | Keras
+diego                |  43.3% | 3/3        |    1.60 ms |   38.7 MB | PKL
+alexis               |  63.3% | 3/3        |    1.52 ms |    0.1 MB | PKL
+-----------------------------------------------------------------------------------------------------------------------------
+LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: /home/degops/Projects/Repositorios/repo_NoCountryChallenges/Hackathon_Feelings_API/root/sentiment-api-G68/ml-python/src/app/../../data/results/reports/models_audit_evaluation
+
+DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NRO | REAL       | COMENTARIO      | SUGIRIÓ    | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+157 | POSITIVO   | el doctor me... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+158 | NEUTRO     | la clínica a... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+159 | POSITIVO   | la hamburgue... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+160 | POSITIVO   | el soporte t... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+161 | NEUTRO     | la suscripci... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+162 | POSITIVO   | el mesero fu... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+163 | POSITIVO   | qué buen det... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEUTRO       | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+164 | NEUTRO     | la capacidad... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+165 | NEGATIVO   | el probador ... | ALEXIS     | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+166 | POSITIVO   | la profesora... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+167 | POSITIVO   | el envío de ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+168 | NEUTRO     | el centro co... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+169 | POSITIVO   | la atención ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | NEGATIVO     | [!!!!]     |
+170 | POSITIVO   | me encantó l... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+171 | NEUTRO     | la farmacia ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+172 | POSITIVO   | el helado de... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+173 | POSITIVO   | la veterinar... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+174 | NEUTRO     | el banco sol... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+175 | NEGATIVO   | la comida de... | DIEGO      | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+176 | POSITIVO   | el barbero e... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+177 | POSITIVO   | el sonido de... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+178 | NEUTRO     | la bibliotec... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+179 | POSITIVO   | la cajera de... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+180 | POSITIVO   | los equipos ... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+181 | NEUTRO     | el estaciona... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+182 | POSITIVO   | el café de e... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+183 | POSITIVO   | me regalaron... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+184 | NEUTRO     | el horario d... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+185 | NEGATIVO   | el dentista ... | FERNANDO   | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+186 | POSITIVO   | la calidad d... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL|            |                 |            | SUMA FINAL   | ACIERTOS:    | 3/30       | SUMA FINAL   | ACIERTOS:    | 13/30      | SUMA FINAL   | ACIERTOS:    | 19/30      |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

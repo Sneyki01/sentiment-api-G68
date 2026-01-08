@@ -1,0 +1,53 @@
+=== INICIANDO BENCHMARK: 07/01/2026 15:34 ===
+Total de frases a evaluar: 30
+============================================================
+[+] Modelo 'fernando' cargado exitosamente.
+[+] Modelo 'diego' cargado exitosamente.
+[+] Modelo 'alexis' cargado exitosamente.
+
+=============================================================================================================================
+CANDIDATO            | ÉXITO   | NEGATIVOS  | LATENCIA     | RAM        | TECH
+-----------------------------------------------------------------------------------------------------------------------------
+fernando             |  10.0% | 3/3        |  681.46 ms |   67.9 MB | Keras
+diego                |  33.3% | 3/3        |    8.12 ms |   45.7 MB | PKL
+alexis               |  60.0% | 3/3        |    2.56 ms |    0.2 MB | PKL
+-----------------------------------------------------------------------------------------------------------------------------
+LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: /home/degops/Projects/Repositorios/repo_NoCountryChallenges/Hackathon_Feelings_API/root/sentiment-api-G68/ml-python/src/app/../../data/results/reports/models_audit_evaluation
+
+DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NRO | REAL       | COMENTARIO      | SUGIRIÓ    | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+127 | POSITIVO   | el personal ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+128 | NEUTRO     | el sensor de... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+129 | POSITIVO   | increíble có... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+130 | POSITIVO   | el minibar t... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+131 | NEUTRO     | la temperatu... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+132 | POSITIVO   | un acierto t... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+133 | POSITIVO   | la iluminaci... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+134 | NEUTRO     | el servicio ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+135 | NEGATIVO   | la señal del... | ALEXIS     | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+136 | POSITIVO   | las almohada... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+137 | POSITIVO   | el diseño in... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+138 | NEUTRO     | el hotel req... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+139 | POSITIVO   | el personal ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+140 | POSITIVO   | me encantó q... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+141 | NEUTRO     | el interrupt... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+142 | POSITIVO   | el pan artes... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEUTRO       | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+143 | POSITIVO   | las cortinas... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+144 | NEUTRO     | el ascensor ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+145 | NEGATIVO   | el ruido del... | DIEGO      | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+146 | POSITIVO   | la ubicación... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+147 | POSITIVO   | el kit de co... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+148 | NEUTRO     | el televisor... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+149 | POSITIVO   | el personal ... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+150 | POSITIVO   | la presión d... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+151 | NEUTRO     | la capacidad... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+152 | POSITIVO   | el aroma del... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+153 | POSITIVO   | me facilitar... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+154 | NEUTRO     | el mando del... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+155 | NEGATIVO   | la alfombra ... | FERNANDO   | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+156 | POSITIVO   | la rapidez c... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL|            |                 |            | SUMA FINAL   | ACIERTOS:    | 3/30       | SUMA FINAL   | ACIERTOS:    | 10/30      | SUMA FINAL   | ACIERTOS:    | 18/30      |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

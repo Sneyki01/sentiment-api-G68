@@ -1,0 +1,56 @@
+=== INICIANDO BENCHMARK: 07/01/2026 16:00 ===
+Total de frases a evaluar: 33
+============================================================
+[+] Modelo 'fernando' cargado exitosamente.
+[+] Modelo 'diego' cargado exitosamente.
+[+] Modelo 'alexis' cargado exitosamente.
+
+=============================================================================================================================
+CANDIDATO            | ÉXITO   | NEGATIVOS  | LATENCIA     | RAM        | TECH
+-----------------------------------------------------------------------------------------------------------------------------
+fernando             |  12.1% | 4/4        |  108.15 ms |   83.3 MB | Keras
+diego                |  27.3% | 4/4        |    1.35 ms |   50.9 MB | PKL
+alexis               |  45.5% | 3/4        |    1.30 ms |    0.1 MB | PKL
+-----------------------------------------------------------------------------------------------------------------------------
+LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: /home/degops/Projects/Repositorios/repo_NoCountryChallenges/Hackathon_Feelings_API/root/sentiment-api-G68/ml-python/src/app/../../data/results/reports/models_audit_evaluation
+
+DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NRO | REAL       | COMENTARIO      | SUGIRIÓ    | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+227 | POSITIVO   | el soporte t... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+228 | NEUTRO     | la aplicació... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+229 | POSITIVO   | el repartido... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+230 | POSITIVO   | la interfaz ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+231 | NEUTRO     | el centro de... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+232 | POSITIVO   | el doctor es... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+233 | POSITIVO   | el teclado t... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEUTRO       | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+234 | NEUTRO     | la suscripci... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+235 | NEGATIVO   | el paquete v... | ALEXIS     | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+236 | POSITIVO   | la tela del ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+237 | POSITIVO   | el barista h... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+238 | NEUTRO     | el banco per... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+239 | POSITIVO   | la velocidad... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+240 | POSITIVO   | el perfume t... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+241 | NEUTRO     | la oficina d... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+242 | POSITIVO   | el curso onl... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEUTRO       | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+243 | POSITIVO   | la atención ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+244 | NEUTRO     | la capacidad... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+245 | NEGATIVO   | la comida ll... | DIEGO      | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+246 | POSITIVO   | el gimnasio ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+247 | POSITIVO   | el sistema d... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+248 | NEUTRO     | el hotel cue... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+249 | POSITIVO   | la limpieza ... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+250 | POSITIVO   | el proceso d... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+251 | NEUTRO     | la temperatu... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+252 | POSITIVO   | el masaje de... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+253 | POSITIVO   | la calidad d... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+254 | NEUTRO     | la garantía ... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+255 | NEGATIVO   | el servicio ... | FERNANDO   | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | POSITIVO     | [!!!!]     |
+256 | POSITIVO   | el restauran... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+257 | POSITIVO   | la batería d... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+258 | NEUTRO     | la actualiza... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+259 | NEGATIVO   | el ruido de ... | FERNANDO   | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL|            |                 |            | SUMA FINAL   | ACIERTOS:    | 4/33       | SUMA FINAL   | ACIERTOS:    | 9/33       | SUMA FINAL   | ACIERTOS:    | 15/33      |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

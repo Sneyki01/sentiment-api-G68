@@ -1,0 +1,37 @@
+=== INICIANDO BENCHMARK: 06/01/2026 16:16 ===
+Total de frases a evaluar: 15
+============================================================
+[+] Modelo 'fernando' cargado exitosamente.
+[+] Modelo 'diego' cargado exitosamente.
+[!] Error cargando alexis: No module named 'engine'
+
+=============================================================================================================================
+CANDIDATO            | ÉXITO   | NEGATIVOS  | LATENCIA     | RAM        | TECH
+-----------------------------------------------------------------------------------------------------------------------------
+fernando             |  13.3% | 2/2        |  123.01 ms |   69.2 MB | Keras
+diego                |  60.0% | 2/2        |    1.37 ms |   67.2 MB | PKL
+-----------------------------------------------------------------------------------------------------------------------------
+LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: /home/degops/Projects/Repositorios/repo_NoCountryChallenges/Hackathon_Feelings_API/root/sentiment-api-G68/ml-python/src/app/../../data/results/reports/models_audit_evaluation
+
+DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):
+---------------------------------------------------------------------------------------------------------------------------------------
+NRO | REAL       | COMENTARIO      | SUGIRIÓ    | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  |
+---------------------------------------------------------------------------------------------------------------------------------------
+46  | POSITIVO   | el personal ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     |
+47  | POSITIVO   | la ubicación... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     |
+48  | NEUTRO     | el desayuno ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     |
+49  | POSITIVO   | las sábanas ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     |
+50  | POSITIVO   | una experien... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     |
+51  | NEUTRO     | para activar... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     |
+52  | NEGATIVO   | la señal de ... | DIEGO      | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     |
+53  | POSITIVO   | me encantó e... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     |
+54  | POSITIVO   | relación cal... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     |
+55  | NEUTRO     | el paquete p... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     |
+56  | POSITIVO   | increíble ra... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     |
+57  | POSITIVO   | todo muy lim... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     |
+58  | NEGATIVO   | el ruido del... | FERNANDO   | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     |
+59  | POSITIVO   | la terraza t... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     |
+60  | NEUTRO     | el comproban... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     |
+---------------------------------------------------------------------------------------------------------------------------------------
+TOTAL|            |                 |            | SUMA FINAL   | ACIERTOS:    | 2/15       | SUMA FINAL   | ACIERTOS:    | 9/15       |
+---------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,43 @@
+=== INICIANDO BENCHMARK: 07/01/2026 17:06 ===
+Total de frases a evaluar: 20
+============================================================
+[+] Modelo 'fernando' cargado exitosamente.
+[+] Modelo 'diego' cargado exitosamente.
+[+] Modelo 'alexis' cargado exitosamente.
+
+=============================================================================================================================
+CANDIDATO            | ÉXITO   | NEGATIVOS  | LATENCIA     | RAM        | TECH
+-----------------------------------------------------------------------------------------------------------------------------
+fernando             |  10.0% | 2/2        |   65.00 ms |   77.6 MB | Keras
+diego                |  45.0% | 2/2        |    0.81 ms |   57.7 MB | PKL
+alexis               |  60.0% | 2/2        |    0.70 ms |    0.0 MB | PKL
+-----------------------------------------------------------------------------------------------------------------------------
+LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: /home/degops/Projects/Repositorios/repo_NoCountryChallenges/Hackathon_Feelings_API/root/sentiment-api-G68/ml-python/src/app/../../data/results/reports/models_audit_evaluation
+
+DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NRO | REAL       | COMENTARIO      | SUGIRIÓ    | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+334 | POSITIVO   | el envío lle... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+335 | NEUTRO     | la clave de ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+336 | POSITIVO   | la atención ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+337 | POSITIVO   | Me gusto muc... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+338 | NEUTRO     | el pedido #4... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+339 | POSITIVO   | la bateria d... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+340 | POSITIVO   | la calidad d... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+341 | NEUTRO     | la temperatu... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+342 | NEGATIVO   | el servicio ... | ALEXIS     | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+343 | POSITIVO   | el diseño es... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+344 | POSITIVO   | la app funci... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+345 | NEUTRO     | el horario d... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [!!!!]     |
+346 | POSITIVO   | la pizza lle... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+347 | POSITIVO   | Me salvaron ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+348 | NEUTRO     | la capacidad... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+349 | POSITIVO   | increible la... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | POSITIVO     | [ OK ]     |
+350 | POSITIVO   | el curso est... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+351 | NEUTRO     | la oficina e... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NEGATIVO     | [!!!!]     |
+352 | NEGATIVO   | la caja lleg... | FERNANDO   | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NEGATIVO     | [ OK ]     |
+353 | POSITIVO   | la limpieza ... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | POSITIVO     | [ OK ]     |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL|            |                 |            | SUMA FINAL   | ACIERTOS:    | 2/20       | SUMA FINAL   | ACIERTOS:    | 9/20       | SUMA FINAL   | ACIERTOS:    | 12/20      |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

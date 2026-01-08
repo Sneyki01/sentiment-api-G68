@@ -1,0 +1,38 @@
+=== INICIANDO BENCHMARK: 07/01/2026 15:06 ===
+Total de frases a evaluar: 15
+============================================================
+[+] Modelo 'fernando' cargado exitosamente.
+[+] Modelo 'diego' cargado exitosamente.
+[+] Modelo 'alexis' cargado exitosamente.
+
+=============================================================================================================================
+CANDIDATO            | ÉXITO   | NEGATIVOS  | LATENCIA     | RAM        | TECH
+-----------------------------------------------------------------------------------------------------------------------------
+fernando             |  13.3% | 2/2        |  159.20 ms |    2.0 MB | Keras
+diego                |  46.7% | 1/2        |    1.89 ms |   27.4 MB | PKL
+alexis               |   0.0% | 0/2        |    1.95 ms |    0.1 MB | PKL
+-----------------------------------------------------------------------------------------------------------------------------
+LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: /home/degops/Projects/Repositorios/repo_NoCountryChallenges/Hackathon_Feelings_API/root/sentiment-api-G68/ml-python/src/app/../../data/results/reports/models_audit_evaluation
+
+DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NRO | REAL       | COMENTARIO      | SUGIRIÓ    | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+01  | POSITIVO   | el check-in ... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+02  | NEUTRO     | la zona de l... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+03  | POSITIVO   | increíble la... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | NONE         | [!!!!]     |
+04  | POSITIVO   | el buffet ti... | ALEXIS     | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+05  | POSITIVO   | la decoració... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | NONE         | [!!!!]     |
+06  | NEUTRO     | el sensor de... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+07  | NEGATIVO   | el aire acon... | DIEGO      | fernando     | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | alexis       | NONE         | [!!!!]     |
+08  | POSITIVO   | los vidrios ... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | NONE         | [!!!!]     |
+09  | POSITIVO   | qué buen det... | DIEGO      | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | NONE         | [!!!!]     |
+10  | NEUTRO     | el voltaje d... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+11  | POSITIVO   | el personal ... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | NONE         | [!!!!]     |
+12  | POSITIVO   | todo impecab... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | alexis       | NONE         | [!!!!]     |
+13  | NEGATIVO   | el ascensor ... | FERNANDO   | fernando     | NEGATIVO     | [ OK ]     | diego        | POSITIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+14  | POSITIVO   | la aplicació... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+15  | NEUTRO     | el estaciona... | FERNANDO   | fernando     | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | alexis       | NONE         | [!!!!]     |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL|            |                 |            | SUMA FINAL   | ACIERTOS:    | 2/15       | SUMA FINAL   | ACIERTOS:    | 7/15       | SUMA FINAL   | ACIERTOS:    | 0/15       |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

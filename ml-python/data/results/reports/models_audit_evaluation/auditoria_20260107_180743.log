@@ -1,0 +1,76 @@
+=== INICIANDO AUDITORÍA JUSTA: 2026-01-07 18:07:45 ===
+[SISTEMA] 50 casos cargados para evaluación.
+
+[+] 'alexis' cargado. Impacto neto: 1332.0 KB
+[+] 'diego' cargado. Impacto neto: 50828.0 KB
+[+] 'fernando' cargado. Impacto neto: 66520.0 KB
+
+[SISTEMA] Iniciando fase de Warm-up (Calentamiento de CPU)...
+[SISTEMA] Procesando 50 frases en orden aleatorio...
+
+=============================================================================================================================
+CANDIDATO            | ÉXITO   | NEGATIVOS  | LATENCIA     | RAM        | TECH
+-----------------------------------------------------------------------------------------------------------------------------
+alexis               |  38.0% | 7/10       |    0.69 ms | 1332.0 KB | PKL
+diego                |  32.0% | 9/10       |    0.80 ms | 50828.0 KB | PKL
+fernando             |  20.0% | 10/10       |   50.46 ms | 66520.0 KB | Keras
+-----------------------------------------------------------------------------------------------------------------------------
+LEYENDA: [ OK ] = Acierto | [!!!!] = Fallo. Logs en: /home/degops/Projects/Repositorios/repo_NoCountryChallenges/Hackathon_Feelings_API/root/sentiment-api-G68/ml-python/data/results/reports/models_audit_evaluation
+
+DETALLE DE EJECUCIÓN COMPARATIVO (POR FRASE):
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NRO | REAL       | COMENTARIO      | SUGIRIÓ    | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  | CANDIDATO    | PREDICHO     | RESULTADO  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+479 | POSITIVO   | el setup d l... | ALEXIS     | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+480 | NEUTRO     | la version e... | ALEXIS     | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+481 | POSITIVO   | la atencion ... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | fernando     | NEGATIVO     | [!!!!]     |
+482 | NEGATIVO   | el soporte e... | ALEXIS     | alexis       | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+483 | POSITIVO   | me volaron e... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+484 | NEUTRO     | el dpto tecn... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+485 | POSITIVO   | la calidad d... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+486 | NEGATIVO   | el equipo es... | ALEXIS     | alexis       | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+487 | POSITIVO   | el unboxing ... | ALEXIS     | alexis       | POSITIVO     | [ OK ]     | diego        | POSITIVO     | [ OK ]     | fernando     | NEGATIVO     | [!!!!]     |
+488 | NEUTRO     | la clave dl ... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+489 | POSITIVO   | la duracion ... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+490 | NEGATIVO   | la señal es ... | ALEXIS     | alexis       | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+491 | POSITIVO   | el diseño es... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | fernando     | NEGATIVO     | [!!!!]     |
+492 | NEUTRO     | el peso dl p... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+493 | POSITIVO   | la moza fue ... | ALEXIS     | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+494 | NEGATIVO   | me re camina... | DIEGO      | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+495 | POSITIVO   | el cafe d es... | DIEGO      | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+496 | NEUTRO     | el local est... | DIEGO      | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+497 | POSITIVO   | me dieron un... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+498 | NEGATIVO   | el tactil es... | DIEGO      | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+499 | POSITIVO   | la UX es una... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | fernando     | NEGATIVO     | [!!!!]     |
+500 | NEUTRO     | el limite d ... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+501 | POSITIVO   | el mouse vue... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+502 | NEGATIVO   | la caja lleg... | DIEGO      | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+503 | POSITIVO   | la vibra d e... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+504 | NEUTRO     | el link d de... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+505 | POSITIVO   | el curso es ... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+506 | NEGATIVO   | la app es un... | DIEGO      | alexis       | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+507 | POSITIVO   | la app vuela... | DIEGO      | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+508 | NEUTRO     | la temp d la... | DIEGO      | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+509 | POSITIVO   | el teclado e... | DIEGO      | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+510 | POSITIVO   | la atencion ... | FERNANDO   | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+511 | NEUTRO     | el acceso es... | FERNANDO   | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+512 | POSITIVO   | la mística q... | FERNANDO   | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+513 | NEGATIVO   | el teclado e... | FERNANDO   | alexis       | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+514 | POSITIVO   | el acabado d... | FERNANDO   | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+515 | NEUTRO     | la luz azul ... | FERNANDO   | alexis       | NEUTRO       | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+516 | POSITIVO   | la rapidez d... | FERNANDO   | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+517 | NEGATIVO   | el servicio ... | FERNANDO   | alexis       | NEGATIVO     | [ OK ]     | diego        | NEGATIVO     | [ OK ]     | fernando     | NEGATIVO     | [ OK ]     |
+518 | POSITIVO   | el mousepad ... | FERNANDO   | alexis       | NEGATIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+519 | NEUTRO     | la capacidad... | FERNANDO   | alexis       | POSITIVO     | [!!!!]     | diego        | POSITIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+520 | POSITIVO   | el instructo... | FERNANDO   | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+521 | POSITIVO   | la interfaz ... | FERNANDO   | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+522 | NEUTRO     | el horario d... | FERNANDO   | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+523 | POSITIVO   | el sonido d ... | FERNANDO   | alexis       | POSITIVO     | [ OK ]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+524 | NEGATIVO   | la bateria e... | FERNANDO   | alexis       | NEGATIVO     | [ OK ]     | diego        | NEUTRO       | [!!!!]     | fernando     | NEGATIVO     | [ OK ]     |
+525 | POSITIVO   | el despacho ... | FERNANDO   | alexis       | NEGATIVO     | [!!!!]     | diego        | POSITIVO     | [ OK ]     | fernando     | NEGATIVO     | [!!!!]     |
+526 | NEUTRO     | el manual es... | FERNANDO   | alexis       | POSITIVO     | [!!!!]     | diego        | NEGATIVO     | [!!!!]     | fernando     | NEGATIVO     | [!!!!]     |
+527 | POSITIVO   | la limpieza ... | FERNANDO   | alexis       | POSITIVO     | [ OK ]     | diego        | POSITIVO     | [ OK ]     | fernando     | NEGATIVO     | [!!!!]     |
+528 | POSITIVO   | el desayuno ... | FERNANDO   | alexis       | POSITIVO     | [ OK ]     | diego        | POSITIVO     | [ OK ]     | fernando     | NEGATIVO     | [!!!!]     |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL|            |                 |            | SUMA FINAL   | ACIERTOS:    | 19/50      | SUMA FINAL   | ACIERTOS:    | 16/50      | SUMA FINAL   | ACIERTOS:    | 10/50      |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
