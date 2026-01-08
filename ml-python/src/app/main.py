@@ -54,7 +54,7 @@ async def predict_sentiment(request: TextIn):
     if not request.text or len(request.text.strip()) < 3:
         raise HTTPException(
             status_code=400, 
-            detail="Bad Request: El mensaje es demasiado corto (mínimo 3 caracteres)."
+            detail="Solicitud Incorrecta: El mensaje es demasiado corto (mínimo 3 caracteres)."
         )
     
     # Validación de carga de modelo (503 Service Unavailable)
