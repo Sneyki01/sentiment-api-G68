@@ -11,7 +11,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 sys.path.append(os.path.join(BASE_DIR, "src"))
 
 from engine.sentiment_engine import analizar_sentimiento_hibrido
-from app.utils import guardar_prediccion, obtener_datos_dashboard
 
 # 1. Definimos la estructura de la petición (ESTO DEBE IR PRIMERO)
 class SentimentRequest(BaseModel):
@@ -19,8 +18,8 @@ class SentimentRequest(BaseModel):
 
 app = FastAPI(
     title="Sentiment Pro API - G68", 
-    description="Sistema Híbrido ML + Reglas",
-    version="2.1"
+    description="Sistema Híbrido ML + Reglas (MVP)",
+    version="2.2"
 )
 
 # 2. Configuración de rutas (relativas a la raíz ml-python)
@@ -50,7 +49,7 @@ def limpieza_texto(texto: str):
 # 6. Endpoints
 @app.get("/")
 def home():
-    return {"status": "API G68 Online", "modelo": "Cargado"}
+    return {"status": "API G68 Online (MVP)", "modelo": "Cargado"}
 
 @app.post("/predict/sentiment")
 async def predict_sentiment(request: SentimentRequest):
@@ -79,20 +78,12 @@ async def predict_sentiment(request: SentimentRequest):
             resultado = "Negativo"
             meta["explicabilidad"] += " | Detección de Sarcasmo"
 
-    # D. Persistencia en Base de Datos
-    guardar_prediccion(request.text, resultado, prob, meta.get("explicabilidad", ""))
-
     # RETORNO ESTRICTO SEGÚN CONTRATO CONGELADO (3 CAMPOS)
     return {
         "prevision": resultado,
         "probabilidad": prob,
         "explicabilidad": meta.get("explicabilidad", "Análisis basado en patrones")
     }
-
-@app.get("/dashboard/stats")
-def get_stats():
-    """Endpoint para alimentar dashboards externos o internos."""
-    return obtener_datos_dashboard()
 
 if __name__ == "__main__":
     import uvicorn
