@@ -1,4 +1,4 @@
-# 🏨 Sentiment Analysis API - Equipo G68 (Hospitality Intelligence)
+# 🏨 Sentiment Analysis API - Equipo G68 
 
 Este microservicio es el núcleo de inteligencia artificial para la clasificación de sentimientos y detección de áreas críticas en la experiencia del cliente hotelero.
 
@@ -62,4 +62,5 @@ ml-python/
 
 ## 📊 Documentación
 - **Notebook de Reporte**: `/ml-python/notebooks/Reporte_Modelado_Sentimiento.ipynb`
-- **Swagger**: `/docs` (con la API en ejecución)
+- **Interfaz Swagger**: [http://localhost:8080/docs](http://localhost:8080/docs)
+- **Acceso Rápido (Redirección)**: [http://localhost:8080](http://localhost:8080)
