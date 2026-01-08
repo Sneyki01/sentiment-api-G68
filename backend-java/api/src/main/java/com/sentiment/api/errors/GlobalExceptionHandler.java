@@ -1,7 +1,6 @@
 package com.sentiment.api.errors;
 
 import com.sentiment.api.dto.ErrorResponse;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -31,6 +30,17 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(new ErrorResponse("JSON invalido"));
     }
 
-    // TODO [Backend-Health]: Agregar manejo de excepción para ML no disponible (503)
-
+    public static class MlServiceException extends RuntimeException {
+        public MlServiceException(String message){
+            super(message);
+        }
+    }
+    @ExceptionHandler(MlServiceException.class)
+    public ResponseEntity<ErrorResponse> handleMlUnavailable(
+            MlServiceException ex,
+            HttpServletRequest request) {
+        return ResponseEntity
+                .status(503)
+                .body(new ErrorResponse(ex.getMessage()));
+    }
 }
