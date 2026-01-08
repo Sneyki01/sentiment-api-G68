@@ -50,11 +50,11 @@ async def predict_sentiment(request: TextIn):
     hora_peticion = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{hora_peticion}] 📩 Petición recibida: POST /predict/sentiment")
 
-    # Validación de texto vacío o solo espacios (400 Bad Request)
-    if not request.text or request.text.isspace():
+    # Validación de longitud mínima (400 Bad Request)
+    if not request.text or len(request.text.strip()) < 3:
         raise HTTPException(
             status_code=400, 
-            detail="El texto no puede estar vacío o contener solo espacios."
+            detail="Bad Request: El mensaje es demasiado corto (mínimo 3 caracteres)."
         )
     
     # Validación de carga de modelo (503 Service Unavailable)
