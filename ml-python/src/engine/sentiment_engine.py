@@ -27,8 +27,8 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     """
     # --- 1. LIMPIEZA Y TOKENIZACIÓN ---
     if not isinstance(texto, str): texto = ""
-    texto_p = texto.lower()
-    texto_p = re.sub(r'([.,!?])', r' \1 ', texto_p)
+    # Limpieza profunda: Solo nos quedamos con letras y espacios para la detección de triggers
+    texto_p = re.sub(r'[^a-zñáéíóúü\s]', ' ', texto.lower())
     tokens = [t.strip() for t in texto_p.split() if t.strip()]
     
     if len(tokens) < 3:
