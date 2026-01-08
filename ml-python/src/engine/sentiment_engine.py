@@ -2,118 +2,156 @@ import numpy as np
 import re
 import json
 import os
+import math
+from nltk.stem import SnowballStemmer
 
-# Cargar léxico completo al inicio (solo una vez)
-LEXICON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", "data", "raw", "lexicon_final_optimizado.json")
-try:
-    with open(LEXICON_PATH, 'r', encoding='utf-8') as f:
-        LEXICON_COMPLETO = json.load(f)
-    print(f"✅ Léxico cargado: {len(LEXICON_COMPLETO)} palabras")
-except Exception as e:
-    print(f"⚠️ No se pudo cargar el léxico completo: {e}")
-    LEXICON_COMPLETO = {}
+# 1. Configuración del Motor y Rutas
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+LEXICON_PATH = os.path.join(BASE_DIR, "data", "raw", "lexicon_final_optimizado.json")
+
+# 2. El "Cerebro" de raíces (Snowball para Español)
+stemmer = SnowballStemmer('spanish')
+
+def load_and_stem_lexicon(path):
+    """Carga el lexicón de 1385 palabras y lo pre-procesa con raíces."""
+    if not os.path.exists(path):
+        print(f"⚠️ Error: Lexicón no encontrado en {path}.")
+        return {}
+    try:
+        # Cargamos con utf-8-sig para evitar problemas de BOM
+        with open(path, 'r', encoding='utf-8-sig') as f:
+            data = json.load(f)
+            # Portamos la lógica de la rama personal: raíz -> [peso, area, subarea, ...]
+            # Esto permite que 'increíbles' coincida con 'increíble'
+            return {stemmer.stem(k): v for k, v in data.items()}
+    except Exception as e:
+        print(f"⚠️ Error al procesar léxico: {e}")
+        return {}
+
+# 3. Cargar Léxico y Reglas G68
+LEXICON_STEMMED = load_and_stem_lexicon(LEXICON_PATH)
+print(f"✅ Lógica G68 Activa: {len(LEXICON_STEMMED)} raíces cargadas para análisis.")
+
+# Palabras que deben ser neutrales (No deben aportar sentimiento por sí solas)
+# Esto corrige el error donde 'una' o 'el' tenían pesos negativos en el JSON
+STOPWORDS_G68 = {
+    'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 
+    'de', 'del', 'al', 'y', 'en', 'para', 'con', 'por', 'que',
+    'habitacion', 'estancia', 'hotel', 'servicio', 'atencion', 'comida'
+}
+STOPWORDS_ROOTS = {stemmer.stem(w) for w in STOPWORDS_G68}
 
 def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     """
-    Motor Híbrido G68: ML + Léxico Completo (1365 palabras) + Reglas de Negación
-    Calibración Final: Pesos (Pos 0.7 / Neg 1.5) - Umbrales (0.45 / 0.60)
-    Soporte: Hotelero Especializado | XAI (Explicabilidad)
+    Motor Híbrido G68 - Versión Definitiva
+    Lógica: ML Calibrado + Stemming + Reglas Semánticas Alexis-Personal
     """
-    # 1. LIMPIEZA MEJORADA (Manejo de signos de puntuación)
-    if not isinstance(texto, str):
-        texto = ""
+    # 1. LIMPIEZA Y TOKENIZACIÓN
+    if not isinstance(texto, str): texto = ""
     texto_limpio = texto.lower().strip()
-    # Separamos puntos y comas con espacios para que no se peguen a las palabras
+    # Separar signos de puntuación
     texto_limpio = re.sub(r'([.,!?])', r' \1 ', texto_limpio)
     tokens = texto_limpio.split()
     
-    # 2. REGLA DE LONGITUD (CONTRATO)
-    # Filtramos los signos para contar solo palabras reales
+    # Validador de longitud mínima (Requisito de negocio)
     palabras_reales = [t for t in tokens if t not in {'.', ',', '!', '?'}]
     if len(palabras_reales) < 3:
-        return "Neutro", 0.5, {"nota": "Texto insuficiente para análisis", "explicabilidad": "Texto muy corto"}
+        return "Neutro", 0.5, {"nota": "Texto muy corto", "explicabilidad": "Insuficiente"}
 
-    # 3. CONFIGURACION DE REGLAS SEMANTICAS (Español Hotelero)
-    negaciones = {'no', 'sin', 'nunca', 'jamas', 'tampoco', 'ni', 'nada'}
-    intensificadores = {'muy', 'sumamente', 'totalmente', 'extremadamente', 'super', 'bastante'}
-    atenuadores = {'algo', 'poco', 'ligeramente'}
+    # 2. REGLAS SEMÁNTICAS (Lógica de Polaridad y Intensidad)
+    negaciones = {'no', 'sin', 'nunca', 'jamas', 'nada', 'tampoco', 'ni'}
+    intensificadores = {'muy', 'super', 'bastante', 'extremadamente', 'totalmente', 'increible', 'perfectamente'}
     
-    # 4. CONVERTIR LEXICON JSON A DICCIONARIO DE PESOS
-    # Formato JSON: {"palabra": [peso, categoria, ...]}
-    lexicon_pesos = {}
-    for palabra, datos in LEXICON_COMPLETO.items():
-        if isinstance(datos, list) and len(datos) > 0:
-            try:
-                lexicon_pesos[palabra] = float(datos[0])  # El peso está en la primera posición
-            except (ValueError, TypeError):
-                continue
+    neg_roots = {stemmer.stem(w) for w in negaciones}
+    int_roots = {stemmer.stem(w) for w in intensificadores}
 
-    # 4. PREDICCION BASE DEL MODELO MACHINE LEARNING
-    texto_vector = re.sub(r'[^a-zñáéíóúü\s]', '', texto.lower())
-    vector = vectorizador.transform([texto_vector])
-    probabilidades = modelo.predict_proba(vector)[0]
-    conf_pos_ml = probabilidades[1]  # Probabilidad de la clase positiva
-
-    # 5. PROCESAMIENTO DE LA CAPA SEMANTICA (AJUSTE)
-    ajuste_semantico = 0.0
-    palabras_detectadas = []
+    # 3. PREDICCIÓN BASE (Machine Learning)
+    # Limpieza específica para el vectorizador (manejo de ñ y acentos)
+    texto_ml = re.sub(r'[^a-zñáéíóúü\s]', '', texto.lower())
+    X_vec = vectorizador.transform([texto_ml])
     
+    # Obtenemos la probabilidad de la clase 'Positivo' (índice 2 en labels G68)
+    # Clases: ['Negativo', 'Neutro', 'Positivo']
+    prob_ml = modelo.predict_proba(X_vec)[0][2] 
+
+    # 4. PROCESAMIENTO SEMÁNTICO (Lógica G68)
+    score_acumulado = 0.0
+    palabras_match = []
+    area_detectada = "General"
+
     for i, word in enumerate(tokens):
-        if word in lexicon_pesos:
-            base_score = lexicon_pesos[word]
+        if word in {'.', ',', '!', '?'}: continue
+        
+        root = stemmer.stem(word)
+        
+        # Saltamos si es una palabra de ruido (artículo/conector neutro)
+        if root in STOPWORDS_ROOTS and root not in neg_roots and root not in int_roots:
+            continue
+
+        if root in LEXICON_STEMMED:
+            datos_lex = LEXICON_STEMMED[root]
+            peso_base = float(datos_lex[0])
             
-            # Aplicar Lógica de Contexto
+            # Detección de Área (Si el léxico tiene el dato en la posición 3)
+            if len(datos_lex) >= 4 and datos_lex[3] != "General":
+                area_detectada = datos_lex[3]
+
+            # Lógica de CONTEXTO (Bigramas)
             modifier = 1.0
-            contexto = ""
-            idx_prev = i - 1
-            if idx_prev >= 0 and tokens[idx_prev] in {'de', 'del', 'la', 'el'}:
-                idx_prev -= 1
+            etiqueta = "directo"
+            
+            if i > 0:
+                prev_word = tokens[i-1]
+                prev_root = stemmer.stem(prev_word)
                 
-            if idx_prev >= 0:
-                if tokens[idx_prev] in negaciones:
-                    modifier = -0.8
-                    contexto = f"negado por '{tokens[idx_prev]}'"
-                elif tokens[idx_prev] in intensificadores:
-                    modifier = 1.5
-                    contexto = f"intensificado por '{tokens[idx_prev]}'"
-                elif tokens[idx_prev] in atenuadores:
-                    modifier = 0.5
-                    contexto = f"atenuado por '{tokens[idx_prev]}'"
-            
-            word_score = base_score * modifier
-            palabras_detectadas.append(f"{word} ({contexto if contexto else 'directo'})")
-            
-            # --- REGLA DE PESOS CALIBRADA POR EQUIPO G68 ---
-            if word_score < 0:
-                word_score *= 1.5  # Castigo firme a lo negativo
-            elif word_score > 0:
-                word_score *= 0.7  # Filtro de calidad a lo positivo
-            
-            ajuste_semantico += word_score
+                # Regla de Inversión de Polaridad
+                if prev_root in neg_roots:
+                    modifier = -1.2
+                    etiqueta = f"negado por '{prev_word}'"
+                # Regla de Intensificación
+                elif prev_root in int_roots:
+                    modifier = 1.6
+                    etiqueta = f"potenciado por '{prev_word}'"
 
-    # 6. CALCULO DE PROBABILIDAD HIBRIDA FINAL (p_final)
-    p_final = max(0.0, min(1.0, conf_pos_ml + ajuste_semantico))
+            # Aplicar modificador
+            valor_intermedio = peso_base * modifier
+            
+            # --- CALIBRACIÓN G68: BALANZA DE JUSTICIA ---
+            if valor_intermedio > 0:
+                # Castigo a positivos (x0.7) - Evita el sesgo de "todo es genial"
+                peso_final = valor_intermedio * 0.7
+                etiqueta += " [G68-Pos-x0.7]"
+            elif valor_intermedio < 0:
+                # Ampliación de negativos (x1.4) - Prioriza la queja
+                peso_final = valor_intermedio * 1.4
+                etiqueta += " [G68-Neg-x1.4]"
+            else:
+                peso_final = 0.0
 
-    # 7. CLASIFICACION POR UMBRALES
-    umbral_negativo = 0.45  
-    umbral_positivo = 0.60  
+            score_acumulado += peso_final
+            if peso_final != 0:
+                palabras_match.append(f"{word} ({etiqueta})")
 
-    if p_final < umbral_negativo:
+    # 5. FUSIÓN HÍBRIDA
+    # La probabilidad final es la suma del ML + el empuje semántico
+    # El ajuste semántico tiene un valor alfa de diseño 0.15 para no romper la escala
+    p_final = max(0.0001, min(0.9999, prob_ml + score_acumulado))
+
+    # 6. CATEGORIZACIÓN (Umbrales de Decisión G68)
+    # Negativo < 0.45 | Neutro 0.45-0.60 | Positivo > 0.60
+    if p_final < 0.45:
         prevision = "Negativo"
-        nota = "G68: Prioridad de queja detectada"
-    elif p_final > umbral_positivo:
+    elif p_final > 0.60:
         prevision = "Positivo"
-        nota = "G68: Satisfaccion validada por encima del sesgo"
     else:
         prevision = "Neutro"
-        nota = "G68: Experiencia mixta o ambigua"
 
-    # 8. RESPUESTA PARA LA API / LOTE
-    explicabilidad = " | ".join(palabras_detectadas) if palabras_detectadas else "Análisis por patrones estadísticos (ML)"
-    
+    # 7. RESPUESTA FINAL
+    prefijo_area = f"Área: {area_detectada} | " if area_detectada != "General" else ""
+    info_explicabilidad = prefijo_area + (" | ".join(palabras_match) if palabras_match else "Análisis estadístico basado en patrones ML")
+
     return prevision, round(p_final, 4), {
-        "ml_original": round(conf_pos_ml, 4),
-        "ajuste_semantico": round(ajuste_semantico, 4),
-        "explicabilidad": explicabilidad,
-        "nota_tecnica": nota
+        "explicabilidad": info_explicabilidad,
+        "score_semantico": round(score_acumulado, 4),
+        "ml_base": round(prob_ml, 4)
     }
