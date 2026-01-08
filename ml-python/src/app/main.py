@@ -1,16 +1,18 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 import joblib
-import numpy as np
-import re
 import os
 import sys
+import datetime
+import traceback
+from nltk.stem import SnowballStemmer
 
 # Asegurar que encuentre la carpeta raíz de src
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(os.path.join(BASE_DIR, "src"))
 
-from engine.sentiment_engine import analizar_sentimiento_hibrido
+from engine.sentiment_engine import analizar_sentimiento_hibrido, LEXICON_G68
 
 # 1. Definimos la estructura de la petición (Modelo TextIn según contrato)
 class TextIn(BaseModel):
@@ -19,36 +21,24 @@ class TextIn(BaseModel):
 app = FastAPI(
     title="Sentiment Pro API - G68", 
     description="Sistema Híbrido ML + Reglas (MVP)",
-    version="2.3"
+    version="2.4"
 )
 
-# 2. Configuración de rutas (relativas a la raíz ml-python)
+# 2. Configuración de rutas
 MODEL_PATH = os.path.join(BASE_DIR, "data", "models", "sentiment_model.pkl")
 VECTOR_PATH = os.path.join(BASE_DIR, "data", "models", "tfidf_vectorizer.pkl")
 
-# 3. Carga de archivos
+# 3. Carga de archivos (Gestión de 503 Service Unavailable)
 try:
     model = joblib.load(MODEL_PATH)
     vectorizer = joblib.load(VECTOR_PATH)
-    print("🔵 Pipeline de producción cargado correctamente.")
+    print("✅ Pipeline de producción cargado correctamente.")
 except Exception as e:
-    print(f"❌ Error crítico al cargar: {e}")
+    print(f"❌ Error crítico al cargar modelo: {e}")
     model = None
     vectorizer = None
 
-# 4. Diccionarios para Sarcasmo
-disparadores_negativos = ["suci", "asc", "mugr", "pelos", "cucarach", "chinch", "hedor", "podrid", "pésim", "rot", "viej", "rob", "estaf"]
-cebos_positivos = ["excelente", "increíble", "maravilla", "perfecto", "genial", "recomiendo", "fantástico"]
-
-# 5. Utilidades
-def limpieza_texto(texto: str):
-    texto = texto.lower()
-    texto = re.sub(r'[^a-zñáéíóúü\s]', '', texto)
-    return texto.strip()
-
-from fastapi.responses import RedirectResponse
-
-# 6. Endpoints
+# 4. Endpoints
 @app.get("/", include_in_schema=False)
 def home():
     """Redirige automáticamente a la documentación Swagger."""
@@ -56,6 +46,10 @@ def home():
 
 @app.post("/predict/sentiment")
 async def predict_sentiment(request: TextIn):
+    # Log de Petición (Trazabilidad)
+    hora_peticion = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{hora_peticion}] 📩 Petición recibida: POST /predict/sentiment")
+
     # Validación de texto vacío o solo espacios (400 Bad Request)
     if not request.text or request.text.isspace():
         raise HTTPException(
@@ -70,31 +64,28 @@ async def predict_sentiment(request: TextIn):
             detail="Modelo no cargado en el servidor"
         )
 
-    # A. Filtro de longitud técnica (Regla de negocio adicional)
-    if len(request.text.strip()) < 3:
+    # Garantizamos que `meta` exista aunque falle el motor
+    meta = {}
+    try:
+        # Uso del Motor Híbrido Centralizado G68
+        resultado, prob, meta = analizar_sentimiento_hibrido(request.text, model, vectorizer)
+
+        # Construir explicabilidad basada en léxico (Optimizada G68)
+        # Ahora el motor devuelve directamente la estructura limpia
+        explicabilidad = meta.get("explicabilidad", {"triggers": [], "areas": []})
         return {
-            "prevision": "Neutro",
-            "probabilidad": 0.5,
-            "explicabilidad": "Texto muy corto para análisis"
+            "prevision": resultado,
+            "probabilidad": prob,
+            "explicabilidad": explicabilidad
         }
-
-    # B. Uso del Motor Híbrido Centralizado
-    resultado, prob, meta = analizar_sentimiento_hibrido(request.text, model, vectorizer)
-
-    # C. Lógica de Sarcasmo (Mantenida como capa superior)
-    texto_limpio = request.text.lower()
-    if resultado == "Positivo":
-        if any(pos in texto_limpio for pos in cebos_positivos) and \
-           any(neg in texto_limpio for neg in disparadores_negativos):
-            resultado = "Negativo"
-            meta["explicabilidad"] += " | Detección de Sarcasmo"
-
-    # RETORNO ESTRICTO SEGÚN CONTRATO CONGELADO (3 CAMPOS)
-    return {
-        "prevision": resultado,
-        "probabilidad": prob,
-        "explicabilidad": meta.get("explicabilidad", "Análisis basado en patrones")
-    }
+    except Exception as e:
+        # Error log (Resiliencia - Error 500)
+        print(f"❌ Error interno al procesar la predicción: {e}")
+        print(traceback.format_exc())
+        raise HTTPException(
+            status_code=500,
+            detail="Error interno al procesar la predicción"
+        )
 
 if __name__ == "__main__":
     import uvicorn
