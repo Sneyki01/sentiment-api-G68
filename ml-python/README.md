@@ -2,7 +2,7 @@
 
 Este microservicio es el núcleo de inteligencia artificial para la clasificación de sentimientos y detección de áreas críticas en la experiencia del cliente hotelero.
 
-## 🚀 Propuesta de Valor
+## � Propuesta de Valor
 A diferencia de un análisis de sentimientos genérico, el modelo **G68** es un sistema híbrido diseñado específicamente para el sector hospitalidad:
 - **Priorización de Riesgo**: Ajustado para detectar quejas sutiles que otros modelos ignoran (Recall Negativo optimizado).
 - **Detección de Áreas**: Identifica automáticamente si la queja es para **Limpieza, Servicio, Confort o Infraestructura**.

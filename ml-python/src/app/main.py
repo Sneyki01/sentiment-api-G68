@@ -30,7 +30,7 @@ VECTOR_PATH = os.path.join(BASE_DIR, "data", "models", "tfidf_vectorizer.pkl")
 try:
     model = joblib.load(MODEL_PATH)
     vectorizer = joblib.load(VECTOR_PATH)
-    print("✅ Pipeline de producción cargado correctamente.")
+    print("🔵 Pipeline de producción cargado correctamente.")
 except Exception as e:
     print(f"❌ Error crítico al cargar: {e}")
     model = None
@@ -46,10 +46,13 @@ def limpieza_texto(texto: str):
     texto = re.sub(r'[^a-zñáéíóúü\s]', '', texto)
     return texto.strip()
 
+from fastapi.responses import RedirectResponse
+
 # 6. Endpoints
-@app.get("/")
+@app.get("/", include_in_schema=False)
 def home():
-    return {"status": "API G68 Online (MVP)", "modelo": "Cargado"}
+    """Redirige automáticamente a la documentación Swagger."""
+    return RedirectResponse(url="/docs")
 
 @app.post("/predict/sentiment")
 async def predict_sentiment(request: TextIn):
