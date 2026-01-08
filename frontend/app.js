@@ -1,5 +1,16 @@
-// URL de la API en entorno local
-const API_BASE_URL = "http://localhost:8000/sentiment";
+// =====================
+// Configuración de APIs
+// =====================
+
+// URL de la API en entorno remoto / dev
+const API_ENDPOINTS = {
+  DEV_BACKEND: "http://localhost:8080/sentiment",
+  MODEL_LINEAR: "http://159.112.150.158:8080/predict",
+  MODEL_BILSTM: "http://149.130.183.97:8080/predict"
+};
+
+// Endpoint por defecto (DEV)
+let ACTIVE_API = API_ENDPOINTS.DEV_BACKEND;
 
 let hasFirstMessageSent = false;
 
@@ -44,10 +55,10 @@ function applyTheme(prefersDark) {
 
   if (prefersDark) {
     body.classList.add("theme-dark");
-    console.log("[SentimentalIA] Tema aplicado: oscuro (OS)");
+    console.log("[SentimentalIA] tema aplicado: oscuro (OS)");
   } else {
     body.classList.add("theme-light");
-    console.log("[SentimentalIA] Tema aplicado: claro (OS)");
+    console.log("[SentimentalIA] tema aplicado: claro (OS)");
   }
 }
 
@@ -82,7 +93,36 @@ function enterChatModeOnce() {
 }
 
 /**
- * Función principal: analiza el sentimiento llamando al backend y construye historial
+ * Mostrar de nuevo área de input + selector de modelo
+ * (se usa desde el botón "Nuevo sentimiento")
+ */
+function showInputAndModel() {
+  const inputArea = document.querySelector(".input-area");
+  const apiSelector = document.querySelector(".api-selector");
+
+  if (inputArea) inputArea.classList.remove("hidden");
+  if (apiSelector) apiSelector.classList.remove("hidden");
+
+  const mainTextarea = document.getElementById("textInput");
+  if (mainTextarea) {
+    mainTextarea.value = "";
+    autoResize(mainTextarea);
+    updateInputIcons();
+    mainTextarea.focus();
+
+    // Scroll suave para que el textInput quede visible
+    const rect = mainTextarea.getBoundingClientRect();
+    const absoluteTop = window.scrollY + rect.top - 120;
+    window.scrollTo({
+      top: absoluteTop,
+      behavior: "smooth"
+    });
+  }
+}
+
+/**
+ * Función principal: analiza el sentimiento llamando al backend
+ * y muestra solo el ÚLTIMO comentario + resultado (sin historial visible).
  */
 function analyze() {
   const textarea = document.getElementById("textInput");
@@ -92,18 +132,23 @@ function analyze() {
 
   // Validación de longitud
   if (text.length < 3) {
-    alert("El texto debe tener al menos 3 caracteres.");
+    alert("el texto debe tener al menos 3 caracteres.");
     return;
   }
   if (text.length > 2000) {
-    alert("El texto no puede superar los 2000 caracteres.");
+    alert("el texto no puede superar los 2000 caracteres.");
     return;
   }
 
   // Entrar en modo chat (input fijo abajo) después del primer envío válido
   enterChatModeOnce();
 
-  // === 1) Crear item de historial (comentario + placeholder de respuesta) ===
+  // 1) Limpiar historial visible (sin línea divisoria)
+  if (history) {
+    history.innerHTML = "";
+  }
+
+  // 2) Crear item (comentario + resultado)
   const item = document.createElement("div");
   item.className = "history-item";
 
@@ -113,7 +158,7 @@ function analyze() {
 
   const userBubble = document.createElement("div");
   userBubble.className = "history-user-bubble";
-  userBubble.textContent = text; // se respeta tal cual, incluyendo saltos
+  userBubble.textContent = text;
 
   userBlock.appendChild(userBubble);
 
@@ -140,7 +185,7 @@ function analyze() {
     <span class="action-icon-circle"><span>•••</span></span>
   `;
   moreBtn.addEventListener("click", () => {
-    alert("Más detalles del modelo (en desarrollo).");
+    alert("más detalles del modelo (en desarrollo).");
   });
 
   // Botón compartir (flecha)
@@ -151,7 +196,7 @@ function analyze() {
     <span class="action-icon-circle"><span>⤴</span></span>
   `;
   shareBtn.addEventListener("click", () => {
-    alert("Funcionalidad de compartir (en desarrollo).");
+    alert("funcionalidad de compartir (en desarrollo).");
   });
 
   // Botón me gusta (corazón ♥)
@@ -164,7 +209,7 @@ function analyze() {
     </span>
   `;
   likeBtn.addEventListener("click", () => {
-    alert("Feedback positivo registrado (en desarrollo).");
+    alert("feedback positivo registrado (en desarrollo).");
   });
 
   // Botón no me gusta (corazón ♥ rayado con CSS)
@@ -177,7 +222,7 @@ function analyze() {
     </span>
   `;
   dislikeBtn.addEventListener("click", () => {
-    alert("Feedback negativo registrado (en desarrollo).");
+    alert("feedback negativo registrado (en desarrollo).");
   });
 
   actionsDiv.appendChild(moreBtn);
@@ -185,25 +230,35 @@ function analyze() {
   actionsDiv.appendChild(likeBtn);
   actionsDiv.appendChild(dislikeBtn);
 
+  // === Botón "nuevo sentimiento" alineado a la derecha ===
+  const newCommentBtn = document.createElement("button");
+  newCommentBtn.type = "button";
+  newCommentBtn.className = "action-btn new-comment-btn";
+  newCommentBtn.title = "Nuevo sentimiento";
+  newCommentBtn.innerHTML = `
+    <span class="action-icon-circle">
+      <span class="icon-new-comment">⟳</span>
+    </span>
+  `;
+
+  newCommentBtn.addEventListener("click", () => {
+    showInputAndModel();
+  });
+
+  // Contenedor fila: iconos a la izquierda, "nuevo" a la derecha
+  const actionsRow = document.createElement("div");
+  actionsRow.className = "result-actions-row";
+  actionsRow.appendChild(actionsDiv);
+  actionsRow.appendChild(newCommentBtn);
+
   responseWrapper.appendChild(resultDiv);
-  responseWrapper.appendChild(actionsDiv);
+  responseWrapper.appendChild(actionsRow);
 
   item.appendChild(userBlock);
   item.appendChild(responseWrapper);
 
-  // === 2) Insertar línea divisoria y nuevo item en historial ===
   if (history) {
-    // Si ya existía al menos un mensaje, añadimos una línea divisoria antes del nuevo
-    if (history.children.length > 0) {
-      const divider = document.createElement("div");
-      divider.className = "history-divider";
-      history.appendChild(divider);
-    }
-
     history.appendChild(item);
-
-    // Scroll interno del contenedor (por si en el futuro se vuelve scrollable)
-    history.scrollTop = history.scrollHeight;
 
     // Scroll de la página para que el último mensaje quede visible
     window.scrollTo({
@@ -212,7 +267,7 @@ function analyze() {
     });
   }
 
-  // Limpiar textarea, ajustar altura e iconos
+  // Limpiar textarea, ajustar altura e iconos (por consistencia interna)
   textarea.value = "";
   autoResize(textarea);
   updateInputIcons();
@@ -222,17 +277,46 @@ function analyze() {
     btnSend.classList.add("loading");
   }
 
-  // === 3) Llamar a la API del backend ===
-  fetch(API_BASE_URL, {
+  // === IMPORTANTE: ocultar input y modelo activo tras enviar ===
+  const inputArea = document.querySelector(".input-area");
+  const apiSelector = document.querySelector(".api-selector");
+  if (inputArea) inputArea.classList.add("hidden");
+  if (apiSelector) apiSelector.classList.add("hidden");
+
+  // 3) Llamar a la API activa (con logging detallado)
+  console.log("[SentimentalIA] llamando a endpoint:", ACTIVE_API);
+  console.log("[SentimentalIA] payload:", { text });
+
+  fetch(ACTIVE_API, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text: text })
   })
-    .then((response) => {
+    .then(async (response) => {
+      console.log("[SentimentalIA] status HTTP:", response.status);
+
       if (!response.ok) {
-        throw new Error("Error en la API de backend");
+        let errorText = "";
+        try {
+          errorText = await response.text();
+        } catch (e) {
+          errorText = "<no se pudo leer el cuerpo de error>";
+        }
+
+        console.error(
+          "[SentimentalIA] respuesta NO OK del backend:",
+          response.status,
+          errorText
+        );
+        const err = new Error("http " + response.status);
+        err.httpStatus = response.status;
+        err.backendBody = errorText;
+        throw err;
       }
-      return response.json();
+
+      const data = await response.json();
+      console.log("[SentimentalIA] respuesta JSON:", data);
+      return data;
     })
     .then((data) => {
       resultDiv.classList.remove("loading", "positive", "negative", "neutral");
@@ -260,10 +344,19 @@ function analyze() {
       `;
     })
     .catch((error) => {
-      console.error(error);
+      console.error("[SentimentalIA] error en fetch:", error);
+
+      let mensajeUsuario = "ocurrió un error al comunicarse con el backend.";
+
+      if (error.httpStatus) {
+        mensajeUsuario += ` (http ${error.httpStatus})`;
+      } else if (error instanceof TypeError) {
+        mensajeUsuario +=
+          " posible problema de cors o el endpoint no es accesible desde el navegador.";
+      }
+
       resultDiv.className = "result neutral";
-      resultDiv.textContent =
-        "ocurrió un error al comunicarse con el backend.";
+      resultDiv.textContent = mensajeUsuario;
     })
     .finally(() => {
       if (btnSend) {
@@ -271,6 +364,25 @@ function analyze() {
         btnSend.classList.remove("loading");
       }
     });
+}
+
+/**
+ * Configura el selector de API (si existe en el HTML)
+ */
+function setupApiSelector() {
+  const apiSelect = document.getElementById("apiSelect");
+  if (!apiSelect) return;
+
+  // Valor inicial alineado con ACTIVE_API
+  apiSelect.value = "DEV_BACKEND";
+
+  apiSelect.addEventListener("change", (e) => {
+    const key = e.target.value;
+    if (API_ENDPOINTS[key]) {
+      ACTIVE_API = API_ENDPOINTS[key];
+      console.log("[SentimentalIA] endpoint activo:", key, ACTIVE_API);
+    }
+  });
 }
 
 /**
@@ -284,21 +396,17 @@ function setupInputInteractions() {
 
   if (!textarea) return;
 
-  // Auto-resize + iconos
   textarea.addEventListener("input", () => {
     autoResize(textarea);
     updateInputIcons();
   });
 
-  // Estado inicial
   autoResize(textarea);
   updateInputIcons();
 
-  // Enter para enviar, Shift+Enter para nueva línea
   textarea.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       if (event.shiftKey) {
-        // permite nueva línea
         return;
       } else {
         event.preventDefault();
@@ -307,7 +415,6 @@ function setupInputInteractions() {
     }
   });
 
-  // Botón limpiar
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
       textarea.value = "";
@@ -317,18 +424,16 @@ function setupInputInteractions() {
     });
   }
 
-  // Botón enviar (flecha)
   if (sendBtn) {
     sendBtn.addEventListener("click", () => {
       analyze();
     });
   }
 
-  // Tooltip simple para idioma seleccionado
   if (langSelect) {
     const updateLangTitle = () => {
       const val = langSelect.value;
-      const fullName = val === "pt" ? "Português" : "Español";
+      const fullName = val === "pt" ? "português" : "español";
       langSelect.title = fullName;
     };
     langSelect.addEventListener("change", updateLangTitle);
@@ -338,6 +443,15 @@ function setupInputInteractions() {
 
 // Inicializar cuando el DOM está listo
 document.addEventListener("DOMContentLoaded", () => {
-  setupThemeFromOS(); // seguimos el tema del sistema
+  setupThemeFromOS();
   setupInputInteractions();
+  setupApiSelector();
+
+  // Limpieza por si hubiera algún input secundario viejo
+  const legacySecondary = document.querySelector(
+    ".secondary-input, #secondaryInputWrapper, #secondTextInput"
+  );
+  if (legacySecondary) {
+    legacySecondary.style.display = "none";
+  }
 });
