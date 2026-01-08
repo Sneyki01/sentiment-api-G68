@@ -4,7 +4,7 @@ import json
 import os
 
 # Cargar léxico completo al inicio (solo una vez)
-LEXICON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", "data", "lexicon_final_optimizado.json")
+LEXICON_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", "data", "raw", "lexicon_final_optimizado.json")
 try:
     with open(LEXICON_PATH, 'r', encoding='utf-8') as f:
         LEXICON_COMPLETO = json.load(f)
