@@ -27,20 +27,20 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     """
     # --- 1. LIMPIEZA Y TOKENIZACIÓN ---
     if not isinstance(texto, str): texto = ""
-    # Limpieza profunda: Solo nos quedamos con letras y espacios para la detección de triggers
-    texto_p = re.sub(r'[^a-zñáéíóúü\s]', ' ', texto.lower())
-    tokens = [t.strip() for t in texto_p.split() if t.strip()]
+    # Limpieza profunda: Solo nos quedamos con letras y espacios para la    # Limpieza profunda: Solo nos quedamos con letras y espacios para la detección
+    # Esto asegura que "%&$/Cucarachas" sea detectado como "cucarachas"
+    texto_limpio = re.sub(r'[^a-zñáéíóúü\s]', ' ', texto.lower())
+    tokens = [t.strip() for t in texto_limpio.split() if t.strip()]
     
-    if len(tokens) < 3:
-        return "Neutro", 0.5, {"explicabilidad": "Texto muy corto"}
+    if len(tokens) < 2: # Bajamos un poco el umbral para permitir quejas cortas útiles
+        return "Neutro", 0.5, {"explicabilidad": {"triggers": ["Texto muy corto"], "areas": []}}
 
     is_short = len(tokens) < 15
 
-    # --- 2. CAPA BASE (ML DE HOY - 93.5% ACC) ---
-    texto_vector = re.sub(r'[^a-zñáéíóúü\s]', '', texto.lower())
-    vector = vectorizador.transform([texto_vector])
+    # --- 2. CAPA BASE (ML DE HOY) ---
+    vector = vectorizador.transform([texto_limpio])
     probs = modelo.predict_proba(vector)[0]
-    conf_pos_ml = probs[2] # Clase Positiva
+    conf_pos_ml = probs[2]
 
     # --- 3. CAPA SEMÁNTICA (AJUSTADA GOLD) ---
     negations = {'no', 'sin', 'nunca', 'jamas', 'tampoco', 'ni', 'nada', 'ningun', 'ninguna'}
@@ -64,7 +64,7 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     palabras_detectadas = []
     current_multiplier = 1.0
     anclaje_negativo = False
-    es_veto_critico = False
+    es_veto_critico_global = False # Variable global para la decisión final
     
     LISTA_NEGRA = {
         'suci', 'asc', 'cucarach', 'chinch', 'sangr', 'moh', 'rob', 'estaf', 
@@ -86,6 +86,7 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
             continue
 
         root = stemmer.stem(word)
+        es_esta_palabra_veto = False # Variable local por palabra
         
         # Regla: no + verbo_acción (ej: 'no funciona', 'no hay')
         if i > 0 and tokens[i-1] in negations:
@@ -112,8 +113,8 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         if word_score_raw < -0.30: # Usamos el score raw para el veto
             anclaje_negativo = True
             if root in LISTA_NEGRA or word in LISTA_NEGRA:
-                es_veto_critico = True
-                palabras_detectadas.append(f"VETO({word})")
+                es_veto_critico_global = True
+                es_esta_palabra_veto = True
 
         # PENALIZACIÓN SUAVIZADA (Balance de Neutros)
         if word_score > 0 and anclaje_negativo:
@@ -126,11 +127,11 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         stopwords_g68 = {'una', 'uno', 'unas', 'unos', 'el', 'la', 'los', 'las', 'un', 'con', 'por', 'para', 'del', 'al'}
         
         # Si es stopword y NO es veto crítico, ignorar siempre
-        if word in stopwords_g68 and not es_veto_critico:
+        if word in stopwords_g68 and not es_esta_palabra_veto:
             continue
 
         is_relevant = abs(word_score) > 0.25 and len(word) > 2
-        if is_relevant or es_veto_critico or (word_score < 0 and anclaje_negativo):
+        if is_relevant or es_esta_palabra_veto:
             # --- VINCULADOR DE CONTEXTO G68 REFINADO ---
             # Si detectamos una palabra clave, miramos si hay un sustantivo al lado
             phrase = word
@@ -152,7 +153,7 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
                 word_score *= 1.3
                 ajuste_semantico += (word_score * 0.3) # Sumamos el excedente del boost
             
-            tag = "VETO" if es_veto_critico else ("FALTA" if "FALTA" in str(palabras_detectadas[-1:]) else "")
+            tag = "VETO" if es_esta_palabra_veto else ("FALTA" if "FALTA" in str(palabras_detectadas[-1:]) else "")
             if tag:
                 palabras_detectadas.append(f"{tag}({phrase})")
             else:
@@ -164,14 +165,14 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     p_base = conf_pos_ml + (ajuste_semantico * impacto_reglas)
     p_final = max(0.0, min(1.0, p_base))
 
-    if es_veto_critico:
+    if es_veto_critico_global:
         # VETO SOBERANO: Si el usuario dice algo crítico (sucio, asco, robo), es Negativo.
         # No importa que el ML crea que es positivo.
         p_final = 0.10 # Forzar Negativo Extremo
     
     # --- 5. RED DE SEGURIDAD (Sarcasmo) ---
     fake_pos_start = {'gracias', 'lujo', 'genial', 'excelente', 'aplauso', 'encanta', 'idea', 'habilidad'}
-    if tokens[0] in fake_pos_start and (ajuste_semantico < 0.3 or es_veto_critico):
+    if tokens[0] in fake_pos_start and (ajuste_semantico < 0.3 or es_veto_critico_global):
         p_final = 0.15
         palabras_detectadas.append("Red Sarcasmo")
 
