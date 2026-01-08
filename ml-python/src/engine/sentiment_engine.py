@@ -76,11 +76,10 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
 
     # --- 3. ESCANEO INVERSO CON ANCLAJE G68 REFINADO ---
     neg_actions = {'funcion', 'limpi', 'hay', 'cumpl', 'serv', 'exist', 'respond', 'atend', 'ayud', 'pued', 'tien', 'encontr'}
+    fillers = {'hay', 'esta', 'está', 'es', 'son', 'estan', 'están', 'tiene', 'tienen', 'existe', 'existen', 'parece', 'resulta', 'seria', 'sería', 'era'}
     
     for i in reversed(range(len(tokens))):
         word = tokens[i]
-        
-        # 'no' y similares no puntúan por sí mismos, son modificadores
         if word in negations or word == "pero":
             if word in contrastes: current_multiplier = 0.35
             continue
@@ -88,23 +87,39 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         root = stemmer.stem(word)
         es_esta_palabra_veto = False # Variable local por palabra
         
-        # Regla: no + verbo_acción (ej: 'no funciona', 'no hay')
+        # REGLA DE NEGACIÓN G68: Captura "no hay wifi", "no limpia", "sin servicio"
+        pfx_neg_temp = ""
+        found_neg_pattern = False
         if i > 0 and tokens[i-1] in negations:
-            if root in neg_actions:
-                ajuste_semantico -= 0.8 # Castigo por falta de servicio/acción
-                palabras_detectadas.append(f"FALTA({word})")
-                continue # Ya procesado como patrón
+            pfx_neg_temp = f"{tokens[i-1]} "
+            found_neg_pattern = True
+        elif i > 1 and tokens[i-2] in negations and tokens[i-1] in fillers:
+            pfx_neg_temp = f"{tokens[i-2]} " # Omitimos el "hay/esta" por solicitud del usuario
+            found_neg_pattern = True
+            
+        # Si es una falta de servicio o una entidad negada, forzamos el trigger
+        # Lista extendida de entidades críticas del sector
+        entities = {'habitación', 'habitacion', 'cama', 'personal', 'recepción', 'recepcion', 'wifi', 'baño', 'bano', 'comida', 'desayuno', 'atención', 'atencion', 'precio', 'ubicación', 'ubicacion', 'aire', 'ruido', 'limpieza', 'piscina', 'instalaciones', 'servicio', 'desayuno'}
+        if found_neg_pattern and (root in neg_actions or word in entities):
+            ajuste_semantico -= 0.8
+            # Verificamos si ya existe esta frase negada
+            if f"FALTA({pfx_neg_temp}{word})" not in palabras_detectadas:
+                palabras_detectadas.append(f"FALTA({pfx_neg_temp}{word})")
+            
+            # Si no está en el lexicon, seguimos para ver si hay algo más, 
+            # pero si es entidad usualmente no puntuará doble.
+            if root not in ELITE_LEX and root not in LEXICON_G68:
+                continue
 
         if root in ELITE_LEX: base_score = ELITE_LEX[root]
         elif root in LEXICON_G68: base_score = float(LEXICON_G68[root][0])
         else: continue
         
         modifier = 1.0
-        # Modificador de negación estándar (ej: 'no excelente' -> negativo)
-        if i > 0 and tokens[i-1] in negations: 
-            modifier = -1.6
-        elif i > 0 and tokens[i-1] in intensifiers: 
-            modifier = 1.8
+        # Modificador de negación estándar
+        if i > 0 and tokens[i-1] in negations: modifier = -1.6
+        elif i > 1 and tokens[i-2] in negations and tokens[i-1] in fillers: modifier = -1.5 # Negación indirecta
+        elif i > 0 and tokens[i-1] in intensifiers: modifier = 1.8
         
         word_score_raw = (base_score * modifier)
         word_score = word_score_raw * current_multiplier
@@ -130,14 +145,13 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         if word in stopwords_g68 and not es_esta_palabra_veto:
             continue
 
-        is_relevant = abs(word_score) > 0.25 and len(word) > 2
-        if is_relevant or es_esta_palabra_veto:
-            # --- VINCULADOR DE CONTEXTO G68 REFINADO ---
-            # Si detectamos una palabra clave, miramos si hay un sustantivo al lado
-            phrase = word
-            # Lista extendida de entidades críticas del sector
-            entities = {'habitación', 'habitacion', 'cama', 'personal', 'recepción', 'recepcion', 'wifi', 'baño', 'bano', 'comida', 'desayuno', 'atención', 'atencion', 'precio', 'ubicación', 'ubicacion', 'aire', 'ruido', 'limpieza', 'piscina', 'instalaciones', 'servicio', 'desayuno'}
+        is_relevant = abs(word_score) > 0.25 or es_esta_palabra_veto
+        if is_relevant:
+            # Reutilizamos el prefijo de negación detectado arriba
+            neg_pfx = pfx_neg_temp
             
+            # --- VINCULADOR DE CONTEXTO G68 REFINADO ---
+            phrase = word
             phrase_detected = False
             # Mirar atrás (ej: "cama dura")
             if i > 0 and tokens[i-1].lower() in entities:
@@ -147,6 +161,10 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
             elif i < len(tokens) - 1 and tokens[i+1].lower() in entities:
                 phrase = f"{word} {tokens[i+1]}"
                 phrase_detected = True
+            
+            # Si hay negación y NO se detectó frase con entidad, unimos la negación (Limpieza G68)
+            if neg_pfx and not phrase_detected:
+                phrase = f"{neg_pfx}{word}"
             
             # BOOST DE CONTEXTO: Las frases pesan un 30% más que las palabras sueltas
             if phrase_detected:
