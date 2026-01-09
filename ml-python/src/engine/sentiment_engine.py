@@ -27,7 +27,7 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     """
     # --- 1. LIMPIEZA Y TOKENIZACIÓN ---
     if not isinstance(texto, str): texto = ""
-    # Limpieza profunda: Solo nos quedamos con letras y espacios para la    # Limpieza profunda: Solo nos quedamos con letras y espacios para la detección
+    # Limpieza profunda: Solo nos quedamos con letras y espacios para la detección
     # Esto asegura que "%&$/Cucarachas" sea detectado como "cucarachas"
     texto_limpio = re.sub(r'[^a-zñáéíóúü\s]', ' ', texto.lower())
     tokens = [t.strip() for t in texto_limpio.split() if t.strip()]
@@ -57,7 +57,8 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         'pobr': -0.7, 'viej': -0.6, 'sucio': -0.8, 'asco': -0.8, 'manch': -0.7, 'maltrat': -0.9,
         'caos': -0.8, 'caotic': -0.8, 'inexistent': -0.9, 'dolor': -0.7, 'engañ': -0.9, 'ruid': -0.6,
         'fri': -0.5, 'ausenci': -0.7, 'mediocr': -0.8, 'carisim': -0.8, 'fall': -0.7,
-        'superficial': -0.6, 'minuscul': -0.7, 'calcetin': -0.8, 'arqueologi': -0.7
+        'superficial': -0.6, 'minuscul': -0.7, 'calcetin': -0.8, 'arqueologi': -0.7,
+        'terror': -1.0, 'horror': -1.0
     }
 
     ajuste_semantico = 0.0
@@ -71,12 +72,14 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         'peligr', 'mied', 'inund', 'desastr', 'pesadill', 'manch', 'pelos', 
         'humed', 'rancio', 'tabac', 'maltrat', 'ignor', 'ignorart',
         'inexistent', 'caotic', 'caos', 'dolor', 'engañ', 'ruid', 'fri', 'ausenci', 
-        'mediocr', 'carisim', 'fall', 'superficial', 'minuscul', 'calcetin', 'arqueologi'
+        'mediocr', 'carisim', 'fall', 'superficial', 'minuscul', 'calcetin', 'arqueologi',
+        'terror', 'horror'
     }
 
     # --- 3. ESCANEO INVERSO CON ANCLAJE G68 REFINADO ---
     neg_actions = {'funcion', 'limpi', 'hay', 'cumpl', 'serv', 'exist', 'respond', 'atend', 'ayud', 'pued', 'tien', 'encontr'}
     fillers = {'hay', 'esta', 'está', 'es', 'son', 'estan', 'están', 'tiene', 'tienen', 'existe', 'existen', 'parece', 'resulta', 'seria', 'sería', 'era'}
+    entities = {'habitación', 'habitacion', 'hotel', 'experiencia', 'cama', 'personal', 'recepción', 'recepcion', 'wifi', 'baño', 'bano', 'comida', 'desayuno', 'atención', 'atencion', 'precio', 'ubicación', 'ubicacion', 'aire', 'ruido', 'limpieza', 'piscina', 'instalaciones', 'servicio', 'desayuno', 'pelicula', 'película', 'maravilla'}
     
     for i in reversed(range(len(tokens))):
         word = tokens[i]
@@ -101,8 +104,7 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
             pfx_temp = f"{tokens[i-2]} " # Saltamos el filler (hay/esta)
             found_modifier = True
             
-        # Si es una falta o alerta detectada por patrón
-        entities = {'habitación', 'habitacion', 'cama', 'personal', 'recepción', 'recepcion', 'wifi', 'baño', 'bano', 'comida', 'desayuno', 'atención', 'atencion', 'precio', 'ubicación', 'ubicacion', 'aire', 'ruido', 'limpieza', 'piscina', 'instalaciones', 'servicio', 'desayuno'}
+        # Si es una falta o alerta detectada por patrón (Usamos la lista entities global del motor)
         if found_modifier and (root in neg_actions or word in entities):
             ajuste_semantico -= 0.8
             # Solo añadimos si no es redundante
@@ -141,9 +143,8 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         ajuste_semantico += word_score
         
         # IMPACTO MINIMO PARA EXPLICABILIDAD (FILTRO RUIDO)
-        stopwords_g68 = {'una', 'uno', 'unas', 'unos', 'el', 'la', 'los', 'las', 'un', 'con', 'por', 'para', 'del', 'al'}
+        stopwords_g68 = {'una', 'uno', 'unas', 'unos', 'el', 'la', 'los', 'las', 'un', 'con', 'por', 'para', 'del', 'al', 'de'}
         
-        # Si es stopword y NO es veto crítico, ignorar siempre
         if word in stopwords_g68 and not es_esta_palabra_veto:
             continue
 
@@ -153,29 +154,47 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
             phrase_detected = False
             
             # --- VINCULADOR DE TRIGRAMAS G68 (Contexto + Modificador + Palabra) ---
-            # Buscamos entidades en un rango de +/- 3 para formar la frase
             entity_near = ""
+            import unicodedata
+            
+            def clean_txt(t):
+                return "".join(c for c in unicodedata.normalize('NFD', t.lower()) if unicodedata.category(c) != 'Mn')
+            
+            ENTITIES_CLEAN = {clean_txt(e) for e in entities}
+            
+            idx_entity = -1
             for offset in [-1, 1, -2, 2, -3, 3]:
                 idx = i + offset
                 if 0 <= idx < len(tokens):
-                    cand = tokens[idx].lower()
-                    if cand in entities:
+                    if clean_txt(tokens[idx]) in ENTITIES_CLEAN:
                         entity_near = tokens[idx]
+                        idx_entity = idx
                         break
             
             if entity_near:
-                # Ordenamos para que suene natural: "muy buena habitacion" o "habitacion no limpia"
-                if pfx_temp: 
-                    # Trigrama: [Mod] [Palabra] [Entidad] o [Entidad] [Mod] [Palabra]
-                    # Si la entidad estaba ANTES del modificador (habitacion muy limpia)
-                    # o DESPUES de la palabra (muy limpia habitacion)
-                    phrase = f"{pfx_temp}{word} {entity_near}" if i < tokens.index(entity_near) else f"{entity_near} {pfx_temp}{word}"
+                # REGLA DE CONECTOR G68: Si hay un "de" en medio, lo incluimos
+                has_de = False
+                low = min(i, idx_entity)
+                high = max(i, idx_entity)
+                if high - low == 2 and tokens[low+1].lower() == 'de':
+                    has_de = True
+                
+                # Construcción inteligente de la frase
+                if pfx_temp:
+                    if idx_entity < i: 
+                        phrase = f"{entity_near} {pfx_temp}{word}"
+                    else:
+                        conn = " de " if has_de else " "
+                        phrase = f"{pfx_temp}{word}{conn}{entity_near}"
                 else:
-                    # Bigrama: [Entidad] [Palabra]
-                    phrase = f"{entity_near} {word}" if tokens.index(entity_near) < i else f"{word} {entity_near}"
+                    if idx_entity < i:
+                        conn = " de " if has_de else " "
+                        phrase = f"{entity_near}{conn}{word}"
+                    else:
+                        conn = " de " if has_de else " "
+                        phrase = f"{word}{conn}{entity_near}"
                 phrase_detected = True
             elif pfx_temp:
-                # Solo modificador + palabra
                 phrase = f"{pfx_temp}{word}"
             
             # BOOST DE CONTEXTO
@@ -191,7 +210,13 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
 
     # --- 4. FUSIÓN EXPLOSIVA G68 (PRIORIDAD RECALL NEGATIVO) ---
     # Priorizamos seguridad sobre precisión: las reglas mandan si son negativas.
-    impacto_reglas = 0.60 if ajuste_semantico < 0 else 0.30
+    if ajuste_semantico < -0.1 and es_veto_critico_global:
+        impacto_reglas = 0.8
+    elif ajuste_semantico < 0:
+        impacto_reglas = 0.5
+    else:
+        impacto_reglas = 0.35
+
     p_base = conf_pos_ml + (ajuste_semantico * impacto_reglas)
     p_final = max(0.0, min(1.0, p_base))
 
@@ -202,7 +227,7 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     
     # --- 5. RED DE SEGURIDAD (Sarcasmo) ---
     fake_pos_start = {'gracias', 'lujo', 'genial', 'excelente', 'aplauso', 'encanta', 'idea', 'habilidad'}
-    if tokens[0] in fake_pos_start and (ajuste_semantico < 0.3 or es_veto_critico_global):
+    if tokens and tokens[0] in fake_pos_start and (ajuste_semantico < 0.5 or es_veto_critico_global or "FALTA" in str(palabras_detectadas)):
         p_final = 0.15
         palabras_detectadas.append("Red Sarcasmo")
 
@@ -212,7 +237,7 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     else: prevision = "Neutro"
 
     # --- 7. CONSTRUCCIÓN DE METADATA ESTRUCTURADA ---
-    # Procesamos los resultados internos para devolver listas limpias directamente
+    print(f"DEBUG: palabras_detectadas = {palabras_detectadas}")
     candidates = []
     
     # Extraemos palabras de los marcadores internos (ej: "sucio(-0.8)", "VETO(sucio)")

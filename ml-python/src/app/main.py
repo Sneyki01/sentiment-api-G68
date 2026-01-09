@@ -6,13 +6,19 @@ import os
 import sys
 import datetime
 import traceback
-from nltk.stem import SnowballStemmer
 
 # Asegurar que encuentre la carpeta raíz de src
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.append(os.path.join(BASE_DIR, "src"))
+SRC_DIR = os.path.join(BASE_DIR, "src")
+sys.path.append(SRC_DIR)
 
-from engine.sentiment_engine import analizar_sentimiento_hibrido, LEXICON_G68
+try:
+    from engine.sentiment_engine import analizar_sentimiento_hibrido, LEXICON_G68
+except ModuleNotFoundError as e:
+    print(f"❌ Error de Importación: No se encuentra el módulo 'engine'.")
+    print(f"   Ruta buscada: {SRC_DIR}")
+    print(f"   Detalle: {e}")
+    sys.exit(1)
 
 # 1. Definimos la estructura de la petición (Modelo TextIn según contrato)
 class TextIn(BaseModel):
@@ -32,7 +38,7 @@ VECTOR_PATH = os.path.join(BASE_DIR, "data", "models", "tfidf_vectorizer.pkl")
 try:
     model = joblib.load(MODEL_PATH)
     vectorizer = joblib.load(VECTOR_PATH)
-    print("✅ Pipeline de producción cargado correctamente.")
+    print(f"✅ Pipeline de producción cargado correctamente desde: {MODEL_PATH}")
 except Exception as e:
     print(f"❌ Error crítico al cargar modelo: {e}")
     model = None
@@ -89,4 +95,6 @@ async def predict_sentiment(request: TextIn):
 
 if __name__ == "__main__":
     import uvicorn
+    print("🚀 Servidor iniciando...")
+    print("👉 Abre esta URL para verificar: http://localhost:8080/docs")
     uvicorn.run(app, host="0.0.0.0", port=8080)
