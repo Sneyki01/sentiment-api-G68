@@ -80,34 +80,35 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
     
     for i in reversed(range(len(tokens))):
         word = tokens[i]
-        if word in negations or word == "pero":
+        # Skip negations, intensifiers and contrast markers from being primary triggers
+        if word in negations or word == "pero" or word in intensifiers:
             if word in contrastes: current_multiplier = 0.35
             continue
 
         root = stemmer.stem(word)
-        es_esta_palabra_veto = False # Variable local por palabra
+        es_esta_palabra_veto = False 
         
-        # REGLA DE NEGACIÓN G68: Captura "no hay wifi", "no limpia", "sin servicio"
-        pfx_neg_temp = ""
-        found_neg_pattern = False
-        if i > 0 and tokens[i-1] in negations:
-            pfx_neg_temp = f"{tokens[i-1]} "
-            found_neg_pattern = True
-        elif i > 1 and tokens[i-2] in negations and tokens[i-1] in fillers:
-            pfx_neg_temp = f"{tokens[i-2]} " # Omitimos el "hay/esta" por solicitud del usuario
-            found_neg_pattern = True
+        # REGLA DE MODIFICADORES G68: Detecta Negaciones y Magnificadores cercanos
+        pfx_temp = ""
+        found_modifier = False
+        
+        # 1. Mirar atrás inmediato (ej: "no limpia", "muy buena")
+        if i > 0 and (tokens[i-1] in negations or tokens[i-1] in intensifiers):
+            pfx_temp = f"{tokens[i-1]} "
+            found_modifier = True
+        # 2. Mirar atrás con puente (ej: "no esta limpia", "muy es buena")
+        elif i > 1 and (tokens[i-2] in negations or tokens[i-2] in intensifiers) and tokens[i-1] in fillers:
+            pfx_temp = f"{tokens[i-2]} " # Saltamos el filler (hay/esta)
+            found_modifier = True
             
-        # Si es una falta de servicio o una entidad negada, forzamos el trigger
-        # Lista extendida de entidades críticas del sector
+        # Si es una falta o alerta detectada por patrón
         entities = {'habitación', 'habitacion', 'cama', 'personal', 'recepción', 'recepcion', 'wifi', 'baño', 'bano', 'comida', 'desayuno', 'atención', 'atencion', 'precio', 'ubicación', 'ubicacion', 'aire', 'ruido', 'limpieza', 'piscina', 'instalaciones', 'servicio', 'desayuno'}
-        if found_neg_pattern and (root in neg_actions or word in entities):
+        if found_modifier and (root in neg_actions or word in entities):
             ajuste_semantico -= 0.8
-            # Verificamos si ya existe esta frase negada
-            if f"FALTA({pfx_neg_temp}{word})" not in palabras_detectadas:
-                palabras_detectadas.append(f"FALTA({pfx_neg_temp}{word})")
-            
-            # Si no está en el lexicon, seguimos para ver si hay algo más, 
-            # pero si es entidad usualmente no puntuará doble.
+            # Solo añadimos si no es redundante
+            label = "FALTA" if pfx_temp.strip() in negations else "ALERTA"
+            if f"{label}({pfx_temp}{word})" not in palabras_detectadas:
+                palabras_detectadas.append(f"{label}({pfx_temp}{word})")
             if root not in ELITE_LEX and root not in LEXICON_G68:
                 continue
 
@@ -115,11 +116,12 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
         elif root in LEXICON_G68: base_score = float(LEXICON_G68[root][0])
         else: continue
         
+        # --- CÁLCULO DE MODIFICADORES ---
         modifier = 1.0
-        # Modificador de negación estándar
         if i > 0 and tokens[i-1] in negations: modifier = -1.6
-        elif i > 1 and tokens[i-2] in negations and tokens[i-1] in fillers: modifier = -1.5 # Negación indirecta
-        elif i > 0 and tokens[i-1] in intensifiers: modifier = 1.8
+        elif i > 1 and tokens[i-2] in negations and tokens[i-1] in fillers: modifier = -1.5
+        elif i > 0 and tokens[i-1] in intensifiers: modifier = 2.0 
+        elif i > 1 and tokens[i-2] in intensifiers and tokens[i-1] in fillers: modifier = 1.8
         
         word_score_raw = (base_score * modifier)
         word_score = word_score_raw * current_multiplier
@@ -147,29 +149,39 @@ def analizar_sentimiento_hibrido(texto, modelo, vectorizador):
 
         is_relevant = abs(word_score) > 0.25 or es_esta_palabra_veto
         if is_relevant:
-            # Reutilizamos el prefijo de negación detectado arriba
-            neg_pfx = pfx_neg_temp
-            
-            # --- VINCULADOR DE CONTEXTO G68 REFINADO ---
             phrase = word
             phrase_detected = False
-            # Mirar atrás (ej: "cama dura")
-            if i > 0 and tokens[i-1].lower() in entities:
-                phrase = f"{tokens[i-1]} {word}"
-                phrase_detected = True
-            # Mirar adelante (ej: "sucia habitación")
-            elif i < len(tokens) - 1 and tokens[i+1].lower() in entities:
-                phrase = f"{word} {tokens[i+1]}"
-                phrase_detected = True
             
-            # Si hay negación y NO se detectó frase con entidad, unimos la negación (Limpieza G68)
-            if neg_pfx and not phrase_detected:
-                phrase = f"{neg_pfx}{word}"
+            # --- VINCULADOR DE TRIGRAMAS G68 (Contexto + Modificador + Palabra) ---
+            # Buscamos entidades en un rango de +/- 3 para formar la frase
+            entity_near = ""
+            for offset in [-1, 1, -2, 2, -3, 3]:
+                idx = i + offset
+                if 0 <= idx < len(tokens):
+                    cand = tokens[idx].lower()
+                    if cand in entities:
+                        entity_near = tokens[idx]
+                        break
             
-            # BOOST DE CONTEXTO: Las frases pesan un 30% más que las palabras sueltas
+            if entity_near:
+                # Ordenamos para que suene natural: "muy buena habitacion" o "habitacion no limpia"
+                if pfx_temp: 
+                    # Trigrama: [Mod] [Palabra] [Entidad] o [Entidad] [Mod] [Palabra]
+                    # Si la entidad estaba ANTES del modificador (habitacion muy limpia)
+                    # o DESPUES de la palabra (muy limpia habitacion)
+                    phrase = f"{pfx_temp}{word} {entity_near}" if i < tokens.index(entity_near) else f"{entity_near} {pfx_temp}{word}"
+                else:
+                    # Bigrama: [Entidad] [Palabra]
+                    phrase = f"{entity_near} {word}" if tokens.index(entity_near) < i else f"{word} {entity_near}"
+                phrase_detected = True
+            elif pfx_temp:
+                # Solo modificador + palabra
+                phrase = f"{pfx_temp}{word}"
+            
+            # BOOST DE CONTEXTO
             if phrase_detected:
                 word_score *= 1.3
-                ajuste_semantico += (word_score * 0.3) # Sumamos el excedente del boost
+                ajuste_semantico += (word_score * 0.3)
             
             tag = "VETO" if es_esta_palabra_veto else ("FALTA" if "FALTA" in str(palabras_detectadas[-1:]) else "")
             if tag:
