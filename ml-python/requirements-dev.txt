@@ -1,0 +1,7 @@
+pytest
+httpx
+ipykernel
+nbformat
+nbconvert
+black
+flake8
