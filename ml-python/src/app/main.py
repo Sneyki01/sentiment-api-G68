@@ -35,7 +35,7 @@ class SentimentResponse(BaseModel):
     probabilidad: float
     top_features: str
 
-@app.post("/sentiment", response_model=SentimentResponse)
+@app.post("/predict/sentiment", response_model=SentimentResponse)
 async def analyze_sentiment(request: SentimentRequest):
     """
     Endpoint principal de análisis.
