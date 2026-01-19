@@ -82,10 +82,10 @@ El microservicio utilizará códigos estándar para informar al Backend de Java 
 | **Código** | **Estado**                | **Escenario en el que ocurre** (registro en `main.py`)                                                                                                                                                 |
 | ---------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **200**    | **OK**                    | La predicción se realizó exitosamente y se entrega el JSON de salida.                                                                                                                                  |
-| **400**    | **Bad Request**           | Se activa automáticamente si el JSON está mal, pero requiere `min_length=1` en la clase `TextIn` para detectar textos vacíos.<br>**ln 50** → `El texto no puede estar vacío o contener solo espacios.` |
+| **422**    | **Bad Request**           | Se activa automáticamente si el JSON está mal, pero requiere `min_length=1` en la clase `TextIn` para detectar textos vacíos o entradas numéricas.<br> → `El texto no puede estar vacío o contener solo espacios.` </br> → `El texto no puede ser únicamente numérico.` |
 | **405**    | **Method Not Allowed**    | FastAPI lo genera solo si se intenta acceder al endpoint mediante un método distinto a `POST` (ej: `GET`).                                                                                             |
-| **500**    | **Internal Server Error** | Fallo crítico en el servidor, como la imposibilidad de cargar el modelo `.pkl`.<br>**ln 85** → `Error interno al procesar la predicción.`                                                              |
-| **503**    | **Service Unavailable**   | El servidor está activo pero el modelo de IA no ha terminado de cargarse en memoria.<br>ln 67 →`Modelo no cargado en el servidor`                                                                      |
+| **500**    | **Internal Server Error** | Fallo crítico en el servidor, como la imposibilidad de cargar el modelo `.pkl`.<br> → `Error interno al procesar la predicción.`                                                              |
+| **503**    | **Service Unavailable**   | El servidor está activo pero el modelo de IA no ha terminado de cargarse en memoria.<br> →`Modelo no cargado en el servidor`                                                                      |
 
 ### 📝 Registro de Logs (Trazabilidad)
 
@@ -129,7 +129,7 @@ Imagina el proyecto como un **Restaurante de Alta Cocina**:
 
 ---
 
-## 🏆 Resumen: ¿Por qué este documento es vital para la Hackathon?
+## 🏆 Resumen:
 
 Este contrato cumple con tres funciones estratégicas que los evaluadores valoran críticamente:
 

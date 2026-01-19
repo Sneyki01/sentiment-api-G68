@@ -1,100 +1,77 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
-import joblib
 import os
 import sys
-import datetime
-import traceback
 
-# Asegurar que encuentre la carpeta raíz de src
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SRC_DIR = os.path.join(BASE_DIR, "src")
-sys.path.append(SRC_DIR)
+# Blindaje de rutas para imports locales
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # ml-python/src
+sys.path.append(BASE_DIR)
 
-try:
-    from engine.sentiment_engine import analizar_sentimiento_hibrido, LEXICON_G68
-except ModuleNotFoundError as e:
-    print(f"❌ Error de Importación: No se encuentra el módulo 'engine'.")
-    print(f"   Ruta buscada: {SRC_DIR}")
-    print(f"   Detalle: {e}")
-    sys.exit(1)
-
-# 1. Definimos la estructura de la petición (Modelo TextIn según contrato)
-class TextIn(BaseModel):
-    text: str = Field(min_length=1, max_length=5000, description="El texto no puede estar vacío")
+from engine.sentiment_engine import SentimentEngine
+from motor_hibrido import enriquecer_respuesta
 
 app = FastAPI(
-    title="Sentiment Pro API - G68", 
-    description="Sistema Híbrido ML + Reglas (MVP)",
-    version="2.4"
+    title="Modelo Integral para el Análisis de Sentimientos",
+    description="API Híbrida de Análisis de Sentimiento con Refinamiento Semántico (G68 Supreme).",
+    version="2.1.0"
 )
 
-# 2. Configuración de rutas
-MODEL_PATH = os.path.join(BASE_DIR, "data", "models", "sentiment_model.pkl")
-VECTOR_PATH = os.path.join(BASE_DIR, "data", "models", "tfidf_vectorizer.pkl")
-
-# 3. Carga de archivos (Gestión de 503 Service Unavailable)
+# Inicialización de motores
 try:
-    model = joblib.load(MODEL_PATH)
-    vectorizer = joblib.load(VECTOR_PATH)
-    print(f"✅ Pipeline de producción cargado correctamente desde: {MODEL_PATH}")
+    # Ajustamos la ruta para que encuentre los modelos en ../../data/models
+    base_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    model_path = os.path.join(base_path, "data", "models")
+    ai_engine = SentimentEngine(model_dir=model_path)
+    print(f"✅ Modelos ML cargados exitosamente desde: {model_path}")
 except Exception as e:
-    print(f"❌ Error crítico al cargar modelo: {e}")
-    model = None
-    vectorizer = None
+    print(f"❌ Error crítico cargando modelos: {e}")
+    ai_engine = None
 
-# 4. Endpoints
-@app.get("/", include_in_schema=False)
-def home():
-    """Redirige automáticamente a la documentación Swagger."""
-    return RedirectResponse(url="/docs")
+class SentimentRequest(BaseModel):
+    text: str = Field(..., min_length=1, max_length=2500)
 
-@app.post("/predict/sentiment")
-async def predict_sentiment(request: TextIn):
-    # Log de Petición (Trazabilidad)
-    hora_peticion = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"[{hora_peticion}] 📩 Petición recibida: POST /predict/sentiment")
+class SentimentResponse(BaseModel):
+    prevision: str
+    probabilidad: float
+    top_features: str
 
-    # Validación de longitud mínima (400 Bad Request)
+@app.post("/sentiment", response_model=SentimentResponse)
+async def analyze_sentiment(request: SentimentRequest):
+    """
+    Endpoint principal de análisis.
+    Recibe texto y devuelve sentimiento, probabilidad y explicabilidad (top features).
+    """
     if not request.text or len(request.text.strip()) < 3:
-        raise HTTPException(
-            status_code=400, 
-            detail="Solicitud Incorrecta: El mensaje es demasiado corto (mínimo 3 caracteres)."
-        )
-    
-    # Validación de carga de modelo (503 Service Unavailable)
-    if model is None or vectorizer is None:
-        raise HTTPException(
-            status_code=503, 
-            detail="Modelo no cargado en el servidor"
-        )
-
-    # Garantizamos que `meta` exista aunque falle el motor
-    meta = {}
-    try:
-        # Uso del Motor Híbrido Centralizado G68
-        resultado, prob, meta = analizar_sentimiento_hibrido(request.text, model, vectorizer)
-
-        # Construir explicabilidad basada en léxico (Optimizada G68)
-        # Ahora el motor devuelve directamente la estructura limpia
-        explicabilidad = meta.get("explicabilidad", {"triggers": [], "areas": []})
         return {
-            "prevision": resultado,
-            "probabilidad": prob,
-            "explicabilidad": explicabilidad
+            "prevision": "Neutral",
+            "probabilidad": 0.5,
+            "top_features": "texto insuficiente"
         }
-    except Exception as e:
-        # Error log (Resiliencia - Error 500)
-        print(f"❌ Error interno al procesar la predicción: {e}")
-        print(traceback.format_exc())
-        raise HTTPException(
-            status_code=500,
-            detail="Error interno al procesar la predicción"
-        )
+
+    if not ai_engine:
+        raise HTTPException(status_code=500, detail="Motor de IA no inicializado")
+
+    # 1. Obtener predicción base de la IA
+    pred_ia, prob_ia = ai_engine.predict_raw(request.text)
+    
+    # 2. Refinar con el Motor Híbrido G68
+    res = enriquecer_respuesta(request.text, pred_ia, prob_ia, ai_engine)
+    
+    # 3. Normalización final según contrato estricto
+    label = res["prevision"]
+    if label == "Neutro":
+        label = "Neutral"
+        
+    return {
+        "prevision": label,
+        "probabilidad": res["probabilidad"],
+        "top_features": res["top_features"]
+    }
+
+@app.get("/health")
+async def health_check():
+    return {"status": "online", "engine": "G68-Supreme"}
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 Servidor iniciando...")
-    print("👉 Abre esta URL para verificar: http://localhost:8080/docs")
     uvicorn.run(app, host="0.0.0.0", port=8080)

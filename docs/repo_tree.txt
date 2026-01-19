@@ -1,0 +1,42 @@
+.
+├── backend-java
+├── docs
+│   └── Contrato API Sentiment.md
+├── ml-python
+│   ├── data
+│   │   ├── models
+│   │   │   └── modelo_sentimiento_pipeline.pkl
+│   │   ├── processed
+│   │   │   ├── ...
+│   │   │   └── sentiment_curated_v1.csv
+│   │   ├── raw
+│   │   │   └── Big_AHR.csv
+│   │   └── results
+│   │       ├── graph
+│   │       │   ├── ...
+|   |       |   .
+|   |       |   .
+│   │       │   └── ...
+│   │       └── reports
+│   │           ├── ...
+|   |           .
+|   |           .
+│   │           └── ...
+│   ├── notebooks
+│   │   ├── 01_eda_y_curado.ipynb
+│   │   ├── 02_preprocesamiento_y_modelado.ipynb
+│   │   └── 03_test_inferencia.ipynb
+│   ├── __pycache__
+│   │   └── ...
+│   └── src
+│       └── app
+│           ├── main.py
+│           ├── __pycache__
+│           │   .
+│           │   └── ...
+│           └── utils.py
+├── README.md
+├── requirements-dev.txt
+└── requirements.txt
+
+16 directories, 24 files

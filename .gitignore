@@ -54,3 +54,9 @@ target/
 
 # OS
 .DS_Store
+
+# 4. PARCHES Y CAMBIOS LOCALES
+# Archivos para configuración de entorno local y propuestas temporales
+ml-python/patches/
+mi_cambio_ml.patch
+INSTRUCCIONES_PARCHE.md
