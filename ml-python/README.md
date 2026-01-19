@@ -1,102 +1,45 @@
-# 🚀 Guía de Uso - Sentiment Analysis API
+# 🧠 Modelo Integral para el Análisis de Sentimientos
 
-Esta sección detalla cómo poner en marcha y probar el microservicio de IA para el análisis de sentimiento.
+A diferencia de un análisis de sentimientos genérico, el modelo **G68** utiliza una arquitectura de doble capa que combina **Machine Learning Pro (Calibrated LinearSVC)** con una capa de **Inteligencia Semántica** propietaria:
 
-## 1. Gestion de Dependencias
+### 🛡️ Auditoría de Performance (G68 Benchmark)
+Métricas reales obtenidas mediante stress tests locales (Lote de 200 peticiones):
+- **Latencia de Procesamiento**: **< 1.0 ms** 🚀 (Tiempo neto del algoritmo).
+- **Latencia de API (Round-trip)**: **~17.0 ms** (Comunicación HTTP local).
+- **Uso de Memoria (RAM)**: **168.45 MB** 📦 (Optimizado para microservicios).
+- **Throughput**: **~60 req/s** (Peticiones secuenciales por conexión).
+- **Precisión (Accuracy)**: **85.0%** en casos complejos (Auditado con 100 muestras críticas).
 
-El proyecto utiliza una estructura dual de archivos `requirements` para optimizar el peso del despliegue y mantener las herramientas de análisis separadas del servidor de producción.
+### 🔬 Compilado de Reglas Semánticas (Explicabilidad Avanzada)
+Durante la ejecución, el motor proporciona una auditoría detallada en consola basada en sus pilares lógicos:
 
-## 1. Instalación según el Entorno
+1.  **Veto Crítico (Veto Soberano)**: Si se detecta un término de alto riesgo (ej. *estafa, robo, chinches*), el modelo prioriza la alerta y fuerza **Negativo (Certidumbre: 0.99)**.
+2.  **Vinculador de Contexto (N-Gram Bonding)**: Análisis de frases compuestas para capturar la esencia de la queja.
+3.  **Boost Semántico (1.5x)**: Los intensificadores multiplican el peso del sentimiento detectado.
+4.  **Mapeo 1-a-1 de Áreas**: Clasificación automática entre 5 Departamentos Críticos: **Marketing, Operaciones, Higiene, Atencion, Admin**.
+5.  **Lógica de Contraste ("Reset Emocional")**: Identificación de conectores (*pero, aunque*) para detectar ironía.
+6.  **Inversión Semántica**: Manejo experto de negaciones mediante ventana de lookback.
 
-### A. Solo para Ejecución (Producción/API)
-Si solo necesitas poner en marcha la API de sentimientos, utiliza el archivo base. </br>
-Este contiene lo estrictamente necesario: `fastapi`, `uvicorn`, `scikit-learn`, entre otros.
-
-```bash
-pip install -r requirements.txt
+## 📁 Estructura del Proyecto
+```text
+ml-python/
+├── data/              # Datasets y modelos (.pkl)
+├── src/
+│   ├── app/           # API FastAPI y lógica híbrida
+│   └── engine/        # Motor de IA (SentimentEngine)
+├── scripts/           # Entrenamiento y Benchmarks
+├── tests/             # Pruebas automatizadas
+└── requirements.txt   # Dependencias de Data Science
 ```
 
-### B. Para Experimentación (Desarrollo/Data Science)
-Si vas a trabajar en los Notebooks, realizar análisis visual o re-entrenar el modelo, debes instalar las herramientas adicionales (como pandas, matplotlib, seaborn y nltk) que se encuentran en el archivo de desarrollo.
+## 🛠️ Instalación y Ejecución
+1. **Instalar dependencias:** `pip install -r requirements.txt`
+2. **Ejecutar la API:** 
+   ```bash
+   cd src/app
+   uvicorn main:app --host 0.0.0.0 --port 8080
+   ```
 
-```bash
-pip install -r requirements-dev.txt
-```
-
-*Nota: **requirements-dev.txt** incluye automáticamente todas las dependencias del archivo de producción.*
-
-## 2. Ejecución del Servidor
-
-Existen dos formas de arrancar la API dependiendo de tu ubicación en la terminal.</br>
-**Es indispensable tener el entorno virtual activo.**
-
-### Opción A: Desde la carpeta del código
-
-Si te encuentras en `ml-python/src/app`:
-
-```bash
-uvicorn main:app --reload --port 8080
-
-```
-
-### Opción B: Desde la raíz del componente (Recomendado)
-
-Si te encuentras en la carpeta `ml-python`:
-
-```bash
-uvicorn main:app --app-dir src/app --reload --port 8080
-
-```
-
-***Nota:** Usamos `--app-dir` para que el servidor localice correctamente el módulo interno (`utils.py`) y el modelo entrenado.*
-
----
-
-## 3. Puntos de Acceso (Endpoints)
-
-Una vez encendido el servidor, puedes acceder a:
-
-* **Estado de la API:** [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
-* **Documentación Interactiva (Swagger):** [http://127.0.0.1:8080/docs](http://127.0.0.1:8080/docs)
-* **Esquema OpenAPI (JSON):** [http://127.0.0.1:8080/openapi.json](http://127.0.0.1:8080/openapi.json)
-
----
-
-## 4. Pruebas de Inferencia
-
-Puedes probar el modelo de dos maneras:
-
-### Vía Swagger (Interfaz Visual)
-
-1. Ve a `/docs`.
-2. Despliega el método **POST** `/predict/sentiment`.
-3. Presiona **"Try it out"**.
-4. Edita el JSON de ejemplo y presiona **"Execute"**.
-
-### Vía Terminal (cURL)
-
-Abre una nueva terminal (en la 1ra ya esta activo el servidor) y ejecuta el siguiente comando para probar una predicción rápida:
-
-```bash
-curl -X 'POST' \
-  'http://127.0.0.1:8080/predict/sentiment' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "text": "La comida estuvo excelente y el servicio fue muy rápido."
-}'
-
-```
-
-
-## 5. Restricciones de Entrada
-
-La API cuenta con validaciones de seguridad. Se rechazará cualquier petición que:
-
-* Contenga texto vacío o solo espacios.
-* Sea estrictamente numérica (ej. `"12345"`).
-* No sea de tipo string.
-
-## 6. Detener el Servicio
-
-Para apagar el servidor, simplemente presiona `Ctrl + C` en la terminal donde se está ejecutando Uvicorn.
+## 📊 Documentación y Swagger
+- **Notebook**: `/ml-python/notebooks/Reporte_Modelado_Sentimiento.ipynb`
+- **Swagger UI**: [http://localhost:8080/docs](http://localhost:8080/docs)

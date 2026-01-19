@@ -1,0 +1,2331 @@
+diff --git a/ml-python/README.md b/ml-python/README.md
+index e40ccb3..61cc5dd 100644
+--- a/ml-python/README.md
++++ b/ml-python/README.md
+@@ -1,4 +1,4 @@
+-# 🧠 Modelo Integral para el Análisis de Sentimientos (G68 SUPREME)
++# 🧠 Modelo Integral para el Análisis de Sentimientos
+ 
+ A diferencia de un análisis de sentimientos genérico, el modelo **G68** utiliza una arquitectura de doble capa que combina **Machine Learning Pro (Calibrated LinearSVC)** con una capa de **Inteligencia Semántica** propietaria:
+ 
+@@ -23,20 +23,22 @@ Durante la ejecución, el motor proporciona una auditoría detallada en consola
+ ## 📁 Estructura del Proyecto
+ ```text
+ ml-python/
+-├── data/
+-│   ├── models/        # Modelos entrenados (.pkl)
+-│   └── raw/           # Master Dataset y Benchmarks
+-├── notebooks/         # Reporte técnico interactivo (G68 Playground)
++├── data/              # Datasets y modelos (.pkl)
+ ├── src/
+-│   ├── app/           # Punto de entrada de la API y Motor Híbrido
++│   ├── app/           # API FastAPI y lógica híbrida
+ │   └── engine/        # Motor de IA (SentimentEngine)
+-├── utils/             # Scripts de limpieza y consolidación
++├── scripts/           # Entrenamiento y Benchmarks
++├── tests/             # Pruebas automatizadas
+ └── requirements.txt   # Dependencias de Data Science
+ ```
+ 
+ ## 🛠️ Instalación y Ejecución
+ 1. **Instalar dependencias:** `pip install -r requirements.txt`
+-2. **Ejecutar la API:** `python src/app/main.py` (Puerto 8080)
++2. **Ejecutar la API:** 
++   ```bash
++   cd src/app
++   uvicorn main:app --host 0.0.0.0 --port 8080
++   ```
+ 
+ ## 📊 Documentación y Swagger
+ - **Notebook**: `/ml-python/notebooks/Reporte_Modelado_Sentimiento.ipynb`
+diff --git a/ml-python/bin/MODO_PRESENTE_G68.bat b/ml-python/bin/MODO_PRESENTE_G68.bat
+new file mode 100644
+index 0000000..b6b7e2c
+--- /dev/null
++++ b/ml-python/bin/MODO_PRESENTE_G68.bat
+@@ -0,0 +1,7 @@
++@echo off
++set G68_AUDIT=true
++echo ==========================================
++echo    ACTIVANDO MODO AUDITORIA G68 (LOGS)
++echo ==========================================
++python ml-python/src/app/main.py
++pause
+diff --git a/ml-python/bin/MODO_SILENCIO_G68.bat b/ml-python/bin/MODO_SILENCIO_G68.bat
+new file mode 100644
+index 0000000..955fa69
+--- /dev/null
++++ b/ml-python/bin/MODO_SILENCIO_G68.bat
+@@ -0,0 +1,7 @@
++@echo off
++set G68_AUDIT=false
++echo ==========================================
++echo    ACTIVANDO MODO SILENCIOSO G68
++echo ==========================================
++python ml-python/src/app/main.py
++pause
+diff --git a/ml-python/docs/reports/REFACTOR_REPORT_G68.txt b/ml-python/docs/reports/REFACTOR_REPORT_G68.txt
+new file mode 100644
+index 0000000..ef453cb
+--- /dev/null
++++ b/ml-python/docs/reports/REFACTOR_REPORT_G68.txt
+@@ -0,0 +1,37 @@
++REPORTE DE REFACTORIZACIÓN - SISTEMA G68 SUPREME
++==============================================
++
++Se ha completado la refactorización integral del proyecto para mejorar su mantenibilidad, legibilidad y robustez.
++
++1. Cambios Estructurales:
++-------------------------
++- Nueva Arquitectura Modular: Se ha extraído la lógica de procesamiento de texto y utilidades a `ml-python/src/app/utils_hibrido.py`.
++- Limpieza de Motor Híbrido: `motor_hibrido.py` ahora es más legible, dividiendo el análisis en fases claras:
++    * Fase 1: Limpieza técnica de tokens.
++    * Fase 2: Análisis semántico de n-gramas con pesos dinámicos.
++    * Fase 3: Detección de Ironía y Sarcasmo.
++    * Fase 4: Lógica de Decisión Híbrida (IA + Diccionario).
++    * Fase 5: Generación de Features (Explicabilidad).
++
++2. Mejoras Técnicas:
++--------------------
++- Fallback Inteligente: Se corrigió la lógica donde la confianza de la IA se malinterpretaba siempre como positiva. Ahora el sistema respeta fielmente la clase sugerida por el modelo ML (0, 1 o 3).
++- Blindaje de Features: Se mejoró la extracción de "Top Features" para ignorar palabras vacías (stopwords) y sustantivos neutros (ej. "el hotel", "la ducha"), priorizando palabras con carga emocional real.
++- Estabilidad de IDs: Se aseguró que el mapeo interno de clases (0: Negativo, 1: Positivo, 3: Neutro) sea consistente en todos los módulos.
++
++3. Resultados del Benchmark:
++----------------------------
++- Casos evaluados: 100
++- Precisión lograda: 60.00%
++- Observación: Se ha priorizado la detección de Sarcasmo y Negatividad Crítica, logrando capturar casos complejos que la IA base ignoraba.
++
++4. Archivos Entregados:
++-----------------------
++- `ml-python/src/app/main.py`: Punto de entrada limpio y documentado.
++- `ml-python/src/app/motor_hibrido.py`: Lógica principal procesada y modularizada.
++- `ml-python/src/app/utils_hibrido.py`: Herramientas auxiliares.
++- `ml-python/src/engine/sentiment_engine.py`: Puente optimizado con Sklearn.
++- `run_final_benchmark.py`: Herramienta para validación continua de resultados.
++
++El sistema está listo para la presentación final de mañana.
++🚀 G68 SUPREME EDITION.
+diff --git a/ml-python/docs/reports/final_benchmark_G68.json b/ml-python/docs/reports/final_benchmark_G68.json
+new file mode 100644
+index 0000000..c3de071
+--- /dev/null
++++ b/ml-python/docs/reports/final_benchmark_G68.json
+@@ -0,0 +1,807 @@
++{
++  "total": 100,
++  "correct": 66,
++  "accuracy": "66.00%",
++  "details": [
++    {
++      "id": 1,
++      "text": "¡Qué maravilla! El aire acondicionado hace tanto r",
++      "tipo": "Sarcasmo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 2,
++      "text": "Las sábanas tenían manchas amarillas y el suelo de",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 3,
++      "text": "Me cargaron 50 euros por un servicio que nunca ped",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 4,
++      "text": "No puedo decir que la comida no estuviera buena, p",
++      "tipo": "Doble Negación",
++      "pred": "Negativo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 5,
++      "text": "El hotel ofrece servicio de traslado al aeropuerto",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 6,
++      "text": "El recepcionista nos ignoró por estar hablando por",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 7,
++      "text": "La rapidez del check-in fue asombrosa, tardamos me",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 8,
++      "text": "Gracias por el 'upgrade' a una habitación con vist",
++      "tipo": "Ironía",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 9,
++      "text": "Es una puta vergüenza que traten así a los cliente",
++      "tipo": "Grocero",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 10,
++      "text": "El wifi es tan lento que no pude ni abrir el corre",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 11,
++      "text": "El proceso de cancelación es un laberinto diseñado",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 12,
++      "text": "Había una cucaracha en el buffet de ensaladas, sal",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 13,
++      "text": "Me pidieron disculpas, pero el problema técnico si",
++      "tipo": "Mixto",
++      "pred": "Negativo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 14,
++      "text": "Me duplicaron el cobro en la tarjeta y dicen que t",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 15,
++      "text": "La foto de la web muestra una playa privada que en",
++      "tipo": "Engañoso",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 16,
++      "text": "El colchón era tan cómodo que por fin pude descans",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 17,
++      "text": "No es que no me guste el hotel, pero le falta much",
++      "tipo": "Doble Negación",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 18,
++      "text": "¡Ayuda! Mi reserva desapareció del sistema y estoy",
++      "tipo": "Urgencia",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 19,
++      "text": "La habitación cuenta con minibar, caja fuerte y se",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 20,
++      "text": "Bravo, han logrado que unas vacaciones de relax se",
++      "tipo": "Sarcasmo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 21,
++      "text": "El olor a tabaco en la habitación de no fumadores ",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 22,
++      "text": "El botones nos ayudó con las maletas y fue extrema",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 23,
++      "text": "Me dicen que el desayuno está incluido pero luego ",
++      "tipo": "Dificil",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 24,
++      "text": "La campaña de redes sociales me convenció y el hot",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 25,
++      "text": "Para solicitar la factura es necesario enviar el R",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 26,
++      "text": "El agua de la ducha sale templada, nunca llega a c",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 27,
++      "text": "Gracias por hacerme esperar una hora en el lobby, ",
++      "tipo": "Sarcasmo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 28,
++      "text": "Encontramos moho en la junta de la ducha, falta mu",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 29,
++      "text": "Intentaron cobrarme un extra por limpieza que no e",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 30,
++      "text": "La insonorización es excelente, no se oye nada de ",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 31,
++      "text": "Vi el anuncio en Instagram y decidí reservar por l",
++      "tipo": "Neutro",
++      "pred": "Positivo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 32,
++      "text": "El guardia de seguridad es un imbécil que no sabe ",
++      "tipo": "Grocero",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 33,
++      "text": "No es imposible conseguir el reembolso, pero te lo",
++      "tipo": "Doble Negación",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 34,
++      "text": "El ascensor se quedó trabado entre pisos, pasamos ",
++      "tipo": "Negativo",
++      "pred": "Neutral",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 35,
++      "text": "Todo el hotel huele a limpio, se nota que cuidan l",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 36,
++      "text": "Pregunté por la clave del wifi y me la dieron en u",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 37,
++      "text": "Me hicieron un cargo de 200 dólares que no sé de q",
++      "tipo": "Crítico",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 38,
++      "text": "Vender este hostal como 'Luxury Resort' es tener m",
++      "tipo": "Sarcasmo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 39,
++      "text": "La luz de la habitación parpadea y el técnico nunc",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 40,
++      "text": "La chica de recepción, Marta, es lo mejor que tien",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 41,
++      "text": "Había pelos en el desagüe cuando entramos a la hab",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 42,
++      "text": "Me enviaron la factura al minuto de pedírsela, muy",
++      "tipo": "Positivo",
++      "pred": "Neutral",
++      "esperado": "Positivo",
++      "status": "ERR"
++    },
++    {
++      "id": 43,
++      "text": "El parking está en el sótano y es gratuito para cl",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 44,
++      "text": "Llamo y llamo a recepción y nadie contesta, necesi",
++      "tipo": "Urgencia",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 45,
++      "text": "El precio es bueno, pero las comisiones por pago c",
++      "tipo": "Mixto",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 46,
++      "text": "El 'kit de bienvenida' eran dos caramelos y una bo",
++      "tipo": "Negativo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 47,
++      "text": "La Smart TV funciona genial y tiene Netflix config",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 48,
++      "text": "Qué alivio que el recepcionista prefiera chatear q",
++      "tipo": "Sarcasmo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 49,
++      "text": "Había hormigas en la mesa de noche, no vuelvo jamá",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 50,
++      "text": "No puedo negar que el check-out fue rápido, al men",
++      "tipo": "Doble Negación",
++      "pred": "Positivo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 51,
++      "text": "El gimnasio está muy completo y las máquinas son n",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 52,
++      "text": "El folleto informativo está disponible en cinco id",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 53,
++      "text": "Me hablaron de forma muy condescendiente por no en",
++      "tipo": "Negativo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 54,
++      "text": "Me retuvieron el depósito de garantía y ya pasaron",
++      "tipo": "Crítico",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 55,
++      "text": "La piscina tiene demasiada arena en el fondo, pare",
++      "tipo": "Negativo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 56,
++      "text": "El balcón tiene unas vistas preciosas a la montaña",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 57,
++      "text": "La oferta de reserva anticipada nos ahorró mucho d",
++      "tipo": "Positivo",
++      "pred": "Neutral",
++      "esperado": "Positivo",
++      "status": "ERR"
++    },
++    {
++      "id": 58,
++      "text": "El personal lleva uniforme y es fácil de identific",
++      "tipo": "Neutro",
++      "pred": "Positivo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 59,
++      "text": "Me piden un código de confirmación que nunca me ll",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 60,
++      "text": "Increíble que en 2026 el wifi solo funcione cerca ",
++      "tipo": "Sarcasmo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 61,
++      "text": "El vaso del cepillo de dientes tenía restos de pas",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 62,
++      "text": "Se dieron cuenta del error en el cobro y me llamar",
++      "tipo": "Positivo",
++      "pred": "Negativo",
++      "esperado": "Positivo",
++      "status": "ERR"
++    },
++    {
++      "id": 63,
++      "text": "El servicio de habitaciones se olvidó de mi cena d",
++      "tipo": "Negativo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 64,
++      "text": "Si esto es un hotel de 4 estrellas, yo soy el Rey ",
++      "tipo": "Sarcasmo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 65,
++      "text": "Las llaves son magnéticas y funcionan por aproxima",
++      "tipo": "Neutro",
++      "pred": "Positivo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 66,
++      "text": "Nos recomendaron un tour privado que fue un aciert",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 67,
++      "text": "La alfombra del pasillo tiene manchas que parecen ",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 68,
++      "text": "Cambiaron los términos del servicio sin avisar a l",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 69,
++      "text": "El minibar hace un ruido eléctrico constante y no ",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 70,
++      "text": "Me encanta el nuevo logo y la estética moderna del",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 71,
++      "text": "No es que me hayan tratado mal, pero les falta cal",
++      "tipo": "Doble Negación",
++      "pred": "Negativo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 72,
++      "text": "Me cobraron el parking cuando en la reserva decía ",
++      "tipo": "Negativo",
++      "pred": "Neutral",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 73,
++      "text": "La desinfección de las zonas comunes es constante,",
++      "tipo": "Positivo",
++      "pred": "Neutral",
++      "esperado": "Positivo",
++      "status": "ERR"
++    },
++    {
++      "id": 74,
++      "text": "La presión del agua en el tercer piso es normal.",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 75,
++      "text": "El botones me pidió propina de forma muy agresiva ",
++      "tipo": "Grocero",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 76,
++      "text": "El hotel se ve mucho más viejo y desgastado que en",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 77,
++      "text": "El proceso de reserva por la app fue fluido y sin ",
++      "tipo": "Positivo",
++      "pred": "Negativo",
++      "esperado": "Positivo",
++      "status": "ERR"
++    },
++    {
++      "id": 78,
++      "text": "Me encanta que la ventana no cierre bien y entre t",
++      "tipo": "Sarcasmo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 79,
++      "text": "Me dijeron que me llamarían para confirmar y sigo ",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 80,
++      "text": "Me cobraron una tarifa de cancelación por un error",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 81,
++      "text": "Había una mancha extraña en el sofá de la habitaci",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 82,
++      "text": "Tienen cargadores para coches eléctricos, un gran ",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 83,
++      "text": "Recibí el boletín de ofertas en mi correo este lun",
++      "tipo": "Neutro",
++      "pred": "Positivo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 84,
++      "text": "El personal de limpieza es súper discreto y eficie",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 85,
++      "text": "No es poco frecuente que el sistema de facturación",
++      "tipo": "Doble Negación",
++      "pred": "Negativo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 86,
++      "text": "El sensor de luz del pasillo tarda mucho en encend",
++      "tipo": "Negativo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 87,
++      "text": "Gracias por cobrarme el agua del grifo a precio de",
++      "tipo": "Sarcasmo",
++      "pred": "Positivo",
++      "esperado": "Negativo",
++      "status": "ERR"
++    },
++    {
++      "id": 88,
++      "text": "El inodoro no estaba bien anclado y perdía agua, u",
++      "tipo": "Crítico",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 89,
++      "text": "Gestionaron mi cambio de habitación sin ninguna ob",
++      "tipo": "Positivo",
++      "pred": "Negativo",
++      "esperado": "Positivo",
++      "status": "ERR"
++    },
++    {
++      "id": 90,
++      "text": "Prometen 'desayuno continental' y solo hay tostada",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 91,
++      "text": "El hotel tiene dos plantas y no dispone de jardín.",
++      "tipo": "Neutro",
++      "pred": "Neutral",
++      "esperado": "Neutro",
++      "status": "OK"
++    },
++    {
++      "id": 92,
++      "text": "Es frustrante que no contesten a los correos admin",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 93,
++      "text": "El desglose de la factura es clarísimo, nada de ca",
++      "tipo": "Positivo",
++      "pred": "Neutral",
++      "esperado": "Positivo",
++      "status": "ERR"
++    },
++    {
++      "id": 94,
++      "text": "Bravo por el camarero que me trajo la cuenta antes",
++      "tipo": "Sarcasmo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 95,
++      "text": "Había polvo acumulado en las aspas del ventilador ",
++      "tipo": "Negativo",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 96,
++      "text": "El sistema de domótica de la habitación es muy int",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 97,
++      "text": "El personal es amable pero se nota que están desbo",
++      "tipo": "Dificil",
++      "pred": "Positivo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    },
++    {
++      "id": 98,
++      "text": "¡Cancelen mi reserva ya! Mi vuelo se canceló y no ",
++      "tipo": "Urgencia",
++      "pred": "Negativo",
++      "esperado": "Negativo",
++      "status": "OK"
++    },
++    {
++      "id": 99,
++      "text": "La decoración navideña del hotel es preciosa y muy",
++      "tipo": "Positivo",
++      "pred": "Positivo",
++      "esperado": "Positivo",
++      "status": "OK"
++    },
++    {
++      "id": 100,
++      "text": "Llegó el pedido de room service rápido, pero la co",
++      "tipo": "Mixto",
++      "pred": "Negativo",
++      "esperado": "Neutro",
++      "status": "ERR"
++    }
++  ]
++}
+\ No newline at end of file
+diff --git a/ml-python/docs/reports/reporte_final_100.txt b/ml-python/docs/reports/reporte_final_100.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/ml-python/docs/reports/reporte_final_100_v3.txt b/ml-python/docs/reports/reporte_final_100_v3.txt
+new file mode 100644
+index 0000000..c6ff9e1
+Binary files /dev/null and b/ml-python/docs/reports/reporte_final_100_v3.txt differ
+diff --git a/ml-python/docs/reports/reporte_final_DEFINITIVO_G68.txt b/ml-python/docs/reports/reporte_final_DEFINITIVO_G68.txt
+new file mode 100644
+index 0000000..864b703
+Binary files /dev/null and b/ml-python/docs/reports/reporte_final_DEFINITIVO_G68.txt differ
+diff --git a/ml-python/docs/reports/reporte_final_V4_MEJORADO.txt b/ml-python/docs/reports/reporte_final_V4_MEJORADO.txt
+new file mode 100644
+index 0000000..938d372
+Binary files /dev/null and b/ml-python/docs/reports/reporte_final_V4_MEJORADO.txt differ
+diff --git a/ml-python/docs/reports/reporte_final_V5_STABLE.txt b/ml-python/docs/reports/reporte_final_V5_STABLE.txt
+new file mode 100644
+index 0000000..a273a96
+Binary files /dev/null and b/ml-python/docs/reports/reporte_final_V5_STABLE.txt differ
+diff --git a/ml-python/docs/reports/reporte_final_V6_FIXED.txt b/ml-python/docs/reports/reporte_final_V6_FIXED.txt
+new file mode 100644
+index 0000000..864b703
+Binary files /dev/null and b/ml-python/docs/reports/reporte_final_V6_FIXED.txt differ
+diff --git a/ml-python/docs/resources/DEMO_CHEAT_SHEET.md b/ml-python/docs/resources/DEMO_CHEAT_SHEET.md
+new file mode 100644
+index 0000000..fcb751c
+--- /dev/null
++++ b/ml-python/docs/resources/DEMO_CHEAT_SHEET.md
+@@ -0,0 +1,30 @@
++# 🚀 Modelo Integral para el Análisis de Sentimientos - G68 Cheat Sheet
++
++## 1. Preparar Entorno (Terminal)
++Siempre ejecuta esto primero para ubicarte en la carpeta correcta:
++
++```powershell
++cd "ml-python\src\app"
++```
++
++## 2. Arrancar el Servidor
++Copia y pega este bloque completo:
++
++```powershell
++python -u -m uvicorn main:app --host 0.0.0.0 --port 8080
++```
++*(Recuerda: `Ctrl + C` para detenerlo)*
++
++## 3. Probar en Navegador
++*   **Swagger UI:** [http://localhost:8080/docs](http://localhost:8080/docs)
++
++---
++
++## 💾 Guardar Cambios Críticos (Git)
++Si necesitas guardar los arreglos de última hora:
++
++```powershell
++git add .
++git commit -m "Entrega final: Modelo Integral para el Análisis de Sentimientos"
++git push origin feature/entrega-modelo-integral
++```
+diff --git a/ml-python/docs/resources/requirements-notebooks.txt b/ml-python/docs/resources/requirements-notebooks.txt
+new file mode 100644
+index 0000000..d9b4837
+--- /dev/null
++++ b/ml-python/docs/resources/requirements-notebooks.txt
+@@ -0,0 +1,19 @@
++-r requirements.txt
++pandas==2.3.3
++scipy==1.16.3
++numpy==2.3.5
++sympy==1.14.0
++matplotlib==3.10.8
++seaborn==0.13.2
++nltk==3.9.2
++transformers==4.57.3
++tokenizers==0.22.1
++regex==2025.11.3
++jupyter==1.1.1
++notebook==7.5.1
++ipykernel==7.1.0
++ipywidgets==8.1.8
++tqdm==4.67.1
++openpyxl==3.1.2
++requests==2.32.5
++beautifulsoup4==4.14.3
+\ No newline at end of file
+diff --git a/ml-python/requirements-dev.txt b/ml-python/scripts/requirements-dev.txt
+similarity index 100%
+rename from ml-python/requirements-dev.txt
+rename to ml-python/scripts/requirements-dev.txt
+diff --git a/ml-python/utils/train_advanced.py b/ml-python/scripts/training/train_advanced.py
+similarity index 96%
+rename from ml-python/utils/train_advanced.py
+rename to ml-python/scripts/training/train_advanced.py
+index 9622cdb..e6b877f 100644
+--- a/ml-python/utils/train_advanced.py
++++ b/ml-python/scripts/training/train_advanced.py
+@@ -10,7 +10,8 @@ from sklearn.metrics import classification_report
+ from sklearn.utils import resample
+ 
+ # 1. Rutas y Configuración
+-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++# La ruta base es ml-python/, subiendo desde scripts/training/
++base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ raw_data_path = os.path.join(base_dir, "data", "raw", "Big_AHR.csv")
+ golden_data_path = os.path.join(base_dir, "data", "raw", "golden_benchmark_325.csv")
+ model_path = os.path.join(base_dir, "data", "models", "sentiment_model.pkl")
+diff --git a/ml-python/train_pipeline.py b/ml-python/scripts/training/train_pipeline.py
+similarity index 95%
+rename from ml-python/train_pipeline.py
+rename to ml-python/scripts/training/train_pipeline.py
+index 0d5cde0..f6573a8 100644
+--- a/ml-python/train_pipeline.py
++++ b/ml-python/scripts/training/train_pipeline.py
+@@ -11,7 +11,8 @@ from sklearn.utils import resample
+ 
+ # 1. CARGA DE DATOS
+ try:
+-    base_dir = os.path.dirname(os.path.abspath(__file__))
++    # La ruta base es ml-python/, subiendo desde scripts/training/
++    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+     input_file = os.path.join(base_dir, "data", "raw", "Big_AHR.csv")
+     golden_file = os.path.join(base_dir, "data", "raw", "golden_benchmark_325.csv")
+     
+diff --git a/ml-python/utils/clean_lexicon.py b/ml-python/scripts/utilities/clean_lexicon.py
+similarity index 100%
+rename from ml-python/utils/clean_lexicon.py
+rename to ml-python/scripts/utilities/clean_lexicon.py
+diff --git a/ml-python/utils/consolidate_master_dataset.py b/ml-python/scripts/utilities/consolidate_master_dataset.py
+similarity index 100%
+rename from ml-python/utils/consolidate_master_dataset.py
+rename to ml-python/scripts/utilities/consolidate_master_dataset.py
+diff --git a/ml-python/scripts/utilities/live_test.py b/ml-python/scripts/utilities/live_test.py
+new file mode 100644
+index 0000000..f436250
+--- /dev/null
++++ b/ml-python/scripts/utilities/live_test.py
+@@ -0,0 +1,15 @@
++import requests
++import json
++
++url = 'http://localhost:8080/sentiment'
++cases = [
++    "La comida estaba riquísima, volveremos seguro.",
++    "El hotel cuenta con wifi gratuito en todas las áreas.",
++    "Un desastre, nunca me devolvieron el dinero del depósito.",
++    "No está mal, pero podría mejorar la limpieza."
++]
++
++for text in cases:
++    print(f"\nProbando: {text}")
++    response = requests.post(url, json={"text": text})
++    print(json.dumps(response.json(), indent=2, ensure_ascii=False))
+diff --git a/ml-python/main.py b/ml-python/scripts/utilities/main.py
+similarity index 100%
+rename from ml-python/main.py
+rename to ml-python/scripts/utilities/main.py
+diff --git a/ml-python/run_engine_direct.py b/ml-python/scripts/utilities/run_engine_direct.py
+similarity index 100%
+rename from ml-python/run_engine_direct.py
+rename to ml-python/scripts/utilities/run_engine_direct.py
+diff --git a/ml-python/scripts/utilities/run_final_benchmark.py b/ml-python/scripts/utilities/run_final_benchmark.py
+new file mode 100644
+index 0000000..1bf1429
+--- /dev/null
++++ b/ml-python/scripts/utilities/run_final_benchmark.py
+@@ -0,0 +1,66 @@
++import requests
++import json
++import os
++
++API_URL = "http://localhost:8080/sentiment"
++
++# Cargar casos
++# Buscamos el archivo en la nueva carpeta tests relative to the root or current script dir
++base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
++test_file = os.path.join(base_dir, "tests", "test_batch_100.py")
++output_file = os.path.join(base_dir, "docs", "reports", "final_benchmark_G68.json")
++
++with open(test_file, 'r', encoding='utf-8') as f:
++    content = f.read()
++    start = content.find('[', content.find('casos ='))
++    end = content.find(']', start) + 1
++    casos = eval(content[start:end])
++
++results = []
++correct = 0
++
++for c in casos:
++    try:
++        r = requests.post(API_URL, json={"text": c["text"]})
++        res = r.json()
++        pred = res['prevision'].replace('[+] ', '').replace('[-] ', '')
++        
++        # Mapeo de esperado
++        tipo = c['tipo']
++        esperado = "Neutro"
++        if tipo in ['Positivo']: esperado = "Positivo"
++        elif tipo in ['Negativo', 'Crítico', 'Grocero', 'Urgencia', 'Engañoso', 'Sarcasmo', 'Ironía']: esperado = "Negativo"
++        elif tipo in ['Neutro']: esperado = "Neutro"
++        
++        # Normalización para comparar
++        pred_norm = "Neutro" if pred in ["Neutral", "Neutro"] else pred
++        esp_norm = "Neutro" if esperado in ["Neutral", "Neutro"] else esperado
++        
++        is_correct = (pred_norm == esp_norm)
++        if is_correct: correct += 1
++        
++        results.append({
++            "id": c["id"],
++            "text": c["text"][:50],
++            "tipo": c["tipo"],
++            "pred": pred,
++            "esperado": esperado,
++            "status": "OK" if is_correct else "ERR"
++        })
++    except Exception as e:
++        results.append({"id": c["id"], "status": "FAIL_CONN"})
++
++total = len(casos)
++accuracy = (correct / total) * 100
++
++summary = {
++    "total": total,
++    "correct": correct,
++    "accuracy": f"{accuracy:.2f}%",
++    "details": results
++}
++
++with open(output_file, 'w', encoding='utf-8') as f:
++    json.dump(summary, f, indent=2, ensure_ascii=False)
++
++print(f"BENCHMARK COMPLETO: {correct}/{total} ({accuracy:.2f}%)")
+diff --git a/ml-python/scripts/utilities/verificar_arreglos.py b/ml-python/scripts/utilities/verificar_arreglos.py
+new file mode 100644
+index 0000000..c522041
+--- /dev/null
++++ b/ml-python/scripts/utilities/verificar_arreglos.py
+@@ -0,0 +1,18 @@
++import sys
++import os
++
++# Rutas
++sys.path.append(os.path.join(os.getcwd(), 'ml-python', 'src', 'app'))
++sys.path.append(os.path.join(os.getcwd(), 'ml-python', 'src'))
++
++from motor_hibrido import enriquecer_respuesta
++
++tests = [
++    ("Excelente, el baño oliendo a cloaca y no hay agua caliente. Un aplauso.", "Positivo", 0.5),
++    ("La cama es una nube, volvería mañana mismo.", "Negativo", 0.14),
++    ("El hotel es normal, ni bueno ni malo.", "Negativo", 0.4)
++]
++
++for texto, pred, prob in tests:
++    res = enriquecer_respuesta(texto, pred, prob)
++    print(f"\nRESULTADO: {res['previsión']} ({res['probabilidad']})")
+diff --git a/ml-python/src/app/main.py b/ml-python/src/app/main.py
+index 7c301f8..b561de8 100644
+--- a/ml-python/src/app/main.py
++++ b/ml-python/src/app/main.py
+@@ -4,8 +4,8 @@ import os
+ import sys
+ 
+ # Blindaje de rutas para imports locales
+-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
++BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # ml-python/src
++sys.path.append(BASE_DIR)
+ 
+ from engine.sentiment_engine import SentimentEngine
+ from motor_hibrido import enriquecer_respuesta
+diff --git a/ml-python/src/engine/__init__.py b/ml-python/src/engine/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/ml-python/tests/test_batch_100.py b/ml-python/tests/test_batch_100.py
+new file mode 100644
+index 0000000..fcd0dd2
+--- /dev/null
++++ b/ml-python/tests/test_batch_100.py
+@@ -0,0 +1,151 @@
++import requests
++import json
++import time
++
++API_URL = "http://localhost:8080/sentiment"
++
++casos = [
++    {"id": 1, "cat": "Operativo", "tipo": "Sarcasmo", "text": "¡Qué maravilla! El aire acondicionado hace tanto ruido que parece una pista de aterrizaje."},
++    {"id": 2, "cat": "Higiene", "tipo": "Crítico", "text": "Las sábanas tenían manchas amarillas y el suelo del baño estaba pegajoso."},
++    {"id": 3, "cat": "Cobros", "tipo": "Crítico", "text": "Me cargaron 50 euros por un servicio que nunca pedí y no me dan factura."},
++    {"id": 4, "cat": "Atención", "tipo": "Doble Negación", "text": "No puedo decir que la comida no estuviera buena, pero el camarero fue muy rudo."},
++    {"id": 5, "cat": "Operativo", "tipo": "Neutro", "text": "El hotel ofrece servicio de traslado al aeropuerto cada 30 minutos."},
++    {"id": 6, "cat": "Atención", "tipo": "Negativo", "text": "El recepcionista nos ignoró por estar hablando por su teléfono personal."},
++    {"id": 7, "cat": "Operativo", "tipo": "Positivo", "text": "La rapidez del check-in fue asombrosa, tardamos menos de dos minutos."},
++    {"id": 8, "cat": "Operativo", "tipo": "Ironía", "text": "Gracias por el 'upgrade' a una habitación con vistas a un muro de ladrillos."},
++    {"id": 9, "cat": "Atención", "tipo": "Grocero", "text": "Es una puta vergüenza que traten así a los clientes antiguos."},
++    {"id": 10, "cat": "Operativo", "tipo": "Negativo", "text": "El wifi es tan lento que no pude ni abrir el correo del trabajo."},
++    {"id": 11, "cat": "Administrativo", "tipo": "Negativo", "text": "El proceso de cancelación es un laberinto diseñado para que no te vayas."},
++    {"id": 12, "cat": "Higiene", "tipo": "Crítico", "text": "Había una cucaracha en el buffet de ensaladas, salimos corriendo."},
++    {"id": 13, "cat": "Atención", "tipo": "Mixto", "text": "Me pidieron disculpas, pero el problema técnico sigue sin resolverse."},
++    {"id": 14, "cat": "Cobros", "tipo": "Crítico", "text": "Me duplicaron el cobro en la tarjeta y dicen que tardan 15 días en devolverlo."},
++    {"id": 15, "cat": "Marketing", "tipo": "Engañoso", "text": "La foto de la web muestra una playa privada que en realidad es pública y sucia."},
++    {"id": 16, "cat": "Operativo", "tipo": "Positivo", "text": "El colchón era tan cómodo que por fin pude descansar del viaje."},
++    {"id": 17, "cat": "Atención", "tipo": "Doble Negación", "text": "No es que no me guste el hotel, pero le falta mucho mantenimiento."},
++    {"id": 18, "cat": "Administrativo", "tipo": "Urgencia", "text": "¡Ayuda! Mi reserva desapareció del sistema y estoy en la puerta del hotel."},
++    {"id": 19, "cat": "Operativo", "tipo": "Neutro", "text": "La habitación cuenta con minibar, caja fuerte y secador de pelo."},
++    {"id": 20, "cat": "Marketing", "tipo": "Sarcasmo", "text": "Bravo, han logrado que unas vacaciones de relax sean un estrés constante."},
++    {"id": 21, "cat": "Higiene", "tipo": "Negativo", "text": "El olor a tabaco en la habitación de no fumadores era insoportable."},
++    {"id": 22, "cat": "Atención", "tipo": "Positivo", "text": "El botones nos ayudó con las maletas y fue extremadamente educado."},
++    {"id": 23, "cat": "Cobros", "tipo": "Dificil", "text": "Me dicen que el desayuno está incluido pero luego me cobran el café aparte."},
++    {"id": 24, "cat": "Marketing", "tipo": "Positivo", "text": "La campaña de redes sociales me convenció y el hotel cumplió todo."},
++    {"id": 25, "cat": "Administrativo", "tipo": "Neutro", "text": "Para solicitar la factura es necesario enviar el RUT por correo electrónico."},
++    {"id": 26, "cat": "Operativo", "tipo": "Negativo", "text": "El agua de la ducha sale templada, nunca llega a calentar del todo."},
++    {"id": 27, "cat": "Atención", "tipo": "Sarcasmo", "text": "Gracias por hacerme esperar una hora en el lobby, me encanta perder el tiempo."},
++    {"id": 28, "cat": "Higiene", "tipo": "Crítico", "text": "Encontramos moho en la junta de la ducha, falta mucha limpieza profunda."},
++    {"id": 29, "cat": "Cobros", "tipo": "Negativo", "text": "Intentaron cobrarme un extra por limpieza que no estaba en el contrato."},
++    {"id": 30, "cat": "Operativo", "tipo": "Positivo", "text": "La insonorización es excelente, no se oye nada de la calle."},
++    {"id": 31, "cat": "Marketing", "tipo": "Neutro", "text": "Vi el anuncio en Instagram y decidí reservar por la ubicación."},
++    {"id": 32, "cat": "Atención", "tipo": "Grocero", "text": "El guardia de seguridad es un imbécil que no sabe tratar a la gente."},
++    {"id": 33, "cat": "Administrativo", "tipo": "Doble Negación", "text": "No es imposible conseguir el reembolso, pero te lo ponen muy difícil."},
++    {"id": 34, "cat": "Operativo", "tipo": "Negativo", "text": "El ascensor se quedó trabado entre pisos, pasamos mucho miedo."},
++    {"id": 35, "cat": "Higiene", "tipo": "Positivo", "text": "Todo el hotel huele a limpio, se nota que cuidan los detalles."},
++    {"id": 36, "cat": "Atención", "tipo": "Neutro", "text": "Pregunté por la clave del wifi y me la dieron en un papelito."},
++    {"id": 37, "cat": "Cobros", "tipo": "Crítico", "text": "Me hicieron un cargo de 200 dólares que no sé de qué es."},
++    {"id": 38, "cat": "Marketing", "tipo": "Sarcasmo", "text": "Vender este hostal como 'Luxury Resort' es tener mucha imaginación."},
++    {"id": 39, "cat": "Operativo", "tipo": "Negativo", "text": "La luz de la habitación parpadea y el técnico nunca vino a verla."},
++    {"id": 40, "cat": "Atención", "tipo": "Positivo", "text": "La chica de recepción, Marta, es lo mejor que tiene este hotel."},
++    {"id": 41, "cat": "Higiene", "tipo": "Negativo", "text": "Había pelos en el desagüe cuando entramos a la habitación."},
++    {"id": 42, "cat": "Administrativo", "tipo": "Positivo", "text": "Me enviaron la factura al minuto de pedírsela, muy eficientes."},
++    {"id": 43, "cat": "Operativo", "tipo": "Neutro", "text": "El parking está en el sótano y es gratuito para clientes."},
++    {"id": 44, "cat": "Atención", "tipo": "Urgencia", "text": "Llamo y llamo a recepción y nadie contesta, necesito una manta."},
++    {"id": 45, "cat": "Cobros", "tipo": "Mixto", "text": "El precio es bueno, pero las comisiones por pago con tarjeta son altas."},
++    {"id": 46, "cat": "Marketing", "tipo": "Negativo", "text": "El 'kit de bienvenida' eran dos caramelos y una botella de agua pequeña."},
++    {"id": 47, "cat": "Operativo", "tipo": "Positivo", "text": "La Smart TV funciona genial y tiene Netflix configurado."},
++    {"id": 48, "cat": "Atención", "tipo": "Sarcasmo", "text": "Qué alivio que el recepcionista prefiera chatear que atenderme."},
++    {"id": 49, "cat": "Higiene", "tipo": "Crítico", "text": "Había hormigas en la mesa de noche, no vuelvo jamás."},
++    {"id": 50, "cat": "Administrativo", "tipo": "Doble Negación", "text": "No puedo negar que el check-out fue rápido, al menos eso."},
++    {"id": 51, "cat": "Operativo", "tipo": "Positivo", "text": "El gimnasio está muy completo y las máquinas son nuevas."},
++    {"id": 52, "cat": "Marketing", "tipo": "Neutro", "text": "El folleto informativo está disponible en cinco idiomas."},
++    {"id": 53, "cat": "Atención", "tipo": "Negativo", "text": "Me hablaron de forma muy condescendiente por no entender el sistema."},
++    {"id": 54, "cat": "Cobros", "tipo": "Crítico", "text": "Me retuvieron el depósito de garantía y ya pasaron 20 días."},
++    {"id": 55, "cat": "Higiene", "tipo": "Negativo", "text": "La piscina tiene demasiada arena en el fondo, parece descuidada."},
++    {"id": 56, "cat": "Operativo", "tipo": "Positivo", "text": "El balcón tiene unas vistas preciosas a la montaña."},
++    {"id": 57, "cat": "Marketing", "tipo": "Positivo", "text": "La oferta de reserva anticipada nos ahorró mucho dinero."},
++    {"id": 58, "cat": "Atención", "tipo": "Neutro", "text": "El personal lleva uniforme y es fácil de identificar."},
++    {"id": 59, "cat": "Administrativo", "tipo": "Negativo", "text": "Me piden un código de confirmación que nunca me llegó al móvil."},
++    {"id": 60, "cat": "Operativo", "tipo": "Sarcasmo", "text": "Increíble que en 2026 el wifi solo funcione cerca del lobby."},
++    {"id": 61, "cat": "Higiene", "tipo": "Crítico", "text": "El vaso del cepillo de dientes tenía restos de pasta dental vieja."},
++    {"id": 62, "cat": "Cobros", "tipo": "Positivo", "text": "Se dieron cuenta del error en el cobro y me llamaron para devolverlo."},
++    {"id": 63, "cat": "Atención", "tipo": "Negativo", "text": "El servicio de habitaciones se olvidó de mi cena dos veces."},
++    {"id": 64, "cat": "Marketing", "tipo": "Sarcasmo", "text": "Si esto es un hotel de 4 estrellas, yo soy el Rey de España."},
++    {"id": 65, "cat": "Operativo", "tipo": "Neutro", "text": "Las llaves son magnéticas y funcionan por aproximación."},
++    {"id": 66, "cat": "Atención", "tipo": "Positivo", "text": "Nos recomendaron un tour privado que fue un acierto total."},
++    {"id": 67, "cat": "Higiene", "tipo": "Negativo", "text": "La alfombra del pasillo tiene manchas que parecen muy antiguas."},
++    {"id": 68, "cat": "Administrativo", "tipo": "Crítico", "text": "Cambiaron los términos del servicio sin avisar a los suscriptores."},
++    {"id": 69, "cat": "Operativo", "tipo": "Negativo", "text": "El minibar hace un ruido eléctrico constante y no deja dormir."},
++    {"id": 70, "cat": "Marketing", "tipo": "Positivo", "text": "Me encanta el nuevo logo y la estética moderna del hotel."},
++    {"id": 71, "cat": "Atención", "tipo": "Doble Negación", "text": "No es que me hayan tratado mal, pero les falta calidez."},
++    {"id": 72, "cat": "Cobros", "tipo": "Negativo", "text": "Me cobraron el parking cuando en la reserva decía que era gratis."},
++    {"id": 73, "cat": "Higiene", "tipo": "Positivo", "text": "La desinfección de las zonas comunes es constante, da seguridad."},
++    {"id": 74, "cat": "Operativo", "tipo": "Neutro", "text": "La presión del agua en el tercer piso es normal."},
++    {"id": 75, "cat": "Atención", "tipo": "Grocero", "text": "El botones me pidió propina de forma muy agresiva y maleducada."},
++    {"id": 76, "cat": "Marketing", "tipo": "Negativo", "text": "El hotel se ve mucho más viejo y desgastado que en las fotos."},
++    {"id": 77, "cat": "Administrativo", "tipo": "Positivo", "text": "El proceso de reserva por la app fue fluido y sin errores."},
++    {"id": 78, "cat": "Operativo", "tipo": "Sarcasmo", "text": "Me encanta que la ventana no cierre bien y entre todo el frío."},
++    {"id": 79, "cat": "Atención", "tipo": "Negativo", "text": "Me dijeron que me llamarían para confirmar y sigo esperando."},
++    {"id": 80, "cat": "Cobros", "tipo": "Crítico", "text": "Me cobraron una tarifa de cancelación por un error de su web."},
++    {"id": 81, "cat": "Higiene", "tipo": "Negativo", "text": "Había una mancha extraña en el sofá de la habitación."},
++    {"id": 82, "cat": "Operativo", "tipo": "Positivo", "text": "Tienen cargadores para coches eléctricos, un gran punto a favor."},
++    {"id": 83, "cat": "Marketing", "tipo": "Neutro", "text": "Recibí el boletín de ofertas en mi correo este lunes."},
++    {"id": 84, "cat": "Atención", "tipo": "Positivo", "text": "El personal de limpieza es súper discreto y eficiente."},
++    {"id": 85, "cat": "Administrativo", "tipo": "Doble Negación", "text": "No es poco frecuente que el sistema de facturación falle."},
++    {"id": 86, "cat": "Operativo", "tipo": "Negativo", "text": "El sensor de luz del pasillo tarda mucho en encenderse, está oscuro."},
++    {"id": 87, "cat": "Cobros", "tipo": "Sarcasmo", "text": "Gracias por cobrarme el agua del grifo a precio de champán."},
++    {"id": 88, "cat": "Higiene", "tipo": "Crítico", "text": "El inodoro no estaba bien anclado y perdía agua, un asco."},
++    {"id": 89, "cat": "Atención", "tipo": "Positivo", "text": "Gestionaron mi cambio de habitación sin ninguna objeción."},
++    {"id": 90, "cat": "Marketing", "tipo": "Negativo", "text": "Prometen 'desayuno continental' y solo hay tostadas y café malo."},
++    {"id": 91, "cat": "Operativo", "tipo": "Neutro", "text": "El hotel tiene dos plantas y no dispone de jardín."},
++    {"id": 92, "cat": "Administrativo", "tipo": "Negativo", "text": "Es frustrante que no contesten a los correos administrativos."},
++    {"id": 93, "cat": "Cobros", "tipo": "Positivo", "text": "El desglose de la factura es clarísimo, nada de cargos ocultos."},
++    {"id": 94, "cat": "Atención", "tipo": "Sarcasmo", "text": "Bravo por el camarero que me trajo la cuenta antes de pedir el postre."},
++    {"id": 95, "cat": "Higiene", "tipo": "Negativo", "text": "Había polvo acumulado en las aspas del ventilador del techo."},
++    {"id": 96, "cat": "Operativo", "tipo": "Positivo", "text": "El sistema de domótica de la habitación es muy intuitivo."},
++    {"id": 97, "cat": "Atención", "tipo": "Dificil", "text": "El personal es amable pero se nota que están desbordados de trabajo."},
++    {"id": 98, "cat": "Administrativo", "tipo": "Urgencia", "text": "¡Cancelen mi reserva ya! Mi vuelo se canceló y no quiero cargos."},
++    {"id": 99, "cat": "Marketing", "tipo": "Positivo", "text": "La decoración navideña del hotel es preciosa y muy elegante."},
++    {"id": 100, "cat": "Operativo", "tipo": "Mixto", "text": "Llegó el pedido de room service rápido, pero la comida estaba fría."}
++]
++
++print("=" * 140)
++print(f"--- INICIANDO MEGA BATCH FINAL G68 (100 casos) ---")
++print("=" * 140)
++print(f"{'ID':<4} | {'CAT.':<10} | {'TIPO':<10} | {'PREVISIÓN':<10} | {'PROB':<6} | {'TOP FEATURES':<40}")
++print("-" * 140)
++
++aciertos = 0
++for caso in casos:
++    try:
++        response = requests.post(API_URL, json={"text": caso["text"]})
++        if response.status_code == 200:
++            res = response.json()
++            features = res['top_features']
++            if len(features) > 37: features = features[:34] + "..."
++            
++            label_esperada = "UNK"
++            if caso['tipo'] in ['Positivo']: label_esperada = "Positivo"
++            elif caso['tipo'] in ['Negativo', 'Crítico', 'Grocero', 'Urgencia', 'Engañoso']: label_esperada = "Negativo"
++            elif caso['tipo'] in ['Neutro']: label_esperada = "Neutral"
++            # Sarcasmo e Ironía se esperan Negativos
++            elif caso['tipo'] in ['Sarcasmo', 'Ironía']: label_esperada = "Negativo"
++            
++            # Simple check de aciertos
++            correct = False
++            if label_esperada != "UNK":
++                if (label_esperada == "Neutral" and res['prevision'] in ["Neutral", "Neutro"]): correct = True
++                elif res['prevision'] == label_esperada: correct = True
++            
++            if correct: aciertos += 1
++            
++            mark = "CORRECTO" if correct else "ERROR" if label_esperada != "UNK" else "?"
++            
++            print(f"{caso['id']:<4} | {caso['cat']:<10} | {caso['tipo']:<10} | {res['prevision']:<10} | {res['probabilidad']:<6} | {features:<40} | {mark}")
++
++        else:
++            print(f"{caso['id']:<4} | ERROR HTTP {response.status_code}")
++    except Exception as e:
++        print(f"{caso['id']:<4} | ERROR CONN: {e}")
++
++print("=" * 140)
++print(f"REPORT - ACCURACY ESTIMADO (En casos no ambiguos): {aciertos}/??? (Se calculará en base a tipos válidos)")
++print("=" * 140)
+diff --git a/ml-python/tests/test_batch_20.py b/ml-python/tests/test_batch_20.py
+new file mode 100644
+index 0000000..d614fd0
+--- /dev/null
++++ b/ml-python/tests/test_batch_20.py
+@@ -0,0 +1,52 @@
++import requests
++import json
++import time
++
++API_URL = "http://localhost:8080/sentiment"
++
++casos = [
++    {"id": 1, "tipo": "Fácil Positiva", "text": "La estancia fue maravillosa y el personal nos trató como si fuéramos de la familia."},
++    {"id": 2, "tipo": "Fácil Negativa", "text": "El producto llegó roto y la caja estaba completamente aplastada, una pérdida de dinero."},
++    {"id": 3, "tipo": "Sarcasmo", "text": "¡Qué buen servicio! Me prometieron entrega en 24 horas y ya vamos por la segunda semana."},
++    {"id": 4, "tipo": "Doble Negación", "text": "No puedo decir que no esté satisfecho con la resolución que me dieron finalmente."},
++    {"id": 5, "tipo": "Sentimiento Mixto", "text": "La habitación del hotel era preciosa, pero el ruido de la discoteca de abajo hacía imposible dormir."},
++    {"id": 6, "tipo": "Operativo", "text": "La aplicación se cierra sola cada vez que intento subir la foto del comprobante."},
++    {"id": 7, "tipo": "Marketing", "text": "El anuncio mostraba un resort de lujo, pero la realidad es un edificio viejo sin mantenimiento."},
++    {"id": 8, "tipo": "Atención al Cliente", "text": "El agente fue muy educado, pero no tenía ni idea de cómo solucionar mi problema técnico."},
++    {"id": 9, "tipo": "Administrativo", "text": "Me han cobrado la suscripción dos veces y nadie me da una respuesta clara sobre el reembolso."},
++    {"id": 10, "tipo": "Neutra", "text": "El hotel dispone de tres ascensores y una zona de cafetería abierta hasta las 11."},
++    {"id": 11, "tipo": "Grocera", "text": "Es una puta vergüenza que traten así a los clientes que llevamos años con ustedes."},
++    {"id": 12, "tipo": "Dificil (Ironía)", "text": "Gracias por enviarme el manual de instrucciones en un idioma que solo hablan en tres islas del Pacífico."},
++    {"id": 13, "tipo": "Urgencia", "text": "Necesito una respuesta inmediata; mi evento es mañana y el equipo sigue sin encender."},
++    {"id": 14, "tipo": "Falsa Cortesía", "text": "Agradezco mucho que me hayan hecho perder toda la mañana para decirme que el sistema está caído."},
++    {"id": 15, "tipo": "Positiva con Salvedad", "text": "El servicio es excelente, aunque el precio me parece un poco fuera de mercado."},
++    {"id": 16, "tipo": "Ambigüedad", "text": "Ya me lo decía mi hermano, con esta empresa siempre es una aventura saber qué va a pasar."},
++    {"id": 17, "tipo": "Operativo", "text": "El wifi del hotel solo funciona si sacas el brazo por la ventana, increíble en 2026."},
++    {"id": 18, "tipo": "Marketing", "text": "Me encanta que usen materiales reciclados en el envío, eso me hace confiar más en la marca."},
++    {"id": 19, "tipo": "Doble Negación", "text": "No es que no me guste la nueva interfaz, pero me cuesta mucho encontrar el botón de salida."},
++    {"id": 20, "tipo": "Final Abierto", "text": "Después de lo visto hoy, dudo mucho que volvamos a contratar nada con este grupo."}
++]
++
++print("=" * 100)
++print(f"🚀 INICIANDO BATCH DE PRUEBAS G68 ({len(casos)} casos)")
++print("=" * 100)
++print(f"{'ID':<4} | {'TIPO':<22} | {'PREVISIÓN':<10} | {'PROB':<6} | {'TOP FEATURES':<30}")
++print("-" * 100)
++
++for caso in casos:
++    try:
++        response = requests.post(API_URL, json={"text": caso["text"]})
++        if response.status_code == 200:
++            res = response.json()
++            features = res['top_features']
++            if len(features) > 30:
++                features = features[:27] + "..."
++            
++            print(f"{caso['id']:<4} | {caso['tipo']:<22} | {res['prevision']:<10} | {res['probabilidad']:<6} | {features:<30}")
++        else:
++            print(f"{caso['id']:<4} | ERROR HTTP {response.status_code}")
++    except Exception as e:
++        print(f"{caso['id']:<4} | ERROR CONN: {e}")
++    # time.sleep(0.1) # Pequeña pausa para no saturar logs visualmente
++
++print("=" * 100)
+diff --git a/ml-python/tests/test_batch_criticos.py b/ml-python/tests/test_batch_criticos.py
+new file mode 100644
+index 0000000..9a5e3a9
+--- /dev/null
++++ b/ml-python/tests/test_batch_criticos.py
+@@ -0,0 +1,56 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++casos = [
++    {"id": 1, "cat": "Higiene", "text": "Había moho en las paredes del baño y un olor a humedad que hacía difícil respirar."},
++    {"id": 2, "cat": "Cobros", "text": "Me han cobrado la reserva dos veces y el banco dice que es culpa de su pasarela de pagos."},
++    {"id": 3, "cat": "Atención", "text": "El gerente me gritó delante de otros clientes cuando pedí la hoja de reclamaciones."},
++    {"id": 4, "cat": "Higiene", "text": "Encontré restos de comida y una cucaracha debajo de la mesa del restaurante."},
++    {"id": 5, "cat": "Cobros", "text": "Publicitan un precio final, pero al llegar te cargan tasas 'obligatorias' que no figuran en la web."},
++    {"id": 6, "cat": "Atención", "text": "Llamé por una emergencia médica en la habitación y nadie contestó en recepción durante 15 minutos."},
++    {"id": 7, "cat": "Higiene", "text": "Las sábanas tenían manchas de sangre y la habitación claramente no había sido desinfectada."},
++    {"id": 8, "cat": "Cobros", "text": "He cancelado mi suscripción hace meses y me siguen llegando cargos a mi tarjeta de crédito."},
++    {"id": 9, "cat": "Atención", "text": "El agente de soporte se burló de mi acento y me colgó sin darme ninguna solución."},
++    {"id": 10, "cat": "Higiene", "text": "El personal de cocina no usaba guantes ni mascarilla mientras manipulaba alimentos frescos."},
++    {"id": 11, "cat": "Cobros", "text": "Siento que me han estafado; el cargo en mi cuenta es el triple de lo que firmé en el contrato."},
++    {"id": 12, "cat": "Atención", "text": "Me ignoraron por completo en el mostrador mientras el personal hablaba de sus cosas personales."},
++    {"id": 13, "cat": "Higiene", "text": "El agua de la piscina estaba turbia y varios niños salieron con erupciones en la piel."},
++    {"id": 14, "cat": "Cobros", "text": "Intenté pagar en efectivo y me obligaron a usar una app que me cobró una comisión abusiva."},
++    {"id": 15, "cat": "Atención", "text": "Es vergonzoso que una empresa de este tamaño no tenga un protocolo para personas con discapacidad."},
++    {"id": 16, "cat": "Higiene", "text": "Había jeringuillas usadas en la zona de papeleras del parking del hotel, es un peligro."},
++    {"id": 17, "cat": "Cobros", "text": "Me bloquearon un depósito de seguridad de 500 euros y llevan un mes sin liberarlo."},
++    {"id": 18, "cat": "Atención", "text": "Me prometieron una compensación por los fallos y ahora dicen que no tienen registro de esa promesa."},
++    {"id": 19, "cat": "Higiene", "text": "El aire acondicionado expulsaba un polvo negro que me causó un ataque de alergia severo."},
++    {"id": 20, "cat": "Cobros", "text": "Me han incluido en una lista de morosos por una factura que ellos mismos admitieron que era un error."}
++]
++
++print("=" * 105)
++print(f"🚀 INICIANDO BATCH CRÍTICO G68 ({len(casos)} casos)")
++print("=" * 105)
++print(f"{'ID':<4} | {'CATEGORÍA':<10} | {'PREVISIÓN':<10} | {'PROB':<6} | {'TOP FEATURES':<35}")
++print("-" * 105)
++
++aciertos = 0
++for caso in casos:
++    try:
++        response = requests.post(API_URL, json={"text": caso["text"]})
++        if response.status_code == 200:
++            res = response.json()
++            features = res['top_features']
++            if len(features) > 32:
++                features = features[:29] + "..."
++            
++            print(f"{caso['id']:<4} | {caso['cat']:<10} | {res['prevision']:<10} | {res['probabilidad']:<6} | {features:<35}")
++            
++            if res['prevision'] == 'Negativo':
++                aciertos += 1
++        else:
++            print(f"{caso['id']:<4} | ERROR HTTP {response.status_code}")
++    except Exception as e:
++        print(f"{caso['id']:<4} | ERROR CONN: {e}")
++
++print("=" * 105)
++print(f"📊 RESULTADO FINAL: {aciertos}/{len(casos)} detectados como NEGATIVO")
++print("=" * 105)
+diff --git a/ml-python/tests/test_batch_resolucion.py b/ml-python/tests/test_batch_resolucion.py
+new file mode 100644
+index 0000000..45ed451
+--- /dev/null
++++ b/ml-python/tests/test_batch_resolucion.py
+@@ -0,0 +1,70 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++casos = [
++    # --- POSITIVOS (RESOLUCIÓN) ---
++    {"id": 1, "cat": "Higiene (Pos)", "text": "Al notar una mancha en la alfombra, el equipo de limpieza desinfectó toda la habitación de inmediato."},
++    {"id": 2, "cat": "Cobros (Pos)", "text": "Hubo un error en mi factura, pero el departamento de cuentas lo corrigió y me devolvió el dinero hoy."},
++    {"id": 3, "cat": "Atención (Pos)", "text": "A pesar del caos en la entrada, la recepcionista mantuvo la calma y nos atendió con mucha profesionalidad."},
++    {"id": 4, "cat": "Higiene (Pos)", "text": "Me impresionó lo limpio que estaba el spa; se nota que siguen protocolos sanitarios muy estrictos."},
++    {"id": 5, "cat": "Cobros (Pos)", "text": "Tuve un cargo duplicado y, tras una sola llamada, el banco y el hotel lo solucionaron en 24 horas."},
++    {"id": 6, "cat": "Atención (Pos)", "text": "El gerente de guardia gestionó mi queja con una empatía y rapidez que no esperaba."},
++    {"id": 7, "cat": "Higiene (Pos)", "text": "El personal de cocina fue muy cuidadoso con mi alergia severa y limpiaron toda el área para mi pedido."},
++    {"id": 8, "cat": "Cobros (Pos)", "text": "Me aplicaron el descuento de fidelidad sin tener que solicitarlo, un gesto muy transparente."},
++    {"id": 9, "cat": "Atención (Pos)", "text": "El equipo de seguridad actuó rápido cuando perdí mi cartera y la recuperaron en minutos."},
++    {"id": 10, "cat": "Higiene (Pos)", "text": "El baño común brillaba y olía a desinfectante fresco cada vez que entraba, excelente trabajo."},
++    
++    # --- NEUTROS (INFORMATIVOS) ---
++    {"id": 11, "cat": "Higiene (Neu)", "text": "El hotel informa que las habitaciones se limpian diariamente entre las 10:00 y las 14:00 horas."},
++    {"id": 12, "cat": "Cobros (Neu)", "text": "El depósito de seguridad se bloquea al hacer el check-in y se libera al finalizar la estancia."},
++    {"id": 13, "cat": "Atención (Neu)", "text": "El horario de atención telefónica para reclamaciones administrativas es de lunes a viernes."},
++    {"id": 14, "cat": "Higiene (Neu)", "text": "Se han instalado dispensadores de gel hidroalcohólico en todas las entradas del edificio."},
++    {"id": 15, "cat": "Cobros (Neu)", "text": "El sistema acepta tarjetas de crédito internacionales y pagos mediante transferencia bancaria."},
++    {"id": 16, "cat": "Atención (Neu)", "text": "El personal de recepción está disponible las 24 horas para cualquier consulta informativa."},
++    {"id": 17, "cat": "Higiene (Neu)", "text": "La normativa de higiene prohíbe el acceso de mascotas a la zona de manipulación de alimentos."},
++    {"id": 18, "cat": "Cobros (Neu)", "text": "Recibí el desglose de conceptos por correo electrónico cinco minutos después del pago."},
++    {"id": 19, "cat": "Atención (Neu)", "text": "Para hablar con un supervisor, es necesario rellenar primero el formulario de contacto inicial."},
++    {"id": 20, "cat": "Higiene (Neu)", "text": "El agua de la piscina se analiza químicamente tres veces al día según la ley vigente."}
++]
++
++print("=" * 105)
++print(f"🚀 INICIANDO BATCH RESOLUCIÓN/NEUTRALIDAD G68 ({len(casos)} casos)")
++print("=" * 105)
++print(f"{'ID':<4} | {'CATEGORÍA':<15} | {'PREVISIÓN':<10} | {'PROB':<6} | {'TOP FEATURES':<35}")
++print("-" * 105)
++
++positivos_ok = 0
++neutros_ok = 0
++
++for caso in casos:
++    try:
++        response = requests.post(API_URL, json={"text": caso["text"]})
++        if response.status_code == 200:
++            res = response.json()
++            features = res['top_features']
++            if len(features) > 32:
++                features = features[:29] + "..."
++            
++            print(f"{caso['id']:<4} | {caso['cat']:<15} | {res['prevision']:<10} | {res['probabilidad']:<6} | {features:<35}")
++            
++            # Conteo de aciertos simulado (basado en etiquetas del ID)
++            if caso['id'] <= 10 and res['prevision'] == 'Positivo':
++                positivos_ok += 1
++            elif (caso['id'] > 10 and 
++                  (res['prevision'] == 'Neutral' or 
++                   res['prevision'] == 'Neutro' or 
++                   (res['prevision'] == 'Negativo' and res['probabilidad'] < 0.6))): # Tolerancia a negativo débil
++                # Nota: Neutro puro es difícil sin palabras clave forzadas, veremos qué sale
++                if res['prevision'] in ['Neutral', 'Neutro']:
++                    neutros_ok += 1
++        else:
++            print(f"{caso['id']:<4} | ERROR HTTP {response.status_code}")
++    except Exception as e:
++        print(f"{caso['id']:<4} | ERROR CONN: {e}")
++
++print("=" * 105)
++print(f"📊 ACIERTOS POSITIVOS (Resolución): {positivos_ok}/10")
++print(f"📊 ACIERTOS NEUTROS (Informativo): {neutros_ok}/10")
++print("=" * 105)
+diff --git a/ml-python/tests/test_caso_agua.py b/ml-python/tests/test_caso_agua.py
+new file mode 100644
+index 0000000..264c1e4
+--- /dev/null
++++ b/ml-python/tests/test_caso_agua.py
+@@ -0,0 +1,39 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++caso = {
++    "text": "El agua de la ducha salía fría y tardaron tres horas en mandar al técnico"
++}
++
++print("=" * 80)
++print("🧪 PRUEBA CON CASO: Agua fría + demora en servicio")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso['text']}'")
++print()
++
++response = requests.post(API_URL, json=caso)
++
++if response.status_code == 200:
++    resultado = response.json()
++    print("✅ Respuesta:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    print("📊 Análisis:")
++    print(f"   • Prevision: {resultado['prevision']}")
++    print(f"   • Probabilidad: {resultado['probabilidad']}")
++    print(f"   • Top Features: {resultado['top_features']}")
++    print()
++    
++    # Analizar n-gramas
++    features = resultado['top_features'].split(' | ')
++    print("🔍 N-gramas detectados:")
++    for i, feat in enumerate(features, 1):
++        num_palabras = len(feat.split())
++        tipo = "frase" if num_palabras >= 2 else "palabra"
++        print(f"   {i}. '{feat}' ({tipo})")
++else:
++    print(f"❌ Error: HTTP {response.status_code}")
++
++print("=" * 80)
+diff --git a/ml-python/tests/test_caso_original.py b/ml-python/tests/test_caso_original.py
+new file mode 100644
+index 0000000..2bb86b2
+--- /dev/null
++++ b/ml-python/tests/test_caso_original.py
+@@ -0,0 +1,21 @@
++import requests
++
++# Probar el caso original reportado
++response = requests.post(
++    "http://localhost:8080/sentiment",
++    json={"text": "           hotel hermoso, volvere          "}
++)
++
++print("=" * 60)
++print("CASO ORIGINAL REPORTADO:")
++print("=" * 60)
++print(f"Input: 'hotel hermoso, volvere'")
++print(f"Response: {response.json()}")
++print()
++
++# Resultado esperado: Positivo (no Neutro)
++resultado = response.json()
++if resultado['prevision'] == 'Positivo':
++    print("✅ ¡RESUELTO! Ahora clasifica correctamente como Positivo")
++else:
++    print(f"❌ AÚN FALLA: Clasificó como {resultado['prevision']}")
+diff --git a/ml-python/tests/test_caso_positivo.py b/ml-python/tests/test_caso_positivo.py
+new file mode 100644
+index 0000000..29f9e08
+--- /dev/null
++++ b/ml-python/tests/test_caso_positivo.py
+@@ -0,0 +1,46 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++caso = {
++    "text": "La cama es una nube, volvería mañana mismo"
++}
++
++print("=" * 80)
++print("🧪 PRUEBA: Frase positiva con metáfora")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso['text']}'")
++print()
++
++response = requests.post(API_URL, json=caso)
++
++if response.status_code == 200:
++    resultado = response.json()
++    print("✅ Respuesta:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    print("📊 Análisis:")
++    print(f"   • Prevision: {resultado['prevision']}")
++    print(f"   • Probabilidad: {resultado['probabilidad']}")
++    print(f"   • Top Features: {resultado['top_features']}")
++    print()
++    
++    # Analizar n-gramas
++    features = resultado['top_features'].split(' | ')
++    print("🔍 N-gramas detectados:")
++    for i, feat in enumerate(features, 1):
++        num_palabras = len(feat.split())
++        tipo = "frase" if num_palabras >= 2 else "palabra"
++        print(f"   {i}. '{feat}' ({tipo})")
++    
++    print()
++    # Validar resultado
++    if resultado['prevision'] == 'Positivo':
++        print("✅ CORRECTO: Clasificado como Positivo")
++    else:
++        print(f"❌ INCORRECTO: Debería ser Positivo, clasificó como {resultado['prevision']}")
++else:
++    print(f"❌ Error: HTTP {response.status_code}")
++
++print("=" * 80)
+diff --git a/ml-python/tests/test_caso_toallas.py b/ml-python/tests/test_caso_toallas.py
+new file mode 100644
+index 0000000..83289de
+--- /dev/null
++++ b/ml-python/tests/test_caso_toallas.py
+@@ -0,0 +1,39 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++caso = {
++    "text": "Las toallas estaban limpias y las cambiaban todos los días"
++}
++
++print("=" * 80)
++print("🧪 PRUEBA: Higiene Positiva")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso['text']}'")
++print("\n💡 Análisis lingüístico:")
++print("   'limpias' = Positivo (diccionario)")
++print("   Contexto de servicio regular = Positivo")
++print("   Sentimiento esperado: POSITIVO")
++print()
++
++response = requests.post(API_URL, json=caso)
++
++if response.status_code == 200:
++    resultado = response.json()
++    print("✅ Respuesta:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    print("📊 Análisis:")
++    print(f"   • Prevision: {resultado['prevision']}")
++    print(f"   • Probabilidad: {resultado['probabilidad']}")
++    print(f"   • Top Features: {resultado['top_features']}")
++    
++    if resultado['prevision'] == 'Positivo':
++        print("\n✅ CORRECTO: Clasificado como Positivo")
++    else:
++        print(f"\n❌ INCORRECTO: Debería ser Positivo, clasificó como {resultado['prevision']}")
++else:
++    print(f"❌ Error: HTTP {response.status_code}")
++
++print("=" * 80)
+diff --git a/ml-python/tests/test_casos_simples.py b/ml-python/tests/test_casos_simples.py
+new file mode 100644
+index 0000000..62b4bcd
+--- /dev/null
++++ b/ml-python/tests/test_casos_simples.py
+@@ -0,0 +1,187 @@
++"""
++Script de Diagnóstico - Casos Simples de Sentimiento
++Objetivo: Identificar palabras faltantes en el diccionario y validar lógica híbrida
++"""
++import requests
++import json
++
++# URL del API (asegúrate de que esté corriendo)
++API_URL = "http://localhost:8080/sentiment"
++
++# 30 casos de prueba con expectativa clara
++CASOS_PRUEBA = [
++    # === POSITIVOS CLAROS ===
++    {"text": "hotel hermoso, volveré", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "excelente servicio", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "todo perfecto", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "muy buena atención", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "habitación limpia y cómoda", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "desayuno delicioso", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "personal amable", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "lugar maravilloso", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "vale la pena", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    {"text": "lo recomiendo totalmente", "esperado": "Positivo", "categoria": "Positivo Simple"},
++    
++    # === NEGATIVOS CLAROS ===
++    {"text": "hotel horrible", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "pésimo servicio", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "muy sucio", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "no vuelvo nunca", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "mala experiencia", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "habitación sucia", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "comida terrible", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "personal grosero", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "decepcionante", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    {"text": "no lo recomiendo", "esperado": "Negativo", "categoria": "Negativo Simple"},
++    
++    # === NEUTROS CLAROS ===
++    {"text": "normal", "esperado": "Neutro", "categoria": "Neutro Simple"},
++    {"text": "ni bien ni mal", "esperado": "Neutro", "categoria": "Neutro Simple"},
++    {"text": "está bien", "esperado": "Neutro", "categoria": "Neutro Simple"},
++    {"text": "aceptable", "esperado": "Neutro", "categoria": "Neutro Simple"},
++    
++    # === CASOS COMPLEJOS (Sarcasmo/Contraste) ===
++    {"text": "excelente hotel, pero sucio", "esperado": "Negativo", "categoria": "Contraste"},
++    {"text": "buena ubicación pero caro", "esperado": "Neutro", "categoria": "Contraste"},
++    {"text": "limpio pero ruidoso", "esperado": "Neutro", "categoria": "Contraste"},
++    
++    # === CASOS CRÍTICOS ===
++    {"text": "encontré cucarachas", "esperado": "Negativo", "categoria": "Crítico"},
++    {"text": "me robaron", "esperado": "Negativo", "categoria": "Crítico"},
++    {"text": "peligroso", "esperado": "Negativo", "categoria": "Crítico"},
++]
++
++def probar_caso(caso, index):
++    """Prueba un caso individual y retorna resultado"""
++    try:
++        response = requests.post(API_URL, json={"text": caso["text"]}, timeout=5)
++        if response.status_code == 200:
++            resultado = response.json()
++            prevision = resultado.get("prevision", "").replace("[+] ", "").replace("[-] ", "")
++            probabilidad = resultado.get("probabilidad", 0.0)
++            
++            # Validar si cumple expectativa
++            cumple = prevision == caso["esperado"]
++            emoji = "✅" if cumple else "❌"
++            
++            return {
++                "index": index + 1,
++                "texto": caso["text"],
++                "esperado": caso["esperado"],
++                "obtenido": prevision,
++                "probabilidad": probabilidad,
++                "cumple": cumple,
++                "categoria": caso["categoria"],
++                "emoji": emoji
++            }
++        else:
++            return {
++                "index": index + 1,
++                "texto": caso["text"],
++                "error": f"HTTP {response.status_code}",
++                "cumple": False,
++                "emoji": "⚠️"
++            }
++    except Exception as e:
++        return {
++            "index": index + 1,
++            "texto": caso["text"],
++            "error": str(e),
++            "cumple": False,
++            "emoji": "🔴"
++        }
++
++def main():
++    print("=" * 80)
++    print("🧪 DIAGNÓSTICO DE CASOS SIMPLES - G68 Sentiment API")
++    print("=" * 80)
++    print(f"\n📊 Total de casos a probar: {len(CASOS_PRUEBA)}\n")
++    
++    resultados = []
++    
++    # Ejecutar pruebas
++    for i, caso in enumerate(CASOS_PRUEBA):
++        resultado = probar_caso(caso, i)
++        resultados.append(resultado)
++        
++        # Mostrar resultado en tiempo real
++        if "error" in resultado:
++            print(f"{resultado['emoji']} [{resultado['index']:02d}] ERROR: {resultado.get('error')}")
++        else:
++            print(f"{resultado['emoji']} [{resultado['index']:02d}] '{resultado['texto'][:40]:40s}' | "
++                  f"Esperado: {resultado['esperado']:8s} | "
++                  f"Obtenido: {resultado['obtenido']:8s} ({resultado['probabilidad']:.2f})")
++    
++    # === RESUMEN ESTADÍSTICO ===
++    print("\n" + "=" * 80)
++    print("📈 RESUMEN DE RESULTADOS")
++    print("=" * 80)
++    
++    total = len(resultados)
++    exitosos = sum(1 for r in resultados if r.get("cumple", False))
++    fallidos = total - exitosos
++    tasa_exito = (exitosos / total * 100) if total > 0 else 0
++    
++    print(f"\n✅ Casos Exitosos: {exitosos}/{total} ({tasa_exito:.1f}%)")
++    print(f"❌ Casos Fallidos:  {fallidos}/{total} ({100-tasa_exito:.1f}%)")
++    
++    # Desglose por categoría
++    print("\n📊 Desglose por Categoría:")
++    categorias = {}
++    for r in resultados:
++        cat = r.get("categoria", "Desconocido")
++        if cat not in categorias:
++            categorias[cat] = {"total": 0, "exitosos": 0}
++        categorias[cat]["total"] += 1
++        if r.get("cumple", False):
++            categorias[cat]["exitosos"] += 1
++    
++    for cat, stats in sorted(categorias.items()):
++        tasa = (stats["exitosos"] / stats["total"] * 100) if stats["total"] > 0 else 0
++        print(f"  • {cat:20s}: {stats['exitosos']}/{stats['total']} ({tasa:.0f}%)")
++    
++    # === ANÁLISIS DE FALLOS ===
++    print("\n" + "=" * 80)
++    print("🔍 ANÁLISIS DE CASOS FALLIDOS")
++    print("=" * 80)
++    
++    fallos = [r for r in resultados if not r.get("cumple", False)]
++    
++    if not fallos:
++        print("\n🎉 ¡No hay fallos! Todos los casos pasaron correctamente.")
++    else:
++        print(f"\nTotal de fallos: {len(fallos)}\n")
++        for fallo in fallos:
++            if "error" in fallo:
++                print(f"❌ [{fallo['index']:02d}] ERROR TÉCNICO: {fallo.get('error')}")
++                print(f"    Texto: '{fallo['texto']}'")
++            else:
++                print(f"❌ [{fallo['index']:02d}] '{fallo['texto']}'")
++                print(f"    Esperado: {fallo['esperado']} | Obtenido: {fallo['obtenido']} ({fallo['probabilidad']:.2f})")
++                print(f"    Categoría: {fallo['categoria']}")
++            print()
++    
++    # === PALABRAS POTENCIALMENTE FALTANTES ===
++    print("=" * 80)
++    print("💡 PALABRAS CLAVE DETECTADAS EN CASOS FALLIDOS")
++    print("=" * 80)
++    
++    palabras_en_fallos = set()
++    for fallo in fallos:
++        if "error" not in fallo:
++            # Extraer palabras significativas (más de 3 letras)
++            palabras = [p.strip().lower() for p in fallo['texto'].split() if len(p.strip()) > 3]
++            palabras_en_fallos.update(palabras)
++    
++    if palabras_en_fallos:
++        print("\nPalabras que podrían necesitar agregarse al diccionario:")
++        print(", ".join(sorted(palabras_en_fallos)))
++    else:
++        print("\nNo se detectaron palabras faltantes obvias.")
++    
++    print("\n" + "=" * 80)
++    print("✨ Diagnóstico completado")
++    print("=" * 80)
++
++if __name__ == "__main__":
++    main()
+diff --git a/ml-python/tests/test_contrato_nocountry.py b/ml-python/tests/test_contrato_nocountry.py
+new file mode 100644
+index 0000000..53e8a8b
+--- /dev/null
++++ b/ml-python/tests/test_contrato_nocountry.py
+@@ -0,0 +1,164 @@
++"""
++Test de Validación del Contrato NoCountry
++Verifica que el API cumpla con el esquema:
++- prevision: str (Positivo, Negativo, Neutral)
++- probabilidad: float (0.0 a 1.0)
++- top_features: str (n-gramas separados por ' | ')
++"""
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++# Casos de prueba representativos
++CASOS_PRUEBA = [
++    {
++        "text": "hotel hermoso, volveré",
++        "esperado": "Positivo",
++        "descripcion": "Caso original reportado"
++    },
++    {
++        "text": "excelente hotel pero muy sucio",
++        "esperado": "Negativo",
++        "descripcion": "Contraste con crítico"
++    },
++    {
++        "text": "no vuelvo nunca, pésimo servicio",
++        "esperado": "Negativo",
++        "descripcion": "Múltiples n-gramas negativos"
++    },
++    {
++        "text": "vale la pena, lo recomiendo totalmente",
++        "esperado": "Positivo",
++        "descripcion": "Múltiples n-gramas positivos"
++    },
++    {
++        "text": "encontré cucarachas en la habitación",
++        "esperado": "Negativo",
++        "descripcion": "Caso crítico"
++    },
++    {
++        "text": "ni bien ni mal",
++        "esperado": "Neutral",
++        "descripcion": "Expresión neutral"
++    }
++]
++
++def validar_contrato(response_json):
++    """Valida que la respuesta cumpla con el contrato NoCountry"""
++    errores = []
++    
++    # Verificar campos requeridos
++    campos_requeridos = ["prevision", "probabilidad", "top_features"]
++    for campo in campos_requeridos:
++        if campo not in response_json:
++            errores.append(f"❌ Falta campo requerido: '{campo}'")
++    
++    # Validar tipos de datos
++    if "prevision" in response_json:
++        if not isinstance(response_json["prevision"], str):
++            errores.append(f"❌ 'prevision' debe ser str, es {type(response_json['prevision'])}")
++        elif response_json["prevision"] not in ["Positivo", "Negativo", "Neutral"]:
++            errores.append(f"❌ 'prevision' debe ser Positivo/Negativo/Neutral, es '{response_json['prevision']}'")
++    
++    if "probabilidad" in response_json:
++        if not isinstance(response_json["probabilidad"], (int, float)):
++            errores.append(f"❌ 'probabilidad' debe ser float, es {type(response_json['probabilidad'])}")
++        elif not (0.0 <= response_json["probabilidad"] <= 1.0):
++            errores.append(f"❌ 'probabilidad' debe estar entre 0.0 y 1.0, es {response_json['probabilidad']}")
++    
++    if "top_features" in response_json:
++        if not isinstance(response_json["top_features"], str):
++            errores.append(f"❌ 'top_features' debe ser str, es {type(response_json['top_features'])}")
++    
++    return errores
++
++def probar_caso(caso):
++    """Prueba un caso individual"""
++    try:
++        response = requests.post(API_URL, json={"text": caso["text"]}, timeout=5)
++        
++        if response.status_code != 200:
++            return {
++                "exito": False,
++                "error": f"HTTP {response.status_code}",
++                "caso": caso
++            }
++        
++        resultado = response.json()
++        errores_contrato = validar_contrato(resultado)
++        
++        return {
++            "exito": len(errores_contrato) == 0,
++            "caso": caso,
++            "respuesta": resultado,
++            "errores_contrato": errores_contrato
++        }
++    
++    except Exception as e:
++        return {
++            "exito": False,
++            "error": str(e),
++            "caso": caso
++        }
++
++def main():
++    print("=" * 80)
++    print("🧪 VALIDACIÓN DEL CONTRATO NOCOUNTRY")
++    print("=" * 80)
++    print(f"\n📊 Casos a probar: {len(CASOS_PRUEBA)}\n")
++    
++    resultados = []
++    
++    for i, caso in enumerate(CASOS_PRUEBA, 1):
++        print(f"\n[{i}/{len(CASOS_PRUEBA)}] {caso['descripcion']}")
++        print(f"   Texto: '{caso['text']}'")
++        
++        resultado = probar_caso(caso)
++        resultados.append(resultado)
++        
++        if "error" in resultado:
++            print(f"   ❌ ERROR: {resultado['error']}")
++        elif not resultado["exito"]:
++            print(f"   ❌ CONTRATO INVÁLIDO:")
++            for error in resultado["errores_contrato"]:
++                print(f"      {error}")
++        else:
++            resp = resultado["respuesta"]
++            print(f"   ✅ VÁLIDO")
++            print(f"      • prevision: {resp['prevision']}")
++            print(f"      • probabilidad: {resp['probabilidad']}")
++            print(f"      • top_features: {resp['top_features']}")
++    
++    # Resumen
++    print("\n" + "=" * 80)
++    print("📈 RESUMEN DE VALIDACIÓN")
++    print("=" * 80)
++    
++    exitosos = sum(1 for r in resultados if r["exito"])
++    fallidos = len(resultados) - exitosos
++    
++    print(f"\n✅ Casos válidos: {exitosos}/{len(resultados)}")
++    print(f"❌ Casos inválidos: {fallidos}/{len(resultados)}")
++    
++    if fallidos == 0:
++        print("\n🎉 ¡TODOS LOS CASOS CUMPLEN CON EL CONTRATO NOCOUNTRY!")
++    else:
++        print("\n⚠️ Hay casos que no cumplen con el contrato")
++    
++    # Mostrar ejemplos de top_features
++    print("\n" + "=" * 80)
++    print("💡 EJEMPLOS DE TOP_FEATURES")
++    print("=" * 80)
++    
++    for r in resultados:
++        if r["exito"]:
++            caso = r["caso"]
++            resp = r["respuesta"]
++            print(f"\n'{caso['text'][:50]}...'")
++            print(f"  → {resp['top_features']}")
++    
++    print("\n" + "=" * 80)
++
++if __name__ == "__main__":
++    main()
+diff --git a/ml-python/tests/test_doble_negacion.py b/ml-python/tests/test_doble_negacion.py
+new file mode 100644
+index 0000000..ac17484
+--- /dev/null
++++ b/ml-python/tests/test_doble_negacion.py
+@@ -0,0 +1,53 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++caso = {
++    "text": "No puedo dejar de recomendar este hotel después del trato que recibimos"
++}
++
++print("=" * 80)
++print("🧪 PRUEBA: Doble negación (positivo)")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso['text']}'")
++print("\n💡 Análisis lingüístico:")
++print("   'No puedo dejar de recomendar' = 'Recomiendo mucho' (doble negación)")
++print("   Sentimiento esperado: POSITIVO")
++print()
++
++response = requests.post(API_URL, json=caso)
++
++if response.status_code == 200:
++    resultado = response.json()
++    print("✅ Respuesta:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    print("📊 Análisis:")
++    print(f"   • Prevision: {resultado['prevision']}")
++    print(f"   • Probabilidad: {resultado['probabilidad']}")
++    print(f"   • Top Features: {resultado['top_features']}")
++    print()
++    
++    # Analizar n-gramas
++    features = resultado['top_features'].split(' | ')
++    print("🔍 N-gramas detectados:")
++    for i, feat in enumerate(features, 1):
++        num_palabras = len(feat.split())
++        tipo = "frase" if num_palabras >= 2 else "palabra"
++        print(f"   {i}. '{feat}' ({tipo})")
++    
++    print()
++    # Validar resultado
++    if resultado['prevision'] == 'Positivo':
++        print("✅ CORRECTO: El sistema detectó correctamente la doble negación")
++        print("   La frase es positiva a pesar de tener 'no' y 'dejar'")
++    elif resultado['prevision'] == 'Negativo':
++        print("❌ ERROR: El sistema interpretó mal la doble negación")
++        print("   'No puedo dejar de recomendar' = 'Recomiendo mucho' (POSITIVO)")
++    else:
++        print("⚠️ NEUTRO: El sistema no pudo determinar el sentimiento")
++else:
++    print(f"❌ Error: HTTP {response.status_code}")
++
++print("=" * 80)
+diff --git a/ml-python/tests/test_logica_hibrida.py b/ml-python/tests/test_logica_hibrida.py
+new file mode 100644
+index 0000000..b07540a
+--- /dev/null
++++ b/ml-python/tests/test_logica_hibrida.py
+@@ -0,0 +1,47 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++# Caso problemático original
++caso_problematico = {
++    "text": "Me cobraron el mini bar que nunca toqué y ahora dicen que no pueden devolverme el dinero"
++}
++
++print("=" * 80)
++print("🧪 PRUEBA DE LÓGICA HÍBRIDA (Diccionario + Modelo ML)")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso_problematico['text']}'")
++print()
++
++response = requests.post(API_URL, json=caso_problematico)
++
++if response.status_code == 200:
++    resultado = response.json()
++    print("✅ Respuesta exitosa:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    print("📊 Análisis:")
++    print(f"   • Prevision: {resultado['prevision']}")
++    print(f"   • Probabilidad: {resultado['probabilidad']}")
++    print(f"   • Top Features: {resultado['top_features']}")
++    print()
++    
++    # Verificar mejora
++    features = resultado['top_features'].split(' | ')
++    print("🔍 N-gramas detectados:")
++    for i, feat in enumerate(features, 1):
++        num_palabras = len(feat.split())
++        tipo = "frase" if num_palabras >= 2 else "palabra"
++        print(f"   {i}. '{feat}' ({tipo}, {num_palabras} palabra{'s' if num_palabras > 1 else ''})")
++    
++    print()
++    if any(len(f.split()) >= 2 for f in features):
++        print("✅ MEJORA CONFIRMADA: Se detectaron frases contextuales (2+ palabras)")
++    else:
++        print("⚠️ Solo se detectaron palabras sueltas")
++else:
++    print(f"❌ Error: HTTP {response.status_code}")
++    print(response.text)
++
++print("=" * 80)
+diff --git a/ml-python/tests/test_neutralidad.py b/ml-python/tests/test_neutralidad.py
+new file mode 100644
+index 0000000..402e925
+--- /dev/null
++++ b/ml-python/tests/test_neutralidad.py
+@@ -0,0 +1,41 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++caso = {
++    "text": "El hotel es normal, ni bueno ni malo."
++}
++
++print("=" * 80)
++print("🧪 PRUEBA: Neutralidad explícita")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso['text']}'")
++print("\n💡 Análisis lingüístico:")
++print("   'normal' = Peso 0.0")
++print("   'ni bueno ni malo' = Patrón neutro forzado")
++print("   Sentimiento esperado: NEUTRAL (o Neutro)")
++print()
++
++response = requests.post(API_URL, json=caso)
++
++if response.status_code == 200:
++    resultado = response.json()
++    print("✅ Respuesta:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    print("📊 Análisis:")
++    print(f"   • Prevision: {resultado['prevision']}")
++    print(f"   • Probabilidad: {resultado['probabilidad']}")
++    print(f"   • Top Features: {resultado['top_features']}")
++    
++    # Validar resultado
++    pred = resultado['prevision'].lower()
++    if 'neutr' in pred: # Neutral o Neutro
++        print("\n✅ CORRECTO: Clasificado como Neutral")
++    else:
++        print(f"\n❌ INCORRECTO: Debería ser Neutral, clasificó como {resultado['prevision']}")
++else:
++    print(f"❌ Error: HTTP {response.status_code}")
++
++print("=" * 80)
+diff --git a/ml-python/tests/test_sarcasmo.py b/ml-python/tests/test_sarcasmo.py
+new file mode 100644
+index 0000000..d34efed
+--- /dev/null
++++ b/ml-python/tests/test_sarcasmo.py
+@@ -0,0 +1,40 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++caso = {
++    "text": "La habitación es muy 'acogedora', si por acogedora entiendes que no cabe ni mi maleta"
++}
++
++print("=" * 80)
++print("🧪 PRUEBA: Sarcasmo / Ironía")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso['text']}'")
++print("\n💡 Análisis lingüístico:")
++print("   'acogedora' = Positivo (en diccionario)")
++print("   'no cabe ni mi maleta' = Negativo (contexto)")
++print("   Sentimiento esperado: NEGATIVO (Sarcasmo)")
++print()
++
++response = requests.post(API_URL, json=caso)
++
++if response.status_code == 200:
++    resultado = response.json()
++    print("✅ Respuesta:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    print("📊 Análisis:")
++    print(f"   • Prevision: {resultado['prevision']}")
++    print(f"   • Probabilidad: {resultado['probabilidad']}")
++    print(f"   • Top Features: {resultado['top_features']}")
++    
++    # Validar resultado
++    if resultado['prevision'] == 'Negativo':
++        print("\n🎉 INCREÍBLE: El sistema detectó el sarcasmo!")
++    else:
++        print(f"\n⚠️ RETO: El sistema clasificó como {resultado['prevision']} (probablemente por la palabra 'acogedora')")
++else:
++    print(f"❌ Error: HTTP {response.status_code}")
++
++print("=" * 80)
+diff --git a/ml-python/tests/test_verificar_campos.py b/ml-python/tests/test_verificar_campos.py
+new file mode 100644
+index 0000000..2c307e8
+--- /dev/null
++++ b/ml-python/tests/test_verificar_campos.py
+@@ -0,0 +1,38 @@
++import requests
++import json
++
++API_URL = "http://localhost:8080/sentiment"
++
++caso = {
++    "text": "No puedo dejar de recomendar este hotel después del trato que recibimos"
++}
++
++print("=" * 80)
++print("🔍 VERIFICACIÓN: ¿Qué datos retorna el motor híbrido?")
++print("=" * 80)
++print(f"\n📝 Texto: '{caso['text']}'")
++print()
++
++# Hacer request directo
++response = requests.post(API_URL, json=caso)
++
++if response.status_code == 200:
++    resultado = response.json()
++    
++    print("📦 RESPUESTA COMPLETA DEL API:")
++    print(json.dumps(resultado, indent=2, ensure_ascii=False))
++    print()
++    
++    print("📊 CAMPOS DISPONIBLES:")
++    for key in resultado.keys():
++        print(f"   • {key}: {type(resultado[key]).__name__}")
++    
++    print()
++    if 'explicabilidad' in resultado:
++        print("✅ El campo 'explicabilidad' ESTÁ disponible")
++        print(json.dumps(resultado['explicabilidad'], indent=2, ensure_ascii=False))
++    else:
++        print("❌ El campo 'explicabilidad' NO está en la respuesta del API")
++        print("   (Pero podría estar disponible internamente en motor_hibrido)")
++
++print("=" * 80)
