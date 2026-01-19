@@ -1,7 +1,7 @@
 # SentimentAPI - Clasificacion de sentimientos
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3-green)
-![Python](https://img.shields.io/badge/Python-3.9-blue)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-green)
+![Python](https://img.shields.io/badge/Python-3.12.3-blue)
 ![Status](https://img.shields.io/badge/Status-MVP-yellow)
 ## Descripcion
 **SentimentAPI** es una API REST que permite clasificar el 
@@ -118,7 +118,7 @@ POST: /predict/sentiment
 ```json
 {
   "prevision" : "Positivo | Neutral | Negativo",
-  "probabilidad" : "0.87"
+  "probabilidad" : 0.87
 }
 ```
 - Prevision: Clase predicha por el modelo
@@ -138,9 +138,10 @@ POST: /predict/sentiment
 **Backend (Java)**
 
 Requisitos:
-- Java 17+
+- Java 21+
 - Maven
 
+Ejemplo de arranque (Terminal):
 ```bash 
 
 cd backend-java
@@ -156,32 +157,61 @@ http://localhost:8000
 **Data science**
 
 Requisitos:
-*Por definir
 
-Ejemplos de arranque:
-*Por definir
+- Python 3.12.3
+- virtualenv
+- librerias principales:
+  - fastapi
+  - uvicorn
+  - pydantic
+  - joblib
+  - numpy
+  - scikit-learn
+  - imbalanced-learn
+
+Ejemplo de arranque (Terminal):
+
+```bash
+
+cd ml-python
+python -m venv venv
+
+- Si es Windows:
+venv\Scripts\activate
+- Si es Mac/Linux:
+source venv/bin/activate
+
+pip install -r ../requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8080
+```
 
 ---
 
 ## Stack tecnologico
 
 **Backend**
-- java 17
-- Spring boot
+- java 21
+- Spring boot 4.1
 - Bean validation
 - REST API
 
 **Data Science**
 
-*Por definir
+- Python 3.12.3
+- FastAPI (Asíncrono)
+- Pydantic v2
+- Uvicorn
+- Scikit-learn, Pandas, NumPy
+- Joblib (Para carga de modelos .pkl)
+
 
 ---
 
 ## Estado del proyecto
-Backend: ![Static Badge](https://img.shields.io/badge/In%20Progress-yellow)
+Backend: ![Static Badge](https://img.shields.io/badge/MVP-yellow)
 
 
-Data Science ![Static Badge](https://img.shields.io/badge/In%20Progress-yellow)
+Data Science ![Static Badge](https://img.shields.io/badge/MVP-yellow)
 
 ---
 
@@ -205,7 +235,7 @@ con **AluraLatam**, con enfoque en integración real entre disciplinas y buenas 
         <strong>Florentino Lopez</strong>
       </a>
       <br/>
-      <sub>Backend Developer</sub>
+      <sub>Backend Developer · Frontend Designer</sub>
     </td>
     <!-- Backend 2 -->
     <td align="center" width="200">
@@ -215,7 +245,7 @@ con **AluraLatam**, con enfoque en integración real entre disciplinas y buenas 
         <strong>Lorena Raygoza</strong>
       </a>
       <br />
-      <sub>Backend Developer</sub>
+      <sub>Backend Developer · ML Integration </sub>
     </td>
     <!-- Backend 3 -->
     <td align="center" width="200">
@@ -265,26 +295,26 @@ con **AluraLatam**, con enfoque en integración real entre disciplinas y buenas 
       <br />
       <sub>Data Scientist</sub>
     </td>
-    <!-- Data 3 -->
+    <!-- Data 4 -->
     <td align="center" width="200">
-      <a href="https://github.com/ADRIAN-GP84">
-        <img src="https://avatars.githubusercontent.com/u/198021746?v=4" width="120" style="border-radius:50%;" />
+      <a href="https://github.com/Sheila-Amaya">
+        <img src="https://avatars.githubusercontent.com/u/98847601?v=4" width="120" style="border-radius:50%;" />
         <br />
-        <strong>Adrian Galán</strong>
+        <strong>Sheila Amaya</strong>
       </a>
       <br />
       <sub>Data Scientist</sub>
     </td>
-    <!-- Data 4 
+<!-- Data 5 -->
     <td align="center" width="200">
-      <a href="https://github.com/data4">
-        <img src="https://avatars.githubusercontent.com/u/ID8?v=4" width="120" style="border-radius:50%;" />
+      <a href="https://github.com/Alxs68">
+        <img src="https://avatars.githubusercontent.com/u/203614718?v=4" width="120" style="border-radius:50%;" />
         <br />
-        <strong>Nombre Apellido</strong>
+        <strong>Alexis Oliveros</strong>
       </a>
       <br />
-      <sub>Data Scientist · Pipelines</sub>
-    </td>-->
+      <sub>Data Scientist</sub>
+    </td>
   </tr>
 </table>
 
@@ -295,11 +325,16 @@ Este proyecto existe porque personas reales dedican tiempo real.
 
 ## Proximas mejoras (roadmap)
 
--[x] API REST basica
--[x] Validaciones y manejo de errores
--[ ] Integracion de ML
+- [x] API REST basica
+
+- [x] Validaciones y manejo de errores
+
+- [ ] Integracion de ML
+
 - [ ] Persistencia
+
 - [ ] Docker
+
 
 Por definir*
 
@@ -307,13 +342,19 @@ Por definir*
 
 ## Aprendizajes
 
-*Por definir
+- Diseño de contratos claros entre Backend y ML
+- Manejo de errores entre microservicios
+- Exposicion de modelos ML como servicios REST
+- Trabajo colaborativo entre perfiles tecnicos distintos
 
 ---
 
 ## Limitaciones conocidas
 
-*Por definir
+- El modelo depende de la calidad de texto de entrada
+- No soporta multiples idiomas (Solo español)
+- No se maneja sarcasmo ni ironia
+- No hay persistencia de resultados
 
 ---
 ## Nota final
