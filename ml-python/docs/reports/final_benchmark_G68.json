@@ -1,0 +1,807 @@
+{
+  "total": 100,
+  "correct": 66,
+  "accuracy": "66.00%",
+  "details": [
+    {
+      "id": 1,
+      "text": "¡Qué maravilla! El aire acondicionado hace tanto r",
+      "tipo": "Sarcasmo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 2,
+      "text": "Las sábanas tenían manchas amarillas y el suelo de",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 3,
+      "text": "Me cargaron 50 euros por un servicio que nunca ped",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 4,
+      "text": "No puedo decir que la comida no estuviera buena, p",
+      "tipo": "Doble Negación",
+      "pred": "Negativo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 5,
+      "text": "El hotel ofrece servicio de traslado al aeropuerto",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 6,
+      "text": "El recepcionista nos ignoró por estar hablando por",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 7,
+      "text": "La rapidez del check-in fue asombrosa, tardamos me",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 8,
+      "text": "Gracias por el 'upgrade' a una habitación con vist",
+      "tipo": "Ironía",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 9,
+      "text": "Es una puta vergüenza que traten así a los cliente",
+      "tipo": "Grocero",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 10,
+      "text": "El wifi es tan lento que no pude ni abrir el corre",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 11,
+      "text": "El proceso de cancelación es un laberinto diseñado",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 12,
+      "text": "Había una cucaracha en el buffet de ensaladas, sal",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 13,
+      "text": "Me pidieron disculpas, pero el problema técnico si",
+      "tipo": "Mixto",
+      "pred": "Negativo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 14,
+      "text": "Me duplicaron el cobro en la tarjeta y dicen que t",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 15,
+      "text": "La foto de la web muestra una playa privada que en",
+      "tipo": "Engañoso",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 16,
+      "text": "El colchón era tan cómodo que por fin pude descans",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 17,
+      "text": "No es que no me guste el hotel, pero le falta much",
+      "tipo": "Doble Negación",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 18,
+      "text": "¡Ayuda! Mi reserva desapareció del sistema y estoy",
+      "tipo": "Urgencia",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 19,
+      "text": "La habitación cuenta con minibar, caja fuerte y se",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 20,
+      "text": "Bravo, han logrado que unas vacaciones de relax se",
+      "tipo": "Sarcasmo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 21,
+      "text": "El olor a tabaco en la habitación de no fumadores ",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 22,
+      "text": "El botones nos ayudó con las maletas y fue extrema",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 23,
+      "text": "Me dicen que el desayuno está incluido pero luego ",
+      "tipo": "Dificil",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 24,
+      "text": "La campaña de redes sociales me convenció y el hot",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 25,
+      "text": "Para solicitar la factura es necesario enviar el R",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 26,
+      "text": "El agua de la ducha sale templada, nunca llega a c",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 27,
+      "text": "Gracias por hacerme esperar una hora en el lobby, ",
+      "tipo": "Sarcasmo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 28,
+      "text": "Encontramos moho en la junta de la ducha, falta mu",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 29,
+      "text": "Intentaron cobrarme un extra por limpieza que no e",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 30,
+      "text": "La insonorización es excelente, no se oye nada de ",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 31,
+      "text": "Vi el anuncio en Instagram y decidí reservar por l",
+      "tipo": "Neutro",
+      "pred": "Positivo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 32,
+      "text": "El guardia de seguridad es un imbécil que no sabe ",
+      "tipo": "Grocero",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 33,
+      "text": "No es imposible conseguir el reembolso, pero te lo",
+      "tipo": "Doble Negación",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 34,
+      "text": "El ascensor se quedó trabado entre pisos, pasamos ",
+      "tipo": "Negativo",
+      "pred": "Neutral",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 35,
+      "text": "Todo el hotel huele a limpio, se nota que cuidan l",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 36,
+      "text": "Pregunté por la clave del wifi y me la dieron en u",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 37,
+      "text": "Me hicieron un cargo de 200 dólares que no sé de q",
+      "tipo": "Crítico",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 38,
+      "text": "Vender este hostal como 'Luxury Resort' es tener m",
+      "tipo": "Sarcasmo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 39,
+      "text": "La luz de la habitación parpadea y el técnico nunc",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 40,
+      "text": "La chica de recepción, Marta, es lo mejor que tien",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 41,
+      "text": "Había pelos en el desagüe cuando entramos a la hab",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 42,
+      "text": "Me enviaron la factura al minuto de pedírsela, muy",
+      "tipo": "Positivo",
+      "pred": "Neutral",
+      "esperado": "Positivo",
+      "status": "ERR"
+    },
+    {
+      "id": 43,
+      "text": "El parking está en el sótano y es gratuito para cl",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 44,
+      "text": "Llamo y llamo a recepción y nadie contesta, necesi",
+      "tipo": "Urgencia",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 45,
+      "text": "El precio es bueno, pero las comisiones por pago c",
+      "tipo": "Mixto",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 46,
+      "text": "El 'kit de bienvenida' eran dos caramelos y una bo",
+      "tipo": "Negativo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 47,
+      "text": "La Smart TV funciona genial y tiene Netflix config",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 48,
+      "text": "Qué alivio que el recepcionista prefiera chatear q",
+      "tipo": "Sarcasmo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 49,
+      "text": "Había hormigas en la mesa de noche, no vuelvo jamá",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 50,
+      "text": "No puedo negar que el check-out fue rápido, al men",
+      "tipo": "Doble Negación",
+      "pred": "Positivo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 51,
+      "text": "El gimnasio está muy completo y las máquinas son n",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 52,
+      "text": "El folleto informativo está disponible en cinco id",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 53,
+      "text": "Me hablaron de forma muy condescendiente por no en",
+      "tipo": "Negativo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 54,
+      "text": "Me retuvieron el depósito de garantía y ya pasaron",
+      "tipo": "Crítico",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 55,
+      "text": "La piscina tiene demasiada arena en el fondo, pare",
+      "tipo": "Negativo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 56,
+      "text": "El balcón tiene unas vistas preciosas a la montaña",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 57,
+      "text": "La oferta de reserva anticipada nos ahorró mucho d",
+      "tipo": "Positivo",
+      "pred": "Neutral",
+      "esperado": "Positivo",
+      "status": "ERR"
+    },
+    {
+      "id": 58,
+      "text": "El personal lleva uniforme y es fácil de identific",
+      "tipo": "Neutro",
+      "pred": "Positivo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 59,
+      "text": "Me piden un código de confirmación que nunca me ll",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 60,
+      "text": "Increíble que en 2026 el wifi solo funcione cerca ",
+      "tipo": "Sarcasmo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 61,
+      "text": "El vaso del cepillo de dientes tenía restos de pas",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 62,
+      "text": "Se dieron cuenta del error en el cobro y me llamar",
+      "tipo": "Positivo",
+      "pred": "Negativo",
+      "esperado": "Positivo",
+      "status": "ERR"
+    },
+    {
+      "id": 63,
+      "text": "El servicio de habitaciones se olvidó de mi cena d",
+      "tipo": "Negativo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 64,
+      "text": "Si esto es un hotel de 4 estrellas, yo soy el Rey ",
+      "tipo": "Sarcasmo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 65,
+      "text": "Las llaves son magnéticas y funcionan por aproxima",
+      "tipo": "Neutro",
+      "pred": "Positivo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 66,
+      "text": "Nos recomendaron un tour privado que fue un aciert",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 67,
+      "text": "La alfombra del pasillo tiene manchas que parecen ",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 68,
+      "text": "Cambiaron los términos del servicio sin avisar a l",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 69,
+      "text": "El minibar hace un ruido eléctrico constante y no ",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 70,
+      "text": "Me encanta el nuevo logo y la estética moderna del",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 71,
+      "text": "No es que me hayan tratado mal, pero les falta cal",
+      "tipo": "Doble Negación",
+      "pred": "Negativo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 72,
+      "text": "Me cobraron el parking cuando en la reserva decía ",
+      "tipo": "Negativo",
+      "pred": "Neutral",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 73,
+      "text": "La desinfección de las zonas comunes es constante,",
+      "tipo": "Positivo",
+      "pred": "Neutral",
+      "esperado": "Positivo",
+      "status": "ERR"
+    },
+    {
+      "id": 74,
+      "text": "La presión del agua en el tercer piso es normal.",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 75,
+      "text": "El botones me pidió propina de forma muy agresiva ",
+      "tipo": "Grocero",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 76,
+      "text": "El hotel se ve mucho más viejo y desgastado que en",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 77,
+      "text": "El proceso de reserva por la app fue fluido y sin ",
+      "tipo": "Positivo",
+      "pred": "Negativo",
+      "esperado": "Positivo",
+      "status": "ERR"
+    },
+    {
+      "id": 78,
+      "text": "Me encanta que la ventana no cierre bien y entre t",
+      "tipo": "Sarcasmo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 79,
+      "text": "Me dijeron que me llamarían para confirmar y sigo ",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 80,
+      "text": "Me cobraron una tarifa de cancelación por un error",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 81,
+      "text": "Había una mancha extraña en el sofá de la habitaci",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 82,
+      "text": "Tienen cargadores para coches eléctricos, un gran ",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 83,
+      "text": "Recibí el boletín de ofertas en mi correo este lun",
+      "tipo": "Neutro",
+      "pred": "Positivo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 84,
+      "text": "El personal de limpieza es súper discreto y eficie",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 85,
+      "text": "No es poco frecuente que el sistema de facturación",
+      "tipo": "Doble Negación",
+      "pred": "Negativo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 86,
+      "text": "El sensor de luz del pasillo tarda mucho en encend",
+      "tipo": "Negativo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 87,
+      "text": "Gracias por cobrarme el agua del grifo a precio de",
+      "tipo": "Sarcasmo",
+      "pred": "Positivo",
+      "esperado": "Negativo",
+      "status": "ERR"
+    },
+    {
+      "id": 88,
+      "text": "El inodoro no estaba bien anclado y perdía agua, u",
+      "tipo": "Crítico",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 89,
+      "text": "Gestionaron mi cambio de habitación sin ninguna ob",
+      "tipo": "Positivo",
+      "pred": "Negativo",
+      "esperado": "Positivo",
+      "status": "ERR"
+    },
+    {
+      "id": 90,
+      "text": "Prometen 'desayuno continental' y solo hay tostada",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 91,
+      "text": "El hotel tiene dos plantas y no dispone de jardín.",
+      "tipo": "Neutro",
+      "pred": "Neutral",
+      "esperado": "Neutro",
+      "status": "OK"
+    },
+    {
+      "id": 92,
+      "text": "Es frustrante que no contesten a los correos admin",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 93,
+      "text": "El desglose de la factura es clarísimo, nada de ca",
+      "tipo": "Positivo",
+      "pred": "Neutral",
+      "esperado": "Positivo",
+      "status": "ERR"
+    },
+    {
+      "id": 94,
+      "text": "Bravo por el camarero que me trajo la cuenta antes",
+      "tipo": "Sarcasmo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 95,
+      "text": "Había polvo acumulado en las aspas del ventilador ",
+      "tipo": "Negativo",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 96,
+      "text": "El sistema de domótica de la habitación es muy int",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 97,
+      "text": "El personal es amable pero se nota que están desbo",
+      "tipo": "Dificil",
+      "pred": "Positivo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    },
+    {
+      "id": 98,
+      "text": "¡Cancelen mi reserva ya! Mi vuelo se canceló y no ",
+      "tipo": "Urgencia",
+      "pred": "Negativo",
+      "esperado": "Negativo",
+      "status": "OK"
+    },
+    {
+      "id": 99,
+      "text": "La decoración navideña del hotel es preciosa y muy",
+      "tipo": "Positivo",
+      "pred": "Positivo",
+      "esperado": "Positivo",
+      "status": "OK"
+    },
+    {
+      "id": 100,
+      "text": "Llegó el pedido de room service rápido, pero la co",
+      "tipo": "Mixto",
+      "pred": "Negativo",
+      "esperado": "Neutro",
+      "status": "ERR"
+    }
+  ]
+}

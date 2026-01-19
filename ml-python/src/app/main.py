@@ -1,136 +1,77 @@
-import os
-import re
-import sys
-import joblib
-import numpy as np
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field, field_validator # <--- Importante para los Schemas integrados
+from pydantic import BaseModel, Field
+import os
+import sys
 
-# 1. CONFIGURACIÓN DE RUTAS 
-# Añadimos la carpeta actual al path para asegurar que encuentre utils.py
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from utils import clean_text
+# Blindaje de rutas para imports locales
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # ml-python/src
+sys.path.append(BASE_DIR)
 
-# =============================================================================
-# SCHEMAS (Modelos de datos integrados)
-# =============================================================================
-
-class TextIn(BaseModel):
-    """Estructura de entrada para la reseña"""
-    # Validamos que sea string y tenga longitud mínima de 1 (no vacío)
-    text: str = Field(..., min_length=1, example="La comida estuvo excelente.")
-
-    @field_validator('text')
-    @classmethod
-    def validate_content(cls, v):
-        # 1. Quitar espacios en blanco extremos y verificar si queda vacío
-        content = v.strip()
-        if not content:
-            raise ValueError('El texto no puede estar vacío o contener solo espacios.')
-        
-        # 2. Verificar si es solo números
-        if content.isdigit():
-            raise ValueError('El texto no puede ser únicamente numérico.')
-        
-        # 3. Verificar si contiene demasiados números (opcional, pero recomendado)
-        # Si quieres rechazar cualquier cosa que tenga números mezclados, usa:
-        # if any(char.isdigit() for char in content):
-        #     raise ValueError('No se permiten números en la reseña.')
-
-        return content
-
-class PredictionOut(BaseModel):
-    """Estructura de salida de la API"""
-    prevision: str
-    probabilidad: float
-
-# =============================================================================
-# CONFIGURACIÓN GENERAL Y RUTAS DE ARCHIVOS
-# =============================================================================
-
-# Localizamos el archivo .pkl subiendo niveles desde src/app hasta ml-python/data/models
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-MODEL_PATH = os.path.join(BASE_DIR, 'data', 'models', 'modelo_sentimiento_pipeline.pkl')
+from engine.sentiment_engine import SentimentEngine
+from motor_hibrido import enriquecer_respuesta
 
 app = FastAPI(
-    title="Sentiment Analysis API",
-    description=(
-        "Microservicio de inferencia para análisis de sentimiento. "
-        "El modelo fue entrenado priorizando el recall de la clase NEGATIVO."
-    ),
-    version="1.1.0"
+    title="Modelo Integral para el Análisis de Sentimientos",
+    description="API Híbrida de Análisis de Sentimiento con Refinamiento Semántico (G68 Supreme).",
+    version="2.1.0"
 )
 
-# Singleton para el modelo
-model_pipeline = None
+# Inicialización de motores
+try:
+    # Ajustamos la ruta para que encuentre los modelos en ../../data/models
+    base_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    model_path = os.path.join(base_path, "data", "models")
+    ai_engine = SentimentEngine(model_dir=model_path)
+    print(f"✅ Modelos ML cargados exitosamente desde: {model_path}")
+except Exception as e:
+    print(f"❌ Error crítico cargando modelos: {e}")
+    ai_engine = None
 
-# =============================================================================
-# EVENTOS DE SERVIDOR
-# =============================================================================
+class SentimentRequest(BaseModel):
+    text: str = Field(..., min_length=1, max_length=2500)
 
-@app.on_event("startup")
-async def load_model():
-    """Carga el pipeline al iniciar el servicio (Fail-fast)"""
-    global model_pipeline
-    try:
-        if not os.path.exists(MODEL_PATH):
-            raise FileNotFoundError(f"No se encontró el archivo .pkl en: {MODEL_PATH}")
+class SentimentResponse(BaseModel):
+    prevision: str
+    probabilidad: float
+    top_features: str
 
-        model_pipeline = joblib.load(MODEL_PATH)
-        print("✅ MODELO CARGADO: Pipeline listo para inferencia.")
-    except Exception as e:
-        print(f"❌ ERROR CRÍTICO: {e}")
-        # El servidor no arrancará si esto falla
-        raise RuntimeError("No se pudo inicializar el modelo de IA.")
+@app.post("/sentiment", response_model=SentimentResponse)
+async def analyze_sentiment(request: SentimentRequest):
+    """
+    Endpoint principal de análisis.
+    Recibe texto y devuelve sentimiento, probabilidad y explicabilidad (top features).
+    """
+    if not request.text or len(request.text.strip()) < 3:
+        return {
+            "prevision": "Neutral",
+            "probabilidad": 0.5,
+            "top_features": "texto insuficiente"
+        }
 
-# =============================================================================
-# ENDPOINTS
-# =============================================================================
+    if not ai_engine:
+        raise HTTPException(status_code=500, detail="Motor de IA no inicializado")
 
-@app.get("/")
-async def root():
+    # 1. Obtener predicción base de la IA
+    pred_ia, prob_ia = ai_engine.predict_raw(request.text)
+    
+    # 2. Refinar con el Motor Híbrido G68
+    res = enriquecer_respuesta(request.text, pred_ia, prob_ia, ai_engine)
+    
+    # 3. Normalización final según contrato estricto
+    label = res["prevision"]
+    if label == "Neutro":
+        label = "Neutral"
+        
     return {
-        "message": "API de Análisis de Sentimiento activa",
-        "docs": "/docs",
-        "status": "OK"
+        "prevision": label,
+        "probabilidad": res["probabilidad"],
+        "top_features": res["top_features"]
     }
 
-@app.post("/predict/sentiment", response_model=PredictionOut)
-async def predict_sentiment(payload: TextIn):
-    """
-    Endpoint principal. Realiza limpieza, predicción y cálculo de confianza.
-    """
-    if model_pipeline is None:
-        raise HTTPException(status_code=503, detail="Modelo no disponible")
+@app.get("/health")
+async def health_check():
+    return {"status": "online", "engine": "G68-Supreme"}
 
-    try:
-        # Limpieza (utils.py)
-        cleaned_text = clean_text(payload.text)
-
-        # Validación extra: Si tras limpiar el texto (quitar stop words, etc) queda vacío
-        if not cleaned_text or cleaned_text.isspace():
-            raise HTTPException(
-                status_code=422, 
-                detail="El texto procesado no contiene palabras válidas para analizar."
-            )
-
-        # Inferencia
-        prediction = model_pipeline.predict([cleaned_text])[0]
-        decision_score = model_pipeline.decision_function([cleaned_text])
-        probability = 1 / (1 + np.exp(-np.max(decision_score)))
-
-        return PredictionOut(
-            prevision=str(prediction),
-            probabilidad=round(float(probability), 3)
-        )
-
-    except ValueError as ve:
-        raise HTTPException(status_code=422, detail=str(ve))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Error en el procesamiento")
-
-# --- PUNTO DE ENTRADA LOCAL ---
-# Permite ejecutar con 'python main.py' además de 'uvicorn main:app'
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8080) # 0.0.0.0 es necesario para despliegues en la nube/Docker.
+    uvicorn.run(app, host="0.0.0.0", port=8080)

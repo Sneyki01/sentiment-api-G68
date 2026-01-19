@@ -1,0 +1,9697 @@
+{
+    "abandonado": [
+        -0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "abogado": [
+        -0.7,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "absolutamente": [
+        0.7,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "absurdo": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "abundancia": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "abundante": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "abusivo": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "accidente": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "aceitoso": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "acertado": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "acierto": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "acogedor": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "aconsejable": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "aconsejo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "actividad": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "actual": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "actualizado": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "adaptador": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "aeropuerto": [
+        0.0,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "agil": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "agilidad": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "agobiante": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "agotado": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "agradable": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "agrietado": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "agua": [
+        0.1,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "agua_cortesia": [
+        0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "agua_limpia": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "agujereado": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "agujero": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "agustito": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "aire": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "aislado": [
+        -0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "aislamiento_perfecto": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ajustado": [
+        0.6,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "al_lado": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "albornoz": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "alcantarilla": [
+        -0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "alegria": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "alegria_vivir": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "alergia": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "allanamiento": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "alma": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "almohada": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "almuerzo": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "alojar": [
+        0.3,
+        "Reservas",
+        "contexto",
+        "Reservas",
+        "Gestión"
+    ],
+    "alucinado": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "alucinante": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "amabilidad_extrema": [
+        1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "amable": [
+        0.9,
+        "Servicio",
+        "corazon",
+        "Servicio",
+        "Gestión"
+    ],
+    "ambientacion": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ambientazo": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ambiente_tenue": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "amenaza": [
+        -0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "amenities": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "amor_trabajo": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "amplio": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "andamio": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "anfitrion": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "animacion_infantil": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "animado": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "animador": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "aniversario": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "anticuado": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "antigualla": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "antiguo": [
+        -0.2,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "antihigienico": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "antipatico": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "antre": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "anadido": [
+        0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ano": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "apagado": [
+        -0.5,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "apanado": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "aperitivo": [
+        0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "apestar": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "apestoso": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "app": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "arana": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "arcada": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "arisco": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "armario": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "aroma": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "arrastre": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "arreglado": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "arrepentido": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "arruino": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "artesano": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "artista": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "as": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "ascensor": [
+        0.5,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "ascensor_rapido": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "asco": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "aseo": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "asequible": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "asfixiante": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "asma": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "asombrado": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "asqueroso": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "astillado": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "atascado": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "atasco": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "atencion": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "atencion_personalizada": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "atentisimo": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "atento": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "atontado": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "atracado": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "atraco": [
+        -1.0,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "atractivo": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "audifono": [
+        0.1,
+        "Equipamiento",
+        "contexto",
+        "Equipamiento",
+        "Gestión"
+    ],
+    "ausencia": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "autentico": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "averia": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "averiado": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "aviso": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "ayuda": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "ayudante": [
+        0.6,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "ayudita": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "bacteria": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bajon": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "balcon": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "balconazo": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "baldosas": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "bano": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "banquete": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "banera": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bar": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "baratismo": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "baratito": [
+        0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "barato": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "bares_al_lado": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "barrio": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "barrio_bueno": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "basico": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "bastante": [
+        1.0,
+        "Algoritmo",
+        "amplificador",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "basura": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "basurero": [
+        -0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "basurilla": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bebida": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "bello": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "bicho": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bide": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bien": [
+        0.5,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "bien_pensado": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "bienestar": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "bienvenida": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "billar": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "billetera": [
+        0.1,
+        "Objetos",
+        "contexto",
+        "Objetos",
+        "Gestión"
+    ],
+    "birria": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "blando": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bloqueado": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "bochorno": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bola": [
+        -0.7,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "bolleria": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "bolleria_horneada": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "bolsa": [
+        -0.5,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "bombazo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "bombilla": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "bonito": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "borde": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "bote": [
+        -0.5,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "botellon": [
+        -0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "botones": [
+        0.6,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "brillante": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "brillantez": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "brillo": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "bronca": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "brutal": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "bruto": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "buen_rollo": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "buena_onda": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "buenisimo": [
+        0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "bueno": [
+        0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "buffet": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "bullicio": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "burla": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "burro": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "bus": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "bus_puerta": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "cable": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cabreado": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "cabreo": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "caca": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cacharro": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "caducado": [
+        -0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "cafe": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "cafetera": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cafeteria": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "cafetito": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "cafre": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "cagada": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "caida": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "caja_fuerte": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "calefaccion": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "calentito": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "calidad": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "calidad_gastronomica": [
+        0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "calidad_suprema": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "calido": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "calle": [
+        -0.4,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "callejero": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "callejuela": [
+        0.6,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "calma": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "calor": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "caluroso": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cama": [
+        0.1,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "camarera": [
+        0.6,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "camarero": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "cambio": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "camon": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "campeon": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "cancelar": [
+        -0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "cansado": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "cansancio": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "cana": [
+        0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "caneria": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "canita": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "caos": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "caotico": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "capsulas": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "caracol": [
+        -0.6,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "caracter": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "caradura": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "carcel": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "carece": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "carino": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "carinoso": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "carisimo": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "carne": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "caro": [
+        -0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "casco_antiguo": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "caserito": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "casero": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "casposo": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "categoria": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "caudal": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "celular": [
+        0.1,
+        "Equipamiento",
+        "contexto",
+        "Equipamiento",
+        "Gestión"
+    ],
+    "cena": [
+        -0.4,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "cenita": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "ceniza": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cenon": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "centrico": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "centro": [
+        0.0,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "centro_ciudad": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "cepillo": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cercano": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "cerco": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cerquita": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "cerrado": [
+        -0.5,
+        "Infraestructura",
+        "contexto",
+        "Infraestructura",
+        "Gestión"
+    ],
+    "cerradura": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cerveza": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "chabacano": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "champu": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "chamuyo": [
+        -0.8,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "chanchullo": [
+        -0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "chantaje": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "chapuza": [
+        -1.0,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "charco": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "check_in_rapido": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "checkin": [
+        0.5,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "checkout": [
+        0.5,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "chic": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "chicletoso": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "chillido": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "chinche": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "chirriante": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "chirrido": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "chof": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "chollo": [
+        1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "chorizo": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "chorrazo": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "chorreo": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "chorro": [
+        -0.2,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "chulo": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "chungo": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "churrete": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cinco": [
+        0.7,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "cisterna": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "clase": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "clasico": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "claustrofobico": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "clausurado": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "clavada": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "clavado": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "clave": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "cliente": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "clima": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "climatizacion": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "climatizada": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "climatizado": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "clitrin": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cloaca": [
+        -1.0,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "cloro": [
+        -0.4,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "coaccion": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "cobertura": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "cobija": [
+        -0.1,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "cobrar": [
+        -0.5,
+        "Servicios",
+        "contexto",
+        "Servicios",
+        "Gestión"
+    ],
+    "cobro": [
+        -0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "cochino": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cocinar": [
+        -0.1,
+        "Servicios",
+        "contexto",
+        "Servicios",
+        "Gestión"
+    ],
+    "cocinero": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "coctel": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "codigo": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "cojo": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cola": [
+        -0.5,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "colchon": [
+        -0.2,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "colchoneta": [
+        -0.1,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "colgando": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "colgar": [
+        -0.1,
+        "Servicios",
+        "contexto",
+        "Servicios",
+        "Gestión"
+    ],
+    "colilla": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "colorines": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "columna": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "combinado": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "comedor": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "comercio_cerca": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "comida": [
+        -0.4,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "comidaza": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "comision": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "comodidad": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "comodisimo": [
+        1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "comodo": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "comunicado": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "concierto_directo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "conexion": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "confianza": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "confirmacion": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "conflicto": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "confort": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "confortable": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "congelado": [
+        -0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "congelador": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "consejo": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "conserje": [
+        0.7,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "consola_juegos": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "contento": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "contrasena": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "control_voz": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "cool": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "copa": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "copa_bienvenida": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "copazo": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "copita": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "corazon": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "correo": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "corriente": [
+        -0.4,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "corroido": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "corrupcion": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "cortado": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "cortesia": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "cortina": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "costra": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "crack": [
+        1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "crema": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cremita": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "crudo": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "crujiente": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "cubiertos": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cucaracha": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cuchilla": [
+        -0.2,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "cuchitril": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "cuento": [
+        -0.7,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "cuidadisimo": [
+        0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "cuidado": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "cumpleanos_feliz": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "cuqui": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "curioso": [
+        0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "currante": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "cutrada": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "cutre": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "dardos": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "decepcion": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "decepcionante": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "decoracion": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "decorado": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "dedicacion": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "deficiente": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "deficitario": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "deformado": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "dejado": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "delicioso": [
+        0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "demanda": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "demasiado": [
+        1.0,
+        "Algoritmo",
+        "amplificador",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "demora": [
+        -0.6,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "denuncia": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "deplorable": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "deposito": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "deprimente": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desagradable": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "desague": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "desajuste": [
+        -0.5,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desastre": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desastroso": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desatencion": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "desayunazo": [
+        0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "desayuno": [
+        0.6,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "desbordado": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "descansado": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "descanso": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "descanso_pleno": [
+        1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "descargado": [
+        -0.4,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "descascarado": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "descascarillado": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "desconchado": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "desconectar": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desconexion": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desconfigurado": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "descontrol": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "descosido": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "descuento": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "descuidado": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desengano": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desgastado": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "desidia": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "desinfectado": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "desinfectante": [
+        -0.4,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "desinflado": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "desorden": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "desorganizado": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "despegado": [
+        -0.5,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "desperdicio": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "despistado": [
+        -0.5,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "desplante": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "desprecio": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "desvencijado": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "detallazo": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "detalle": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "detalle_bienvenida": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "detalles": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "detallista": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "deteriorado": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "diarrea": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "diez": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "diferencial": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "diferente": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "diminuto": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "director": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "discrecion": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "discusion": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "diseno": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "disfrute": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "disney_plus": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "distante": [
+        -0.5,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "distincion": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "distinguido": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "distinto": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "diversion_asegurada": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "dolor": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "dolorcillo": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "domotica": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "domotica_facil": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "dormido": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "ducha": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "duchon": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "dueno": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "duro": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "economico": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "edredon": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "educacion": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "educadisimo": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "educado": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "eficacia": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "eficaz": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "electrico": [
+        -0.1,
+        "Infraestructura",
+        "contexto",
+        "Infraestructura",
+        "Gestión"
+    ],
+    "elegancia_pura": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "elegante": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "embutido": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "empanado": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "empeoro": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "encantado": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "encantador": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "encanto": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "encanto_especial": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "enchufe": [
+        -0.4,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "encuesta": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "energia": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "energia_positiva": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "enfadado": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "enfado": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "engano": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "enganoso": [
+        -0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "enlace": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "enorme": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "enrevesado": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ensalada": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "entendido": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "entorno": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "entretenimiento": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "equilibrado": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "equipo": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "error": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "erupcion": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "escalera": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "escalon": [
+        -0.4,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "escandalo": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "escandaloso": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "escaso": [
+        -0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "escombro": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "escritorio": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "esencia": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "esfuerzo": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "espacioso": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "espanto": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "espantoso": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "especial": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "espectacular": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "espectaculo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "espejo": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "espera": [
+        -0.6,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "espionaje": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "esplendor": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "esponja": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "esponjoso": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "estacion": [
+        0.0,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "estadia": [
+        0.1,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "estafa": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "estancia": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "estilo": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "estiloso": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "estornudo": [
+        -0.5,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "estrategico": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "estrecho": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "estrellas": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "estrenar": [
+        1.0,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "estresado": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "estropajo": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "estropeado": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "estruendo": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "estupefacto": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "estupendo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "estupido": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "evento": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "evitar": [
+        -0.9,
+        "Servicio",
+        "critico",
+        "Servicio",
+        "Gestión"
+    ],
+    "excelencia": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "excelente": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "excesivo": [
+        -0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "exclusivo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "excremento": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "excursion": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "exito_total": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "experiencia": [
+        0.2,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "experto": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "exquisito": [
+        1.0,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "exterior": [
+        0.6,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "extorsion": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "extra": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "extrano": [
+        -0.5,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fabuloso": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "facil": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "facilidad": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "factura": [
+        -0.4,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "facturacion": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "fallido": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "fallo": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "falsedad": [
+        -0.9,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "familia": [
+        0.7,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "fantastico": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fastidiado": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fastidio": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fatal": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fatiga": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "favor": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "felicidad": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fenomeno": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "feo": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fianza": [
+        -0.4,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "fibra": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "fibra_rapida": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "fiera": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "fieston": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "figura": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "fijo": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "filtracion": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "filtros": [
+        -0.6,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "fin_de_semana": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "fino": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "firme": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "flipado": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "flipante": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fluido": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "fotaza": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fragancia": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "fraude": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "fraudulento": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "fregadero": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "fresco": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "frescor": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "fresquito": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "frigorifico": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "frio": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "fritanga": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "frustracion": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "frustrado": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "frustrante": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "fruta": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "frutita": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "fuga": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "fundido": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "futbolin": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "futurista": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "gancho": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ganga": [
+        0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "garaje": [
+        0.6,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "garaje_seguro": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "garito": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "garrapata": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "gastado": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "gel": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "gelido": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "genial": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "genio": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "gerente": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "gestion_eficaz": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "gimnasio": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "gimnasio_completo": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "glamour": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "gomoso": [
+        -0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "gota": [
+        -0.5,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "goteo": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "gotera": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "gozada": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "gozo": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "grande": [
+        0.6,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "grandisimo": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "grano": [
+        -0.5,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "grasiento": [
+        -0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "gratis": [
+        0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "grieta": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "grifo": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "gripe": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "gritar": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "grito": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "gritos": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "grosero": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "guarismo": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "guarrada": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "guarro": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "guia": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "gustazo": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "gustoso": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "habitacion": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "hamaca": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "harto": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "hbo": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "hediondo": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "hedor": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "helado": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "hielo": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "higienico": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "historia": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "hoja": [
+        -0.5,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "honestidad": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "hongo": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "hormiga": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "hormiguero": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "horneado": [
+        0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "horno": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "horrible": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "horror": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "horroroso": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "hospital": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "hospitalario": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "hotel": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "hoton": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "huesped": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "huevo": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "huir": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "humedad": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "humedecido": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "humillado": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "humillo": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "hundido": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "hurto": [
+        -1.0,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "id": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ideal": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "idiota": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "ignorado": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "ignorar": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "iluminacion": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "iluminado": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "ilusion": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "imbecil": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "impecable": [
+        1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "imprescindible": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "inaccesible": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "incidente": [
+        -0.7,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "incluido": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "incomodo": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "incompetente": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "incomunicado": [
+        -0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "incordio": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "increible": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "indebido": [
+        -0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "indigesto": [
+        -0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "indignacion": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "indignado": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "indignante": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "indigno": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "indispuesto": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "industrial": [
+        -0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "ineficaz": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "inepto": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "inestable": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "inexistente": [
+        -0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "infecto": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "inferior": [
+        -0.3,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "inflado": [
+        -0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "informacion": [
+        0.2,
+        "Atencion al Cliente",
+        "contexto",
+        "Atencion al Cliente",
+        "Gestión"
+    ],
+    "informar": [
+        0.2,
+        "Atencion al Cliente",
+        "contexto",
+        "Atencion al Cliente",
+        "Gestión"
+    ],
+    "infusiones": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "inhospito": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "injusto": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "insalubre": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "insatisfactorio": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "insecto": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "inseguro": [
+        -0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "insipido": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "insolente": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "insomnio": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "insonorizado": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "insoportable": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "insuficiente": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "insultante": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "insulto": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "interesante": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "intermitente": [
+        -0.5,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "interrumpido": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "interruptor": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "intimidad": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "intoxicacion": [
+        -1.0,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "intoxicado": [
+        -1.0,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "inundacion": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "inutil": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "invitacion": [
+        0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "ira": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ironia": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "irreal": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "irritacion": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "iva": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "jaboncito": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "jabron": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "jacuzzi": [
+        0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "jaleo": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "jamas": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "jardin": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "jazz_noche": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "joda": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "jodido": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "joya": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "joyita": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "juegos_mesa": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "jugoso": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "juicio": [
+        -0.8,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "justito": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "justo": [
+        0.6,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "lado": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "lamentable": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "lampara": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "lastima": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "lata": [
+        -0.5,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "lavabo": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "lavadora": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "lavar": [
+        -0.1,
+        "Servicios",
+        "contexto",
+        "Servicios",
+        "Gestión"
+    ],
+    "lavavajillas": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "leche": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "lejano": [
+        -0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "lejia": [
+        -0.4,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "lentitud": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "lento": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "lesion": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ligero": [
+        0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "limitado": [
+        -0.5,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "limpiadora": [
+        0.6,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "limpieza": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "limpio": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "limpisimo": [
+        1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "llamada": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "llamativo": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "llave": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "llegar": [
+        0.3,
+        "Check-in",
+        "contexto",
+        "Check-in",
+        "Gestión"
+    ],
+    "llena": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "lobby": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "local": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "logistica_buena": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "luces_led": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "lugar": [
+        0.5,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "lugubre": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "lujo": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "lujo_asiatico": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "luminoso": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "luna_miel": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "luz": [
+        -0.1,
+        "Infraestructura",
+        "contexto",
+        "Infraestructura",
+        "Gestión"
+    ],
+    "luz_propia": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "maestro": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "magia": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "magia_noche": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "magnifico": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "maitre": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "majo": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "mal": [
+        -0.7,
+        "Infraestructura",
+        "contexto",
+        "Infraestructura",
+        "Gestión"
+    ],
+    "maleducado": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "malestar": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "malgastado": [
+        -0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "malisimo": [
+        -0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "malo": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "maltratado": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "maltrato": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "mancha": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "manchado": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "manchon": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "manchurron": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mando": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "manjar": [
+        0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "mano": [
+        0.6,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "manta": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mantenido": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "mantenimiento": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "mantequilla": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "manana": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "mapa": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "maquina": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "maquinas_arcade": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "maquinas_nuevas": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "mar": [
+        0.6,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "maravilla": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "maravillado": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "maravilloso": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "marcha": [
+        0.6,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "mareado": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mareo": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "martillazo": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "masajito": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "matricula": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "maximo": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mediocre": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mejor": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mejora": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "menosprecio": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "mensaje": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "mentira": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "menu": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "merecer": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mermelada": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "metedura": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "metro": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "microondas": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "miedo": [
+        -0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "migas": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "milonga": [
+        -0.7,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "mimo": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "minibar": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "minibar_gratis": [
+        0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "miserable": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "miseria": [
+        -0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "mobiliario": [
+        0.6,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "mochila": [
+        0.1,
+        "Objetos",
+        "contexto",
+        "Objetos",
+        "Gestión"
+    ],
+    "modernismo": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "modernito": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "moderno": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "moho": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "molestia": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "molesto": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "monitores_buenos": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "mono": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "montana": [
+        0.6,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "monumentos_cerca": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "moqueta": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "mordedura": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mosca": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "moscardon": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mosqueado": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mosqueo": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "mosquita": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mosquito": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mostrador": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "movida": [
+        0.6,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "muelles": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mugre": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mugriento": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mullidito": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "mullido": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "multa": [
+        -0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "musica_ambiente": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "muy": [
+        1.0,
+        "Algoritmo",
+        "amplificador",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "nada": [
+        -1.0,
+        "Algoritmo",
+        "negador",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "natural": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "naturaleza": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "nausea": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "nauseabundo": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "nefasto": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "negativa": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "negligencia": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "nego": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "nervios": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "nervioso": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "netflix_gratis": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "nevera": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ninguneado": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "nino": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "ninos_felices": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "nivel": [
+        0.1,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "nivelazo": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "no": [
+        -1.0,
+        "Algoritmo",
+        "negador",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "noche": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "normalito": [
+        -0.3,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "notificacion": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "nube": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "nuevo": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "nunca": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "napa": [
+        -0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "obligado": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "obra": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "obsequio": [
+        0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "obsoleto": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "obstruido": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ocio_cerca": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "octubre": [
+        0.2,
+        "Fechas",
+        "contexto",
+        "Fechas",
+        "Gestión"
+    ],
+    "ofendido": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ofensa": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "ofensivo": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "oferta": [
+        0.6,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "ojeras": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "olla": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "olor": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "olorazo": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "oloroso": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "olvidadizo": [
+        -0.6,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "onda": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "opinion": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "oportunidad": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "orden": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ordenado": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "organizacion_top": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "orientacion": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "original": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "originalidad": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "orina": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "oscuro": [
+        -0.5,
+        "Infraestructura",
+        "negativo",
+        "Infraestructura",
+        "Gestión"
+    ],
+    "ostra": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "overbooking": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "oxidado": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pago": [
+        -0.4,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "paisaje": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "paloma": [
+        -0.5,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "pan": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "pan_caliente": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "pantalla": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "papel": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "papelera": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "parada": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "parada_metro": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "parche": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "parcheado": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pared": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "parejas": [
+        0.7,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "parking": [
+        0.6,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "parking_facil": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "paron": [
+        -0.6,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "parpadeo": [
+        -0.5,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "parque": [
+        0.6,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "parque_infantil": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "parquet": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pasada": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pasado": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "paseo_agradable": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "pasillo": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pasillos_amplios": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pasion": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pasota": [
+        -0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "pasotismo": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "pasta": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pata": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pauperrimo": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "paz": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pegado": [
+        0.6,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "pegajoso": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "peine": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pelao": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pelea": [
+        -0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "peligro": [
+        -1.0,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "peligroso": [
+        -1.0,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "pelo": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pelusa": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pena": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "penoso": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "peor": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pequeno": [
+        -0.5,
+        "Infraestructura",
+        "negativo",
+        "Infraestructura",
+        "Gestión"
+    ],
+    "percha": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "perder": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "perdido": [
+        -0.6,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "perfeccion": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "perfecto": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "perfumado": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "perfume": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pero": [
+        0.0,
+        "Algoritmo",
+        "quiebre",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "persiana": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "personal": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "personal_implicado": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "personalidad": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pesadilla": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pesado": [
+        -0.5,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "pescado": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "pesimo": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pestana": [
+        -0.5,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "peste": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pestilencia": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pestilente": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "piano_bar": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "picadura": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "picante": [
+        -0.4,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "picor": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "picores": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "picotazo": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "picoteo": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "pintada": [
+        -0.6,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "pinton": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "pintura": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pipi": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "piscina": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "piscinon": [
+        0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "piso": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pitido": [
+        -0.5,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pixelado": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "placentero": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "placer": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "plancha": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "planta": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "plantilla": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "planton": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "platos": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "playa": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "plaza": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "plenitud": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pleno": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "plus": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pobre": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "pobreton": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pobreza": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "pobrisimo": [
+        -0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "poco": [
+        0.5,
+        "Algoritmo",
+        "reductor",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "podredumbre": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "podrido": [
+        -1.0,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "policia": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "polvareda": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "polvillo": [
+        -0.5,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "polvo": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "polvoriento": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "portazo": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "positivismo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "postre": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "precario": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "precintado": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "precio": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "precioso": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "prehistorico": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "premium": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "presion": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "presupuesto": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "pringoso": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pringue": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "privacidad": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pro": [
+        0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "probadlo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "profesional": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "profesionalidad": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "progre": [
+        0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "promocion": [
+        0.6,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "propietario": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "protesta": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "protestar": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "proximo": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "ps5": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "pua": [
+        -0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "puerco": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "puerta": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pulcritud": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pulcro": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "pulga": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "puntal": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "punto": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "puntual": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "puro": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "quebrado": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "queja": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "quemado": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "quemadura": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "queso": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "radiador": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "raido": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "rancio": [
+        -0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "rapidez": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "rapidisimo": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "rapido": [
+        0.8,
+        "Servicio",
+        "positivo",
+        "Servicio",
+        "Gestión"
+    ],
+    "raquitico": [
+        -0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "raro": [
+        -0.5,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "rata": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "raton": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ratonera": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "razonable": [
+        0.6,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "realmente": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "rebosamiento": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "rebosante": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "recalentado": [
+        -0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "recargo": [
+        -0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "recepcion": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "recepcion_24h": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "recepcionista": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "rechazo": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "reclamacion": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "recomendacion": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "recomendadisimo": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "recomendado": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "recomiendo": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "red": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "reforma": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "reformado": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "regadera": [
+        -0.3,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "regalado": [
+        1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "regalazo": [
+        0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "regalito": [
+        0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "regalo": [
+        0.8,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "regleta": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "relax": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "relax_total": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "rellano": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "reluciente": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "remanente": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "remendado": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "remiendo": [
+        -0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "remodelacion": [
+        -0.6,
+        "Infraestructura",
+        "contexto",
+        "Infraestructura",
+        "Gestión"
+    ],
+    "renovado": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "repetir": [
+        1.0,
+        "General",
+        "desencadenante",
+        "General",
+        "Servicio"
+    ],
+    "repetiria": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "repetitivo": [
+        -0.5,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "repugnancia": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "repugnante": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "resbalon": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "reserva": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "reservado": [
+        0.5,
+        "Reservas",
+        "contexto",
+        "Reservas",
+        "Gestión"
+    ],
+    "resfriado": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "residuo": [
+        -0.5,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "resolutivo": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "respetuoso": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "restaurante": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "restos": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "resultado_final": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "retocado": [
+        -0.7,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "retortijon": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "retraso": [
+        -0.6,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "reventado": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "rico": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "rico_rico": [
+        0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "ridiculo": [
+        -0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "rincon": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "riquisimo": [
+        0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "risa": [
+        -0.5,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "robo": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "rollo": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "romanticismo": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "roncha": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "rona": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "roto": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "ruido": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ruidoso": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ruina": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sabana": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sabanas": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sabio": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sablazo": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "sabroso": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "sabroson": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "sabrosura": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "salado": [
+        -0.6,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "salon": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "salpicadura": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sangre": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sangriento": [
+        -0.9,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "sano": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "sarcasmo": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sarten": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "satisfaccion": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "satisfecho": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "sauna": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "secador": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "secadora": [
+        -0.2,
+        "Habitacion",
+        "contexto",
+        "Habitacion",
+        "Gestión"
+    ],
+    "seco": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "secreto": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "seguridad": [
+        -0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "seguridad_total": [
+        0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "seguro": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "senal": [
+        0.5,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "senorial": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ser": [
+        0.0,
+        "General",
+        "verbo",
+        "General",
+        "Servicio"
+    ],
+    "servicial": [
+        0.9,
+        "Servicio",
+        "positivo",
+        "Servicio",
+        "Gestión"
+    ],
+    "servicio": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "shuttle": [
+        0.0,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "silencio": [
+        0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "silencio_absoluto": [
+        1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "silencioso": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "silla": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "simpatico": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sin_esperas": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sinverguenza": [
+        -1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sitiazo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "sitio": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "smart_tv": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "sobaquina": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "soborno": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "sobra": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "sobrado": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sobras": [
+        -0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "sobreprecio": [
+        -0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "socorrista": [
+        0.0,
+        "Personal",
+        "contexto",
+        "Personal",
+        "Servicio"
+    ],
+    "sofa": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sofisticacion": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "sofocante": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "soleado": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "soledad": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "soledado": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "solucion": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sonido_hifi": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "sonriente": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sonrisa": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "sonado": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "sorpresa": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "sorpreson": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "sosegado": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "soso": [
+        -0.5,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "spa": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "spa_lujo": [
+        1.0,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "suave": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "suavidad": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "suciedad": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sucio": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "suelo": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "suelto": [
+        -0.5,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sueno": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "sugerencia": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "super": [
+        1.0,
+        "Algoritmo",
+        "amplificador",
+        "Algoritmo",
+        "Intensidad"
+    ],
+    "superior": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "superioridad": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "suplemento": [
+        -0.6,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "susto": [
+        -0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "tabla": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "taconeo": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "taladro": [
+        -0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "tambaleante": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "tapeo": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "tardanza": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "tardar": [
+        -0.6,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "tarifa": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "tarjeta": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "tasa": [
+        -0.5,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "tasas": [
+        0.0,
+        "Economico",
+        "contexto",
+        "Economico",
+        "Finanzas"
+    ],
+    "taxi": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "taxi_facil": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "te": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "techo": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "tecnologia_punta": [
+        0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "tecnologico": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "telarana": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "tele": [
+        0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "telefono": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "televisor": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "tener": [
+        0.0,
+        "General",
+        "verbo",
+        "General",
+        "Servicio"
+    ],
+    "tentador": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "termostato": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "terraceo": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "terraza": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "terrazon": [
+        0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "terrible": [
+        -0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "tesoro": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "tiendas_proximas": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "tierno": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "timo": [
+        -1.0,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "tiron": [
+        -0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "toalla": [
+        0.5,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "toallas": [
+        0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "toallita": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "toallita_fresca": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "tonto": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "top": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "torpe": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "torticolis": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "tortuga": [
+        -0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "tos": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "total": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "totalmente": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "trampa": [
+        -0.9,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "tranquilidad": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "tranquilo": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "trapo": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "traslado": [
+        0.0,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "trasto": [
+        -0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "trato": [
+        0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "trato_cercano": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "trato_familiar": [
+        0.9,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "tren": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "trendy": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "triste": [
+        -0.7,
+        "Servicio",
+        "corazon",
+        "Servicio",
+        "Gestión"
+    ],
+    "triunfo": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "trucado": [
+        -0.9,
+        "Comercial",
+        "corazon",
+        "Comercial",
+        "Gestión"
+    ],
+    "truco": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "tubo": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "tufillo": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "tufo": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "tumbona": [
+        0.6,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "turbio": [
+        -0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ubicacion_top": [
+        1.0,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "unico": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "una": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "vacaciones": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "vacio": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "vago": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "vagueza": [
+        -0.8,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "vale_la_pena": [
+        0.9,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "valer": [
+        0.7,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "vandalismo": [
+        -0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "vanguardista": [
+        0.8,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "variado": [
+        0.7,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "variedad": [
+        0.6,
+        "Restaurante",
+        "positivo",
+        "Restaurante",
+        "Gestión"
+    ],
+    "vasos": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "vater": [
+        -0.5,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "vaya": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "velada_inolvidable": [
+        1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "vello": [
+        -0.9,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "velocidad": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "ventaja": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "ventajoso": [
+        0.6,
+        "Economico",
+        "corazon",
+        "Economico",
+        "Finanzas"
+    ],
+    "ventana": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ventana_climalit": [
+        0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ventanal": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "ventilador": [
+        -0.4,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "vergonzoso": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "viajar": [
+        0.4,
+        "Cliente",
+        "contexto",
+        "Cliente",
+        "Gestión"
+    ],
+    "viaje": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "vibe": [
+        0.8,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "vibracion": [
+        -0.5,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "viciado": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "victoria": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "vida": [
+        0.7,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "viejisimo": [
+        -0.8,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "viejo": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "viejuno": [
+        -0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "viga": [
+        0.0,
+        "Instalaciones",
+        "contexto",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "vigilado": [
+        0.7,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "vinazo": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "vino": [
+        0.0,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "viscoso": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "visita": [
+        0.6,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "vistar": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "vistas": [
+        0.8,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "vistas_mar": [
+        1.0,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "vistas_montana": [
+        0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "vistazas": [
+        0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "vitro": [
+        0.0,
+        "Alojamiento",
+        "contexto",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "vocacion_servicio": [
+        1.0,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "vocerio": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "voces": [
+        -0.6,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "volver": [
+        1.0,
+        "General",
+        "desencadenante",
+        "General",
+        "Servicio"
+    ],
+    "volveria": [
+        1.0,
+        "General",
+        "desencadenante",
+        "General",
+        "Servicio"
+    ],
+    "vomito": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "vomitona": [
+        -1.0,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "vulgar": [
+        -0.6,
+        "General",
+        "corazon",
+        "General",
+        "Servicio"
+    ],
+    "web": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "whatsapp": [
+        0.0,
+        "General",
+        "contexto",
+        "General",
+        "Servicio"
+    ],
+    "wifi": [
+        0.6,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "wifi_balistico": [
+        0.9,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "youtube_tv": [
+        0.7,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "zapatillas": [
+        0.7,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "zona": [
+        0.5,
+        "Ubicacion",
+        "contexto",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "zona_tranquila": [
+        0.9,
+        "Ubicacion",
+        "corazon",
+        "Ubicacion",
+        "Ubicación"
+    ],
+    "zulo": [
+        -1.0,
+        "Alojamiento",
+        "corazon",
+        "Alojamiento",
+        "Habitación"
+    ],
+    "zumbido": [
+        -0.5,
+        "Instalaciones",
+        "corazon",
+        "Instalaciones",
+        "Instalaciones"
+    ],
+    "zumo": [
+        0.5,
+        "Gastronomia",
+        "contexto",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "zumo_natural": [
+        0.8,
+        "Gastronomia",
+        "corazon",
+        "Gastronomia",
+        "Gastronomía"
+    ],
+    "zumo_recepcion": [
+        0.7,
+        "Personal",
+        "corazon",
+        "Personal",
+        "Servicio"
+    ],
+    "abstenerse": [
+        -1.0,
+        "Servicio",
+        "critico",
+        "Servicio",
+        "Gestión"
+    ],
+    "lamentar": [
+        -0.9,
+        "Servicio",
+        "negativo",
+        "Servicio",
+        "Gestión"
+    ],
+    "danar": [
+        -0.8,
+        "Mantenimiento",
+        "negativo",
+        "Mantenimiento",
+        "Gestión"
+    ],
+    "degradante": [
+        -1.0,
+        "Servicio",
+        "critico",
+        "Servicio",
+        "Gestión"
+    ],
+    "falso": [
+        0.9,
+        "comercial",
+        "corazon",
+        "comercial",
+        "Gestión"
+    ],
+    "puntualidad": [
+        0.9,
+        "Servicio",
+        "positivo",
+        "Servicio",
+        "Gestión"
+    ],
+    "buen": [
+        0.8,
+        "General",
+        "positivo",
+        "General",
+        "Servicio"
+    ],
+    "sorprender": [
+        0.7,
+        "General",
+        "positivo",
+        "General",
+        "Servicio"
+    ],
+    "gracias": [
+        0.5,
+        "Servicio",
+        "positivo",
+        "Servicio",
+        "Gestión"
+    ]
+}
