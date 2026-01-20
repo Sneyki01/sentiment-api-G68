@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Estadísticas – Sentimental IA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER GLOBAL -->
+    <header class="topbar">
+      <div class="topbar-left">H12-25-L-Equipo 68</div>
+
+      <nav class="topbar-center" aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="/index.html" class="nav-link" data-nav="inicio">Inicio</a></li>
+          <li><a href="/dashboard.html" class="nav-link" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="/estadisticas.html" class="nav-link" data-nav="estadisticas">Estadísticas</a></li>
+          <li><a href="/docs.html" class="nav-link" data-nav="docs">Docs</a></li>
+          <li><a href="/recursos.html" class="nav-link" data-nav="recursos">Recursos</a></li>
+        </ul>
+      </nav>
+
+      <div class="topbar-right">
+        <button
+          type="button"
+          id="themeToggle"
+          class="btn-theme"
+          aria-label="Cambiar tema"
+          title="Cambiar tema"
+        >
+          ☾
+        </button>
+
+        <button type="button" class="btn-login">Iniciar sesión</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <!-- CONTENEDOR RAIZ: IMPORTANTÍSIMO para que app.js renderice -->
+      <section class="bi" id="statsRoot">
+        <!-- 1) Toolbar superior -->
+        <div class="bi-toolbar">
+          <div>
+            <div class="bi-title">Estadísticas</div>
+            <div class="bi-subtitle">Historial, categorías y tendencias basadas en datos locales (demo).</div>
+          </div>
+
+          <div style="display:flex; gap:.55rem; flex-wrap:wrap; justify-content:flex-end;">
+            <button type="button" class="bi-btn danger" id="statsClearBtn">Borrar todo</button>
+            <button type="button" class="bi-btn" id="statsExportBtn">Exportar a CSV</button>
+            <button type="button" class="bi-btn" id="statsShareBtn">Compartir</button>
+          </div>
+        </div>
+
+        <!-- Layout: izquierda (historial) | derecha (bloques BI) -->
+        <div class="stats-layout">
+          <!-- 2) Izquierda: historial -->
+          <aside class="bi-card stats-left">
+            <div class="bi-card-head">
+              <div>
+                <div class="bi-card-title">Historial de sentimientos</div>
+                <div class="bi-card-sub">Cada registro incluye fecha, fuente, categoría y sentimiento.</div>
+              </div>
+            </div>
+
+            <div id="statsHistoryList" class="stats-history">
+              <!-- JS inyecta aquí -->
+            </div>
+          </aside>
+
+          <!-- Derecha: bloques -->
+          <section class="stats-right">
+            <!-- 3) Categorías con barras horizontales (0–100) -->
+            <div class="bi-card">
+              <div class="bi-card-head">
+                <div>
+                  <div class="bi-card-title">Categorías</div>
+                  <div class="bi-card-sub">Distribución porcentual (0–100%).</div>
+                </div>
+              </div>
+              <div id="statsCategoryBars"></div>
+            </div>
+
+            <!-- 4) Sentimiento en el tiempo + pastel -->
+            <div class="bi-card">
+              <div class="bi-card-head">
+                <div>
+                  <div class="bi-card-title">Sentimiento en el tiempo</div>
+                  <div class="bi-card-sub">Eje Y: 0–100% (ratio positivo). Eje X: mes y año.</div>
+                </div>
+              </div>
+
+              <div class="stats-split">
+                <div class="bi-scroll-x">
+                  <canvas id="chartStatsLine" style="width:100%; height:260px;"></canvas>
+                </div>
+
+                <div class="stats-donut">
+                  <canvas id="chartStatsDonut" style="width:100%; height:260px;"></canvas>
+                  <div class="bi-legend" id="legendStatsDonut"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5) Sentimiento por categoría (0–100 apilado) -->
+            <div class="bi-card">
+              <div class="bi-card-head">
+                <div>
+                  <div class="bi-card-title">Sentimiento por categoría</div>
+                  <div class="bi-card-sub">Positivo, neutro y negativo (0–100%).</div>
+                </div>
+              </div>
+
+              <div class="bi-scroll-x">
+                <canvas id="chartStatsByCategory" style="width:100%;"></canvas>
+              </div>
+
+              <div id="statsByCategoryEmpty" class="bi-empty hidden" style="padding:1rem;">
+                Aún no hay datos por categoría. Ejecuta análisis desde Inicio.
+              </div>
+            </div>
+
+            <!-- 6) Nube de palabras -->
+            <div class="bi-card">
+              <div class="bi-card-head">
+                <div>
+                  <div class="bi-card-title">Palabras clave</div>
+                  <div class="bi-card-sub">Términos frecuentes detectados en comentarios del historial.</div>
+                </div>
+              </div>
+
+              <div id="statsKeywordsCloud" class="stats-cloud"></div>
+            </div>
+          </section>
+        </div>
+
+        <p class="bi-footnote">
+          Nota: Si no ves datos, primero ejecuta al menos 1 análisis en <strong>Inicio</strong> para generar historial en <code>localStorage</code>.
+        </p>
+      </section>
+    </main>
+
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>

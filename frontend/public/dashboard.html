@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard – Sentimental IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+  <!-- TOPBAR (idéntico al index) -->
+  <header class="topbar">
+  <div class="topbar-left">H12-25-L-Equipo 68</div>
+
+  <nav class="topbar-center" aria-label="Navegación principal">
+    <ul class="nav-links">
+      <li><a href="/index.html" class="nav-link" data-nav="inicio">Inicio</a></li>
+      <li><a href="/dashboard.html" class="nav-link" data-nav="dashboard">Dashboard</a></li>
+      <li><a href="/estadisticas.html" class="nav-link" data-nav="estadisticas">Estadísticas</a></li>
+      <li><a href="/docs.html" class="nav-link" data-nav="docs">Docs</a></li>
+      <li><a href="/recursos.html" class="nav-link" data-nav="recursos">Recursos</a></li>
+    </ul>
+  </nav>
+
+  <div class="topbar-right">
+    <button
+      type="button"
+      id="themeToggle"
+      class="btn-theme"
+      aria-label="Cambiar tema"
+      title="Cambiar tema"
+    >
+      ☾
+    </button>
+
+    <button type="button" class="btn-login">Iniciar sesión</button>
+  </div>
+</header>
+
+  <main class="page"> 
+    <!-- DASHBOARD -->
+    <section class="bi" id="biRoot">
+      <!-- Toolbar -->
+      <div class="bi-toolbar">
+        <div class="bi-toolbar-left">
+          <div class="bi-title">Sentiment Dash</div>
+          <div class="bi-subtitle">La voz del cliente en datos</div>
+        </div>
+
+        <div class="bi-toolbar-right">
+          <button type="button" class="bi-btn" id="biRefreshBtn">Actualizar</button>
+          <button type="button" class="bi-btn danger" id="biResetBtn">Limpiar data</button>
+        </div>
+      </div>
+
+      <!-- KPI cards -->
+      <div class="bi-kpis">
+        <div class="bi-card">
+          <div class="bi-k">Total análisis</div>
+          <div class="bi-v" id="kpiTotal">0</div>
+          <div class="bi-s" id="kpiTotalSub">—</div>
+        </div>
+
+        <div class="bi-card">
+          <div class="bi-k">Positivos</div>
+          <div class="bi-v" id="kpiPos">0</div>
+          <div class="bi-s" id="kpiPosSub">—</div>
+        </div>
+
+        <div class="bi-card">
+          <div class="bi-k">Negativos</div>
+          <div class="bi-v" id="kpiNeg">0</div>
+          <div class="bi-s" id="kpiNegSub">—</div>
+        </div>
+
+        <div class="bi-card">
+          <div class="bi-k">Neutros</div>
+          <div class="bi-v" id="kpiNeu">0</div>
+          <div class="bi-s" id="kpiNeuSub">—</div>
+        </div>
+
+        <div class="bi-card">
+          <div class="bi-k">Prob. promedio</div>
+          <div class="bi-v" id="kpiProb">0.00</div>
+          <div class="bi-s" id="kpiProbSub">—</div>
+        </div>
+
+        <div class="bi-card">
+          <div class="bi-k">Últimos 7 días</div>
+          <div class="bi-v" id="kpi7d">0</div>
+          <div class="bi-s" id="kpi7dSub">—</div>
+        </div>
+      </div>
+
+      <!-- Charts grid -->
+      <div class="bi-grid">
+        <div class="bi-card bi-chart">
+          <div class="bi-card-head">
+            <div>
+              <div class="bi-card-title">Distribución de Sentimientos</div>
+              <div class="bi-card-sub">Dona: positivo / negativo / neutro</div>
+            </div>
+          </div>
+          <canvas id="chartDonut" height="260"></canvas>
+          <div class="bi-legend" id="legendDonut"></div>
+        </div>
+
+        <div class="bi-card bi-chart">
+          <div class="bi-card-head">
+            <div>
+              <div class="bi-card-title">Volumen por Día</div>
+              <div class="bi-card-sub">Línea: últimos 7 días</div>
+            </div>
+          </div>
+          <canvas id="chartLine" height="260"></canvas>
+        </div>
+
+        <div class="bi-card bi-chart">
+          <div class="bi-card-head">
+            <div>
+              <div class="bi-card-title">Top Departamentos</div>
+              <div class="bi-card-sub">Barras: frecuencia en explicabilidad</div>
+            </div>
+          </div>
+          <canvas id="chartBars" height="260"></canvas>
+        </div>
+
+        <div class="bi-card">
+          <div class="bi-card-head">
+            <div>
+              <div class="bi-card-title">Últimos análisis</div>
+              <div class="bi-card-sub">Tabla: entradas recientes del historial</div>
+            </div>
+          </div>
+
+          <div class="bi-table-wrap">
+            <table class="bi-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Sentimiento</th>
+                  <th>Prob.</th>
+                  <th>Departamentos</th>
+                  <th>Hallazgos</th>
+                </tr>
+              </thead>
+              <tbody id="biTableBody">
+                <tr><td colspan="5" class="bi-empty">Aún no hay datos. Ejecuta análisis desde Inicio.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div class="bi-footnote">
+        Nota: Este dashboard usa únicamente datos del demo (MOCK) guardados en el navegador (localStorage).
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
