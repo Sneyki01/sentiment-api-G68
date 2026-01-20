@@ -1,117 +1,118 @@
 # SentimentAPI – Frontend Demo
 
-Proyecto demo de análisis de sentimiento desarrollado para **Oracle Next Education**.
+Frontend web del proyecto **SentimentAPI**, desarrollado como **demo funcional** para **Oracle Next Education (ONE)**.
 
-Este README explica cómo levantar la **interfaz de usuario** del proyecto **SentimentAPI** usando Docker.  
-Este frontend es un **demo funcional** que simula la interacción con la API de análisis de sentimientos.
+Este módulo implementa una **interfaz BI ligera** para análisis de sentimiento, funcionando sobre **Nginx + Docker** y consumiendo datos reales o simulados almacenados en `localStorage`.
 
-> ⚠️ Esta rama **no reemplaza** a `dev`. Es una rama de **trabajo especializado en frontend**.
-
----
-
-## 🧩 Componentes del Proyecto
-
-El ecosistema completo incluye:
-
-- **Backend Java (API REST — puerto 8000)**
-- **Microservicio de Machine Learning (puerto 8080)**
-- **Frontend Web (puerto 3000)**
-- **Contenedores Docker para ejecución demo**
-
-### Modos de operación del frontend
-
-| Estado del proyecto        | Comportamiento del Frontend              |
-|---------------------------|------------------------------------------|
-| ML / Backend en pruebas   | Puede devolver resultados neutros        |
-| ML integrado en `dev`     | Muestra resultados reales                |
-| Sin backend disponible    | Puede operar en modo mock temporal       |
-
-> El frontend no define el modelo de ML ni sus resultados.  
-> Se adapta al estado que el equipo **BE / DS** publique en `dev`.
+> ⚠️ Esta rama (`feature/frontend-demo`) es **exclusiva de frontend** y **no reemplaza** la rama `dev`.
 
 ---
 
-## 📂 Estructura del módulo Frontend
+## 🧩 Rol del Frontend dentro del ecosistema
+
+El ecosistema completo del proyecto contempla:
+
+- **Backend API (Java / REST)**  
+- **Microservicio ML (modelos de sentimiento)**  
+- **Frontend Web (este módulo)**  
+- **Docker / Nginx para despliegue demo**
+
+El frontend:
+
+- No define modelos de ML
+- No decide la lógica del sentimiento
+- Visualiza resultados enviados por el backend **o** simulados en modo MOCK
+
+---
+
+## ⚙️ Modos de operación del Frontend
+
+| Estado del entorno | Comportamiento |
+|------------------|----------------|
+| Backend + ML activos | Resultados reales |
+| Backend parcial | Resultados mixtos |
+| Sin backend | **Modo MOCK local (demo)** |
+
+En modo MOCK:
+- Los análisis se generan localmente
+- Se almacenan en `localStorage`
+- Alimentan **Dashboard** y **Estadísticas**
+
+---
+
+## 📂 Estructura real del módulo Frontend
 
 ```text
-/frontend
-├─ index.html    # Página principal con input de texto y botón "Analizar"
-├─ style.css     # Estilos y diseño
-├─ app.js        # Lógica del frontend + integración con API
-├─ Dockerfile    # Contenedor del frontend
+frontend
+├── Dockerfile
+├── README.md
+└── public
+    ├── index.html
+    ├── dashboard.html
+    ├── estadisticas.html
+    ├── docs.html
+    ├── recursos.html
+    └── assets
+        ├── css
+        │   └── style.css
+        └── js
+            └── app.js
 ```
 
-### Tecnologías utilizadas
+### Puntos clave
 
-- HTML + CSS + JavaScript (sin frameworks)
-- Diseño ligero y portable
-- Pensado para despliegue y demo rápida
+- **Nginx sirve todo desde `/public`**
+- CSS y JS viven en `/assets`
+- HTML enlaza recursos con rutas absolutas `/assets/...`
 
 ---
 
-## 🌐 Integración Frontend — Backend
+## 🎨 Funcionalidades implementadas
 
-### Puertos activos durante desarrollo
+### Páginas
 
-| Componente   | Puerto |
-|-------------|--------|
-| Frontend    | 3000   |
-| Backend API | 8000   |
-| ML Service  | 8080   |
+- **Inicio**: envío de comentarios y análisis
+- **Dashboard**: BI resumido (KPIs, gráficas, tabla)
+- **Estadísticas**: análisis histórico avanzado
+- **Docs / Recursos**: secciones informativas
 
-### Endpoint actual de backend
+### UI / UX
 
-**POST** `/sentiment`
-
-### Ejemplo de request
-
-```json
-{
-  "text": "comentario del usuario"
-}
-```
-
-### Ejemplo de respuesta esperada
-
-```json
-{
-  "prevision": "Positivo | Negativo | Neutro",
-  "probabilidad": 0.87
-}
-```
-
-### Colores aplicados en la UI
-
-| Sentimiento | Color |
-|-------------|-------|
-| Positivo    | Verde |
-| Negativo    | Rojo  |
-| Neutro      | Gris  |
+- Tema claro / oscuro persistente
+- Header global reutilizado
+- Layout tipo BI
+- Gráficas canvas (sin librerías externas)
+- Diseño responsive
 
 ---
 
-## 🧪 Validaciones de entrada
+## 📊 Dashboard y Estadísticas
 
-El campo de texto permite:
+Ambas vistas consumen datos desde:
 
-- Entre **3 y 2000 caracteres**
+```text
+localStorage:
+- sentimental_history_v1
+- sentimental_stats_totals_v1
+```
 
-Incluye:
+Esto permite:
 
-- Sanitización de espacios
-- Mensajes de validación
-- Estado de carga
-- Elemento para limpiar texto
-- Botón de envío contextual
+- KPIs acumulados
+- Sentiment over time
+- Distribución por categoría
+- Historial detallado
+- Nube de palabras (base)
 
 ---
 
 ## ▶️ Levantar el frontend con Docker
 
-Desde la raíz del repositorio:
+Desde la carpeta `frontend`:
 
 ```bash
-docker compose up --build
+docker build -t sentimental-frontend .
+docker run -p 3000:80 sentimental-frontend
 ```
 
 Abrir en el navegador:
@@ -120,35 +121,41 @@ Abrir en el navegador:
 http://localhost:3000
 ```
 
-Si la UI carga correctamente, el frontend está operativo.
+> El contenedor usa **Nginx Alpine** y expone el puerto **80** internamente.
 
 ---
 
-## 🚦 Estados actuales de integración
+## 🔗 Integración con Backend
 
-El frontend soporta:
+Cuando el backend esté disponible:
 
-- Ejecución con backend local
-- Integración futura con endpoint ML definitivo
-- Despliegue piloto en OCI
+- Endpoint esperado: `POST /sentiment`
+- El frontend enviará el texto del usuario
+- El backend define sentimiento, probabilidad y explicabilidad
 
-### Notas de coordinación con el equipo
-
-- El ML final será integrado vía backend
-- Esta rama no fuerza mocks
-- El comportamiento depende del estado publicado en `dev`
-- Cuando se publique el endpoint productivo se actualizará `app.js`
+Mientras tanto, el frontend puede operar de forma autónoma (MOCK).
 
 ---
 
-## 👤 Responsable del módulo Frontend
+## 🚦 Estado actual
 
-**Desarrollo UI / UX**  
+- ✔ Header unificado en todas las páginas
+- ✔ Dashboard BI funcional
+- ✔ Estadísticas conectadas a datos reales del historial
+- ✔ Docker + Nginx estable
+- ✔ Listo para demo técnica
+
+---
+
+## 👤 Responsable
+
+**Frontend / UI / UX**  
 **Autor:** Florentino López  
-**Rama activa:** `feature/frontend-demo`
+**Programa:** Oracle Next Education  
+**Rama:** `feature/frontend-demo`
 
-Este módulo está diseñado para servir como:
+Este frontend está diseñado como:
 
-- Demo de experiencia de usuario
-- Punto de entrada para pruebas
-- Base para integración con backend productivo
+- Demo profesional
+- Base para integración productiva
+- Evidencia técnica de arquitectura y UX
