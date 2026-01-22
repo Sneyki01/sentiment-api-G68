@@ -35,12 +35,46 @@
  * 
  * Prioridad:
  * 1. Variable global inyectada desde HTML: window.__SENTIMENTAL_API_BASE__
- * 2. Fallback: localhost:8000 (puerto estándar del Backend)
+ * 2. Variable de entorno (útil para Docker): REACT_APP_API_URL o VITE_API_URL
+ * 3. Detección automática: si estamos en Docker (puerto 3000), usar host.docker.internal:8000
+ * 4. Fallback: localhost:8000 (puerto estándar del Backend)
  * 
  * @type {string}
  */
-const API_BASE_URL =
-  (window && window.__SENTIMENTAL_API_BASE__) || "http://localhost:8000";
+function getApiBaseUrl() {
+  // 1. Variable global desde HTML
+  if (window && window.__SENTIMENTAL_API_BASE__) {
+    return window.__SENTIMENTAL_API_BASE__;
+  }
+  
+  // 2. Variable de entorno (para Docker/build)
+  if (typeof process !== "undefined" && process.env) {
+    if (process.env.REACT_APP_API_URL) return process.env.REACT_APP_API_URL;
+    if (process.env.VITE_API_URL) return process.env.VITE_API_URL;
+  }
+  
+  // 3. Detección automática para Docker
+  // Si estamos en puerto 3000 o 80 (Docker), intentar diferentes opciones
+  const currentPort = window.location.port;
+  const isDocker = currentPort === "3000" || currentPort === "80" || window.location.hostname !== "localhost";
+  
+  if (isDocker) {
+    // Opción 1: Si el backend está en el mismo Docker network, usar el nombre del servicio
+    // (Esto requiere que el backend también esté en Docker con nombre "be" o "backend")
+    // Opción 2: host.docker.internal (solo funciona en Docker Desktop Mac/Windows)
+    // Opción 3: IP del host (requiere configuración adicional)
+    
+    // Por defecto, intentar host.docker.internal (Docker Desktop)
+    // Si no funciona, el usuario debe configurar window.__SENTIMENTAL_API_BASE__
+    // o modificar docker-compose.yml para usar el mismo network
+    return "http://host.docker.internal:8000";
+  }
+  
+  // 4. Fallback: localhost para desarrollo local
+  return "http://localhost:8000";
+}
+
+const API_BASE_URL = getApiBaseUrl();
 
 /**
  * Endpoints del Backend según el contrato de la rama DEV.
@@ -182,9 +216,20 @@ async function fetchJSON(path, { method = "GET", body = null, timeoutMs = 12000 
   } catch (e) {
     // Manejar timeout
     if (e.name === "AbortError") {
-      const timeoutError = new Error("Timeout al consultar el Backend");
+      const timeoutError = new Error("Timeout al consultar el Backend. Verifica que el servidor esté ejecutándose.");
       timeoutError.isTimeout = true;
       throw timeoutError;
+    }
+    
+    // Manejar errores de CORS o red
+    if (e instanceof TypeError && e.message.includes("fetch")) {
+      const corsError = new Error(
+        "Error de conexión con el Backend. " +
+        "Verifica que el servidor esté ejecutándose en " + API_BASE_URL + " " +
+        "y que CORS esté configurado correctamente."
+      );
+      corsError.isNetworkError = true;
+      throw corsError;
     }
     
     // Re-lanzar errores conocidos
@@ -193,7 +238,7 @@ async function fetchJSON(path, { method = "GET", body = null, timeoutMs = 12000 
     }
     
     // Error desconocido
-    throw new Error("Error de red al comunicarse con el Backend");
+    throw new Error("Error de red al comunicarse con el Backend: " + String(e));
   } finally {
     clearTimeout(timeoutId);
   }
@@ -460,18 +505,23 @@ function saveHistory(history) {
  * Analiza el sentimiento de un texto llamando al Backend.
  * 
  * CONTRATO:
- * - Request:  POST /sentiment { "text": "..." }
+ * - Request:  POST /sentiment { "text": "...", "language": "es|pt" }
  * - Response: { "prevision": "Positivo|Neutro|Negativo", "probabilidad": 0.87 }
  * - Error:    { "error": "mensaje" } (400, 503, etc.)
  * 
  * @param {string} text - Texto a analizar
+ * @param {string} language - Idioma del texto ("es" o "pt")
  * @returns {Promise<Object>} Resultado del análisis
  * @throws {Error} Si la petición falla
  */
-async function analyzeSentiment(text) {
+async function analyzeSentiment(text, language = "es") {
+  // Incluir idioma en el body (aunque el BE actual no lo use, lo preparamos para futuro)
   return await fetchJSON(ENDPOINTS.SENTIMENT, {
     method: "POST",
-    body: { text },
+    body: { 
+      text,
+      language: language || "es" // Idioma: "es" (Español) o "pt" (Portugués)
+    },
     timeoutMs: 15000, // 15 segundos para análisis ML
   });
 }
@@ -601,7 +651,17 @@ function renderHistory() {
  */
 async function handleSubmit() {
   const textInput = document.getElementById("textInput");
-  if (!textInput) return;
+  const langSelect = document.getElementById("langSelect");
+  
+  if (!textInput || !langSelect) return;
+
+  // Validar que se haya seleccionado un idioma
+  const language = langSelect.value;
+  if (!language || language === "") {
+    alert("Por favor, selecciona un idioma antes de analizar el comentario.");
+    langSelect.focus();
+    return;
+  }
 
   const text = textInput.value.trim();
 
@@ -628,12 +688,13 @@ async function handleSubmit() {
   }
 
   try {
-    // Llamar al Backend
-    const result = await analyzeSentiment(text);
+    // Llamar al Backend con el idioma seleccionado
+    const result = await analyzeSentiment(text, language);
 
     // Crear objeto de análisis
     const analysis = {
       text,
+      language: language,
       sentiment: result.prevision || "Neutro",
       probability: result.probabilidad || 0,
       timestamp: Date.now(),
@@ -649,12 +710,21 @@ async function handleSubmit() {
     // Limpiar input
     clearInput();
   } catch (error) {
-    // Mostrar error al usuario
-    const errorMessage =
-      error.message ||
-      "No se pudo analizar el sentimiento. Verifica que el Backend esté disponible.";
-    alert(`Error: ${errorMessage}`);
-    console.error("[Sentiment] Error:", error);
+    // Mostrar error al usuario con mensaje más descriptivo
+    let errorMessage = "No se pudo analizar el sentimiento.";
+    
+    if (error.isNetworkError || error.isTimeout) {
+      errorMessage = error.message || errorMessage;
+    } else if (error.status === 503) {
+      errorMessage = "El servicio de análisis no está disponible en este momento. Por favor, intenta más tarde.";
+    } else if (error.status === 400) {
+      errorMessage = error.message || "El texto enviado no es válido. Verifica que cumpla con los requisitos.";
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+    
+    alert(`Error: ${errorMessage}\n\nURL del Backend: ${API_BASE_URL}`);
+    console.error("[Sentiment] Error completo:", error);
   } finally {
     // Restaurar estado
     SentimentState.isLoading = false;
@@ -675,10 +745,40 @@ function isLightTheme() {
 }
 
 /**
+ * Actualiza el estado del input según si hay idioma seleccionado.
+ */
+function updateInputState() {
+  const langSelect = document.getElementById("langSelect");
+  const textInput = document.getElementById("textInput");
+  
+  if (!langSelect || !textInput) return;
+  
+  const hasLanguage = langSelect.value && langSelect.value !== "";
+  
+  // Habilitar/deshabilitar input según si hay idioma
+  textInput.disabled = !hasLanguage;
+  
+  // Actualizar placeholder
+  if (hasLanguage) {
+    const langName = langSelect.options[langSelect.selectedIndex].text;
+    textInput.placeholder = `Escribe tu comentario en ${langName}...`;
+  } else {
+    textInput.placeholder = "Selecciona un idioma primero, luego escribe tu comentario...";
+  }
+  
+  // Si se deshabilitó, limpiar y ocultar botones
+  if (!hasLanguage) {
+    textInput.value = "";
+    updateInputButtons();
+  }
+}
+
+/**
  * Configura la página de inicio (análisis de sentimiento).
  */
 function setupSentimentPage() {
   const textInput = document.getElementById("textInput");
+  const langSelect = document.getElementById("langSelect");
   const clearButton = document.getElementById("clearButton");
   const sendButton = document.getElementById("sendButton");
 
@@ -687,6 +787,15 @@ function setupSentimentPage() {
   // Cargar historial
   SentimentState.history = loadHistory();
   renderHistory();
+
+  // Configurar selector de idioma
+  if (langSelect) {
+    // Listener para habilitar/deshabilitar input cuando cambia el idioma
+    langSelect.addEventListener("change", updateInputState);
+    
+    // Inicializar estado del input (deshabilitado hasta seleccionar idioma)
+    updateInputState();
+  }
 
   // Listener para mostrar/ocultar botones al escribir
   textInput.addEventListener("input", updateInputButtons);
@@ -705,7 +814,7 @@ function setupSentimentPage() {
   textInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      if (textInput.value.trim().length > 0) {
+      if (textInput.value.trim().length > 0 && !textInput.disabled) {
         handleSubmit();
       }
     }
@@ -713,6 +822,9 @@ function setupSentimentPage() {
 
   // Inicializar visibilidad de botones
   updateInputButtons();
+  
+  // Log de la URL del API para debugging
+  console.log("[Sentiment] API Base URL:", API_BASE_URL);
 }
 
 /* ============================================================================

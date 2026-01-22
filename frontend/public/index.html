@@ -48,12 +48,13 @@
       <section class="conversation" id="inicio">
         <div id="history" class="history"></div>
 
-        <div class="api-selector">
-          <label for="apiSelect">Modelo activo:</label>
-          <select id="apiSelect">
-            <option value="DEV_BACKEND">Backend DEV</option>
-            <option value="MODEL_LINEAR">Modelo Linear (Temporal)</option>
-            <option value="MODEL_BILSTM">Modelo Bi-LSTM OCI</option>
+        <!-- Selector de idioma (obligatorio antes de escribir) -->
+        <div class="language-selector" id="languageSelector">
+          <label for="langSelect">Selecciona el idioma del comentario:</label>
+          <select id="langSelect" required>
+            <option value="">-- Selecciona un idioma --</option>
+            <option value="es">Español</option>
+            <option value="pt">Portugués</option>
           </select>
         </div>
 
@@ -62,10 +63,11 @@
             <textarea
               id="textInput"
               class="search-input"
-              placeholder="Haz tu comentario..."
+              placeholder="Selecciona un idioma primero, luego escribe tu comentario..."
               rows="3"
               spellcheck="true"
               autocomplete="off"
+              disabled
             ></textarea>
 
             <button
@@ -76,15 +78,6 @@
             >
               +
             </button>
-
-            <select
-              id="langSelect"
-              class="input-action input-lang"
-              aria-label="Seleccionar idioma"
-            >
-              <option value="es">ES</option>
-              <option value="pt">PT</option>
-            </select>
 
             <button
               type="button"
@@ -108,6 +101,19 @@
       </section>
     </main>
 
+    <!-- 
+      CONFIGURACIÓN DEL API (opcional):
+      Si necesitas cambiar la URL del Backend, descomenta y modifica:
+      <script>
+        window.__SENTIMENTAL_API_BASE__ = "http://tu-backend-url:8000";
+      </script>
+      
+      NOTA SOBRE CORS:
+      Si ves errores de CORS, verifica que el Backend tenga configurado:
+      @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:80", "*"})
+      
+      Para Docker, el Backend debe permitir el origen desde donde se accede al frontend.
+    -->
     <script src="/assets/js/app.js"></script>
   </body>
 </html>

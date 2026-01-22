@@ -630,6 +630,64 @@ body.theme-light .api-selector select {
   background: #ffffff;
 }
 
+/* Selector de idioma (obligatorio) */
+.language-selector {
+  width: 100%;
+  max-width: 760px;
+  margin: 0.5rem auto 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 2px solid var(--accent);
+  background: var(--accent-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+body.theme-light .language-selector {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: var(--accent);
+}
+
+.language-selector label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  opacity: 0.95;
+}
+
+.language-selector select {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease-out, background 0.15s ease-out;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-surface-alt);
+}
+
+.language-selector select:invalid {
+  border-color: var(--danger);
+}
+
+body.theme-light .language-selector select {
+  background: #ffffff;
+}
+
+body.theme-light .language-selector select:focus {
+  background: #f9fafb;
+}
+
 /* Input */
 
 .input-area {
@@ -688,6 +746,16 @@ body.theme-light .input-wrapper {
   padding: 0.25rem 2.6rem 2rem 2.6rem;
   min-height: 90px;
   max-height: 260px;
+}
+
+.search-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+body.theme-light .search-input:disabled {
+  background: rgba(148, 163, 184, 0.15);
 }
 
 .input-action {
