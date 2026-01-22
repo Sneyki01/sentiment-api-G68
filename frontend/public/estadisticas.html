@@ -38,107 +38,30 @@
     </header>
 
     <main class="page">
-      <!-- CONTENEDOR RAIZ: IMPORTANTÍSIMO para que app.js renderice -->
-      <section class="bi" id="statsRoot">
-        <!-- 1) Toolbar superior -->
-        <div class="bi-toolbar">
-          <div>
-            <div class="bi-title">Estadísticas</div>
-            <div class="bi-subtitle">Historial, categorías y tendencias basadas en datos locales (demo).</div>
-          </div>
-
-          <div style="display:flex; gap:.55rem; flex-wrap:wrap; justify-content:flex-end;">
-            <button type="button" class="bi-btn danger" id="statsClearBtn">Borrar todo</button>
-            <button type="button" class="bi-btn" id="statsExportBtn">Exportar a CSV</button>
-            <button type="button" class="bi-btn" id="statsShareBtn">Compartir</button>
-          </div>
-        </div>
-
-        <!-- Layout: izquierda (historial) | derecha (bloques BI) -->
-        <div class="stats-layout">
-          <!-- 2) Izquierda: historial -->
-          <aside class="bi-card stats-left">
-            <div class="bi-card-head">
-              <div>
-                <div class="bi-card-title">Historial de sentimientos</div>
-                <div class="bi-card-sub">Cada registro incluye fecha, fuente, categoría y sentimiento.</div>
-              </div>
-            </div>
-
-            <div id="statsHistoryList" class="stats-history">
-              <!-- JS inyecta aquí -->
-            </div>
-          </aside>
-
-          <!-- Derecha: bloques -->
-          <section class="stats-right">
-            <!-- 3) Categorías con barras horizontales (0–100) -->
-            <div class="bi-card">
-              <div class="bi-card-head">
-                <div>
-                  <div class="bi-card-title">Categorías</div>
-                  <div class="bi-card-sub">Distribución porcentual (0–100%).</div>
-                </div>
-              </div>
-              <div id="statsCategoryBars"></div>
-            </div>
-
-            <!-- 4) Sentimiento en el tiempo + pastel -->
-            <div class="bi-card">
-              <div class="bi-card-head">
-                <div>
-                  <div class="bi-card-title">Sentimiento en el tiempo</div>
-                  <div class="bi-card-sub">Eje Y: 0–100% (ratio positivo). Eje X: mes y año.</div>
-                </div>
-              </div>
-
-              <div class="stats-split">
-                <div class="bi-scroll-x">
-                  <canvas id="chartStatsLine" style="width:100%; height:260px;"></canvas>
-                </div>
-
-                <div class="stats-donut">
-                  <canvas id="chartStatsDonut" style="width:100%; height:260px;"></canvas>
-                  <div class="bi-legend" id="legendStatsDonut"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 5) Sentimiento por categoría (0–100 apilado) -->
-            <div class="bi-card">
-              <div class="bi-card-head">
-                <div>
-                  <div class="bi-card-title">Sentimiento por categoría</div>
-                  <div class="bi-card-sub">Positivo, neutro y negativo (0–100%).</div>
-                </div>
-              </div>
-
-              <div class="bi-scroll-x">
-                <canvas id="chartStatsByCategory" style="width:100%;"></canvas>
-              </div>
-
-              <div id="statsByCategoryEmpty" class="bi-empty hidden" style="padding:1rem;">
-                Aún no hay datos por categoría. Ejecuta análisis desde Inicio.
-              </div>
-            </div>
-
-            <!-- 6) Nube de palabras -->
-            <div class="bi-card">
-              <div class="bi-card-head">
-                <div>
-                  <div class="bi-card-title">Palabras clave</div>
-                  <div class="bi-card-sub">Términos frecuentes detectados en comentarios del historial.</div>
-                </div>
-              </div>
-
-              <div id="statsKeywordsCloud" class="stats-cloud"></div>
-            </div>
-          </section>
-        </div>
-
-        <p class="bi-footnote">
-          Nota: Si no ves datos, primero ejecuta al menos 1 análisis en <strong>Inicio</strong> para generar historial en <code>localStorage</code>.
+      <header class="page-head">
+        <h1 class="page-title">Estadísticas</h1>
+        <p class="page-subtitle">
+          Análisis detallado de sentimientos, tendencias y métricas basadas en datos del Backend.
         </p>
+      </header>
+
+      <section class="page-body" id="statsRoot">
+        <div class="empty-state">
+          <h3>Estadísticas en construcción</h3>
+          <p>
+            Esta sección mostrará análisis detallados de sentimientos, incluyendo:
+          </p>
+          <ul style="text-align: left; display: inline-block; margin-top: 1rem;">
+            <li>Distribución de sentimientos (positivo, neutro, negativo)</li>
+            <li>Tendencias temporales</li>
+            <li>Métricas de confianza promedio</li>
+            <li>Análisis por categorías</li>
+            <li>Comparativas y reportes</li>
+          </ul>
+          <p style="margin-top: 1.5rem; color: var(--text-secondary);">
+            Los datos se obtienen directamente del Backend mediante los endpoints GET /dashboard.
+          </p>
+        </div>
       </section>
     </main>
 

@@ -296,6 +296,88 @@ body.theme-light .btn-login {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(15, 23, 42, 0.35);
+  transition: background 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+body.theme-light .history-item {
+  background: rgba(243, 244, 246, 0.75);
+}
+
+.history-item:hover {
+  background: rgba(15, 23, 42, 0.5);
+  border-color: var(--border-strong);
+}
+
+body.theme-light .history-item:hover {
+  background: rgba(243, 244, 246, 0.9);
+}
+
+.history-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.history-sentiment {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.history-probability {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.history-delete {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: color 0.15s ease-out, background 0.15s ease-out;
+  margin-left: auto;
+}
+
+.history-delete:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.history-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 0.5rem;
+}
+
+.history-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.history-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-secondary);
+}
+
+.history-empty p {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 /* Comentario usuario */
