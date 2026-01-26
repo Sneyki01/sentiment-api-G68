@@ -12,7 +12,15 @@ El objetivo fue desarrollar una API escalable y de alto rendimiento. Se establec
 
 ---
 
-## 🤝 Fase 2: Interoperabilidad (Backend & IA)
+## 📐 Fase 2: Metodología y Proceso (DevOps)
+La calidad del código es tan importante como la funcionalidad. Definimos reglas claras de colaboración para mantener el repositorio limpio y estable.
+
+*   🔄 **[Flujo de Trabajo Git (Workflow)](../GIT_WORKFLOW.md)**: Nuestra "Constitución" de control de versiones. Define cómo manejamos ramas (`feature/*`, `dev`), Pull Requests y resolución de conflictos.
+*   🗺️ **[Plan de Integración Técnica](../project_info/PLAN_INTEGRACION_FINAL.md)**: La hoja de ruta estratégica paso a paso que seguimos para conectar los microservicios sin romper la producción.
+
+---
+
+## 🤝 Fase 3: Interoperabilidad (Backend & IA)
 Para garantizar una comunicación robusta entre el motor de inferencia (Python) y el núcleo transaccional (Java), se implementaron protocolos estrictos de intercambio de datos.
 
 *   📜 **[Contrato de Interfaz (API Contract)](../Contrato%20API%20Sentiment.md)**: Especificación técnica del JSON (`prevision`, `probabilidad`, `top_features`) que asegura la integridad de la integración.
@@ -20,14 +28,14 @@ Para garantizar una comunicación robusta entre el motor de inferencia (Python) 
 
 ---
 
-## 🛠️ Fase 3: Infraestructura y Calidad
+## 🛠️ Fase 4: Infraestructura y Calidad
 Se establecieron procesos de validación para asegurar un despliegue estable y libre de errores en entornos productivos.
 
 *   🚀 **[Protocolo de Despliegue](../project_info/DEPLOY_CHECKLIST.md)**: Lista de verificación técnica para la puesta en marcha de servicios.
 
 ---
 
-## 🏆 Fase 4: Métricas y Producto Final
+## 🏆 Fase 5: Métricas y Producto Final
 El resultado es un sistema validado con capacidad de procesamiento en tiempo real.
 
 *   ⚡ **[Reporte de Performance](../reporte_performance_G68.md)**: Benchmarks de latencia y throughput confirmados (**2,400 RPM** / **25ms**).
