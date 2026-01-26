@@ -8,36 +8,34 @@ Bienvenido a la bitácora oficial del equipo **G68**. Aquí narramos cómo trans
 Todo comenzó con un grupo multidisciplinario y un objetivo claro: crear una API capaz de entender emociones, no solo palabras.
 
 *   📄 **[Conoce al Equipo G68](../project_info/README_EQUIPO_G68.md)**: Descubre quiénes son los arquitectos detrás del código (Diego, Alexis, Fernando, Lorena, Edwing y Florentino).
-*   📄 **[El Desafío (Documentación Nueva)](../../DOCUMENTACION_NUEVA.md)**: Nuestra visión inicial y cómo organizamos el caos en tres pilares: Frontend, Backend y ML.
+*   📄 **[El Desafío (Documentación Nueva)](../../DOCUMENTACION_NUEVA.md)**: Nuestra visión inicial y cómo organizamos la arquitectura en tres pilares: Frontend, Backend y ML.
 
 ---
 
-## 🤝 Capítulo 2: El Pacto (La Integración)
-El mayor desafío fue hacer que Python (Data Science) y Java (Backend) hablaran el mismo idioma. Para evitar conflictos, firmamos un "contrato" inquebrantable.
+## 🤝 Capítulo 2: La Integración Técnica
+El mayor desafío de ingeniería fue orquestar la comunicación entre Python (Data Science) y Java (Backend).
 
-*   📜 **[El Contrato de API](../Contrato%20API%20Sentiment.md)**: Documento técnico crítico donde definimos el estándar JSON (`prevision`, `probabilidad`, `top_features`) que salvó la integración.
+*   📜 **[El Contrato de API](../Contrato%20API%20Sentiment.md)**: Documento técnico crítico donde definimos el estándar JSON (`prevision`, `probabilidad`, `top_features`) que aseguró la interoperabilidad.
 *   🗺️ **[Plan de Integración](../project_info/PLAN_INTEGRACION_FINAL.md)**: La hoja de ruta estratégica que seguimos para conectar los microservicios.
 
 ---
 
-## 🛠️ Capítulo 3: La Construcción (Ingeniería)
-No solo escribimos código; construimos infraestructura.
+## 🛠️ Capítulo 3: Construcción e Infraestructura
+No solo escribimos código; construimos un sistema robusto preparado para producción.
 
-*   🏗️ **[Estrategia Git](../project_info/ESTRATEGIA_GIT.md)**: Cómo manejamos el control de versiones para trabajar en paralelo sin romper nada.
-*   🚀 **[Checklist de Despliegue](../project_info/DEPLOY_CHECKLIST.md)**: Los pasos rigurosos que seguimos para pasar de "funciona en mi local" a "funciona en producción".
-
----
-
-## 🏆 Capítulo 4: El Resultado "Supreme"
-Tras semanas de iteración, refinamos el modelo híbrido (Estadística + Semántica) y logramos resultados de nivel empresarial.
-
-*   ⚡ **[Reporte de Performance (Alto Impacto)](../reporte_performance_G68.md)**: La prueba de fuego. Cómo logramos procesar **2,400 reseñas por minuto** con latencia de **25ms**.
-*   🎤 **[Guía del Pitch Comercial](../project_info/guia_pitch_G68.md)**: Nuestro argumento de venta para el mercado (y los jueces).
-*   🖥️ **[Presentación Interactiva](../presentation_G68.html)**: Slides listas para el navegador (HTML/Reveal.js) para la demo final.
+*   🚀 **[Checklist de Despliegue](../project_info/DEPLOY_CHECKLIST.md)**: Los pasos rigurosos de DevOps que seguimos para validar la puesta en marcha del sistema.
 
 ---
 
-> **Conclusión:** El proyecto G68 no es solo software; es un sistema vivo, documentado y listo para escalar.
+## 🏆 Capítulo 4: Resultados y Entregables
+Tras la etapa de desarrollo, conseguimos una solución de alto performance validada.
+
+*   ⚡ **[Reporte de Performance (Alto Impacto)](../reporte_performance_G68.md)**: Análisis detallado de latencia y throughput (**2,400 RPM** / **25ms**).
+*   🖥️ **[Presentación Interactiva](../presentation_G68.html)**: Slides técnicas (HTML5/Reveal.js) listas para la demo final del producto.
+
+---
+
+> **Conclusión:** El proyecto G68 es un sistema vivo, documentado y listo para escalar.
 
 ---
 *Hackathon Alura ONE - Cohorte G68 - 2026*
