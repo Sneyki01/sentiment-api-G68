@@ -31,4 +31,4 @@ Responsables de la lógica analítica, modelos y métricas.
     *   Implementación de Dashboard y Gráficos (Donut/KPIs).
 
 ---
-> **Nota de Trazabilidad**: Las mejoras "Supreme" (KPIs, Docker, UI Avanzada) se han construido sobre los cimientos sólidos establecidos por Florentino y Lorena, manteniendo su autoría en los módulos base.
+
